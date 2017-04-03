@@ -1,0 +1,21 @@
+{
+  "title": "Documentation",
+  "structure": "6-6",
+  "rows": [
+    {
+      "columns": [
+        {
+          "styleClass": "col-md-6",
+          "widgets": [],
+          "cid": "1490965023402-23"
+        },
+        {
+          "styleClass": "col-md-6",
+          "widgets": [],
+          "cid": "1490965023404-24"
+        }
+      ]
+    }
+  ],
+  "titleTemplateUrl": "../src/templates/dashboard-title.html"
+}

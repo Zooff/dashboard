@@ -1,0 +1,73 @@
+{
+  "title": "Info Commune",
+  "structure": "12/4-4-4",
+  "rows": [
+    {
+      "columns": [
+        {
+          "styleClass": "col-md-12",
+          "widgets": [
+            {
+              "type": "table",
+              "config": {
+                "url": "/api/servers",
+                "root": "data",
+                "columns": [
+                  {
+                    "title": "Server Id",
+                    "path": "id"
+                  },
+                  {
+                    "title": "Server Name",
+                    "path": "name"
+                  },
+                  {
+                    "title": "Prop1",
+                    "path": "prop1"
+                  }
+                ]
+              },
+              "title": "Table",
+              "titleTemplateUrl": "../src/templates/widget-title.html",
+              "editTemplateUrl": "../src/templates/widget-edit.html",
+              "wid": "1490951518367-31"
+            }
+          ],
+          "cid": "1490951499956-27"
+        }
+      ]
+    },
+    {
+      "columns": [
+        {
+          "styleClass": "col-md-4",
+          "widgets": [
+            {
+              "type": "clock",
+              "config": {
+                "timePattern": "HH:mm:ss",
+                "datePattern": "YYYY-MM-DD"
+              },
+              "title": "Clock",
+              "titleTemplateUrl": "../src/templates/widget-title.html",
+              "editTemplateUrl": "../src/templates/widget-edit.html",
+              "wid": "1490951520868-32"
+            }
+          ],
+          "cid": "1490951499960-28"
+        },
+        {
+          "styleClass": "col-md-4",
+          "widgets": [],
+          "cid": "1490951499961-29"
+        },
+        {
+          "styleClass": "col-md-4",
+          "widgets": [],
+          "cid": "1490951499962-30"
+        }
+      ]
+    }
+  ],
+  "titleTemplateUrl": "../src/templates/dashboard-title.html"
+}

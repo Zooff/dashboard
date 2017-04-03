@@ -1,0 +1,48 @@
+{
+  "name": "adf-widget-table",
+  "version": "0.1.0",
+  "main": "dist/adf-widget-table.js",
+  "ignore": [
+    "bower.json",
+    ".bowerrc",
+    ".jshintrc",
+    ".gitignore",
+    "gulpfile.js",
+    "node_modules",
+    "package.json",
+    "components",
+    "src"
+  ],
+  "keywords": [
+    "dashboard",
+    "widget",
+    "adf",
+    "adf-widget"
+  ],
+  "description": "Displays a table of data from a json url",
+  "dependencies": {
+    "angular-dashboard-framework": ">=0.10"
+  },
+  "devDependencies": {
+    "angular-local-storage": "0.1.5"
+  },
+  "overrides": {
+    "bootstrap": {
+      "main": [
+        "less/bootstrap.less",
+        "dist/css/bootstrap.css",
+        "dist/js/bootstrap.js"
+      ]
+    }
+  },
+  "homepage": "https://github.com/angular-dashboard-framework/adf-widget-table",
+  "_release": "0.1.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.1.0",
+    "commit": "9aff786f296d90572f12738c325b8ebf06f8202a"
+  },
+  "_source": "https://github.com/angular-dashboard-framework/adf-widget-table.git",
+  "_target": "^0.1.0",
+  "_originalSource": "adf-widget-table"
+}

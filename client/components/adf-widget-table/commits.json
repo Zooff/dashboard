@@ -1,0 +1,2137 @@
+[
+  {
+    "sha": "3bb887f2746ffacd52e3ea62d7546fdb4b8a2bb1",
+    "commit": {
+      "author": {
+        "name": "Sebastian Sdorra",
+        "email": "s.sdorra@gmail.com",
+        "date": "2015-09-22T09:00:32Z"
+      },
+      "committer": {
+        "name": "Sebastian Sdorra",
+        "email": "s.sdorra@gmail.com",
+        "date": "2015-09-22T09:00:32Z"
+      },
+      "message": "Merge pull request #140 from mono-software/master\n\nEdit widget cancel shouldn't cause the 'widgetConfigChanged' event",
+      "tree": {
+        "sha": "20586eb249e89162266b08b87c387712ff889972",
+        "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/git/trees/20586eb249e89162266b08b87c387712ff889972"
+      },
+      "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/git/commits/3bb887f2746ffacd52e3ea62d7546fdb4b8a2bb1",
+      "comment_count": 0
+    },
+    "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/commits/3bb887f2746ffacd52e3ea62d7546fdb4b8a2bb1",
+    "html_url": "https://github.com/sdorra/angular-dashboard-framework/commit/3bb887f2746ffacd52e3ea62d7546fdb4b8a2bb1",
+    "comments_url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/commits/3bb887f2746ffacd52e3ea62d7546fdb4b8a2bb1/comments",
+    "author": {
+      "login": "sdorra",
+      "id": 493333,
+      "avatar_url": "https://avatars.githubusercontent.com/u/493333?v=3",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/sdorra",
+      "html_url": "https://github.com/sdorra",
+      "followers_url": "https://api.github.com/users/sdorra/followers",
+      "following_url": "https://api.github.com/users/sdorra/following{/other_user}",
+      "gists_url": "https://api.github.com/users/sdorra/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/sdorra/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/sdorra/subscriptions",
+      "organizations_url": "https://api.github.com/users/sdorra/orgs",
+      "repos_url": "https://api.github.com/users/sdorra/repos",
+      "events_url": "https://api.github.com/users/sdorra/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/sdorra/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "sdorra",
+      "id": 493333,
+      "avatar_url": "https://avatars.githubusercontent.com/u/493333?v=3",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/sdorra",
+      "html_url": "https://github.com/sdorra",
+      "followers_url": "https://api.github.com/users/sdorra/followers",
+      "following_url": "https://api.github.com/users/sdorra/following{/other_user}",
+      "gists_url": "https://api.github.com/users/sdorra/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/sdorra/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/sdorra/subscriptions",
+      "organizations_url": "https://api.github.com/users/sdorra/orgs",
+      "repos_url": "https://api.github.com/users/sdorra/repos",
+      "events_url": "https://api.github.com/users/sdorra/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/sdorra/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "dd746ec9f7012cfbb063de4e8309a48236b50a55",
+        "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/commits/dd746ec9f7012cfbb063de4e8309a48236b50a55",
+        "html_url": "https://github.com/sdorra/angular-dashboard-framework/commit/dd746ec9f7012cfbb063de4e8309a48236b50a55"
+      },
+      {
+        "sha": "6df54398b592642c161375ac1fac4f4f882d1d39",
+        "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/commits/6df54398b592642c161375ac1fac4f4f882d1d39",
+        "html_url": "https://github.com/sdorra/angular-dashboard-framework/commit/6df54398b592642c161375ac1fac4f4f882d1d39"
+      }
+    ]
+  },
+  {
+    "sha": "6df54398b592642c161375ac1fac4f4f882d1d39",
+    "commit": {
+      "author": {
+        "name": "Jasmin Muharemovic",
+        "email": "jasmin@mono-software.com",
+        "date": "2015-09-15T13:39:30Z"
+      },
+      "committer": {
+        "name": "Jasmin Muharemovic",
+        "email": "jasmin@mono-software.com",
+        "date": "2015-09-15T13:39:30Z"
+      },
+      "message": "Edit widget cancel shouldn't cause the 'widgetConfigChanged' event",
+      "tree": {
+        "sha": "20586eb249e89162266b08b87c387712ff889972",
+        "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/git/trees/20586eb249e89162266b08b87c387712ff889972"
+      },
+      "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/git/commits/6df54398b592642c161375ac1fac4f4f882d1d39",
+      "comment_count": 0
+    },
+    "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/commits/6df54398b592642c161375ac1fac4f4f882d1d39",
+    "html_url": "https://github.com/sdorra/angular-dashboard-framework/commit/6df54398b592642c161375ac1fac4f4f882d1d39",
+    "comments_url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/commits/6df54398b592642c161375ac1fac4f4f882d1d39/comments",
+    "author": {
+      "login": "Jazz777",
+      "id": 1511867,
+      "avatar_url": "https://avatars.githubusercontent.com/u/1511867?v=3",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/Jazz777",
+      "html_url": "https://github.com/Jazz777",
+      "followers_url": "https://api.github.com/users/Jazz777/followers",
+      "following_url": "https://api.github.com/users/Jazz777/following{/other_user}",
+      "gists_url": "https://api.github.com/users/Jazz777/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/Jazz777/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/Jazz777/subscriptions",
+      "organizations_url": "https://api.github.com/users/Jazz777/orgs",
+      "repos_url": "https://api.github.com/users/Jazz777/repos",
+      "events_url": "https://api.github.com/users/Jazz777/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/Jazz777/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "Jazz777",
+      "id": 1511867,
+      "avatar_url": "https://avatars.githubusercontent.com/u/1511867?v=3",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/Jazz777",
+      "html_url": "https://github.com/Jazz777",
+      "followers_url": "https://api.github.com/users/Jazz777/followers",
+      "following_url": "https://api.github.com/users/Jazz777/following{/other_user}",
+      "gists_url": "https://api.github.com/users/Jazz777/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/Jazz777/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/Jazz777/subscriptions",
+      "organizations_url": "https://api.github.com/users/Jazz777/orgs",
+      "repos_url": "https://api.github.com/users/Jazz777/repos",
+      "events_url": "https://api.github.com/users/Jazz777/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/Jazz777/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "dd746ec9f7012cfbb063de4e8309a48236b50a55",
+        "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/commits/dd746ec9f7012cfbb063de4e8309a48236b50a55",
+        "html_url": "https://github.com/sdorra/angular-dashboard-framework/commit/dd746ec9f7012cfbb063de4e8309a48236b50a55"
+      }
+    ]
+  },
+  {
+    "sha": "dd746ec9f7012cfbb063de4e8309a48236b50a55",
+    "commit": {
+      "author": {
+        "name": "Sebastian Sdorra",
+        "email": "s.sdorra@gmail.com",
+        "date": "2015-09-13T20:41:20Z"
+      },
+      "committer": {
+        "name": "Sebastian Sdorra",
+        "email": "s.sdorra@gmail.com",
+        "date": "2015-09-13T20:41:20Z"
+      },
+      "message": "merge pull request #120",
+      "tree": {
+        "sha": "c221ce1487d3b5067432323be094864c07ea55b0",
+        "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/git/trees/c221ce1487d3b5067432323be094864c07ea55b0"
+      },
+      "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/git/commits/dd746ec9f7012cfbb063de4e8309a48236b50a55",
+      "comment_count": 0
+    },
+    "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/commits/dd746ec9f7012cfbb063de4e8309a48236b50a55",
+    "html_url": "https://github.com/sdorra/angular-dashboard-framework/commit/dd746ec9f7012cfbb063de4e8309a48236b50a55",
+    "comments_url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/commits/dd746ec9f7012cfbb063de4e8309a48236b50a55/comments",
+    "author": {
+      "login": "sdorra",
+      "id": 493333,
+      "avatar_url": "https://avatars.githubusercontent.com/u/493333?v=3",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/sdorra",
+      "html_url": "https://github.com/sdorra",
+      "followers_url": "https://api.github.com/users/sdorra/followers",
+      "following_url": "https://api.github.com/users/sdorra/following{/other_user}",
+      "gists_url": "https://api.github.com/users/sdorra/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/sdorra/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/sdorra/subscriptions",
+      "organizations_url": "https://api.github.com/users/sdorra/orgs",
+      "repos_url": "https://api.github.com/users/sdorra/repos",
+      "events_url": "https://api.github.com/users/sdorra/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/sdorra/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "sdorra",
+      "id": 493333,
+      "avatar_url": "https://avatars.githubusercontent.com/u/493333?v=3",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/sdorra",
+      "html_url": "https://github.com/sdorra",
+      "followers_url": "https://api.github.com/users/sdorra/followers",
+      "following_url": "https://api.github.com/users/sdorra/following{/other_user}",
+      "gists_url": "https://api.github.com/users/sdorra/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/sdorra/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/sdorra/subscriptions",
+      "organizations_url": "https://api.github.com/users/sdorra/orgs",
+      "repos_url": "https://api.github.com/users/sdorra/repos",
+      "events_url": "https://api.github.com/users/sdorra/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/sdorra/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "6d2e0cdc9956cde557c85fa2e1bc4d114a76e020",
+        "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/commits/6d2e0cdc9956cde557c85fa2e1bc4d114a76e020",
+        "html_url": "https://github.com/sdorra/angular-dashboard-framework/commit/6d2e0cdc9956cde557c85fa2e1bc4d114a76e020"
+      },
+      {
+        "sha": "02e68a1c1cf74e60129d730b55e7dcbd07e275a8",
+        "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/commits/02e68a1c1cf74e60129d730b55e7dcbd07e275a8",
+        "html_url": "https://github.com/sdorra/angular-dashboard-framework/commit/02e68a1c1cf74e60129d730b55e7dcbd07e275a8"
+      }
+    ]
+  },
+  {
+    "sha": "6d2e0cdc9956cde557c85fa2e1bc4d114a76e020",
+    "commit": {
+      "author": {
+        "name": "Sebastian Sdorra",
+        "email": "s.sdorra@gmail.com",
+        "date": "2015-09-13T20:26:08Z"
+      },
+      "committer": {
+        "name": "Sebastian Sdorra",
+        "email": "s.sdorra@gmail.com",
+        "date": "2015-09-13T20:26:08Z"
+      },
+      "message": "added missing documentation for controllerAs of widget edit mode",
+      "tree": {
+        "sha": "1b74c722b6a6b80f469c952ff20944b1495a7498",
+        "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/git/trees/1b74c722b6a6b80f469c952ff20944b1495a7498"
+      },
+      "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/git/commits/6d2e0cdc9956cde557c85fa2e1bc4d114a76e020",
+      "comment_count": 0
+    },
+    "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/commits/6d2e0cdc9956cde557c85fa2e1bc4d114a76e020",
+    "html_url": "https://github.com/sdorra/angular-dashboard-framework/commit/6d2e0cdc9956cde557c85fa2e1bc4d114a76e020",
+    "comments_url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/commits/6d2e0cdc9956cde557c85fa2e1bc4d114a76e020/comments",
+    "author": {
+      "login": "sdorra",
+      "id": 493333,
+      "avatar_url": "https://avatars.githubusercontent.com/u/493333?v=3",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/sdorra",
+      "html_url": "https://github.com/sdorra",
+      "followers_url": "https://api.github.com/users/sdorra/followers",
+      "following_url": "https://api.github.com/users/sdorra/following{/other_user}",
+      "gists_url": "https://api.github.com/users/sdorra/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/sdorra/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/sdorra/subscriptions",
+      "organizations_url": "https://api.github.com/users/sdorra/orgs",
+      "repos_url": "https://api.github.com/users/sdorra/repos",
+      "events_url": "https://api.github.com/users/sdorra/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/sdorra/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "sdorra",
+      "id": 493333,
+      "avatar_url": "https://avatars.githubusercontent.com/u/493333?v=3",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/sdorra",
+      "html_url": "https://github.com/sdorra",
+      "followers_url": "https://api.github.com/users/sdorra/followers",
+      "following_url": "https://api.github.com/users/sdorra/following{/other_user}",
+      "gists_url": "https://api.github.com/users/sdorra/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/sdorra/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/sdorra/subscriptions",
+      "organizations_url": "https://api.github.com/users/sdorra/orgs",
+      "repos_url": "https://api.github.com/users/sdorra/repos",
+      "events_url": "https://api.github.com/users/sdorra/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/sdorra/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "1879d754d7d0ddf3635373f45226891bc95935de",
+        "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/commits/1879d754d7d0ddf3635373f45226891bc95935de",
+        "html_url": "https://github.com/sdorra/angular-dashboard-framework/commit/1879d754d7d0ddf3635373f45226891bc95935de"
+      }
+    ]
+  },
+  {
+    "sha": "1879d754d7d0ddf3635373f45226891bc95935de",
+    "commit": {
+      "author": {
+        "name": "Sebastian Sdorra",
+        "email": "s.sdorra@gmail.com",
+        "date": "2015-09-13T20:11:29Z"
+      },
+      "committer": {
+        "name": "Sebastian Sdorra",
+        "email": "s.sdorra@gmail.com",
+        "date": "2015-09-13T20:11:29Z"
+      },
+      "message": "Merge branch 'master' of github.com:sdorra/angular-dashboard-framework",
+      "tree": {
+        "sha": "1bf48466c56168f016128eeb5f35ac976c2365ea",
+        "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/git/trees/1bf48466c56168f016128eeb5f35ac976c2365ea"
+      },
+      "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/git/commits/1879d754d7d0ddf3635373f45226891bc95935de",
+      "comment_count": 0
+    },
+    "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/commits/1879d754d7d0ddf3635373f45226891bc95935de",
+    "html_url": "https://github.com/sdorra/angular-dashboard-framework/commit/1879d754d7d0ddf3635373f45226891bc95935de",
+    "comments_url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/commits/1879d754d7d0ddf3635373f45226891bc95935de/comments",
+    "author": {
+      "login": "sdorra",
+      "id": 493333,
+      "avatar_url": "https://avatars.githubusercontent.com/u/493333?v=3",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/sdorra",
+      "html_url": "https://github.com/sdorra",
+      "followers_url": "https://api.github.com/users/sdorra/followers",
+      "following_url": "https://api.github.com/users/sdorra/following{/other_user}",
+      "gists_url": "https://api.github.com/users/sdorra/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/sdorra/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/sdorra/subscriptions",
+      "organizations_url": "https://api.github.com/users/sdorra/orgs",
+      "repos_url": "https://api.github.com/users/sdorra/repos",
+      "events_url": "https://api.github.com/users/sdorra/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/sdorra/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "sdorra",
+      "id": 493333,
+      "avatar_url": "https://avatars.githubusercontent.com/u/493333?v=3",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/sdorra",
+      "html_url": "https://github.com/sdorra",
+      "followers_url": "https://api.github.com/users/sdorra/followers",
+      "following_url": "https://api.github.com/users/sdorra/following{/other_user}",
+      "gists_url": "https://api.github.com/users/sdorra/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/sdorra/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/sdorra/subscriptions",
+      "organizations_url": "https://api.github.com/users/sdorra/orgs",
+      "repos_url": "https://api.github.com/users/sdorra/repos",
+      "events_url": "https://api.github.com/users/sdorra/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/sdorra/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "586920212f239ded9b62d327242d9883e7091c5c",
+        "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/commits/586920212f239ded9b62d327242d9883e7091c5c",
+        "html_url": "https://github.com/sdorra/angular-dashboard-framework/commit/586920212f239ded9b62d327242d9883e7091c5c"
+      },
+      {
+        "sha": "685f26a4998ed237cb6b6bdfb92d540fbf60019f",
+        "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/commits/685f26a4998ed237cb6b6bdfb92d540fbf60019f",
+        "html_url": "https://github.com/sdorra/angular-dashboard-framework/commit/685f26a4998ed237cb6b6bdfb92d540fbf60019f"
+      }
+    ]
+  },
+  {
+    "sha": "586920212f239ded9b62d327242d9883e7091c5c",
+    "commit": {
+      "author": {
+        "name": "Sebastian Sdorra",
+        "email": "s.sdorra@gmail.com",
+        "date": "2015-09-13T20:11:12Z"
+      },
+      "committer": {
+        "name": "Sebastian Sdorra",
+        "email": "s.sdorra@gmail.com",
+        "date": "2015-09-13T20:11:12Z"
+      },
+      "message": "update npm dependencies",
+      "tree": {
+        "sha": "6474920e55c0a4e3238ecf1419ed8851c02b2eb9",
+        "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/git/trees/6474920e55c0a4e3238ecf1419ed8851c02b2eb9"
+      },
+      "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/git/commits/586920212f239ded9b62d327242d9883e7091c5c",
+      "comment_count": 0
+    },
+    "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/commits/586920212f239ded9b62d327242d9883e7091c5c",
+    "html_url": "https://github.com/sdorra/angular-dashboard-framework/commit/586920212f239ded9b62d327242d9883e7091c5c",
+    "comments_url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/commits/586920212f239ded9b62d327242d9883e7091c5c/comments",
+    "author": {
+      "login": "sdorra",
+      "id": 493333,
+      "avatar_url": "https://avatars.githubusercontent.com/u/493333?v=3",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/sdorra",
+      "html_url": "https://github.com/sdorra",
+      "followers_url": "https://api.github.com/users/sdorra/followers",
+      "following_url": "https://api.github.com/users/sdorra/following{/other_user}",
+      "gists_url": "https://api.github.com/users/sdorra/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/sdorra/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/sdorra/subscriptions",
+      "organizations_url": "https://api.github.com/users/sdorra/orgs",
+      "repos_url": "https://api.github.com/users/sdorra/repos",
+      "events_url": "https://api.github.com/users/sdorra/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/sdorra/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "sdorra",
+      "id": 493333,
+      "avatar_url": "https://avatars.githubusercontent.com/u/493333?v=3",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/sdorra",
+      "html_url": "https://github.com/sdorra",
+      "followers_url": "https://api.github.com/users/sdorra/followers",
+      "following_url": "https://api.github.com/users/sdorra/following{/other_user}",
+      "gists_url": "https://api.github.com/users/sdorra/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/sdorra/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/sdorra/subscriptions",
+      "organizations_url": "https://api.github.com/users/sdorra/orgs",
+      "repos_url": "https://api.github.com/users/sdorra/repos",
+      "events_url": "https://api.github.com/users/sdorra/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/sdorra/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "60ffb3dcae2853ba1b33500be826f27fa9f1d33c",
+        "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/commits/60ffb3dcae2853ba1b33500be826f27fa9f1d33c",
+        "html_url": "https://github.com/sdorra/angular-dashboard-framework/commit/60ffb3dcae2853ba1b33500be826f27fa9f1d33c"
+      }
+    ]
+  },
+  {
+    "sha": "60ffb3dcae2853ba1b33500be826f27fa9f1d33c",
+    "commit": {
+      "author": {
+        "name": "Sebastian Sdorra",
+        "email": "s.sdorra@gmail.com",
+        "date": "2015-09-13T20:08:27Z"
+      },
+      "committer": {
+        "name": "Sebastian Sdorra",
+        "email": "s.sdorra@gmail.com",
+        "date": "2015-09-13T20:08:27Z"
+      },
+      "message": "added missing license header",
+      "tree": {
+        "sha": "ae8099b7cffb33f7be2b4ee887a81b89b82f1a47",
+        "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/git/trees/ae8099b7cffb33f7be2b4ee887a81b89b82f1a47"
+      },
+      "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/git/commits/60ffb3dcae2853ba1b33500be826f27fa9f1d33c",
+      "comment_count": 0
+    },
+    "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/commits/60ffb3dcae2853ba1b33500be826f27fa9f1d33c",
+    "html_url": "https://github.com/sdorra/angular-dashboard-framework/commit/60ffb3dcae2853ba1b33500be826f27fa9f1d33c",
+    "comments_url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/commits/60ffb3dcae2853ba1b33500be826f27fa9f1d33c/comments",
+    "author": {
+      "login": "sdorra",
+      "id": 493333,
+      "avatar_url": "https://avatars.githubusercontent.com/u/493333?v=3",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/sdorra",
+      "html_url": "https://github.com/sdorra",
+      "followers_url": "https://api.github.com/users/sdorra/followers",
+      "following_url": "https://api.github.com/users/sdorra/following{/other_user}",
+      "gists_url": "https://api.github.com/users/sdorra/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/sdorra/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/sdorra/subscriptions",
+      "organizations_url": "https://api.github.com/users/sdorra/orgs",
+      "repos_url": "https://api.github.com/users/sdorra/repos",
+      "events_url": "https://api.github.com/users/sdorra/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/sdorra/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "sdorra",
+      "id": 493333,
+      "avatar_url": "https://avatars.githubusercontent.com/u/493333?v=3",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/sdorra",
+      "html_url": "https://github.com/sdorra",
+      "followers_url": "https://api.github.com/users/sdorra/followers",
+      "following_url": "https://api.github.com/users/sdorra/following{/other_user}",
+      "gists_url": "https://api.github.com/users/sdorra/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/sdorra/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/sdorra/subscriptions",
+      "organizations_url": "https://api.github.com/users/sdorra/orgs",
+      "repos_url": "https://api.github.com/users/sdorra/repos",
+      "events_url": "https://api.github.com/users/sdorra/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/sdorra/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "886885d7e963b8d5ae7cfe17b32c73b5c9f7b33a",
+        "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/commits/886885d7e963b8d5ae7cfe17b32c73b5c9f7b33a",
+        "html_url": "https://github.com/sdorra/angular-dashboard-framework/commit/886885d7e963b8d5ae7cfe17b32c73b5c9f7b33a"
+      }
+    ]
+  },
+  {
+    "sha": "886885d7e963b8d5ae7cfe17b32c73b5c9f7b33a",
+    "commit": {
+      "author": {
+        "name": "Sebastian Sdorra",
+        "email": "s.sdorra@gmail.com",
+        "date": "2015-09-13T20:04:49Z"
+      },
+      "committer": {
+        "name": "Sebastian Sdorra",
+        "email": "s.sdorra@gmail.com",
+        "date": "2015-09-13T20:04:49Z"
+      },
+      "message": "move karma and protractor configuration to test folder",
+      "tree": {
+        "sha": "ab53a3bca8a105f542ddfa227d9f1e3c66fe3e12",
+        "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/git/trees/ab53a3bca8a105f542ddfa227d9f1e3c66fe3e12"
+      },
+      "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/git/commits/886885d7e963b8d5ae7cfe17b32c73b5c9f7b33a",
+      "comment_count": 0
+    },
+    "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/commits/886885d7e963b8d5ae7cfe17b32c73b5c9f7b33a",
+    "html_url": "https://github.com/sdorra/angular-dashboard-framework/commit/886885d7e963b8d5ae7cfe17b32c73b5c9f7b33a",
+    "comments_url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/commits/886885d7e963b8d5ae7cfe17b32c73b5c9f7b33a/comments",
+    "author": {
+      "login": "sdorra",
+      "id": 493333,
+      "avatar_url": "https://avatars.githubusercontent.com/u/493333?v=3",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/sdorra",
+      "html_url": "https://github.com/sdorra",
+      "followers_url": "https://api.github.com/users/sdorra/followers",
+      "following_url": "https://api.github.com/users/sdorra/following{/other_user}",
+      "gists_url": "https://api.github.com/users/sdorra/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/sdorra/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/sdorra/subscriptions",
+      "organizations_url": "https://api.github.com/users/sdorra/orgs",
+      "repos_url": "https://api.github.com/users/sdorra/repos",
+      "events_url": "https://api.github.com/users/sdorra/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/sdorra/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "sdorra",
+      "id": 493333,
+      "avatar_url": "https://avatars.githubusercontent.com/u/493333?v=3",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/sdorra",
+      "html_url": "https://github.com/sdorra",
+      "followers_url": "https://api.github.com/users/sdorra/followers",
+      "following_url": "https://api.github.com/users/sdorra/following{/other_user}",
+      "gists_url": "https://api.github.com/users/sdorra/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/sdorra/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/sdorra/subscriptions",
+      "organizations_url": "https://api.github.com/users/sdorra/orgs",
+      "repos_url": "https://api.github.com/users/sdorra/repos",
+      "events_url": "https://api.github.com/users/sdorra/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/sdorra/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "bc80aef3033cf7cec173215dda8130178f1c39ae",
+        "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/commits/bc80aef3033cf7cec173215dda8130178f1c39ae",
+        "html_url": "https://github.com/sdorra/angular-dashboard-framework/commit/bc80aef3033cf7cec173215dda8130178f1c39ae"
+      }
+    ]
+  },
+  {
+    "sha": "685f26a4998ed237cb6b6bdfb92d540fbf60019f",
+    "commit": {
+      "author": {
+        "name": "Sebastian Sdorra",
+        "email": "s.sdorra@gmail.com",
+        "date": "2015-09-13T16:32:45Z"
+      },
+      "committer": {
+        "name": "Sebastian Sdorra",
+        "email": "s.sdorra@gmail.com",
+        "date": "2015-09-13T16:32:45Z"
+      },
+      "message": "Update README.md",
+      "tree": {
+        "sha": "31142e97a752f62223445c4884de508ab9e9f2c6",
+        "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/git/trees/31142e97a752f62223445c4884de508ab9e9f2c6"
+      },
+      "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/git/commits/685f26a4998ed237cb6b6bdfb92d540fbf60019f",
+      "comment_count": 0
+    },
+    "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/commits/685f26a4998ed237cb6b6bdfb92d540fbf60019f",
+    "html_url": "https://github.com/sdorra/angular-dashboard-framework/commit/685f26a4998ed237cb6b6bdfb92d540fbf60019f",
+    "comments_url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/commits/685f26a4998ed237cb6b6bdfb92d540fbf60019f/comments",
+    "author": {
+      "login": "sdorra",
+      "id": 493333,
+      "avatar_url": "https://avatars.githubusercontent.com/u/493333?v=3",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/sdorra",
+      "html_url": "https://github.com/sdorra",
+      "followers_url": "https://api.github.com/users/sdorra/followers",
+      "following_url": "https://api.github.com/users/sdorra/following{/other_user}",
+      "gists_url": "https://api.github.com/users/sdorra/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/sdorra/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/sdorra/subscriptions",
+      "organizations_url": "https://api.github.com/users/sdorra/orgs",
+      "repos_url": "https://api.github.com/users/sdorra/repos",
+      "events_url": "https://api.github.com/users/sdorra/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/sdorra/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "sdorra",
+      "id": 493333,
+      "avatar_url": "https://avatars.githubusercontent.com/u/493333?v=3",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/sdorra",
+      "html_url": "https://github.com/sdorra",
+      "followers_url": "https://api.github.com/users/sdorra/followers",
+      "following_url": "https://api.github.com/users/sdorra/following{/other_user}",
+      "gists_url": "https://api.github.com/users/sdorra/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/sdorra/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/sdorra/subscriptions",
+      "organizations_url": "https://api.github.com/users/sdorra/orgs",
+      "repos_url": "https://api.github.com/users/sdorra/repos",
+      "events_url": "https://api.github.com/users/sdorra/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/sdorra/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "bc80aef3033cf7cec173215dda8130178f1c39ae",
+        "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/commits/bc80aef3033cf7cec173215dda8130178f1c39ae",
+        "html_url": "https://github.com/sdorra/angular-dashboard-framework/commit/bc80aef3033cf7cec173215dda8130178f1c39ae"
+      }
+    ]
+  },
+  {
+    "sha": "bc80aef3033cf7cec173215dda8130178f1c39ae",
+    "commit": {
+      "author": {
+        "name": "Sebastian Sdorra",
+        "email": "s.sdorra@gmail.com",
+        "date": "2015-09-13T16:16:12Z"
+      },
+      "committer": {
+        "name": "Sebastian Sdorra",
+        "email": "s.sdorra@gmail.com",
+        "date": "2015-09-13T16:16:12Z"
+      },
+      "message": "update bower dependencies",
+      "tree": {
+        "sha": "09b44dd658bfcb4ef358faf89cb5c1c69878b091",
+        "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/git/trees/09b44dd658bfcb4ef358faf89cb5c1c69878b091"
+      },
+      "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/git/commits/bc80aef3033cf7cec173215dda8130178f1c39ae",
+      "comment_count": 0
+    },
+    "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/commits/bc80aef3033cf7cec173215dda8130178f1c39ae",
+    "html_url": "https://github.com/sdorra/angular-dashboard-framework/commit/bc80aef3033cf7cec173215dda8130178f1c39ae",
+    "comments_url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/commits/bc80aef3033cf7cec173215dda8130178f1c39ae/comments",
+    "author": {
+      "login": "sdorra",
+      "id": 493333,
+      "avatar_url": "https://avatars.githubusercontent.com/u/493333?v=3",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/sdorra",
+      "html_url": "https://github.com/sdorra",
+      "followers_url": "https://api.github.com/users/sdorra/followers",
+      "following_url": "https://api.github.com/users/sdorra/following{/other_user}",
+      "gists_url": "https://api.github.com/users/sdorra/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/sdorra/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/sdorra/subscriptions",
+      "organizations_url": "https://api.github.com/users/sdorra/orgs",
+      "repos_url": "https://api.github.com/users/sdorra/repos",
+      "events_url": "https://api.github.com/users/sdorra/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/sdorra/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "sdorra",
+      "id": 493333,
+      "avatar_url": "https://avatars.githubusercontent.com/u/493333?v=3",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/sdorra",
+      "html_url": "https://github.com/sdorra",
+      "followers_url": "https://api.github.com/users/sdorra/followers",
+      "following_url": "https://api.github.com/users/sdorra/following{/other_user}",
+      "gists_url": "https://api.github.com/users/sdorra/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/sdorra/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/sdorra/subscriptions",
+      "organizations_url": "https://api.github.com/users/sdorra/orgs",
+      "repos_url": "https://api.github.com/users/sdorra/repos",
+      "events_url": "https://api.github.com/users/sdorra/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/sdorra/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "206db5d60c651bc7362203174427a599d1ef8798",
+        "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/commits/206db5d60c651bc7362203174427a599d1ef8798",
+        "html_url": "https://github.com/sdorra/angular-dashboard-framework/commit/206db5d60c651bc7362203174427a599d1ef8798"
+      }
+    ]
+  },
+  {
+    "sha": "206db5d60c651bc7362203174427a599d1ef8798",
+    "commit": {
+      "author": {
+        "name": "Sebastian Sdorra",
+        "email": "s.sdorra@gmail.com",
+        "date": "2015-09-13T14:27:14Z"
+      },
+      "committer": {
+        "name": "Sebastian Sdorra",
+        "email": "s.sdorra@gmail.com",
+        "date": "2015-09-13T14:27:14Z"
+      },
+      "message": "start unit tests for widget",
+      "tree": {
+        "sha": "3d129f6cc1cd68d6e3ef267fc9843ed4b07d711f",
+        "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/git/trees/3d129f6cc1cd68d6e3ef267fc9843ed4b07d711f"
+      },
+      "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/git/commits/206db5d60c651bc7362203174427a599d1ef8798",
+      "comment_count": 0
+    },
+    "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/commits/206db5d60c651bc7362203174427a599d1ef8798",
+    "html_url": "https://github.com/sdorra/angular-dashboard-framework/commit/206db5d60c651bc7362203174427a599d1ef8798",
+    "comments_url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/commits/206db5d60c651bc7362203174427a599d1ef8798/comments",
+    "author": {
+      "login": "sdorra",
+      "id": 493333,
+      "avatar_url": "https://avatars.githubusercontent.com/u/493333?v=3",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/sdorra",
+      "html_url": "https://github.com/sdorra",
+      "followers_url": "https://api.github.com/users/sdorra/followers",
+      "following_url": "https://api.github.com/users/sdorra/following{/other_user}",
+      "gists_url": "https://api.github.com/users/sdorra/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/sdorra/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/sdorra/subscriptions",
+      "organizations_url": "https://api.github.com/users/sdorra/orgs",
+      "repos_url": "https://api.github.com/users/sdorra/repos",
+      "events_url": "https://api.github.com/users/sdorra/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/sdorra/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "sdorra",
+      "id": 493333,
+      "avatar_url": "https://avatars.githubusercontent.com/u/493333?v=3",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/sdorra",
+      "html_url": "https://github.com/sdorra",
+      "followers_url": "https://api.github.com/users/sdorra/followers",
+      "following_url": "https://api.github.com/users/sdorra/following{/other_user}",
+      "gists_url": "https://api.github.com/users/sdorra/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/sdorra/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/sdorra/subscriptions",
+      "organizations_url": "https://api.github.com/users/sdorra/orgs",
+      "repos_url": "https://api.github.com/users/sdorra/repos",
+      "events_url": "https://api.github.com/users/sdorra/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/sdorra/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "edceb3b3c4e27553b83e31cb8b8718ee67ac001d",
+        "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/commits/edceb3b3c4e27553b83e31cb8b8718ee67ac001d",
+        "html_url": "https://github.com/sdorra/angular-dashboard-framework/commit/edceb3b3c4e27553b83e31cb8b8718ee67ac001d"
+      }
+    ]
+  },
+  {
+    "sha": "edceb3b3c4e27553b83e31cb8b8718ee67ac001d",
+    "commit": {
+      "author": {
+        "name": "Sebastian Sdorra",
+        "email": "s.sdorra@gmail.com",
+        "date": "2015-09-13T13:24:32Z"
+      },
+      "committer": {
+        "name": "Sebastian Sdorra",
+        "email": "s.sdorra@gmail.com",
+        "date": "2015-09-13T13:24:32Z"
+      },
+      "message": "added more unit tests for widget-content directive",
+      "tree": {
+        "sha": "ffd7996f0b1915bd4f87fb54409e7f696eae596b",
+        "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/git/trees/ffd7996f0b1915bd4f87fb54409e7f696eae596b"
+      },
+      "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/git/commits/edceb3b3c4e27553b83e31cb8b8718ee67ac001d",
+      "comment_count": 0
+    },
+    "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/commits/edceb3b3c4e27553b83e31cb8b8718ee67ac001d",
+    "html_url": "https://github.com/sdorra/angular-dashboard-framework/commit/edceb3b3c4e27553b83e31cb8b8718ee67ac001d",
+    "comments_url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/commits/edceb3b3c4e27553b83e31cb8b8718ee67ac001d/comments",
+    "author": {
+      "login": "sdorra",
+      "id": 493333,
+      "avatar_url": "https://avatars.githubusercontent.com/u/493333?v=3",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/sdorra",
+      "html_url": "https://github.com/sdorra",
+      "followers_url": "https://api.github.com/users/sdorra/followers",
+      "following_url": "https://api.github.com/users/sdorra/following{/other_user}",
+      "gists_url": "https://api.github.com/users/sdorra/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/sdorra/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/sdorra/subscriptions",
+      "organizations_url": "https://api.github.com/users/sdorra/orgs",
+      "repos_url": "https://api.github.com/users/sdorra/repos",
+      "events_url": "https://api.github.com/users/sdorra/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/sdorra/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "sdorra",
+      "id": 493333,
+      "avatar_url": "https://avatars.githubusercontent.com/u/493333?v=3",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/sdorra",
+      "html_url": "https://github.com/sdorra",
+      "followers_url": "https://api.github.com/users/sdorra/followers",
+      "following_url": "https://api.github.com/users/sdorra/following{/other_user}",
+      "gists_url": "https://api.github.com/users/sdorra/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/sdorra/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/sdorra/subscriptions",
+      "organizations_url": "https://api.github.com/users/sdorra/orgs",
+      "repos_url": "https://api.github.com/users/sdorra/repos",
+      "events_url": "https://api.github.com/users/sdorra/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/sdorra/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "c09c7f76b388344e7daa1be4f9d1ad4878494fe3",
+        "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/commits/c09c7f76b388344e7daa1be4f9d1ad4878494fe3",
+        "html_url": "https://github.com/sdorra/angular-dashboard-framework/commit/c09c7f76b388344e7daa1be4f9d1ad4878494fe3"
+      }
+    ]
+  },
+  {
+    "sha": "c09c7f76b388344e7daa1be4f9d1ad4878494fe3",
+    "commit": {
+      "author": {
+        "name": "Sebastian Sdorra",
+        "email": "s.sdorra@gmail.com",
+        "date": "2015-09-13T12:33:04Z"
+      },
+      "committer": {
+        "name": "Sebastian Sdorra",
+        "email": "s.sdorra@gmail.com",
+        "date": "2015-09-13T12:33:04Z"
+      },
+      "message": "test event handling of widget-content directive",
+      "tree": {
+        "sha": "9370e7dfd3ae040bc70a3915f7516a6aa751c194",
+        "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/git/trees/9370e7dfd3ae040bc70a3915f7516a6aa751c194"
+      },
+      "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/git/commits/c09c7f76b388344e7daa1be4f9d1ad4878494fe3",
+      "comment_count": 0
+    },
+    "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/commits/c09c7f76b388344e7daa1be4f9d1ad4878494fe3",
+    "html_url": "https://github.com/sdorra/angular-dashboard-framework/commit/c09c7f76b388344e7daa1be4f9d1ad4878494fe3",
+    "comments_url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/commits/c09c7f76b388344e7daa1be4f9d1ad4878494fe3/comments",
+    "author": {
+      "login": "sdorra",
+      "id": 493333,
+      "avatar_url": "https://avatars.githubusercontent.com/u/493333?v=3",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/sdorra",
+      "html_url": "https://github.com/sdorra",
+      "followers_url": "https://api.github.com/users/sdorra/followers",
+      "following_url": "https://api.github.com/users/sdorra/following{/other_user}",
+      "gists_url": "https://api.github.com/users/sdorra/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/sdorra/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/sdorra/subscriptions",
+      "organizations_url": "https://api.github.com/users/sdorra/orgs",
+      "repos_url": "https://api.github.com/users/sdorra/repos",
+      "events_url": "https://api.github.com/users/sdorra/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/sdorra/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "sdorra",
+      "id": 493333,
+      "avatar_url": "https://avatars.githubusercontent.com/u/493333?v=3",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/sdorra",
+      "html_url": "https://github.com/sdorra",
+      "followers_url": "https://api.github.com/users/sdorra/followers",
+      "following_url": "https://api.github.com/users/sdorra/following{/other_user}",
+      "gists_url": "https://api.github.com/users/sdorra/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/sdorra/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/sdorra/subscriptions",
+      "organizations_url": "https://api.github.com/users/sdorra/orgs",
+      "repos_url": "https://api.github.com/users/sdorra/repos",
+      "events_url": "https://api.github.com/users/sdorra/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/sdorra/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "12db0c355d233f2b15b76da9a0dbbb64553f734f",
+        "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/commits/12db0c355d233f2b15b76da9a0dbbb64553f734f",
+        "html_url": "https://github.com/sdorra/angular-dashboard-framework/commit/12db0c355d233f2b15b76da9a0dbbb64553f734f"
+      }
+    ]
+  },
+  {
+    "sha": "12db0c355d233f2b15b76da9a0dbbb64553f734f",
+    "commit": {
+      "author": {
+        "name": "Sebastian Sdorra",
+        "email": "s.sdorra@gmail.com",
+        "date": "2015-09-13T12:16:24Z"
+      },
+      "committer": {
+        "name": "Sebastian Sdorra",
+        "email": "s.sdorra@gmail.com",
+        "date": "2015-09-13T12:16:24Z"
+      },
+      "message": "Merge branch 'master' of github.com:sdorra/angular-dashboard-framework",
+      "tree": {
+        "sha": "5745f897536c693d1050d26a913d5ea2f9acfa12",
+        "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/git/trees/5745f897536c693d1050d26a913d5ea2f9acfa12"
+      },
+      "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/git/commits/12db0c355d233f2b15b76da9a0dbbb64553f734f",
+      "comment_count": 0
+    },
+    "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/commits/12db0c355d233f2b15b76da9a0dbbb64553f734f",
+    "html_url": "https://github.com/sdorra/angular-dashboard-framework/commit/12db0c355d233f2b15b76da9a0dbbb64553f734f",
+    "comments_url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/commits/12db0c355d233f2b15b76da9a0dbbb64553f734f/comments",
+    "author": {
+      "login": "sdorra",
+      "id": 493333,
+      "avatar_url": "https://avatars.githubusercontent.com/u/493333?v=3",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/sdorra",
+      "html_url": "https://github.com/sdorra",
+      "followers_url": "https://api.github.com/users/sdorra/followers",
+      "following_url": "https://api.github.com/users/sdorra/following{/other_user}",
+      "gists_url": "https://api.github.com/users/sdorra/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/sdorra/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/sdorra/subscriptions",
+      "organizations_url": "https://api.github.com/users/sdorra/orgs",
+      "repos_url": "https://api.github.com/users/sdorra/repos",
+      "events_url": "https://api.github.com/users/sdorra/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/sdorra/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "sdorra",
+      "id": 493333,
+      "avatar_url": "https://avatars.githubusercontent.com/u/493333?v=3",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/sdorra",
+      "html_url": "https://github.com/sdorra",
+      "followers_url": "https://api.github.com/users/sdorra/followers",
+      "following_url": "https://api.github.com/users/sdorra/following{/other_user}",
+      "gists_url": "https://api.github.com/users/sdorra/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/sdorra/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/sdorra/subscriptions",
+      "organizations_url": "https://api.github.com/users/sdorra/orgs",
+      "repos_url": "https://api.github.com/users/sdorra/repos",
+      "events_url": "https://api.github.com/users/sdorra/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/sdorra/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "5f9a81bb01a5e9ec643809c411d8aebf44beb11c",
+        "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/commits/5f9a81bb01a5e9ec643809c411d8aebf44beb11c",
+        "html_url": "https://github.com/sdorra/angular-dashboard-framework/commit/5f9a81bb01a5e9ec643809c411d8aebf44beb11c"
+      },
+      {
+        "sha": "4fc59d03ec69ced86bb86453754c4ad3bfe91c8d",
+        "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/commits/4fc59d03ec69ced86bb86453754c4ad3bfe91c8d",
+        "html_url": "https://github.com/sdorra/angular-dashboard-framework/commit/4fc59d03ec69ced86bb86453754c4ad3bfe91c8d"
+      }
+    ]
+  },
+  {
+    "sha": "5f9a81bb01a5e9ec643809c411d8aebf44beb11c",
+    "commit": {
+      "author": {
+        "name": "Sebastian Sdorra",
+        "email": "s.sdorra@gmail.com",
+        "date": "2015-09-13T12:16:09Z"
+      },
+      "committer": {
+        "name": "Sebastian Sdorra",
+        "email": "s.sdorra@gmail.com",
+        "date": "2015-09-13T12:16:09Z"
+      },
+      "message": "added basic unit tests for widget-content directive",
+      "tree": {
+        "sha": "43ebc85a36548d53124774652198b1cc81bcc784",
+        "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/git/trees/43ebc85a36548d53124774652198b1cc81bcc784"
+      },
+      "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/git/commits/5f9a81bb01a5e9ec643809c411d8aebf44beb11c",
+      "comment_count": 0
+    },
+    "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/commits/5f9a81bb01a5e9ec643809c411d8aebf44beb11c",
+    "html_url": "https://github.com/sdorra/angular-dashboard-framework/commit/5f9a81bb01a5e9ec643809c411d8aebf44beb11c",
+    "comments_url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/commits/5f9a81bb01a5e9ec643809c411d8aebf44beb11c/comments",
+    "author": {
+      "login": "sdorra",
+      "id": 493333,
+      "avatar_url": "https://avatars.githubusercontent.com/u/493333?v=3",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/sdorra",
+      "html_url": "https://github.com/sdorra",
+      "followers_url": "https://api.github.com/users/sdorra/followers",
+      "following_url": "https://api.github.com/users/sdorra/following{/other_user}",
+      "gists_url": "https://api.github.com/users/sdorra/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/sdorra/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/sdorra/subscriptions",
+      "organizations_url": "https://api.github.com/users/sdorra/orgs",
+      "repos_url": "https://api.github.com/users/sdorra/repos",
+      "events_url": "https://api.github.com/users/sdorra/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/sdorra/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "sdorra",
+      "id": 493333,
+      "avatar_url": "https://avatars.githubusercontent.com/u/493333?v=3",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/sdorra",
+      "html_url": "https://github.com/sdorra",
+      "followers_url": "https://api.github.com/users/sdorra/followers",
+      "following_url": "https://api.github.com/users/sdorra/following{/other_user}",
+      "gists_url": "https://api.github.com/users/sdorra/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/sdorra/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/sdorra/subscriptions",
+      "organizations_url": "https://api.github.com/users/sdorra/orgs",
+      "repos_url": "https://api.github.com/users/sdorra/repos",
+      "events_url": "https://api.github.com/users/sdorra/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/sdorra/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "d4d3d29d75a036d4b4adb952009f9d23dbc2e97f",
+        "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/commits/d4d3d29d75a036d4b4adb952009f9d23dbc2e97f",
+        "html_url": "https://github.com/sdorra/angular-dashboard-framework/commit/d4d3d29d75a036d4b4adb952009f9d23dbc2e97f"
+      }
+    ]
+  },
+  {
+    "sha": "d4d3d29d75a036d4b4adb952009f9d23dbc2e97f",
+    "commit": {
+      "author": {
+        "name": "Sebastian Sdorra",
+        "email": "s.sdorra@gmail.com",
+        "date": "2015-09-13T11:46:50Z"
+      },
+      "committer": {
+        "name": "Sebastian Sdorra",
+        "email": "s.sdorra@gmail.com",
+        "date": "2015-09-13T11:46:50Z"
+      },
+      "message": "indent",
+      "tree": {
+        "sha": "cca9e6fd99b26f0f673928ab40e63f5a3a5758fb",
+        "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/git/trees/cca9e6fd99b26f0f673928ab40e63f5a3a5758fb"
+      },
+      "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/git/commits/d4d3d29d75a036d4b4adb952009f9d23dbc2e97f",
+      "comment_count": 0
+    },
+    "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/commits/d4d3d29d75a036d4b4adb952009f9d23dbc2e97f",
+    "html_url": "https://github.com/sdorra/angular-dashboard-framework/commit/d4d3d29d75a036d4b4adb952009f9d23dbc2e97f",
+    "comments_url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/commits/d4d3d29d75a036d4b4adb952009f9d23dbc2e97f/comments",
+    "author": {
+      "login": "sdorra",
+      "id": 493333,
+      "avatar_url": "https://avatars.githubusercontent.com/u/493333?v=3",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/sdorra",
+      "html_url": "https://github.com/sdorra",
+      "followers_url": "https://api.github.com/users/sdorra/followers",
+      "following_url": "https://api.github.com/users/sdorra/following{/other_user}",
+      "gists_url": "https://api.github.com/users/sdorra/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/sdorra/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/sdorra/subscriptions",
+      "organizations_url": "https://api.github.com/users/sdorra/orgs",
+      "repos_url": "https://api.github.com/users/sdorra/repos",
+      "events_url": "https://api.github.com/users/sdorra/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/sdorra/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "sdorra",
+      "id": 493333,
+      "avatar_url": "https://avatars.githubusercontent.com/u/493333?v=3",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/sdorra",
+      "html_url": "https://github.com/sdorra",
+      "followers_url": "https://api.github.com/users/sdorra/followers",
+      "following_url": "https://api.github.com/users/sdorra/following{/other_user}",
+      "gists_url": "https://api.github.com/users/sdorra/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/sdorra/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/sdorra/subscriptions",
+      "organizations_url": "https://api.github.com/users/sdorra/orgs",
+      "repos_url": "https://api.github.com/users/sdorra/repos",
+      "events_url": "https://api.github.com/users/sdorra/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/sdorra/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "0ecdeb51b18b0ebf49e7dcb4aae889d0409d9962",
+        "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/commits/0ecdeb51b18b0ebf49e7dcb4aae889d0409d9962",
+        "html_url": "https://github.com/sdorra/angular-dashboard-framework/commit/0ecdeb51b18b0ebf49e7dcb4aae889d0409d9962"
+      }
+    ]
+  },
+  {
+    "sha": "0ecdeb51b18b0ebf49e7dcb4aae889d0409d9962",
+    "commit": {
+      "author": {
+        "name": "Sebastian Sdorra",
+        "email": "s.sdorra@gmail.com",
+        "date": "2015-09-13T11:46:13Z"
+      },
+      "committer": {
+        "name": "Sebastian Sdorra",
+        "email": "s.sdorra@gmail.com",
+        "date": "2015-09-13T11:46:13Z"
+      },
+      "message": "added some basic unit test for column",
+      "tree": {
+        "sha": "a9ee186d2b79d34a011035e0125c8abc3f89fc34",
+        "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/git/trees/a9ee186d2b79d34a011035e0125c8abc3f89fc34"
+      },
+      "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/git/commits/0ecdeb51b18b0ebf49e7dcb4aae889d0409d9962",
+      "comment_count": 0
+    },
+    "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/commits/0ecdeb51b18b0ebf49e7dcb4aae889d0409d9962",
+    "html_url": "https://github.com/sdorra/angular-dashboard-framework/commit/0ecdeb51b18b0ebf49e7dcb4aae889d0409d9962",
+    "comments_url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/commits/0ecdeb51b18b0ebf49e7dcb4aae889d0409d9962/comments",
+    "author": {
+      "login": "sdorra",
+      "id": 493333,
+      "avatar_url": "https://avatars.githubusercontent.com/u/493333?v=3",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/sdorra",
+      "html_url": "https://github.com/sdorra",
+      "followers_url": "https://api.github.com/users/sdorra/followers",
+      "following_url": "https://api.github.com/users/sdorra/following{/other_user}",
+      "gists_url": "https://api.github.com/users/sdorra/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/sdorra/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/sdorra/subscriptions",
+      "organizations_url": "https://api.github.com/users/sdorra/orgs",
+      "repos_url": "https://api.github.com/users/sdorra/repos",
+      "events_url": "https://api.github.com/users/sdorra/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/sdorra/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "sdorra",
+      "id": 493333,
+      "avatar_url": "https://avatars.githubusercontent.com/u/493333?v=3",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/sdorra",
+      "html_url": "https://github.com/sdorra",
+      "followers_url": "https://api.github.com/users/sdorra/followers",
+      "following_url": "https://api.github.com/users/sdorra/following{/other_user}",
+      "gists_url": "https://api.github.com/users/sdorra/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/sdorra/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/sdorra/subscriptions",
+      "organizations_url": "https://api.github.com/users/sdorra/orgs",
+      "repos_url": "https://api.github.com/users/sdorra/repos",
+      "events_url": "https://api.github.com/users/sdorra/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/sdorra/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "916c1626fd7963761a536624d073b3940af19acd",
+        "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/commits/916c1626fd7963761a536624d073b3940af19acd",
+        "html_url": "https://github.com/sdorra/angular-dashboard-framework/commit/916c1626fd7963761a536624d073b3940af19acd"
+      }
+    ]
+  },
+  {
+    "sha": "916c1626fd7963761a536624d073b3940af19acd",
+    "commit": {
+      "author": {
+        "name": "Sebastian Sdorra",
+        "email": "s.sdorra@gmail.com",
+        "date": "2015-09-13T11:12:10Z"
+      },
+      "committer": {
+        "name": "Sebastian Sdorra",
+        "email": "s.sdorra@gmail.com",
+        "date": "2015-09-13T11:12:10Z"
+      },
+      "message": "added unit tests for row directive",
+      "tree": {
+        "sha": "62b4aafcca5fb6f6f6a146063e1fc90ebd9d53f1",
+        "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/git/trees/62b4aafcca5fb6f6f6a146063e1fc90ebd9d53f1"
+      },
+      "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/git/commits/916c1626fd7963761a536624d073b3940af19acd",
+      "comment_count": 0
+    },
+    "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/commits/916c1626fd7963761a536624d073b3940af19acd",
+    "html_url": "https://github.com/sdorra/angular-dashboard-framework/commit/916c1626fd7963761a536624d073b3940af19acd",
+    "comments_url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/commits/916c1626fd7963761a536624d073b3940af19acd/comments",
+    "author": {
+      "login": "sdorra",
+      "id": 493333,
+      "avatar_url": "https://avatars.githubusercontent.com/u/493333?v=3",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/sdorra",
+      "html_url": "https://github.com/sdorra",
+      "followers_url": "https://api.github.com/users/sdorra/followers",
+      "following_url": "https://api.github.com/users/sdorra/following{/other_user}",
+      "gists_url": "https://api.github.com/users/sdorra/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/sdorra/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/sdorra/subscriptions",
+      "organizations_url": "https://api.github.com/users/sdorra/orgs",
+      "repos_url": "https://api.github.com/users/sdorra/repos",
+      "events_url": "https://api.github.com/users/sdorra/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/sdorra/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "sdorra",
+      "id": 493333,
+      "avatar_url": "https://avatars.githubusercontent.com/u/493333?v=3",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/sdorra",
+      "html_url": "https://github.com/sdorra",
+      "followers_url": "https://api.github.com/users/sdorra/followers",
+      "following_url": "https://api.github.com/users/sdorra/following{/other_user}",
+      "gists_url": "https://api.github.com/users/sdorra/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/sdorra/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/sdorra/subscriptions",
+      "organizations_url": "https://api.github.com/users/sdorra/orgs",
+      "repos_url": "https://api.github.com/users/sdorra/repos",
+      "events_url": "https://api.github.com/users/sdorra/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/sdorra/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "bcc183424a8168c3c011f42e661ac14152224958",
+        "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/commits/bcc183424a8168c3c011f42e661ac14152224958",
+        "html_url": "https://github.com/sdorra/angular-dashboard-framework/commit/bcc183424a8168c3c011f42e661ac14152224958"
+      }
+    ]
+  },
+  {
+    "sha": "4fc59d03ec69ced86bb86453754c4ad3bfe91c8d",
+    "commit": {
+      "author": {
+        "name": "Sebastian Sdorra",
+        "email": "s.sdorra@gmail.com",
+        "date": "2015-09-13T10:37:54Z"
+      },
+      "committer": {
+        "name": "Sebastian Sdorra",
+        "email": "s.sdorra@gmail.com",
+        "date": "2015-09-13T10:37:54Z"
+      },
+      "message": "added license badge",
+      "tree": {
+        "sha": "e0f18f402eb98352756dfc040d22b7bfd29e0ce2",
+        "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/git/trees/e0f18f402eb98352756dfc040d22b7bfd29e0ce2"
+      },
+      "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/git/commits/4fc59d03ec69ced86bb86453754c4ad3bfe91c8d",
+      "comment_count": 0
+    },
+    "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/commits/4fc59d03ec69ced86bb86453754c4ad3bfe91c8d",
+    "html_url": "https://github.com/sdorra/angular-dashboard-framework/commit/4fc59d03ec69ced86bb86453754c4ad3bfe91c8d",
+    "comments_url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/commits/4fc59d03ec69ced86bb86453754c4ad3bfe91c8d/comments",
+    "author": {
+      "login": "sdorra",
+      "id": 493333,
+      "avatar_url": "https://avatars.githubusercontent.com/u/493333?v=3",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/sdorra",
+      "html_url": "https://github.com/sdorra",
+      "followers_url": "https://api.github.com/users/sdorra/followers",
+      "following_url": "https://api.github.com/users/sdorra/following{/other_user}",
+      "gists_url": "https://api.github.com/users/sdorra/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/sdorra/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/sdorra/subscriptions",
+      "organizations_url": "https://api.github.com/users/sdorra/orgs",
+      "repos_url": "https://api.github.com/users/sdorra/repos",
+      "events_url": "https://api.github.com/users/sdorra/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/sdorra/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "sdorra",
+      "id": 493333,
+      "avatar_url": "https://avatars.githubusercontent.com/u/493333?v=3",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/sdorra",
+      "html_url": "https://github.com/sdorra",
+      "followers_url": "https://api.github.com/users/sdorra/followers",
+      "following_url": "https://api.github.com/users/sdorra/following{/other_user}",
+      "gists_url": "https://api.github.com/users/sdorra/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/sdorra/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/sdorra/subscriptions",
+      "organizations_url": "https://api.github.com/users/sdorra/orgs",
+      "repos_url": "https://api.github.com/users/sdorra/repos",
+      "events_url": "https://api.github.com/users/sdorra/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/sdorra/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "bcc183424a8168c3c011f42e661ac14152224958",
+        "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/commits/bcc183424a8168c3c011f42e661ac14152224958",
+        "html_url": "https://github.com/sdorra/angular-dashboard-framework/commit/bcc183424a8168c3c011f42e661ac14152224958"
+      }
+    ]
+  },
+  {
+    "sha": "bcc183424a8168c3c011f42e661ac14152224958",
+    "commit": {
+      "author": {
+        "name": "Sebastian Sdorra",
+        "email": "s.sdorra@gmail.com",
+        "date": "2015-09-13T10:34:23Z"
+      },
+      "committer": {
+        "name": "Sebastian Sdorra",
+        "email": "s.sdorra@gmail.com",
+        "date": "2015-09-13T10:34:23Z"
+      },
+      "message": "enable coveralls",
+      "tree": {
+        "sha": "15249611c96aa30b1fa9699a7e2f5e29498c2bd1",
+        "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/git/trees/15249611c96aa30b1fa9699a7e2f5e29498c2bd1"
+      },
+      "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/git/commits/bcc183424a8168c3c011f42e661ac14152224958",
+      "comment_count": 0
+    },
+    "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/commits/bcc183424a8168c3c011f42e661ac14152224958",
+    "html_url": "https://github.com/sdorra/angular-dashboard-framework/commit/bcc183424a8168c3c011f42e661ac14152224958",
+    "comments_url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/commits/bcc183424a8168c3c011f42e661ac14152224958/comments",
+    "author": {
+      "login": "sdorra",
+      "id": 493333,
+      "avatar_url": "https://avatars.githubusercontent.com/u/493333?v=3",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/sdorra",
+      "html_url": "https://github.com/sdorra",
+      "followers_url": "https://api.github.com/users/sdorra/followers",
+      "following_url": "https://api.github.com/users/sdorra/following{/other_user}",
+      "gists_url": "https://api.github.com/users/sdorra/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/sdorra/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/sdorra/subscriptions",
+      "organizations_url": "https://api.github.com/users/sdorra/orgs",
+      "repos_url": "https://api.github.com/users/sdorra/repos",
+      "events_url": "https://api.github.com/users/sdorra/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/sdorra/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "sdorra",
+      "id": 493333,
+      "avatar_url": "https://avatars.githubusercontent.com/u/493333?v=3",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/sdorra",
+      "html_url": "https://github.com/sdorra",
+      "followers_url": "https://api.github.com/users/sdorra/followers",
+      "following_url": "https://api.github.com/users/sdorra/following{/other_user}",
+      "gists_url": "https://api.github.com/users/sdorra/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/sdorra/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/sdorra/subscriptions",
+      "organizations_url": "https://api.github.com/users/sdorra/orgs",
+      "repos_url": "https://api.github.com/users/sdorra/repos",
+      "events_url": "https://api.github.com/users/sdorra/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/sdorra/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "d2ac1366a2fce1c4daccaf4dbfeaee513ca1880e",
+        "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/commits/d2ac1366a2fce1c4daccaf4dbfeaee513ca1880e",
+        "html_url": "https://github.com/sdorra/angular-dashboard-framework/commit/d2ac1366a2fce1c4daccaf4dbfeaee513ca1880e"
+      }
+    ]
+  },
+  {
+    "sha": "d2ac1366a2fce1c4daccaf4dbfeaee513ca1880e",
+    "commit": {
+      "author": {
+        "name": "Sebastian Sdorra",
+        "email": "s.sdorra@gmail.com",
+        "date": "2015-09-13T10:06:43Z"
+      },
+      "committer": {
+        "name": "Sebastian Sdorra",
+        "email": "s.sdorra@gmail.com",
+        "date": "2015-09-13T10:06:43Z"
+      },
+      "message": "added versioneye dependency check",
+      "tree": {
+        "sha": "6f35ae61184d42679870ecec2817aeb2e0682698",
+        "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/git/trees/6f35ae61184d42679870ecec2817aeb2e0682698"
+      },
+      "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/git/commits/d2ac1366a2fce1c4daccaf4dbfeaee513ca1880e",
+      "comment_count": 0
+    },
+    "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/commits/d2ac1366a2fce1c4daccaf4dbfeaee513ca1880e",
+    "html_url": "https://github.com/sdorra/angular-dashboard-framework/commit/d2ac1366a2fce1c4daccaf4dbfeaee513ca1880e",
+    "comments_url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/commits/d2ac1366a2fce1c4daccaf4dbfeaee513ca1880e/comments",
+    "author": {
+      "login": "sdorra",
+      "id": 493333,
+      "avatar_url": "https://avatars.githubusercontent.com/u/493333?v=3",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/sdorra",
+      "html_url": "https://github.com/sdorra",
+      "followers_url": "https://api.github.com/users/sdorra/followers",
+      "following_url": "https://api.github.com/users/sdorra/following{/other_user}",
+      "gists_url": "https://api.github.com/users/sdorra/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/sdorra/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/sdorra/subscriptions",
+      "organizations_url": "https://api.github.com/users/sdorra/orgs",
+      "repos_url": "https://api.github.com/users/sdorra/repos",
+      "events_url": "https://api.github.com/users/sdorra/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/sdorra/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "sdorra",
+      "id": 493333,
+      "avatar_url": "https://avatars.githubusercontent.com/u/493333?v=3",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/sdorra",
+      "html_url": "https://github.com/sdorra",
+      "followers_url": "https://api.github.com/users/sdorra/followers",
+      "following_url": "https://api.github.com/users/sdorra/following{/other_user}",
+      "gists_url": "https://api.github.com/users/sdorra/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/sdorra/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/sdorra/subscriptions",
+      "organizations_url": "https://api.github.com/users/sdorra/orgs",
+      "repos_url": "https://api.github.com/users/sdorra/repos",
+      "events_url": "https://api.github.com/users/sdorra/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/sdorra/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "ca50c776cc66574a6b1236e855dca85f43218374",
+        "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/commits/ca50c776cc66574a6b1236e855dca85f43218374",
+        "html_url": "https://github.com/sdorra/angular-dashboard-framework/commit/ca50c776cc66574a6b1236e855dca85f43218374"
+      }
+    ]
+  },
+  {
+    "sha": "ca50c776cc66574a6b1236e855dca85f43218374",
+    "commit": {
+      "author": {
+        "name": "Sebastian Sdorra",
+        "email": "s.sdorra@gmail.com",
+        "date": "2015-09-09T16:25:52Z"
+      },
+      "committer": {
+        "name": "Sebastian Sdorra",
+        "email": "s.sdorra@gmail.com",
+        "date": "2015-09-09T16:25:52Z"
+      },
+      "message": "Merge pull request #139 from fuzzypete/master\n\nFix for widget title being overwritten",
+      "tree": {
+        "sha": "bda9b2496d0360acb24512ebe0ebcdc65dcabefd",
+        "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/git/trees/bda9b2496d0360acb24512ebe0ebcdc65dcabefd"
+      },
+      "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/git/commits/ca50c776cc66574a6b1236e855dca85f43218374",
+      "comment_count": 0
+    },
+    "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/commits/ca50c776cc66574a6b1236e855dca85f43218374",
+    "html_url": "https://github.com/sdorra/angular-dashboard-framework/commit/ca50c776cc66574a6b1236e855dca85f43218374",
+    "comments_url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/commits/ca50c776cc66574a6b1236e855dca85f43218374/comments",
+    "author": {
+      "login": "sdorra",
+      "id": 493333,
+      "avatar_url": "https://avatars.githubusercontent.com/u/493333?v=3",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/sdorra",
+      "html_url": "https://github.com/sdorra",
+      "followers_url": "https://api.github.com/users/sdorra/followers",
+      "following_url": "https://api.github.com/users/sdorra/following{/other_user}",
+      "gists_url": "https://api.github.com/users/sdorra/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/sdorra/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/sdorra/subscriptions",
+      "organizations_url": "https://api.github.com/users/sdorra/orgs",
+      "repos_url": "https://api.github.com/users/sdorra/repos",
+      "events_url": "https://api.github.com/users/sdorra/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/sdorra/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "sdorra",
+      "id": 493333,
+      "avatar_url": "https://avatars.githubusercontent.com/u/493333?v=3",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/sdorra",
+      "html_url": "https://github.com/sdorra",
+      "followers_url": "https://api.github.com/users/sdorra/followers",
+      "following_url": "https://api.github.com/users/sdorra/following{/other_user}",
+      "gists_url": "https://api.github.com/users/sdorra/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/sdorra/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/sdorra/subscriptions",
+      "organizations_url": "https://api.github.com/users/sdorra/orgs",
+      "repos_url": "https://api.github.com/users/sdorra/repos",
+      "events_url": "https://api.github.com/users/sdorra/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/sdorra/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "aac98621efd778ab5861bb93e80b07aa5594f100",
+        "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/commits/aac98621efd778ab5861bb93e80b07aa5594f100",
+        "html_url": "https://github.com/sdorra/angular-dashboard-framework/commit/aac98621efd778ab5861bb93e80b07aa5594f100"
+      },
+      {
+        "sha": "4d636bc4a2e4cb75e705683e01b12a260d508c00",
+        "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/commits/4d636bc4a2e4cb75e705683e01b12a260d508c00",
+        "html_url": "https://github.com/sdorra/angular-dashboard-framework/commit/4d636bc4a2e4cb75e705683e01b12a260d508c00"
+      }
+    ]
+  },
+  {
+    "sha": "aac98621efd778ab5861bb93e80b07aa5594f100",
+    "commit": {
+      "author": {
+        "name": "Sebastian Sdorra",
+        "email": "s.sdorra@gmail.com",
+        "date": "2015-09-03T19:52:29Z"
+      },
+      "committer": {
+        "name": "Sebastian Sdorra",
+        "email": "s.sdorra@gmail.com",
+        "date": "2015-09-03T19:52:29Z"
+      },
+      "message": "Merge branch 'master' of github.com:sdorra/angular-dashboard-framework",
+      "tree": {
+        "sha": "dbbeee8dcde038977b08de3f7617634e867d35c0",
+        "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/git/trees/dbbeee8dcde038977b08de3f7617634e867d35c0"
+      },
+      "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/git/commits/aac98621efd778ab5861bb93e80b07aa5594f100",
+      "comment_count": 0
+    },
+    "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/commits/aac98621efd778ab5861bb93e80b07aa5594f100",
+    "html_url": "https://github.com/sdorra/angular-dashboard-framework/commit/aac98621efd778ab5861bb93e80b07aa5594f100",
+    "comments_url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/commits/aac98621efd778ab5861bb93e80b07aa5594f100/comments",
+    "author": {
+      "login": "sdorra",
+      "id": 493333,
+      "avatar_url": "https://avatars.githubusercontent.com/u/493333?v=3",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/sdorra",
+      "html_url": "https://github.com/sdorra",
+      "followers_url": "https://api.github.com/users/sdorra/followers",
+      "following_url": "https://api.github.com/users/sdorra/following{/other_user}",
+      "gists_url": "https://api.github.com/users/sdorra/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/sdorra/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/sdorra/subscriptions",
+      "organizations_url": "https://api.github.com/users/sdorra/orgs",
+      "repos_url": "https://api.github.com/users/sdorra/repos",
+      "events_url": "https://api.github.com/users/sdorra/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/sdorra/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "sdorra",
+      "id": 493333,
+      "avatar_url": "https://avatars.githubusercontent.com/u/493333?v=3",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/sdorra",
+      "html_url": "https://github.com/sdorra",
+      "followers_url": "https://api.github.com/users/sdorra/followers",
+      "following_url": "https://api.github.com/users/sdorra/following{/other_user}",
+      "gists_url": "https://api.github.com/users/sdorra/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/sdorra/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/sdorra/subscriptions",
+      "organizations_url": "https://api.github.com/users/sdorra/orgs",
+      "repos_url": "https://api.github.com/users/sdorra/repos",
+      "events_url": "https://api.github.com/users/sdorra/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/sdorra/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "6c9b0d1cb36da5b095e67e00517f68b499a9d2e9",
+        "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/commits/6c9b0d1cb36da5b095e67e00517f68b499a9d2e9",
+        "html_url": "https://github.com/sdorra/angular-dashboard-framework/commit/6c9b0d1cb36da5b095e67e00517f68b499a9d2e9"
+      },
+      {
+        "sha": "63de0ec27247b0196b04e2cdb94af7e2c9868ded",
+        "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/commits/63de0ec27247b0196b04e2cdb94af7e2c9868ded",
+        "html_url": "https://github.com/sdorra/angular-dashboard-framework/commit/63de0ec27247b0196b04e2cdb94af7e2c9868ded"
+      }
+    ]
+  },
+  {
+    "sha": "6c9b0d1cb36da5b095e67e00517f68b499a9d2e9",
+    "commit": {
+      "author": {
+        "name": "Sebastian Sdorra",
+        "email": "s.sdorra@gmail.com",
+        "date": "2015-09-03T19:52:07Z"
+      },
+      "committer": {
+        "name": "Sebastian Sdorra",
+        "email": "s.sdorra@gmail.com",
+        "date": "2015-09-03T19:52:07Z"
+      },
+      "message": "fix e2e tests",
+      "tree": {
+        "sha": "5b6c285ab31f2e30a6adce535d79258a368e80d7",
+        "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/git/trees/5b6c285ab31f2e30a6adce535d79258a368e80d7"
+      },
+      "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/git/commits/6c9b0d1cb36da5b095e67e00517f68b499a9d2e9",
+      "comment_count": 0
+    },
+    "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/commits/6c9b0d1cb36da5b095e67e00517f68b499a9d2e9",
+    "html_url": "https://github.com/sdorra/angular-dashboard-framework/commit/6c9b0d1cb36da5b095e67e00517f68b499a9d2e9",
+    "comments_url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/commits/6c9b0d1cb36da5b095e67e00517f68b499a9d2e9/comments",
+    "author": {
+      "login": "sdorra",
+      "id": 493333,
+      "avatar_url": "https://avatars.githubusercontent.com/u/493333?v=3",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/sdorra",
+      "html_url": "https://github.com/sdorra",
+      "followers_url": "https://api.github.com/users/sdorra/followers",
+      "following_url": "https://api.github.com/users/sdorra/following{/other_user}",
+      "gists_url": "https://api.github.com/users/sdorra/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/sdorra/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/sdorra/subscriptions",
+      "organizations_url": "https://api.github.com/users/sdorra/orgs",
+      "repos_url": "https://api.github.com/users/sdorra/repos",
+      "events_url": "https://api.github.com/users/sdorra/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/sdorra/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "sdorra",
+      "id": 493333,
+      "avatar_url": "https://avatars.githubusercontent.com/u/493333?v=3",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/sdorra",
+      "html_url": "https://github.com/sdorra",
+      "followers_url": "https://api.github.com/users/sdorra/followers",
+      "following_url": "https://api.github.com/users/sdorra/following{/other_user}",
+      "gists_url": "https://api.github.com/users/sdorra/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/sdorra/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/sdorra/subscriptions",
+      "organizations_url": "https://api.github.com/users/sdorra/orgs",
+      "repos_url": "https://api.github.com/users/sdorra/repos",
+      "events_url": "https://api.github.com/users/sdorra/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/sdorra/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "d6c1906042eca1355bdbc7e420b9e074f87c4608",
+        "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/commits/d6c1906042eca1355bdbc7e420b9e074f87c4608",
+        "html_url": "https://github.com/sdorra/angular-dashboard-framework/commit/d6c1906042eca1355bdbc7e420b9e074f87c4608"
+      }
+    ]
+  },
+  {
+    "sha": "63de0ec27247b0196b04e2cdb94af7e2c9868ded",
+    "commit": {
+      "author": {
+        "name": "Sebastian Sdorra",
+        "email": "s.sdorra@gmail.com",
+        "date": "2015-09-03T19:13:16Z"
+      },
+      "committer": {
+        "name": "Sebastian Sdorra",
+        "email": "s.sdorra@gmail.com",
+        "date": "2015-09-03T19:13:16Z"
+      },
+      "message": "Update README.md",
+      "tree": {
+        "sha": "8b2b3edc362cbe4c6fe75dd0c14db330d252376a",
+        "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/git/trees/8b2b3edc362cbe4c6fe75dd0c14db330d252376a"
+      },
+      "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/git/commits/63de0ec27247b0196b04e2cdb94af7e2c9868ded",
+      "comment_count": 0
+    },
+    "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/commits/63de0ec27247b0196b04e2cdb94af7e2c9868ded",
+    "html_url": "https://github.com/sdorra/angular-dashboard-framework/commit/63de0ec27247b0196b04e2cdb94af7e2c9868ded",
+    "comments_url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/commits/63de0ec27247b0196b04e2cdb94af7e2c9868ded/comments",
+    "author": {
+      "login": "sdorra",
+      "id": 493333,
+      "avatar_url": "https://avatars.githubusercontent.com/u/493333?v=3",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/sdorra",
+      "html_url": "https://github.com/sdorra",
+      "followers_url": "https://api.github.com/users/sdorra/followers",
+      "following_url": "https://api.github.com/users/sdorra/following{/other_user}",
+      "gists_url": "https://api.github.com/users/sdorra/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/sdorra/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/sdorra/subscriptions",
+      "organizations_url": "https://api.github.com/users/sdorra/orgs",
+      "repos_url": "https://api.github.com/users/sdorra/repos",
+      "events_url": "https://api.github.com/users/sdorra/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/sdorra/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "sdorra",
+      "id": 493333,
+      "avatar_url": "https://avatars.githubusercontent.com/u/493333?v=3",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/sdorra",
+      "html_url": "https://github.com/sdorra",
+      "followers_url": "https://api.github.com/users/sdorra/followers",
+      "following_url": "https://api.github.com/users/sdorra/following{/other_user}",
+      "gists_url": "https://api.github.com/users/sdorra/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/sdorra/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/sdorra/subscriptions",
+      "organizations_url": "https://api.github.com/users/sdorra/orgs",
+      "repos_url": "https://api.github.com/users/sdorra/repos",
+      "events_url": "https://api.github.com/users/sdorra/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/sdorra/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "d6c1906042eca1355bdbc7e420b9e074f87c4608",
+        "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/commits/d6c1906042eca1355bdbc7e420b9e074f87c4608",
+        "html_url": "https://github.com/sdorra/angular-dashboard-framework/commit/d6c1906042eca1355bdbc7e420b9e074f87c4608"
+      }
+    ]
+  },
+  {
+    "sha": "d6c1906042eca1355bdbc7e420b9e074f87c4608",
+    "commit": {
+      "author": {
+        "name": "Sebastian Sdorra",
+        "email": "s.sdorra@gmail.com",
+        "date": "2015-09-03T18:41:44Z"
+      },
+      "committer": {
+        "name": "Sebastian Sdorra",
+        "email": "s.sdorra@gmail.com",
+        "date": "2015-09-03T18:41:44Z"
+      },
+      "message": "enable travis-ci",
+      "tree": {
+        "sha": "260cf317b01abec0d52ed5c76bdc04e3d4c5d9cc",
+        "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/git/trees/260cf317b01abec0d52ed5c76bdc04e3d4c5d9cc"
+      },
+      "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/git/commits/d6c1906042eca1355bdbc7e420b9e074f87c4608",
+      "comment_count": 0
+    },
+    "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/commits/d6c1906042eca1355bdbc7e420b9e074f87c4608",
+    "html_url": "https://github.com/sdorra/angular-dashboard-framework/commit/d6c1906042eca1355bdbc7e420b9e074f87c4608",
+    "comments_url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/commits/d6c1906042eca1355bdbc7e420b9e074f87c4608/comments",
+    "author": {
+      "login": "sdorra",
+      "id": 493333,
+      "avatar_url": "https://avatars.githubusercontent.com/u/493333?v=3",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/sdorra",
+      "html_url": "https://github.com/sdorra",
+      "followers_url": "https://api.github.com/users/sdorra/followers",
+      "following_url": "https://api.github.com/users/sdorra/following{/other_user}",
+      "gists_url": "https://api.github.com/users/sdorra/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/sdorra/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/sdorra/subscriptions",
+      "organizations_url": "https://api.github.com/users/sdorra/orgs",
+      "repos_url": "https://api.github.com/users/sdorra/repos",
+      "events_url": "https://api.github.com/users/sdorra/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/sdorra/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "sdorra",
+      "id": 493333,
+      "avatar_url": "https://avatars.githubusercontent.com/u/493333?v=3",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/sdorra",
+      "html_url": "https://github.com/sdorra",
+      "followers_url": "https://api.github.com/users/sdorra/followers",
+      "following_url": "https://api.github.com/users/sdorra/following{/other_user}",
+      "gists_url": "https://api.github.com/users/sdorra/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/sdorra/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/sdorra/subscriptions",
+      "organizations_url": "https://api.github.com/users/sdorra/orgs",
+      "repos_url": "https://api.github.com/users/sdorra/repos",
+      "events_url": "https://api.github.com/users/sdorra/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/sdorra/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "47a97cd2e1e995d3d9a2c8d5be6cc1473b590339",
+        "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/commits/47a97cd2e1e995d3d9a2c8d5be6cc1473b590339",
+        "html_url": "https://github.com/sdorra/angular-dashboard-framework/commit/47a97cd2e1e995d3d9a2c8d5be6cc1473b590339"
+      }
+    ]
+  },
+  {
+    "sha": "47a97cd2e1e995d3d9a2c8d5be6cc1473b590339",
+    "commit": {
+      "author": {
+        "name": "Sebastian Sdorra",
+        "email": "s.sdorra@gmail.com",
+        "date": "2015-09-03T18:30:03Z"
+      },
+      "committer": {
+        "name": "Sebastian Sdorra",
+        "email": "s.sdorra@gmail.com",
+        "date": "2015-09-03T18:30:03Z"
+      },
+      "message": "added unit tests for dashboardProvider",
+      "tree": {
+        "sha": "2f32b79c7f5ac17098c1794a97d6c64ef17797cd",
+        "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/git/trees/2f32b79c7f5ac17098c1794a97d6c64ef17797cd"
+      },
+      "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/git/commits/47a97cd2e1e995d3d9a2c8d5be6cc1473b590339",
+      "comment_count": 0
+    },
+    "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/commits/47a97cd2e1e995d3d9a2c8d5be6cc1473b590339",
+    "html_url": "https://github.com/sdorra/angular-dashboard-framework/commit/47a97cd2e1e995d3d9a2c8d5be6cc1473b590339",
+    "comments_url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/commits/47a97cd2e1e995d3d9a2c8d5be6cc1473b590339/comments",
+    "author": {
+      "login": "sdorra",
+      "id": 493333,
+      "avatar_url": "https://avatars.githubusercontent.com/u/493333?v=3",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/sdorra",
+      "html_url": "https://github.com/sdorra",
+      "followers_url": "https://api.github.com/users/sdorra/followers",
+      "following_url": "https://api.github.com/users/sdorra/following{/other_user}",
+      "gists_url": "https://api.github.com/users/sdorra/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/sdorra/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/sdorra/subscriptions",
+      "organizations_url": "https://api.github.com/users/sdorra/orgs",
+      "repos_url": "https://api.github.com/users/sdorra/repos",
+      "events_url": "https://api.github.com/users/sdorra/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/sdorra/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "sdorra",
+      "id": 493333,
+      "avatar_url": "https://avatars.githubusercontent.com/u/493333?v=3",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/sdorra",
+      "html_url": "https://github.com/sdorra",
+      "followers_url": "https://api.github.com/users/sdorra/followers",
+      "following_url": "https://api.github.com/users/sdorra/following{/other_user}",
+      "gists_url": "https://api.github.com/users/sdorra/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/sdorra/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/sdorra/subscriptions",
+      "organizations_url": "https://api.github.com/users/sdorra/orgs",
+      "repos_url": "https://api.github.com/users/sdorra/repos",
+      "events_url": "https://api.github.com/users/sdorra/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/sdorra/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "152a89a001196ecf1d28b624ab403e40d32c3a8e",
+        "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/commits/152a89a001196ecf1d28b624ab403e40d32c3a8e",
+        "html_url": "https://github.com/sdorra/angular-dashboard-framework/commit/152a89a001196ecf1d28b624ab403e40d32c3a8e"
+      }
+    ]
+  },
+  {
+    "sha": "152a89a001196ecf1d28b624ab403e40d32c3a8e",
+    "commit": {
+      "author": {
+        "name": "Sebastian Sdorra",
+        "email": "s.sdorra@gmail.com",
+        "date": "2015-09-03T18:00:25Z"
+      },
+      "committer": {
+        "name": "Sebastian Sdorra",
+        "email": "s.sdorra@gmail.com",
+        "date": "2015-09-03T18:00:25Z"
+      },
+      "message": "added missing license header",
+      "tree": {
+        "sha": "491cdba10d931ec86c53688d4a02684e5a550c5f",
+        "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/git/trees/491cdba10d931ec86c53688d4a02684e5a550c5f"
+      },
+      "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/git/commits/152a89a001196ecf1d28b624ab403e40d32c3a8e",
+      "comment_count": 0
+    },
+    "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/commits/152a89a001196ecf1d28b624ab403e40d32c3a8e",
+    "html_url": "https://github.com/sdorra/angular-dashboard-framework/commit/152a89a001196ecf1d28b624ab403e40d32c3a8e",
+    "comments_url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/commits/152a89a001196ecf1d28b624ab403e40d32c3a8e/comments",
+    "author": {
+      "login": "sdorra",
+      "id": 493333,
+      "avatar_url": "https://avatars.githubusercontent.com/u/493333?v=3",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/sdorra",
+      "html_url": "https://github.com/sdorra",
+      "followers_url": "https://api.github.com/users/sdorra/followers",
+      "following_url": "https://api.github.com/users/sdorra/following{/other_user}",
+      "gists_url": "https://api.github.com/users/sdorra/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/sdorra/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/sdorra/subscriptions",
+      "organizations_url": "https://api.github.com/users/sdorra/orgs",
+      "repos_url": "https://api.github.com/users/sdorra/repos",
+      "events_url": "https://api.github.com/users/sdorra/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/sdorra/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "sdorra",
+      "id": 493333,
+      "avatar_url": "https://avatars.githubusercontent.com/u/493333?v=3",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/sdorra",
+      "html_url": "https://github.com/sdorra",
+      "followers_url": "https://api.github.com/users/sdorra/followers",
+      "following_url": "https://api.github.com/users/sdorra/following{/other_user}",
+      "gists_url": "https://api.github.com/users/sdorra/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/sdorra/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/sdorra/subscriptions",
+      "organizations_url": "https://api.github.com/users/sdorra/orgs",
+      "repos_url": "https://api.github.com/users/sdorra/repos",
+      "events_url": "https://api.github.com/users/sdorra/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/sdorra/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "23349b91edc03ed7c4382163bcba06273ba0c236",
+        "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/commits/23349b91edc03ed7c4382163bcba06273ba0c236",
+        "html_url": "https://github.com/sdorra/angular-dashboard-framework/commit/23349b91edc03ed7c4382163bcba06273ba0c236"
+      }
+    ]
+  },
+  {
+    "sha": "23349b91edc03ed7c4382163bcba06273ba0c236",
+    "commit": {
+      "author": {
+        "name": "Sebastian Sdorra",
+        "email": "s.sdorra@gmail.com",
+        "date": "2015-09-03T17:58:03Z"
+      },
+      "committer": {
+        "name": "Sebastian Sdorra",
+        "email": "s.sdorra@gmail.com",
+        "date": "2015-09-03T17:58:03Z"
+      },
+      "message": "test against src folder instead of dist and added junit, cobertuna and html coverage reports",
+      "tree": {
+        "sha": "170b595d25839031c51cbd30d5c2461f4c6d586c",
+        "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/git/trees/170b595d25839031c51cbd30d5c2461f4c6d586c"
+      },
+      "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/git/commits/23349b91edc03ed7c4382163bcba06273ba0c236",
+      "comment_count": 0
+    },
+    "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/commits/23349b91edc03ed7c4382163bcba06273ba0c236",
+    "html_url": "https://github.com/sdorra/angular-dashboard-framework/commit/23349b91edc03ed7c4382163bcba06273ba0c236",
+    "comments_url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/commits/23349b91edc03ed7c4382163bcba06273ba0c236/comments",
+    "author": {
+      "login": "sdorra",
+      "id": 493333,
+      "avatar_url": "https://avatars.githubusercontent.com/u/493333?v=3",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/sdorra",
+      "html_url": "https://github.com/sdorra",
+      "followers_url": "https://api.github.com/users/sdorra/followers",
+      "following_url": "https://api.github.com/users/sdorra/following{/other_user}",
+      "gists_url": "https://api.github.com/users/sdorra/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/sdorra/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/sdorra/subscriptions",
+      "organizations_url": "https://api.github.com/users/sdorra/orgs",
+      "repos_url": "https://api.github.com/users/sdorra/repos",
+      "events_url": "https://api.github.com/users/sdorra/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/sdorra/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "sdorra",
+      "id": 493333,
+      "avatar_url": "https://avatars.githubusercontent.com/u/493333?v=3",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/sdorra",
+      "html_url": "https://github.com/sdorra",
+      "followers_url": "https://api.github.com/users/sdorra/followers",
+      "following_url": "https://api.github.com/users/sdorra/following{/other_user}",
+      "gists_url": "https://api.github.com/users/sdorra/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/sdorra/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/sdorra/subscriptions",
+      "organizations_url": "https://api.github.com/users/sdorra/orgs",
+      "repos_url": "https://api.github.com/users/sdorra/repos",
+      "events_url": "https://api.github.com/users/sdorra/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/sdorra/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "c06031b9b54910fb8a178db8ea906fabcb9e4498",
+        "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/commits/c06031b9b54910fb8a178db8ea906fabcb9e4498",
+        "html_url": "https://github.com/sdorra/angular-dashboard-framework/commit/c06031b9b54910fb8a178db8ea906fabcb9e4498"
+      }
+    ]
+  },
+  {
+    "sha": "c06031b9b54910fb8a178db8ea906fabcb9e4498",
+    "commit": {
+      "author": {
+        "name": "Sebastian Sdorra",
+        "email": "s.sdorra@gmail.com",
+        "date": "2015-09-03T10:22:06Z"
+      },
+      "committer": {
+        "name": "Sebastian Sdorra",
+        "email": "s.sdorra@gmail.com",
+        "date": "2015-09-03T10:22:06Z"
+      },
+      "message": "Merge pull request #137 from raulgomis/master\n\nAdded unit test support for angular-dashboard-framework",
+      "tree": {
+        "sha": "a4747e788a59ac227c8b87549b6689215db3c662",
+        "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/git/trees/a4747e788a59ac227c8b87549b6689215db3c662"
+      },
+      "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/git/commits/c06031b9b54910fb8a178db8ea906fabcb9e4498",
+      "comment_count": 0
+    },
+    "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/commits/c06031b9b54910fb8a178db8ea906fabcb9e4498",
+    "html_url": "https://github.com/sdorra/angular-dashboard-framework/commit/c06031b9b54910fb8a178db8ea906fabcb9e4498",
+    "comments_url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/commits/c06031b9b54910fb8a178db8ea906fabcb9e4498/comments",
+    "author": {
+      "login": "sdorra",
+      "id": 493333,
+      "avatar_url": "https://avatars.githubusercontent.com/u/493333?v=3",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/sdorra",
+      "html_url": "https://github.com/sdorra",
+      "followers_url": "https://api.github.com/users/sdorra/followers",
+      "following_url": "https://api.github.com/users/sdorra/following{/other_user}",
+      "gists_url": "https://api.github.com/users/sdorra/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/sdorra/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/sdorra/subscriptions",
+      "organizations_url": "https://api.github.com/users/sdorra/orgs",
+      "repos_url": "https://api.github.com/users/sdorra/repos",
+      "events_url": "https://api.github.com/users/sdorra/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/sdorra/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "sdorra",
+      "id": 493333,
+      "avatar_url": "https://avatars.githubusercontent.com/u/493333?v=3",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/sdorra",
+      "html_url": "https://github.com/sdorra",
+      "followers_url": "https://api.github.com/users/sdorra/followers",
+      "following_url": "https://api.github.com/users/sdorra/following{/other_user}",
+      "gists_url": "https://api.github.com/users/sdorra/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/sdorra/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/sdorra/subscriptions",
+      "organizations_url": "https://api.github.com/users/sdorra/orgs",
+      "repos_url": "https://api.github.com/users/sdorra/repos",
+      "events_url": "https://api.github.com/users/sdorra/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/sdorra/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "778e57e2540333792ceab496ce0d846ef7f80cdf",
+        "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/commits/778e57e2540333792ceab496ce0d846ef7f80cdf",
+        "html_url": "https://github.com/sdorra/angular-dashboard-framework/commit/778e57e2540333792ceab496ce0d846ef7f80cdf"
+      },
+      {
+        "sha": "80b023b1c171ee06d885489ef7a2b985681e8bb4",
+        "url": "https://api.github.com/repos/sdorra/angular-dashboard-framework/commits/80b023b1c171ee06d885489ef7a2b985681e8bb4",
+        "html_url": "https://github.com/sdorra/angular-dashboard-framework/commit/80b023b1c171ee06d885489ef7a2b985681e8bb4"
+      }
+    ]
+  }
+]

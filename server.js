@@ -9,6 +9,11 @@ var bodyParser = require('body-parser');
 var dashboard = require('./server/routes/dashboard');
 var servers = require('./server/routes/server');
 
+// Database
+
+// var dbUnix = require('./server/db/mysql');
+// var dbWindows = require('./server/db/mssql');
+
 var app = express();
 
 // view engine setup
@@ -49,6 +54,7 @@ app.use(function(err, req, res, next) {
   res.end();
 });
 
+// Launch the server
 var server = app.listen(3000, function() {
     console.log('Listening on port %d', server.address().port);
 });
