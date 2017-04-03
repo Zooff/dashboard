@@ -1,0 +1,46 @@
+angular.module('dashboard_infra.controller')
+
+.controller('navigationCtrl', function($scope, $q, $location, storeService){
+  var nav = this;
+  nav.navCollapsed = true;
+
+  this.toggleNav = function(){
+    nav.navCollapsed = ! nav.navCollapsed;
+  };
+
+  this.navClass = function(page) {
+    var currentRoute = $location.path().substring(1);
+    return page === currentRoute || new RegExp(page).test(currentRoute) ? 'active' : '';
+  };
+
+  this.create = function(){
+    var id = '_' + new Date().getTime();
+    var q = storeService.set(id, {
+      "title": "New Sample",
+      "structure": "4-8",
+      "rows": [{
+        "columns": [{
+          "styleClass": "col-md-4",
+          "widgets": []
+        },{
+          "styleClass": "col-md-8",
+          "widgets": []
+        }]
+      }]
+    });
+
+    $q.all([q, storeService.getAll()]).then(function(values){
+      nav.items = values[1];
+    });
+  };
+
+  storeService.getAll().then(function(data){
+    nav.items = data;
+  });
+
+  $scope.$on('navChanged', function(){
+    storeService.getAll().then(function(data){
+      nav.items = data;
+    });
+  });
+})
