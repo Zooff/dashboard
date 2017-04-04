@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('dashboardInfra', ['adf', 'ngRoute', 'adf.structures.base', 'dashboard_infra.controller', 'adf.widget.clock', 'adf.widget.table', 'adf.widget.wysiwyg'])
+angular.module('dashboardInfra', ['adf', 'ngRoute', 'adf.structures.base', 'dashboard_infra.controller', 'adf.widget.clock', 'adf.widget.table', 'adf.widget.wysiwyg', 'adf.widget.beerCounter'])
 
 .config(function($routeProvider){
   $routeProvider
