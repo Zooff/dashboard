@@ -11,15 +11,15 @@
     <!-- build:css css/sample.min.css -->
     <!-- Bootstrap core CSS -->
     <link href="components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- <link href="css/app.css" rel="stylesheet"> -->
 
     <!-- dashboard style -->
-    <link href="/components/angular-dashboard-framework/dist/angular-dashboard-framework.min.css" rel="stylesheet">
+    <link href="/components/angular-dashboard-framework/dist/angular-dashboard-framework.css" rel="stylesheet">
     <link href="/components/adf-widget-clock/dist/adf-widget-clock.min.css" rel="stylesheet">
 
     <!-- wysiwyg style -->
     <link href="components/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <!--<link href="/components/adf-widget-iframe/dist/adf-widget-iframe.min.css" rel="stylesheet"> -->
-    <link href="css/app.css" rel="stylesheet">
     <!-- endbuild -->
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -35,11 +35,18 @@
         document.createElement('adf-widget-content');
       </script>
     <![endif]-->
+
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+      }
+    </style>
+
   </head>
 
   <body ng-app="dashboardInfra">
 
-    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container" ng-controller="navigationCtrl as nav">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" ng-click="nav.toggleNav()">
@@ -62,9 +69,14 @@
               <a style="cursor: pointer;" ng-click="nav.create()">Create</a>
             </li>
           </ul>
+          <ul class="nav navbar-nav navbar-right" ng-controller="timeController as clock">
+            <li>
+              <a href="#"> {{clock.time}} </a>
+            </li>
+          </ul>
         </div><!--/.nav-collapse -->
       </div>
-    </div>
+    </nav>
 
     <div class="container">
 
@@ -86,7 +98,7 @@
     <script type="text/javascript" src="js/controller/testCtrl.js"></script>
     <script type="text/javascript" src="js/controller/navigationCtrl.js"></script>
     <script type="text/javascript" src="js/controller/dashboardCtrl.js"></script>
-
+    <script type="text/javascript" src="js/controller/time.controller.js"></script>
     <script type="text/javascript" src="js/service/storeService.js"></script>
 
     <!-- structures -->
@@ -95,13 +107,26 @@
     <!-- Widget -->
 
     <!-- beerCounter -->
-    <!-- <script type="text/javascript" src="js/adf-widget-beerCounter.min.js"></script> -->
+    <!-- <script type="text/javascript" src="components/beerCounter/dist/adf-widget-beerCounter.js"></script> -->
+    <script type="text/javascript" src="components/chart.js/dist/Chart.min.js"></script>
+    <script type="text/javascript" src="components/angular-chart.js/dist/angular-chart.min.js"></script>
+    <script type="text/javascript" src="/widgets/beerCounter/src/beerCounter.widget.js"></script>
+    <script type="text/javascript" src="/widgets/beerCounter/templates.tpl.js"></script>
+    <script type="text/javascript" src="/widgets/beerCounter/src/beerCounter.service.js"></script>
+    <script type="text/javascript" src="/widgets/beerCounter/src/view/beerController.js"></script>
+    <script type="text/javascript" src="/widgets/beerCounter/src/edit/beerEditController.js"></script>
 
-    <script src="components/beerCounter/src/beerCounter.widget.js"></script>
-    <script src="components/beerCounter/.tmp/dist/templates.tpl.js"></script>
-    <script src="components/beerCounter/src/view/beerController.js"></script>
-    <script src="components/beerCounter/src/edit/beerEditCtrl.js"></script>
-    <script src="components/beerCounter/src/beerCounter.service.js"></script>
+    <!-- singleValue -->
+    <script type="text/javascript" src="/widgets/singleValue/src/singleValue.widget.js"></script>
+    <script type="text/javascript" src="/widgets/singleValue/templates.tpl.js"></script>
+    <script type="text/javascript" src="/widgets/singleValue/src/singleValue.service.js"></script>
+    <script type="text/javascript" src="/widgets/singleValue/src/view/singleValue.controller.js"></script>
+    <script type="text/javascript" src="/widgets/singleValue/src/edit/singleValueEdit.controller.js"></script>
+
+    <!-- Markdown -->
+    <script type="text/javascript" src="components/showdown/src/showdown.js"></script>
+    <script type="text/javascript" src="components/angular-markdown-directive/markdown.js"></script>
+    <script type="text/javascript" src="components/adf-widget-markdown/dist/adf-widget-markdown.min.js"></script>
 
     <!-- Clock -->
     <script type="text/javascript" src="/components/moment/moment.js"></script>
