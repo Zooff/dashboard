@@ -62,11 +62,14 @@
             <li>
               <a href="#/boards/_commun">Info Commune</a>
             </li>
-            <li ng-class="nav.navClass('boards/' + item.id)" ng-repeat="item in nav.items | orderBy: title" ng-if="item.id != '_commun'">
+            <li ng-class="nav.navClass('boards/' + item.id)" ng-repeat="item in nav.items | orderBy: title" ng-if="item.id != '_commun' && item.id != '_documentation'">
               <a ng-href="#/boards/{{item.id}}">{{item.title}}</a>
             </li>
             <li>
               <a style="cursor: pointer;" ng-click="nav.create()">Create</a>
+            </li>
+            <li>
+              <a href="#/boards/_documentation">Documentation</a>
             </li>
           </ul>
           <ul class="nav navbar-nav navbar-right" ng-controller="timeController as clock">
