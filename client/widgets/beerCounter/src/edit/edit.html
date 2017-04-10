@@ -1,0 +1,13 @@
+<form role="form">
+
+  <div>
+    <label> Add a Beer </label>
+  </div>
+
+  <div class="form-inline padding-bottom">
+    <input type="text" id="name" class="form-control" placeholder="Name" ng-model="user.name">
+    <button type="button" class="btn btn-primary" ng-click="addUser(user.name)">
+      <i class="fa fa-plus"></i> Add
+    </button>
+  </div>
+</form>

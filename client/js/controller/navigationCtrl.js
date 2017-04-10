@@ -4,6 +4,8 @@ angular.module('dashboard_infra.controller')
   var nav = this;
   nav.navCollapsed = true;
 
+
+
   this.toggleNav = function(){
     nav.navCollapsed = ! nav.navCollapsed;
   };

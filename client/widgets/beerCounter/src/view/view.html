@@ -1,0 +1,20 @@
+<div>
+  <div ng-hide="beer.data" class="alert alert-info" role="alert">
+    Please insert a url to the widget configuration
+  </div>
+  <div ng-show="beer.data" class="row">
+    <div class="col-md-6">
+      <ul>
+        <li ng-repeat=" b in beer.data">
+          {{b.user}} {{b.beer}} <i class="fa fa-beer fa-lg" aria-hidden="true"></i>
+          <i class="fa fa-plus-circle" aria-hidden="true" ng-click="addBeer($index)"></i>
+          <i class="fa fa-minus-circle" aria-hidden="true" ng-click="removeBeer($index)"></i>
+        </li>
+      </ul>
+    </div>
+    <div class="col-md-6">
+      <canvas id="beerDoughnut" class="chart chart-doughnut" chart-data="beer.value" chart-labels="beer.user">
+      </canvas>
+    </div>
+  </div>
+</div>

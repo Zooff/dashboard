@@ -1,0 +1,18 @@
+<div>
+  <div ng-hide="sv.data" class="alert alert-info" role="alert">
+    Please insert a url to the widget configuration
+  </div>
+  <div ng-show="sv.data">
+    <div>
+      <h1 class="text-center">
+        {{sv.data.principalData.data}}
+      </h1>
+      <p class="text-center small"> {{sv.data.principalData.desc}} </p>
+    </div>
+    <ul class="list-inline text-center">
+      <li ng-repeat="addData in sv.data.additionalData">
+        {{addData.title}} : {{addData.value}}
+      </li>
+    </ul>
+  </div>
+</div>
