@@ -6,6 +6,8 @@ angular.module('adf.widget.beerCounter')
 
 function beerController($scope, data, beerService){
   this.data = data.data;
+
+  // Pie Chart Data
   this.user = data.user;
   this.value = data.value;
 

@@ -1,0 +1,12 @@
+<div>
+  <div ng-hide="cv.data" class="alert alert-info" role="alert">
+    Please insert a url to the widget configuration
+  </div>
+  <div ng-show="cv.data">
+    <div class="text-center">
+      <i ng-show="cv.data.ok" class="fa fa-check fa-4x text-success" aria-hidden="true"></i>
+      <i ng-hide="cv.data.ok" class="fa fa-times fa-4x text-danger" aria-hidden="true"></i>
+      <p> {{cv.data.desc}} </p>
+    </div>
+  </div>
+</div>
