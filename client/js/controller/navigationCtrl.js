@@ -15,8 +15,8 @@ angular.module('dashboard_infra.controller')
     return page === currentRoute || new RegExp(page).test(currentRoute) ? 'active' : '';
   };
 
-  this.create = function(){
-    var id = '_' + new Date().getTime();
+  this.create = function(str){
+    var id = '_'+ str + new Date().getTime();
     var q = storeService.set(id, {
       "title": "New Sample",
       "structure": "4-8",
