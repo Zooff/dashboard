@@ -62,8 +62,33 @@
             <li>
               <a href="#/boards/_commun">Info Commune</a>
             </li>
-            <li ng-class="nav.navClass('boards/' + item.id)" ng-repeat="item in nav.items | orderBy: title" ng-if="item.id != '_commun' && item.id != '_documentation'">
-              <a ng-href="#/boards/{{item.id}}">{{item.title}}</a>
+
+            <li uib-dropdown on-toggle="toggled(open)">
+              <a href id="windows" uib-dropdown-toggle>
+                Windows <i class="fa fa-windows fa-lg" aria-hidden="true"></i>
+              </a>
+              <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="windows">
+
+                <li ng-class="nav.navClass('boards/' + item.id)" ng-repeat="item in nav.items | orderBy: title" ng-if="item.id.indexOf('_wds') == 0">
+                  <a ng-href="#/boards/{{item.id}}">{{item.title}}</a>
+                </li>
+                <li>
+                  <a style="cursor: pointer;" ng-click="nav.create('wds')">Create</a>
+                </li>
+              </ul>
+            </li>
+            <li uib-dropdown on-toggle="toggled(open)">
+              <a href id="unix" uib-dropdown-toggle>
+                Unix <i class="fa fa-linux fa-lg" aria-hidden="true"></i>
+              </a>
+              <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="unix">
+                <li ng-class="nav.navClass('boards/' + item.id)" ng-repeat="item in nav.items | orderBy: title" ng-if="item.id.indexOf('_unix') == 0">
+                  <a ng-href="#/boards/{{item.id}}">{{item.title}}</a>
+                </li>
+                <li>
+                  <a style="cursor: pointer;" ng-click="nav.create('unix')">Create</a>
+                </li>
+              </ul>
             </li>
             <li>
               <a style="cursor: pointer;" ng-click="nav.create()">Create</a>
@@ -116,11 +141,12 @@
     <script type="text/javascript" src="widgets/beerCounter/dist/adf-widget-beerCounter.js"></script>
 
     <!-- singleValue -->
-    <script type="text/javascript" src="/widgets/singleValue/src/singleValue.widget.js"></script>
+    <script type="text/javascript" src="/widgets/singleValue/dist/adf-widget-singleValue.min.js"></script>
+    <!-- <script type="text/javascript" src="/widgets/singleValue/src/singleValue.widget.js"></script>
     <script type="text/javascript" src="/widgets/singleValue/templates.tpl.js"></script>
     <script type="text/javascript" src="/widgets/singleValue/src/singleValue.service.js"></script>
     <script type="text/javascript" src="/widgets/singleValue/src/view/singleValue.controller.js"></script>
-    <script type="text/javascript" src="/widgets/singleValue/src/edit/singleValueEdit.controller.js"></script>
+    <script type="text/javascript" src="/widgets/singleValue/src/edit/singleValueEdit.controller.js"></script> -->
 
     <!-- pieChart -->
     <script type="text/javascript" src="/widgets/pieChart/dist/adf-widget-pieChart.min.js"></script>
