@@ -10,8 +10,10 @@ function pieChartService($q, $http, $parse){
 
 
   function createData(jsonData, config){
-    label = jsonData.map(function(u){return u.label;});
-    value = jsonData.map(function(u){return u.value;});
+    var getLabel = $parse(config.label);
+    var getValue = $parse(config.value);
+    label = jsonData.map(function(u){return getLabel(u);});
+    value = jsonData.map(function(u){return getValue(u);});
     return {label: label, value: value, type: config.type, desc : config.desc};
   }
 
@@ -27,7 +29,7 @@ function pieChartService($q, $http, $parse){
 
   function get(config){
     var result = null;
-    if (config.query){
+    if (config.expert){
       result = post(config);
     }
     else if (config.url){

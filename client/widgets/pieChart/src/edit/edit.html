@@ -14,6 +14,24 @@
   </div>
 
   <div>
+    <label> Label </label>
+  </div>
+
+  <div class="form-group">
+    <label class="sr-only" for="label">Label</label>
+    <input type="text" id="label" class="form-control" ng-model="config.label" placeholder="Path of the Label">
+  </div>
+
+  <div>
+    <label> Value </label>
+  </div>
+
+  <div class="form-group">
+    <label class="sr-only" for="value">Value</label>
+    <input type="text" id="value" class="form-control" ng-model="config.value" placeholder="Path of the first value">
+  </div>
+
+  <div>
     <label> Chart Type </label>
   </div>
 
@@ -37,7 +55,7 @@
     </div>
     <div class="form-group">
       <label class="sr-only" for="query">Query</label>
-      <input type="text" id="query" class="form-control" placeholder="Query" ng-model="config.expert">
+      <textarea rows="3" id="query" class="form-control" placeholder="Query" ng-model="config.expert"></textarea>
     </div>
   </div>
 

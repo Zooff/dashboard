@@ -11,8 +11,9 @@ function lineChartController($scope, data, lineChartService){
     // Type of graph : line, bar, horizontalBar, radar
     this.type = data.type;
     this.desc = data.desc;
+    this.series = data.series;
   }
   // Option for the chart --> See the chart.js options
-  this.options = {};
+  this.options = {legend : {display : true, position :'bottom'}};
 
 }
