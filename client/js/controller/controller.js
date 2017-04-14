@@ -1,1 +1,1 @@
-angular.module('dashboard_infra.controller', ['dashboard_infra.service'])
+angular.module('dashboardInfra.controller', ['dashboardInfra.service'])

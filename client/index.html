@@ -1,4 +1,4 @@
-<html lang="fr">
+<html lang="fr"ng-app="dashboardInfra">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -44,7 +44,7 @@
 
   </head>
 
-  <body ng-app="dashboardInfra">
+  <body ng-controller="authenticationCtrl as auth">
 
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container" ng-controller="navigationCtrl as nav">
@@ -122,7 +122,9 @@
 
     <!-- scripts -->
     <script type="text/javascript" src="js/app.js"></script>
+    <script type="text/javascript" src="js/config/structure.js"></script>
     <script type="text/javascript" src="js/controller/controller.js"></script>
+    <script type="text/javascript" src="js/controller/authentication.controller.js"></script>
     <script type="text/javascript" src="js/controller/testCtrl.js"></script>
     <script type="text/javascript" src="js/controller/navigationCtrl.js"></script>
     <script type="text/javascript" src="js/controller/dashboardCtrl.js"></script>

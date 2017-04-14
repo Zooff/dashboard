@@ -1,4 +1,4 @@
-angular.module('dashboard_infra.controller')
+angular.module('dashboardInfra.controller')
 
 .controller('dashboardCtrl', function($location, $rootScope, $scope, $routeParams, storeService, data){
   this.name = $routeParams.id;

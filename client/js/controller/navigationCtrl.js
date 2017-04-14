@@ -1,4 +1,4 @@
-angular.module('dashboard_infra.controller')
+angular.module('dashboardInfra.controller')
 
 .controller('navigationCtrl', function($scope, $q, $location, storeService){
   var nav = this;

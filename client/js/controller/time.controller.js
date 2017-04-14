@@ -1,4 +1,4 @@
-angular.module('dashboard_infra.controller')
+angular.module('dashboardInfra.controller')
 
 .controller('timeController', function($scope, $interval){
   var clock = this;
