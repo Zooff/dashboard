@@ -1,5 +1,5 @@
 angular.module('dashboardInfra.controller')
 
-.controller('authenticationCtrl', function(){
+.controller('authenticationCtrl', function($uibModal){
 
 })

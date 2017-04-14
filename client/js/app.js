@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('dashboardInfra', ['adf', 'ngRoute', 'chart.js', 'adf.structures.base', 'dashboard_infra.controller', 'adf.widget.clock',
+angular.module('dashboardInfra', ['adf', 'ngRoute', 'chart.js', 'adf.structures.base', 'dashboardInfra.controller', 'adf.widget.clock',
 'adf.widget.table', 'adf.widget.wysiwyg','adf.widget.markdown', 'adf.widget.beerCounter', 'adf.widget.singleValue',
 'adf.widget.pieChart', 'adf.widget.lineChart','adf.widget.checkValue'])
 
@@ -17,12 +17,14 @@ angular.module('dashboardInfra', ['adf', 'ngRoute', 'chart.js', 'adf.structures.
   $routeProvider
     .when('/accueil', {
       controller: 'testCtrl',
-      templateUrl: "templates/accueil.html"
+      templateUrl: "templates/accueil.html",
+      login: false
     })
     .when('/boards/:id', {
       controller: 'dashboardCtrl',
       controllerAs: 'dashboard',
       templateUrl: 'templates/dashboard.html',
+      login : true,
       resolve: {
         data: function($route, storeService){
           return storeService.get($route.current.params.id);
@@ -34,4 +36,22 @@ angular.module('dashboardInfra', ['adf', 'ngRoute', 'chart.js', 'adf.structures.
     });
 
 
+})
+
+.config(function($httpProvider){
+  $httpProvider.interceptors.push([
+    '$injector',
+    function($injector){
+      return $injector.get('AuthInterceptor');
+    }
+  ]);
+})
+
+.run(function($rootScope, $location, Auth){
+  $rootScope.$on("$routeChangeStart", function(event, next, current){
+    console.log(Auth.isAuthenticated())
+    if(next.login && !Auth.isAuthenticated()){
+      $location.path('/accueil');
+    }
+  });
 })

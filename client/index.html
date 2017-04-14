@@ -44,7 +44,7 @@
 
   </head>
 
-  <body ng-controller="authenticationCtrl as auth">
+  <body>
 
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container" ng-controller="navigationCtrl as nav">
@@ -129,7 +129,14 @@
     <script type="text/javascript" src="js/controller/navigationCtrl.js"></script>
     <script type="text/javascript" src="js/controller/dashboardCtrl.js"></script>
     <script type="text/javascript" src="js/controller/time.controller.js"></script>
+
     <script type="text/javascript" src="js/service/storeService.js"></script>
+    <script type="text/javascript" src="js/service/session.js"></script>
+    <script type="text/javascript" src="js/service/authentication.service.js"></script>
+
+    <script type="text/javascript" src="js/interceptor/authInterceptor.js"></script>
+
+
 
     <!-- structures -->
     <script type="text/javascript" src="/components/adf-structures-base/dist/adf-structures-base.min.js"></script>

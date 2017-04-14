@@ -1,4 +1,4 @@
-angular.module('dashboarbInfra.service', [])
+angular.module('dashboardInfra.service', [])
 
 .service('storeService', function($http, $q){
   return {

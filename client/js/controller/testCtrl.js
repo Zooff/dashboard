@@ -1,6 +1,6 @@
-angular.module('dashboardInfra')
+angular.module('dashboardInfra.controller')
 
-.controller('testCtrl', function($scope){
+.controller('testCtrl', function($scope, Session){
 
   $scope.beerU = [];
   $scope.beerUser = [];
@@ -24,4 +24,6 @@ angular.module('dashboardInfra')
     $scope.beerValue.push(1);
     console.log($scope.beerU);
   }
+  var u = {userRole : 'guest'};
+  Session.create(u);
 })
