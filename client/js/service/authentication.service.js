@@ -29,6 +29,10 @@ angular.module('dashboardInfra.service')
     return !!Session.user;
   };
 
+  authService.isAuthorized = function(accessLevel){
+    return Session.userRole == accessLevel;
+  }
+
   authService.logout = function(){
     Session.destroy;
     $window.sessionStorage.removeItem("userInfo");
