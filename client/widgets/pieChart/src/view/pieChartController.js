@@ -13,6 +13,6 @@ function pieChartController($scope, data, pieChartService){
     this.desc = data.desc;
   }
   // Option for the chart --> See the chart.js options
-  this.options = {legend : {display : true, position :'left'}};
+  this.options = {elements: {arc: {borderWidth : 1, borderColor : '#000'}},legend : {display : true, position :'left'}};
 
 }
