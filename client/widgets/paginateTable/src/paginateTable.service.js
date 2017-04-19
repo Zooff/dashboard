@@ -45,6 +45,7 @@ function paginateTableService($q, $http, $parse){
       model.rows.push(row);
     });
     model.totalItems = model.rows.length;
+    model.columns = config.columns;
     return model;
   }
 

@@ -5,18 +5,21 @@
   <div ng-show="pt.data">
     <table  class="table">
       <tr>
-        <th ng-repeat="head in pt.data.headers">
+        <th ng-repeat="head in pt.data.headers" ng-click="pt.sortIndex($index)">
           {{head}}
         </th>
       </tr>
-      <tr ng-repeat="row in pt.data.rows | filter:q | startFrom: (pt.data.currentPage-1)*pt.data.itemPerPage | limitTo:pt.data.itemPerPage">
+      <tr ng-repeat="row in filterData = (pt.data.rows | filter:q )| orderBy:pt.sorter:pt.reverseSort| startFrom: (pt.data.currentPage-1)*pt.data.itemPerPage | limitTo:pt.data.itemPerPage track by $index">
         <td ng-repeat="col in row">
           {{col}}
         </td>
       </tr>
     </table>
+    <div class="text-center col-md-3">
+      <input type="search" ng-model="q" placeholder="Filter" class="form-control">
+    </div>
     <div class="text-center">
-      <ul uib-pagination total-items="pt.data.totalItems" ng-model="pt.data.currentPage" max-size="pt.data.maxSize" class="pagination-sm" boundary-links="true"items-per-page="pt.data.itemPerPage" num-pages="numPages"></ul>
+      <ul uib-pagination total-items="filterData.length" ng-model="pt.data.currentPage" max-size="pt.data.maxSize" class="pagination-sm" boundary-links="true"items-per-page="pt.data.itemPerPage" num-pages="numPages"></ul>
     </div>
   </div>
 </div>
