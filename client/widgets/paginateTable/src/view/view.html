@@ -1,0 +1,22 @@
+<div>
+  <div ng-hide="pt.data" class="alert alert-info" role="alert">
+    Please insert a url to the widget configuration
+  </div>
+  <div ng-show="pt.data">
+    <table  class="table">
+      <tr>
+        <th ng-repeat="head in pt.data.headers">
+          {{head}}
+        </th>
+      </tr>
+      <tr ng-repeat="row in pt.data.rows | filter:q | startFrom: (pt.data.currentPage-1)*pt.data.itemPerPage | limitTo:pt.data.itemPerPage">
+        <td ng-repeat="col in row">
+          {{col}}
+        </td>
+      </tr>
+    </table>
+    <div class="text-center">
+      <ul uib-pagination total-items="pt.data.totalItems" ng-model="pt.data.currentPage" max-size="pt.data.maxSize" class="pagination-sm" boundary-links="true"items-per-page="pt.data.itemPerPage" num-pages="numPages"></ul>
+    </div>
+  </div>
+</div>

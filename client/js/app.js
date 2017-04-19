@@ -2,7 +2,7 @@
 
 angular.module('dashboardInfra', ['adf', 'ngRoute', 'chart.js', 'adf.structures.base', 'dashboardInfra.controller', 'adf.widget.clock',
 'adf.widget.table', 'adf.widget.wysiwyg','adf.widget.markdown', 'adf.widget.beerCounter', 'adf.widget.singleValue',
-'adf.widget.pieChart', 'adf.widget.lineChart','adf.widget.checkValue'])
+'adf.widget.pieChart', 'adf.widget.lineChart','adf.widget.checkValue', 'adf.widget.paginateTable'])
 
 .constant('AUTH_EVENTS', {
   loginSuccess: 'auth-login-success',
@@ -17,6 +17,7 @@ angular.module('dashboardInfra', ['adf', 'ngRoute', 'chart.js', 'adf.structures.
   $routeProvider
     .when('/accueil', {
       controller: 'testCtrl',
+      controllerAs: 'test',
       templateUrl: "templates/accueil.html",
       login: false
     })
