@@ -27,7 +27,7 @@ function TableWidget(dashboardProvider){
 }
 TableWidget.$inject = ["dashboardProvider"];
 
-angular.module("adf.widget.singleValue").run(["$templateCache", function($templateCache) {$templateCache.put("{widgetsPath}/singleValue/src/edit/edit.html","<form role=form><div class=form-group><label for=sample>URL</label> <input type=text class=form-control ng-model=config.url placeholder=\"Enter url\"></div><div><label>Principal Data</label></div><div class=\"form-inline padding-bottom\"><div class=form-group><label class=sr-only for=desc>Description</label> <input type=text id=desc class=form-control ng-model=config.desc placeholder=\"Enter Description of the data\"></div><div class=form-group><label class=sr-only for=sample>Principal Data</label> <input type=text class=form-control ng-model=config.root placeholder=\"Enter name of principal data\"></div></div><div><label>Additional Data</label></div><div class=\"form-inline padding-bottom\" ng-repeat=\"col in sv.config.columns\"><div class=form-group><label class=sr-only for=title-{{$index}}>Title</label> <input type=text id=title-{{$index}} class=form-control placeholder=Title ng-model=col.title required></div><div class=form-group><label class=sr-only for=path-{{$index}}>Path</label> <input type=text id=path-{{$index}} class=form-control placeholder=Path ng-model=col.path required></div><button type=button class=\"btn btn-warning\" ng-click=sv.removeColumn($index)><i class=\"fa fa-minus\"></i> Remove</button></div><button type=button class=\"btn btn-primary\" ng-click=sv.addColumn()><i class=\"fa fa-plus\"></i> Add</button></form>");
+angular.module("adf.widget.singleValue").run(["$templateCache", function($templateCache) {$templateCache.put("{widgetsPath}/singleValue/src/edit/edit.html","<form role=form><div class=form-group><label for=sample>URL</label> <input type=text class=form-control ng-model=config.url placeholder=\"Enter url\" uib-typeahead=\"address for address in getAutocompletion($viewValue)\" typeahead-loading=load typeahead-no-result=noResults></div><div><label>Principal Data</label></div><div class=\"form-inline padding-bottom\"><div class=form-group><label class=sr-only for=desc>Description</label> <input type=text id=desc class=form-control ng-model=config.desc placeholder=\"Enter Description of the data\"></div><div class=form-group><label class=sr-only for=sample>Principal Data</label> <input type=text class=form-control ng-model=config.root placeholder=\"Enter name of principal data\"></div></div><div><label>Additional Data</label></div><div class=\"form-inline padding-bottom\" ng-repeat=\"col in sv.config.columns\"><div class=form-group><label class=sr-only for=title-{{$index}}>Title</label> <input type=text id=title-{{$index}} class=form-control placeholder=Title ng-model=col.title required></div><div class=form-group><label class=sr-only for=path-{{$index}}>Path</label> <input type=text id=path-{{$index}} class=form-control placeholder=Path ng-model=col.path required></div><button type=button class=\"btn btn-warning\" ng-click=sv.removeColumn($index)><i class=\"fa fa-minus\"></i> Remove</button></div><button type=button class=\"btn btn-primary\" ng-click=sv.addColumn()><i class=\"fa fa-plus\"></i> Add</button></form>");
 $templateCache.put("{widgetsPath}/singleValue/src/view/view.html","<div><div ng-hide=sv.data class=\"alert alert-info\" role=alert>Please insert a url to the widget configuration</div><div ng-show=sv.data><div><h1 class=text-center>{{sv.data.principalData.data}}</h1><p class=\"text-center small\">{{sv.data.principalData.desc}}</p></div><ul class=\"list-inline text-center\"><li ng-repeat=\"addData in sv.data.additionalData\">{{addData.title}} : {{addData.data}}</li></ul></div></div>");}]);
 
 
@@ -44,8 +44,19 @@ singleValueController.$inject = ["data"];
 angular.module('adf.widget.singleValue')
   .controller('singleValueEditController', singleValueEditController);
 
-function singleValueEditController(config){
+function singleValueEditController($scope, $http, config){
   this.config = config;
+
+  $scope.getAutocompletion = function(val){
+    return $http.get('/api/servers/autocomplete', {
+      params: {
+        val : val
+      }
+    })
+    .then(function(response){
+      return response.data;
+    });
+  }
 
   function getColumns(){
     if (!config.columns){
@@ -62,7 +73,7 @@ function singleValueEditController(config){
     getColumns().splice(index, 1);
   };
 }
-singleValueEditController.$inject = ["config"];
+singleValueEditController.$inject = ["$scope", "$http", "config"];
 
 
 

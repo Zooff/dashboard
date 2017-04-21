@@ -3,7 +3,17 @@
 angular.module('adf.widget.pieChart')
   .controller('pieChartEditController', pieChartEditController);
 
-function pieChartEditController($scope, config, pieChartService){
+function pieChartEditController($scope, $http, config, pieChartService){
   this.config = config;
 
+  $scope.getAutocompletion = function(val){
+    return $http.get('/api/servers/autocomplete', {
+      params: {
+        val : val
+      }
+    })
+    .then(function(response){
+      return response.data;
+    });
+  }
 }

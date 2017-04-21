@@ -3,8 +3,19 @@
 angular.module('adf.widget.singleValue')
   .controller('singleValueEditController', singleValueEditController);
 
-function singleValueEditController(config){
+function singleValueEditController($scope, $http, config){
   this.config = config;
+
+  $scope.getAutocompletion = function(val){
+    return $http.get('/api/servers/autocomplete', {
+      params: {
+        val : val
+      }
+    })
+    .then(function(response){
+      return response.data;
+    });
+  }
 
   function getColumns(){
     if (!config.columns){

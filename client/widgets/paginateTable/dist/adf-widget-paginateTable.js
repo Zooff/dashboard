@@ -27,7 +27,7 @@ function TableWidget(dashboardProvider){
 }
 TableWidget.$inject = ["dashboardProvider"];
 
-angular.module("adf.widget.paginateTable").run(["$templateCache", function($templateCache) {$templateCache.put("{widgetsPath}/paginateTable/src/edit/edit.html","<form role=form><div class=form-group><label for=sample>URL</label> <input type=text class=form-control ng-model=config.url placeholder=\"Enter url\"></div><div class=form-group><label for=sample>Root element</label> <input type=text class=form-control ng-model=config.root placeholder=\"Enter name of root element\"></div><div><label>Columns</label></div><div class=\"form-inline padding-bottom\" ng-repeat=\"col in pt.config.columns\"><div class=form-group><label class=sr-only for=title-{{$index}}>Title</label> <input type=text id=title-{{$index}} class=form-control placeholder=Title ng-model=col.title required></div><div class=form-group><label class=sr-only for=path-{{$index}}>Path</label> <input type=text id=path-{{$index}} class=form-control placeholder=Path ng-model=col.path required></div><button type=button class=\"btn btn-warning\" ng-click=pt.removeColumn($index)><i class=\"fa fa-minus\"></i> Remove</button></div><button type=button class=\"btn btn-primary\" ng-click=pt.addColumn()><i class=\"fa fa-plus\"></i> Add</button><div><label>Pagination</label></div><div class=form-group><label class=sr-only for=maxSize>Item par Page</label> <input type=text id=maxSize class=form-control placeholder=\"Item Per Page\" ng-model=config.itemPerPage></div></form>");
+angular.module("adf.widget.paginateTable").run(["$templateCache", function($templateCache) {$templateCache.put("{widgetsPath}/paginateTable/src/edit/edit.html","<form role=form><div class=form-group><label for=sample>URL</label> <input type=text class=form-control ng-model=config.url placeholder=\"Enter url\" uib-typeahead=\"address for address in getAutocompletion($viewValue)\" typeahead-loading=load typeahead-no-result=\"noResults> </div> <div class=\" form-group\"> <label for=sample>Root element</label> <input type=text class=form-control ng-model=config.root placeholder=\"Enter name of root element\"></div><div><label>Columns</label></div><div class=\"form-inline padding-bottom\" ng-repeat=\"col in pt.config.columns\"><div class=form-group><label class=sr-only for=title-{{$index}}>Title</label> <input type=text id=title-{{$index}} class=form-control placeholder=Title ng-model=col.title required></div><div class=form-group><label class=sr-only for=path-{{$index}}>Path</label> <input type=text id=path-{{$index}} class=form-control placeholder=Path ng-model=col.path required></div><button type=button class=\"btn btn-warning\" ng-click=pt.removeColumn($index)><i class=\"fa fa-minus\"></i> Remove</button></div><button type=button class=\"btn btn-primary\" ng-click=pt.addColumn()><i class=\"fa fa-plus\"></i> Add</button><div><label>Pagination</label></div><div class=form-group><label class=sr-only for=maxSize>Item par Page</label> <input type=text id=maxSize class=form-control placeholder=\"Item Per Page\" ng-model=config.itemPerPage></div></form>");
 $templateCache.put("{widgetsPath}/paginateTable/src/view/view.html","<div><div ng-hide=pt.data class=\"alert alert-info\" role=alert>Please insert a url to the widget configuration</div><div ng-show=pt.data><table class=table><tr><th ng-repeat=\"head in pt.data.headers\" ng-click=pt.sortIndex($index)>{{head}}</th></tr><tr ng-repeat=\"row in filterData = (pt.data.rows | filter:q )| orderBy:pt.sorter:pt.reverseSort| startFrom: (pt.data.currentPage-1)*pt.data.itemPerPage | limitTo:pt.data.itemPerPage track by $index\"><td ng-repeat=\"col in row\">{{col}}</td></tr></table><div class=\"text-center col-md-3\"><input type=search ng-model=q placeholder=Filter class=form-control></div><div class=text-center><ul uib-pagination total-items=filterData.length ng-model=pt.data.currentPage max-size=pt.data.maxSize class=pagination-sm boundary-links=true items-per-page=pt.data.itemPerPage num-pages=numPages></ul></div></div></div>");}]);
 
 
@@ -72,8 +72,19 @@ paginateTableController.$inject = ["data", "$filter", "$scope"];
 angular.module('adf.widget.paginateTable')
   .controller('paginateTableEditController', paginateTableEditController);
 
-function paginateTableEditController(config){
+function paginateTableEditController($scope, $http,config){
   this.config = config;
+
+  $scope.getAutocompletion = function(val){
+    return $http.get('/api/servers/autocomplete', {
+      params: {
+        val : val
+      }
+    })
+    .then(function(response){
+      return response.data;
+    });
+  }
 
   function getColumns(){
     if (!config.columns){
@@ -90,7 +101,7 @@ function paginateTableEditController(config){
     getColumns().splice(index, 1);
   };
 }
-paginateTableEditController.$inject = ["config"];
+paginateTableEditController.$inject = ["$scope", "$http", "config"];
 
 
 
