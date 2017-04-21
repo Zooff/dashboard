@@ -27,7 +27,7 @@ function checkValueService($q, $http, $parse){
         ok = false;
     }
 
-    return {desc: config.desc, data: data, ok: ok};
+    return {desc: config.desc, data: data, ok: ok, pourcent: config.pourcent, tooltip : config.tooltip};
   }
 
   function fetch(config){

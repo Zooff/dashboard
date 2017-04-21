@@ -1,7 +1,16 @@
 <form role="form">
   <div class="form-group">
     <label for="sample">URL</label>
-    <input type="text" class="form-control" ng-model="config.url" placeholder="Enter url">
+    <input type="text" class="form-control" ng-model="config.url" placeholder="Enter url" uib-typeahead="address for address in getAutocompletion($viewValue)" typeahead-loading="load" typeahead-no-result="noResults">
+  </div>
+
+  <div class="form-group">
+    <label for="tooltip">Tooltip</label>
+    <input id="tooltip" type="text" class="form-control" ng-model="config.tooltip" placeholder="Tooltips">
+  </div>
+
+  <div>
+      <input type="checkbox" ng-model="config.pourcent"> <label> Pourcentage ? </label>
   </div>
 
   <div>
