@@ -1,0 +1,69 @@
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="container" ng-controller="navigationCtrl as nav">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" ng-click="nav.toggleNav()">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Accueil <i class="fa fa-beer fa-lg" aria-hidden="true" ></i></a>
+    </div>
+    <div uib-collapse="nav.navCollapsed" class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li>
+          <a href="#/boards/_commun">Info Commune</a>
+        </li>
+
+        <li uib-dropdown on-toggle="toggled(open)">
+          <a href id="windows" uib-dropdown-toggle>
+            Windows <i class="fa fa-windows fa-lg" aria-hidden="true"></i>
+          </a>
+          <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="windows">
+
+            <li ng-class="nav.navClass('boards/' + item.id)" ng-repeat="item in nav.items | orderBy: title" ng-if="item.id.indexOf('_wds') == 0">
+              <a ng-href="#/boards/{{item.id}}">{{item.title}}</a>
+            </li>
+            <li>
+              <a style="cursor: pointer;" ng-click="nav.create('wds')">Create</a>
+            </li>
+          </ul>
+        </li>
+        <li uib-dropdown on-toggle="toggled(open)">
+          <a href id="unix" uib-dropdown-toggle>
+            Unix <i class="fa fa-linux fa-lg" aria-hidden="true"></i>
+          </a>
+          <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="unix">
+            <li ng-class="nav.navClass('boards/' + item.id)" ng-repeat="item in nav.items | orderBy: title" ng-if="item.id.indexOf('_unix') == 0">
+              <a ng-href="#/boards/{{item.id}}">{{item.title}}</a>
+            </li>
+            <li>
+              <a style="cursor: pointer;" ng-click="nav.create('unix')">Create</a>
+            </li>
+          </ul>
+        </li>
+        <!-- <li uib-dropdown on-toggle="toggled(open)">
+          <a href id="unix" uib-dropdown-toggle>
+            Perso <i class="fa fa-linux fa-lg" aria-hidden="true"></i>
+          </a>
+          <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="unix">
+            <li ng-class="nav.navClass('boards/' + item.id)" ng-repeat="item in nav.items | orderBy: title" ng-if="item.id.indexOf('_unix') == 0">
+              <a ng-href="#/boards/{{item.id}}">{{item.title}}</a>
+            </li>
+            <li>
+              <a style="cursor: pointer;" ng-click="nav.create('unix')">Create</a>
+            </li>
+          </ul>
+        </li> -->
+        <li>
+          <a href="#/boards/_documentation">Documentation</a>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right" ng-controller="timeController as clock">
+        <li>
+          <a href="#"> {{clock.time}} </a>
+        </li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div>
+</nav>
