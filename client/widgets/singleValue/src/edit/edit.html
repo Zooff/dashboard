@@ -1,8 +1,19 @@
+<!-- Custom Template for autocompletion -->
+<script type="text/ng-template" id="autocomplete.html">
+  <a>
+    <span ng-bind-html="match.model.url | uibTypeaheadHighlight:query"></span> |
+    <small ng-bind-html="match.model.desc | uibTypeaheadHighlight:query"></small>
+  </a>
+</script>
+
+
+
 <form role="form">
   <div class="form-group">
     <label for="sample">URL</label>
-    <input type="text" class="form-control" ng-model="config.url" placeholder="Enter url" uib-typeahead="address for address in getAutocompletion($viewValue)" typeahead-loading="load" typeahead-no-result="noResults">
+    <input type="text" class="form-control" ng-model="config.url" placeholder="Enter url" uib-typeahead="address as address.url for address in getAutocompletion($viewValue)" typeahead-template-url="autocomplete.html" typeahead-loading="load" typeahead-no-result="noResults">
   </div>
+
 
   <div>
     <label> Principal Data </label>

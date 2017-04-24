@@ -7,7 +7,7 @@ function paginateTableEditController($scope, $http,config){
   this.config = config;
 
   $scope.getAutocompletion = function(val){
-    return $http.get('/api/servers/autocomplete', {
+    return $http.get('/api/autocomplete', {
       params: {
         val : val
       }

@@ -7,7 +7,7 @@ function pieChartEditController($scope, $http, config, pieChartService){
   this.config = config;
 
   $scope.getAutocompletion = function(val){
-    return $http.get('/api/servers/autocomplete', {
+    return $http.get('/api/autocomplete', {
       params: {
         val : val
       }
