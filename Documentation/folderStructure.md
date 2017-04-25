@@ -42,12 +42,12 @@ Il se compose des dossiers/fichiers :
 
 ## Widgets
 
+
 le dossier *widgets* comporte les différents widgets utilisé dans l'application. Chaque widget comporte  :
 - un dossier dist obtenu graçe à l'aide de l'utilitaire gulp, ce sont ces fichiers qu'il faut inclure dans le fichier index.html
 - un dossier src contenant les sources des widgets.
 - bower.json
-- package.json
-- gulpfile.js
+
 
 ## Server
 
