@@ -17,4 +17,19 @@ function checkValueEditController($scope, $http, config, checkValueService){
     });
   }
 
+  function getColumns(){
+    if (!config.columns){
+      config.columns = [];
+    }
+    return config.columns;
+  }
+
+  this.addColumn = function(){
+    getColumns().push({});
+  };
+
+  this.removeColumn = function(index){
+    getColumns().splice(index, 1);
+  };
+
 }
