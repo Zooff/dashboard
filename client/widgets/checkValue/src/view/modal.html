@@ -6,11 +6,11 @@
       {{cm.un}}
       <table  class="table">
         <tr>
-          <th ng-repeat="head in cm.data.headers" ng-click="pt.sortIndex($index)">
+          <th ng-repeat="head in cm.data.headers" ng-click="cm.sortIndex($index)">
             {{head}}
           </th>
         </tr>
-        <tr ng-repeat="row in cm.data.rows| orderBy:pt.sorter:pt.reverseSort track by $index">
+        <tr ng-repeat="row in cm.data.rows| orderBy:cm.sorter:cm.reverseSort track by $index">
           <td ng-repeat="col in row">
             {{col}}
           </td>

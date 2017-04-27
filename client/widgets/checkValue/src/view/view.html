@@ -3,25 +3,28 @@
     Please insert a url to the widget configuration
   </div>
   <div ng-show=cv.data ng-click="cv.open()">
-    <div ng-if="!cv.data.pourcent">
+    <div ng-if="!cv.data.config.pourcent">
       <div class="text-center">
         <div>
-          <i ng-show="cv.data.ok" class="fa fa-check fa-4x text-success" aria-hidden="true"></i>
-          <i ng-hide="cv.data.ok" class="fa fa-times fa-4x text-danger" aria-hidden="true"></i>
+          <h1> {{cv.data.principalData}}
+            <i ng-show="cv.data.ok" class="fa fa-check fa-lg text-success" aria-hidden="true"></i>
+            <i ng-hide="cv.data.ok" class="fa fa-times fa-lg text-danger" aria-hidden="true"></i>
+          </h1>
         </div>
-        <p> {{cv.data.desc}} : {{cv.data.data}}</p>
+        <p> {{cv.data.config.desc}} : {{cv.data.data}}</p>
       </div>
     </div>
-    <div ng-if="cv.data.pourcent">
+    <div ng-if="cv.data.config.pourcent">
+      <p class="small text-center" ng-if="cv.data.principalData">  {{cv.data.config.descPrincipalData}} :  {{cv.data.principalData}} </p>
       <div class="text-center">
-        <div ng-if="!cv.data.zero">
+        <div ng-if="!cv.data.zero" class="align-middle">
           <i ng-if="cv.data.ok && cv.data.positif" class="fa fa-caret-up fa-5x text-success" aria-hidden="true"></i>
           <i ng-if="!cv.data.ok && !cv.data.positif" class="fa fa-caret-down fa-5x text-danger" aria-hidden="true"></i>
           <i ng-if="!cv.data.ok && cv.data.positif" class="fa fa-caret-up fa-5x text-danger" aria-hidden="true"></i>
           <i ng-if="cv.data.ok && !cv.data.positif" class="fa fa-caret-down fa-5x text-success" aria-hidden="true"></i>
         </div>
-        <i ng-if="cv.data.zero" class="fa fa-caret-right fa-5x text-warning" aria-hidden="true"></i>
-        <p uib-tooltip="{{cv.data.tooltip}}"tooltip-placement="bottom"> {{cv.data.desc}} :
+        <i ng-if="cv.data.zero" class="fa fa-caret-right fa-5x text-warning" aria-hidden="true">{{cv.data.principalData}}</i>
+        <p uib-tooltip="{{cv.data.config.tooltip}}"tooltip-placement="bottom"> {{cv.data.config.desc}} :
           <span ng-show="!cv.data.zero && cv.data.ok" class="text-success">{{cv.data.data}} %</span>
           <span ng-show="!cv.data.zero && !cv.data.ok" class="text-danger">{{cv.data.data}} %</span>
           <span ng-show="cv.data.zero" class="text-warning">{{cv.data.data}} %</span>
