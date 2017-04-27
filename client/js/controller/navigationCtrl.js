@@ -1,10 +1,15 @@
 angular.module('dashboardInfra.controller')
 
-.controller('navigationCtrl', function($scope, $q, $location, storeService){
+.controller('navigationCtrl', function($scope, $q, $location, storeService, Session){
   var nav = this;
   nav.navCollapsed = true;
 
-
+  nav.load = function(){
+    if (Session.user){
+      nav.user = Session.user.cn;
+      nav.path = '_' + nav.user;
+    }
+  }
 
   this.toggleNav = function(){
     nav.navCollapsed = ! nav.navCollapsed;

@@ -6,6 +6,21 @@ angular.module('dashboardInfra.controller')
   $scope.beerUser = [];
   $scope.beerValue = [];
 
+  this.data = ['aaa', 'bbb', 'ccc', 'acb', 'bca'];
+
+  getData = function(data){
+    var d = [];
+
+    data.forEach(function(el){
+      if (el.indexOf('a') != 0){
+        d.push(el);
+      }
+    });
+    return d;
+  }
+
+  this.filterData = getData(this.data);
+
   $scope.addBeer = function(data,id){
   data[id].beer++;
   $scope.beerValue[id] = data[id].beer;
@@ -24,7 +39,7 @@ angular.module('dashboardInfra.controller')
     $scope.beerValue.push(1);
     console.log($scope.beerU);
   }
-  var u = {userRole : 'guest'};
-  Session.create(u);
+  // var u = {userRole : 'guest'};
+  // Session.create(u);
 
 })

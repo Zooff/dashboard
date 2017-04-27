@@ -32,6 +32,9 @@ angular.module('dashboardInfra')
             element.css('display', prevDisp);
           }
         }
+        else {
+          element.css('display', 'none');
+        }
       }
     }
   }

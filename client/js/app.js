@@ -19,7 +19,12 @@ angular.module('dashboardInfra', ['adf', 'ngRoute', 'chart.js', 'adf.structures.
       controller: 'testCtrl',
       controllerAs: 'test',
       templateUrl: "templates/accueil.html",
-      login: false
+      login: false,
+      // resolve: {
+      //   auth: function resolveAuth(authResolver){
+      //     return authResolver.resolve();
+      //   }
+      // }
     })
     .when('/boards/:id', {
       controller: 'dashboardCtrl',
