@@ -4,6 +4,8 @@ angular.module('dashboardInfra.controller')
   this.name = $routeParams.id;
   this.model = data;
 
+  this.env = data.env;
+
   this.delete = function(id){
     storeService.delete(id);
     $location.path('/');

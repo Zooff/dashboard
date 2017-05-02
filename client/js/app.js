@@ -34,6 +34,9 @@ angular.module('dashboardInfra', ['adf', 'ngRoute', 'chart.js', 'adf.structures.
       resolve: {
         data: function($route, storeService){
           return storeService.get($route.current.params.id);
+        },
+        env : function($route, utils){
+          return utils.getEnv($route.current.params.id);
         }
       }
     })

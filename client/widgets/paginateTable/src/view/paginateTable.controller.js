@@ -12,7 +12,6 @@ function paginateTableController(data, $filter, $scope){
     this.data.currentPage = 1;
     this.data.maxSize = 5;
     this.orderField = 0;
-    console.log(this.orderField);
     this.reverseSort = false;
 
     // Change the orderBy header
@@ -24,13 +23,21 @@ function paginateTableController(data, $filter, $scope){
     this.sorter = function(item){
       return item[pt.orderField];
     }
+
+
+    pt.open = function(){
+      if (!cv.data.config.modalUrl)
+        return;
+      var modalInstance = $uibModal.open({
+        templateUrl : '{widgetsPath}/paginateTable/src/view/modal.html',
+        controller : 'modalInstanceCtrl',
+        controllerAs : 'cm',
+        resolve: {
+          data: function(modalService){
+            return modalService.get(pt.configModal);
+          }
+        }
+      });
+    }
   }
-
-
-
-
-
-
-
-  console.log(data)
 }

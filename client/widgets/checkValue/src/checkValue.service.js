@@ -8,8 +8,8 @@ function checkValueService($q, $http, $parse){
   function createData(jsonData, config){
 
 
-    if (config.rootData){
-      var principalData = $parse(config.rootData)(jsonData);
+    if (config.principalData){
+      var principalData = $parse(config.principalData)(jsonData);
     }
 
     //
@@ -33,7 +33,6 @@ function checkValueService($q, $http, $parse){
         ok = false;
     }
 
-
     return {config: config, data: data, ok: ok, principalData : principalData};
   }
 
@@ -56,6 +55,16 @@ function checkValueService($q, $http, $parse){
       result = fetch(config);
     }
     return result
+  }
+
+  function post(config){
+    return $http.post(expertUrl, config)
+      .then(function(response){
+        return response.data
+      })
+      .then(function(data){
+        return createData(data, config);
+      });
   }
 
   return {

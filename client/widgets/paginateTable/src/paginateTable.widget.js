@@ -6,8 +6,8 @@ angular.module('adf.widget.paginateTable', ['adf.provider'])
 function TableWidget(dashboardProvider){
   dashboardProvider
     .widget('paginateTable', {
-      title: 'paginateTable',
-      description: 'Displays a table of data from a json url',
+      title: 'Tableau Paginé',
+      description: 'Widget permettant d\'afficher un tableau paginé',
       templateUrl: '{widgetsPath}/paginateTable/src/view/view.html',
       controller: 'paginateTableController',
       controllerAs: 'pt',

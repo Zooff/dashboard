@@ -28,6 +28,13 @@ function paginateTableService($q, $http, $parse){
       itemPerPage : config.itemPerPage
     };
 
+    if (!config.columns){
+        config.columns = [];
+        for (var key in data[0]){
+          config.columns.push({title : key, path : key});
+        }
+    }
+
     var root = data;
     if (config.root){
       root = $parse(config.root)(data);
@@ -61,10 +68,23 @@ function paginateTableService($q, $http, $parse){
 
   function get(config){
     var result = null;
-    if (config.url){
+    if (config.expert){
+      result = post(config);
+    }
+    else if (config.url){
       result = fetch(config);
     }
-    return result;
+    return result
+  }
+
+  function post(config){
+    return $http.post(expertUrl, config)
+      .then(function(response){
+        return response.data
+      })
+      .then(function(data){
+        return createData(data, config);
+      });
   }
 
   return {

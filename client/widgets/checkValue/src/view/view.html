@@ -6,9 +6,10 @@
     <div ng-if="!cv.data.config.pourcent">
       <div class="text-center">
         <div>
-          <h1> {{cv.data.principalData}}
+          <h1>
             <i ng-show="cv.data.ok" class="fa fa-check fa-lg text-success" aria-hidden="true"></i>
             <i ng-hide="cv.data.ok" class="fa fa-times fa-lg text-danger" aria-hidden="true"></i>
+            {{cv.data.principalData}}
           </h1>
         </div>
         <p> {{cv.data.config.desc}} : {{cv.data.data}}</p>

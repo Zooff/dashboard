@@ -9,18 +9,19 @@
 
 
 <form role="form">
-  <div class="form-group">
-    <label for="sample">URL</label>
-    <input type="text" class="form-control" ng-model="config.url" placeholder="Enter url" uib-typeahead="address.url as address.url for address in getAutocompletion($viewValue) " typeahead-template-url="autocomplete.html" typeahead-loading="load" typeahead-no-result="noResults">
-  </div>
 
   <div class="form-group">
-    <label for="tooltip">Tooltip</label>
+    <label for="tooltip">Description</label>
     <input id="tooltip" type="text" class="form-control" ng-model="config.tooltip" placeholder="Tooltips">
   </div>
 
+  <div class="form-group">
+    <label for="sample">Datasource</label>
+    <input type="text" class="form-control" ng-model="config.url" ng-blur="cv.load()" placeholder="Enter url" uib-typeahead="address.url as address.url for address in getAutocompletion($viewValue) " typeahead-template-url="autocomplete.html" typeahead-loading="load" typeahead-no-result="noResults">
+  </div>
+
   <div>
-      <input type="checkbox" ng-model="config.pourcent"> <label> Pourcentage ? </label>
+      <input type="checkbox" ng-model="config.pourcent"> <label> Pourcentage </label>
   </div>
 
   <div>
@@ -105,12 +106,12 @@
 
     <div class="form-inline padding-bottom">
       <div >
-        <label class="sr-only"> Description donnée principak</label>
+        <label class="sr-only"> Description donnée principale</label>
         <input type="text" class="form-control" ng-model="config.descPrincipalData" placeholder="Donnée Principale">
       </div>
       <div >
-        <label class="sr-only"> Donnée Principal</label>
-        <input type="text" class="form-control" ng-model="config.rootData" placeholder="Donnée Principale">
+        <label class="sr-only"> Donnée Principale</label>
+        <input type="text" class="form-control" ng-model="config.principalData" placeholder="Donnée Principale">
       </div>
     </div>
 
@@ -135,6 +136,23 @@
     <button type="button" class="btn btn-primary" ng-click="cv.addColumn()">
       <i class="fa fa-plus"></i> Add
     </button>
+</div>
+
+<!-- MODE EXPERT -->
+
+<div>
+  <input type="checkbox" ng-model="expert"> Expert Mode
+</div>
+
+<div ng-show="expert">
+  <div class="form-group">
+    <label class="sr-only" for="database"> Database </label>
+    <input type="text" id="database" class="form-control" placeholder="Database" ng-model="config.database">
+  </div>
+  <div class="form-group">
+    <label class="sr-only" for="query">Query</label>
+    <textarea rows="3" id="query" class="form-control" placeholder="Query" ng-model="config.expert"></textarea>
+  </div>
 </div>
 
 </form>

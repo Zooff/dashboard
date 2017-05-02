@@ -7,8 +7,8 @@ angular.module('adf.widget.paginateTable', ['adf.provider'])
 function TableWidget(dashboardProvider){
   dashboardProvider
     .widget('paginateTable', {
-      title: 'paginateTable',
-      description: 'Displays a table of data from a json url',
+      title: 'Tableau Paginé',
+      description: 'Widget permettant d\'afficher un tableau paginé',
       templateUrl: '{widgetsPath}/paginateTable/src/view/view.html',
       controller: 'paginateTableController',
       controllerAs: 'pt',
@@ -27,8 +27,8 @@ function TableWidget(dashboardProvider){
 }
 TableWidget.$inject = ["dashboardProvider"];
 
-angular.module("adf.widget.paginateTable").run(["$templateCache", function($templateCache) {$templateCache.put("{widgetsPath}/paginateTable/src/edit/edit.html","<script type=text/ng-template id=autocomplete.html><a> <span ng-bind-html=\"match.model.url | uibTypeaheadHighlight:query\"></span> | <small ng-bind-html=\"match.model.desc | uibTypeaheadHighlight:query\"></small> </a></script><form role=form><div class=form-group><label for=sample>URL</label> <input type=text class=form-control ng-model=config.url placeholder=\"Enter url\" uib-typeahead=\"address as address.url for address in getAutocompletion($viewValue)\" typeahead-template-url=autocomplete.html typeahead-loading=load typeahead-no-result=noResults></div><div class=form-group><label for=sample>Root element</label> <input type=text class=form-control ng-model=config.root placeholder=\"Enter name of root element\"></div><div><label>Columns</label></div><div class=\"form-inline padding-bottom\" ng-repeat=\"col in pt.config.columns\"><div class=form-group><label class=sr-only for=title-{{$index}}>Title</label> <input type=text id=title-{{$index}} class=form-control placeholder=Title ng-model=col.title required></div><div class=form-group><label class=sr-only for=path-{{$index}}>Path</label> <input type=text id=path-{{$index}} class=form-control placeholder=Path ng-model=col.path required></div><button type=button class=\"btn btn-warning\" ng-click=pt.removeColumn($index)><i class=\"fa fa-minus\"></i> Remove</button></div><button type=button class=\"btn btn-primary\" ng-click=pt.addColumn()><i class=\"fa fa-plus\"></i> Add</button><div><label>Pagination</label></div><div class=form-group><label class=sr-only for=maxSize>Item par Page</label> <input type=text id=maxSize class=form-control placeholder=\"Item Per Page\" ng-model=config.itemPerPage></div></form>");
-$templateCache.put("{widgetsPath}/paginateTable/src/view/view.html","<div><div ng-hide=pt.data class=\"alert alert-info\" role=alert>Please insert a url to the widget configuration</div><div ng-show=pt.data><table class=table><tr><th ng-repeat=\"head in pt.data.headers\" ng-click=pt.sortIndex($index)>{{head}}</th></tr><tr ng-repeat=\"row in filterData = (pt.data.rows | filter:q )| orderBy:pt.sorter:pt.reverseSort| startFrom: (pt.data.currentPage-1)*pt.data.itemPerPage | limitTo:pt.data.itemPerPage track by $index\"><td ng-repeat=\"col in row\">{{col}}</td></tr></table><div class=\"text-center col-md-3\"><input type=search ng-model=q placeholder=Filter class=form-control></div><div class=text-center><ul uib-pagination total-items=filterData.length ng-model=pt.data.currentPage max-size=pt.data.maxSize class=pagination-sm boundary-links=true items-per-page=pt.data.itemPerPage num-pages=numPages></ul></div></div></div>");}]);
+angular.module("adf.widget.paginateTable").run(["$templateCache", function($templateCache) {$templateCache.put("{widgetsPath}/paginateTable/src/edit/edit.html","<script type=text/ng-template id=autocomplete.html><a> <span ng-bind-html=\"match.model.url | uibTypeaheadHighlight:query\"></span> | <small ng-bind-html=\"match.model.desc | uibTypeaheadHighlight:query\"></small> </a></script><form role=form><div class=form-group><label for=sample>Datasource</label> <input type=text class=form-control ng-model=config.url placeholder=\"Enter url\" uib-typeahead=\"address.url as address.url for address in getAutocompletion($viewValue)\" typeahead-template-url=autocomplete.html typeahead-loading=load typeahead-no-result=noResults></div><div><label>Columns</label></div><div class=\"form-inline padding-bottom\" ng-repeat=\"col in pt.config.columns\"><div class=form-group><label class=sr-only for=title-{{$index}}>Title</label> <input type=text id=title-{{$index}} class=form-control placeholder=Title ng-model=col.title required></div><div class=form-group><label class=sr-only for=path-{{$index}}>Path</label> <input type=text id=path-{{$index}} class=form-control placeholder=Path ng-model=col.path required></div><button type=button class=\"btn btn-warning\" ng-click=pt.removeColumn($index)><i class=\"fa fa-minus\"></i> Remove</button></div><button type=button class=\"btn btn-primary\" ng-click=pt.addColumn()><i class=\"fa fa-plus\"></i> Add</button><div><label>Pagination</label></div><div class=form-group><label class=sr-only for=maxSize>Item par Page</label> <input type=text id=maxSize class=form-control placeholder=\"Item Per Page\" ng-model=config.itemPerPage></div><div ng-show=isCollapsed><div><label for=sample>Modal URL</label> <input type=text class=form-control ng-model=config.modalUrl placeholder=\"Modal Url\" uib-typeahead=\"address.url as address.url for address in getAutocompletion($viewValue)\" typeahead-template-url=autocomplete.html typeahead-loading=load typeahead-no-result=noResults></div><div><label>Column</label></div><div class=\"form-inline padding-bottom\" ng-repeat=\"col in cv.config.columns\"><div class=form-group><label class=sr-only for=title-{{$index}}>Title</label> <input type=text id=title-{{$index}} class=form-control placeholder=Title ng-model=col.title required></div><div class=form-group><label class=sr-only for=path-{{$index}}>Path</label> <input type=text id=path-{{$index}} class=form-control placeholder=Path ng-model=col.path required></div><button type=button class=\"btn btn-warning\" ng-click=cv.removeColumn($index)><i class=\"fa fa-minus\"></i> Remove</button></div><button type=button class=\"btn btn-primary\" ng-click=cv.addColumn()><i class=\"fa fa-plus\"></i> Add</button></div><div><input type=checkbox ng-model=expert> Expert Mode</div><div ng-show=expert><div class=form-group><label class=sr-only for=database>Database</label> <input type=text id=database class=form-control placeholder=Database ng-model=config.database></div><div class=form-group><label class=sr-only for=query>Query</label> <textarea rows=3 id=query class=form-control placeholder=Query ng-model=config.expert></textarea></div></div></form>");
+$templateCache.put("{widgetsPath}/paginateTable/src/view/view.html","<div><div ng-hide=pt.data class=\"alert alert-info\" role=alert>Please insert a url to the widget configuration</div><div ng-show=pt.data><div class=text-center><input type=search ng-model=q placeholder=Filter class=form-control></div><table class=table><tr><th ng-repeat=\"head in pt.data.headers\" ng-click=pt.sortIndex($index)>{{head}}</th></tr><tr ng-repeat=\"row in filterData = (pt.data.rows | filter:q )| orderBy:pt.sorter:pt.reverseSort| startFrom: (pt.data.currentPage-1)*pt.data.itemPerPage | limitTo:pt.data.itemPerPage track by $index\" ng-click=pt.open(row)><td ng-repeat=\"col in row track by $index\">{{col}}</td></tr></table><div class=text-center><ul uib-pagination total-items=filterData.length ng-model=pt.data.currentPage max-size=pt.data.maxSize class=pagination-sm boundary-links=true items-per-page=pt.data.itemPerPage num-pages=numPages></ul></div></div></div>");}]);
 
 
 angular.module('adf.widget.paginateTable')
@@ -43,7 +43,6 @@ function paginateTableController(data, $filter, $scope){
     this.data.currentPage = 1;
     this.data.maxSize = 5;
     this.orderField = 0;
-    console.log(this.orderField);
     this.reverseSort = false;
 
     // Change the orderBy header
@@ -55,15 +54,23 @@ function paginateTableController(data, $filter, $scope){
     this.sorter = function(item){
       return item[pt.orderField];
     }
+
+
+    pt.open = function(){
+      if (!cv.data.config.modalUrl)
+        return;
+      var modalInstance = $uibModal.open({
+        templateUrl : '{widgetsPath}/paginateTable/src/view/modal.html',
+        controller : 'modalInstanceCtrl',
+        controllerAs : 'cm',
+        resolve: {
+          data: function(modalService){
+            return modalService.get(pt.configModal);
+          }
+        }
+      });
+    }
   }
-
-
-
-
-
-
-
-  console.log(data)
 }
 paginateTableController.$inject = ["data", "$filter", "$scope"];
 
@@ -133,6 +140,13 @@ function paginateTableService($q, $http, $parse){
       itemPerPage : config.itemPerPage
     };
 
+    if (!config.columns){
+        config.columns = [];
+        for (var key in data[0]){
+          config.columns.push({title : key, path : key});
+        }
+    }
+
     var root = data;
     if (config.root){
       root = $parse(config.root)(data);
@@ -166,10 +180,23 @@ function paginateTableService($q, $http, $parse){
 
   function get(config){
     var result = null;
-    if (config.url){
+    if (config.expert){
+      result = post(config);
+    }
+    else if (config.url){
       result = fetch(config);
     }
-    return result;
+    return result
+  }
+
+  function post(config){
+    return $http.post(expertUrl, config)
+      .then(function(response){
+        return response.data
+      })
+      .then(function(data){
+        return createData(data, config);
+      });
   }
 
   return {

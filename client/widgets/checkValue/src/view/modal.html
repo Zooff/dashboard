@@ -11,7 +11,7 @@
           </th>
         </tr>
         <tr ng-repeat="row in cm.data.rows| orderBy:cm.sorter:cm.reverseSort track by $index">
-          <td ng-repeat="col in row">
+          <td ng-repeat="col in row track by $index">
             {{col}}
           </td>
         </tr>

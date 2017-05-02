@@ -28,7 +28,7 @@ angular.module('dashboardInfra.service')
   };
 
   authService.isAuthorized = function(accessLevel){
-    return Session.userRole == accessLevel;
+    return Session.userRole == accessLevel || Session.userRole == 'admin';
   }
 
   authService.logout = function(){

@@ -8,6 +8,7 @@ function  modalService($q, $http, $parse){
   function createColumns(config, model){
     var columns = [];
 
+
     angular.forEach(config.columns, function(col, i){
       if (col.title && col.path) {
         model.headers[i] = col.title;
@@ -22,11 +23,17 @@ function  modalService($q, $http, $parse){
   }
 
   function createDataModel(config, data){
-    console.log(config)
     var model = {
       headers: [],
       rows: [],
     };
+
+    if (!config.columns){
+        config.columns = [];
+        for (var key in data[0]){
+          config.columns.push({title : key, path : key});
+        }
+    }
 
     var root = data;
     if (config.rootData){
@@ -46,7 +53,6 @@ function  modalService($q, $http, $parse){
     });
     model.totalItems = model.rows.length;
     model.columns = config.columns;
-    console.log(model)
     return model;
   }
 

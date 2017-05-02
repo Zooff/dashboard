@@ -24,6 +24,7 @@ angular.module('dashboardInfra.controller')
     var id = '_'+ str + new Date().getTime();
     var q = storeService.set(id, {
       "title": "New Sample",
+      "titleTemplateUrl" : "templates/custom-dashboard-title.html",
       "structure": "4-8",
       "rows": [{
         "columns": [{

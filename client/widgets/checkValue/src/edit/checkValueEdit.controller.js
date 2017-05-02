@@ -31,5 +31,8 @@ function checkValueEditController($scope, $http, config, checkValueService){
   this.removeColumn = function(index){
     getColumns().splice(index, 1);
   };
+  this.load = function(){
+    checkValueService.get(config.url);
+  }
 
 }

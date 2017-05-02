@@ -7,7 +7,7 @@ function checkValueWidget(dashboardProvider){
   dashboardProvider
     .widget('checkValue', {
       title: 'checkValue',
-      description: 'Graphs with an expert mode to personalize the query',
+      description: 'Widgets permettant la création de Check',
       templateUrl: '{widgetsPath}/checkValue/src/view/view.html',
       controller: 'checkValueController',
       controllerAs: 'cv',
