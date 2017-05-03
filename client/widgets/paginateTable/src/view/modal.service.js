@@ -1,14 +1,15 @@
 'use strict';
 
 angular.module('adf.widget.paginateTable')
-  .service('paginateTableService', paginateTableService);
+  .service('modalService', modalService);
 
-function paginateTableService($q, $http, $parse){
+function  modalService($q, $http, $parse){
 
   function createColumns(config, model){
     var columns = [];
 
-    angular.forEach(config.columns, function(col, i){
+
+    angular.forEach(config.modalColumns, function(col, i){
       if (col.title && col.path) {
         model.headers[i] = col.title;
         columns.push({
@@ -25,19 +26,18 @@ function paginateTableService($q, $http, $parse){
     var model = {
       headers: [],
       rows: [],
-      itemPerPage : config.itemPerPage
     };
 
-    if (!config.columns){
-        config.columns = [];
+    if (!config.modalColumns){
+        config.modalColumns = [];
         for (var key in data[0]){
-          config.columns.push({title : key, path : key});
+          config.modalColumns.push({title : key, path : key});
         }
     }
 
     var root = data;
-    if (config.root){
-      root = $parse(config.root)(data);
+    if (config.rootData){
+      root = $parse(config.rootData)(data);
     }
 
     var columns = createColumns(config, model);
@@ -53,12 +53,13 @@ function paginateTableService($q, $http, $parse){
     });
     model.totalItems = model.rows.length;
     model.columns = config.columns;
-    model.config = config;
     return model;
   }
 
   function fetch(config){
-    return $http.get(config.url)
+
+    var url = config.modalUrl.replace(/:\w*/, config.urlReplace);
+    return $http.get(url)
       .then(function(response){
         return response.data;
       })
@@ -69,26 +70,12 @@ function paginateTableService($q, $http, $parse){
 
   function get(config){
     var result = null;
-    if (config.expert){
-      result = post(config);
-    }
-    else if (config.url){
+    if (config.modalUrl){
       result = fetch(config);
     }
     return result
   }
 
-  function post(config){
-    return $http.post(expertUrl, config)
-      .then(function(response){
-        return response.data
-      })
-      .then(function(data){
-        return createData(data, config);
-      });
-  }
+  return {get : get};
 
-  return {
-    get: get
-  };
 }

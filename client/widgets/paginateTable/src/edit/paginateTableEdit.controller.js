@@ -17,18 +17,22 @@ function paginateTableEditController($scope, $http,config){
     });
   }
 
-  function getColumns(){
-    if (!config.columns){
+  function getColumns(modal){
+    if (!modal && !config.columns){
       config.columns = [];
     }
-    return config.columns;
+    if (modal && !config.modalColumns){
+      config.modalColumns = [];
+    }
+
+    return modal ? config.modalColumns : config.columns;
   }
 
-  this.addColumn = function(){
-    getColumns().push({});
+  this.addColumn = function(modal){
+    getColumns(modal).push({});
   };
 
-  this.removeColumn = function(index){
-    getColumns().splice(index, 1);
+  this.removeColumn = function(modal,index){
+    getColumns(modal).splice(index, 1);
   };
 }

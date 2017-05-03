@@ -3,7 +3,7 @@
 angular.module('adf.widget.paginateTable')
   .controller('paginateTableController', paginateTableController);
 
-function paginateTableController(data, $filter, $scope){
+function paginateTableController(data, $uibModal, $filter, $scope){
 
   var pt = this;
 
@@ -25,17 +25,18 @@ function paginateTableController(data, $filter, $scope){
     }
 
 
-    pt.open = function(){
-      if (!cv.data.config.modalUrl)
+    pt.open = function(row){
+      if (!pt.data.config.modalUrl)
         return;
+      pt.data.config.urlReplace = row[pt.data.config.modalField];
       var modalInstance = $uibModal.open({
         templateUrl : '{widgetsPath}/paginateTable/src/view/modal.html',
         controller : 'modalInstanceCtrl',
         controllerAs : 'cm',
         resolve: {
           data: function(modalService){
-            return modalService.get(pt.configModal);
-          }
+            return modalService.get(pt.data.config);
+          },
         }
       });
     }
