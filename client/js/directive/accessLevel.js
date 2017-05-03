@@ -12,7 +12,7 @@ angular.module('dashboardInfra')
 
       $scope.user = Session.user;
       $scope.$watch('user', function(user){
-        if (user.userRole){
+        if (user){
           userRole = user.userRole;
         }
         updateCSS();

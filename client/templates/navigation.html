@@ -24,7 +24,7 @@
             <li ng-class="nav.navClass('boards/' + item.id)" ng-repeat="item in nav.items | orderBy: title" ng-if="item.id.indexOf('_wds') == 0">
               <a ng-href="#/boards/{{item.id}}">{{item.title}}</a>
             </li>
-            <li access-level="windows">
+            <li ng-if="auth.user" access-level="windows">
               <a style="cursor: pointer;" ng-click="nav.create('wds')">Create</a>
             </li>
           </ul>
@@ -37,7 +37,7 @@
             <li ng-class="nav.navClass('boards/' + item.id)" ng-repeat="item in nav.items | orderBy: title" ng-if="item.id.indexOf('_unix') == 0">
               <a ng-href="#/boards/{{item.id}}">{{item.title}}</a>
             </li>
-            <li access-level="unix">
+            <li ng-if="auth.user" access-level="unix">
               <a style="cursor: pointer;" ng-click="nav.create('unix')">Create</a>
             </li>
           </ul>
