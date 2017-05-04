@@ -35,7 +35,7 @@ $templateCache.put("{widgetsPath}/paginateTable/src/view/view.html","<div><div n
 angular.module('adf.widget.paginateTable')
   .controller('paginateTableController', paginateTableController);
 
-function paginateTableController(data, $uibModal, $filter, $scope){
+function paginateTableController(data, $uibModal){
 
   var pt = this;
 
@@ -66,15 +66,15 @@ function paginateTableController(data, $uibModal, $filter, $scope){
         controller : 'modalInstanceCtrl',
         controllerAs : 'cm',
         resolve: {
-          data: function(modalService){
+          data: ['modalService',function(modalService){
             return modalService.get(pt.data.config);
-          },
+          }],
         }
       });
     }
   }
 }
-paginateTableController.$inject = ["data", "$uibModal", "$filter", "$scope"];
+paginateTableController.$inject = ["data", "$uibModal"];
 
 
 
