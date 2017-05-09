@@ -25,13 +25,15 @@ function checkStandardEditController($scope, $http, config, checkStandardService
   }
 
   this.getColumns = function(val){
-    return $http.get('/api/standard/column', {
+    return $http.get('/api/standard/columns', {
       params: {
         val : val
       }
     })
     .then(function(response){
       return response.data;
+    }).then(function(data){
+      config.colDatabase = data;
     });
   }
 
@@ -40,10 +42,10 @@ function checkStandardEditController($scope, $http, config, checkStandardService
     if (!standard && !config.columns){
       config.columns = [];
     }
-    if (standard && !config.datasources){
-      config.datasources = [];
+    if (standard && !config.test){
+      config.test = [];
     }
-    return standard ? config.datasources : config.columns;
+    return standard ? config.test : config.columns;
   }
 
   this.addColumn = function(standard){
@@ -53,9 +55,4 @@ function checkStandardEditController($scope, $http, config, checkStandardService
   this.removeColumn = function(standard, index){
     getColumns(standard).splice(index, 1);
   };
-
-  this.load = function(){
-    checkStandardService.get(config.url);
-  }
-
 }

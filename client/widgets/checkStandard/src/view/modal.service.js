@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('adf.widget.checkStandard')
-  .service('modalService', modalService);
+  .service('modalServiceCS', modalService);
 
 function  modalService($q, $http, $parse){
 
@@ -23,11 +23,12 @@ function  modalService($q, $http, $parse){
   }
 
   function createDataModel(config, data){
+    console.log('MODAL')
     var model = {
       headers: [],
       rows: [],
     };
-
+    console.log(data)
     if (!config.columns){
         config.columns = [];
         for (var key in data[0]){
@@ -56,24 +57,25 @@ function  modalService($q, $http, $parse){
     return model;
   }
 
-  function fetch(config){
-    return $http.get(config.modalUrl)
-      .then(function(response){
-        return response.data;
-      })
-      .then(function(data){
-        return createDataModel(config, data);
-      });
-  }
+  // function fetch(config){
+  //   return $http.get(config.modalUrl)
+  //     .then(function(response){
+  //       return response.data;
+  //     })
+  //     .then(function(data){
+  //       return createDataModel(config, data);
+  //     });
+  // }
+  //
+  // function get(config){
+  //   console.log(config)
+  //   var result = null;
+  //   if (config){
+  //     result = createDataModel(config.config, config.data);
+  //   }
+  //   return result;
+  // }
 
-  function get(config){
-    var result = null;
-    if (config.modalUrl){
-      result = fetch(config);
-    }
-    return result
-  }
-
-  return {get : get};
+  return {createDataModel : createDataModel};
 
 }

@@ -5,39 +5,18 @@ angular.module('adf.widget.checkStandard')
 
 function checkStandardService($q, $http, $parse){
 
+  var apiEndPoint ='/api/standard';
+
   function createData(jsonData, config){
-
-
-    if (config.principalData){
-      var principalData = $parse(config.principalData)(jsonData);
-    }
-
-    //
-    var data = $parse(config.root)(jsonData);
-    var ok = false;
-
-    switch(config.op){
-      case "eq":
-        ok = (data == config.test);
-        break;
-      case "dif":
-        ok = (data != config.test);
-        break;
-      case "sup":
-        ok = (data > config.test);
-        break;
-      case "inf":
-        ok = (data < config.test);
-        break;
-      default:
-        ok = false;
-    }
-
-    return {config: config, data: data, ok: ok, principalData : principalData};
+    return {config: config, data : jsonData};
   }
 
   function fetch(config){
-    return $http.get(config.url)
+    var data = {
+      database : config.database,
+      test : config.test
+    };
+    return $http.post(apiEndPoint, data)
       .then(function(response){
         return response.data;
       })
@@ -51,7 +30,7 @@ function checkStandardService($q, $http, $parse){
     if (config.expert){
       result = post(config);
     }
-    else if (config.url){
+    else if (config.database){
       result = fetch(config);
     }
     return result
