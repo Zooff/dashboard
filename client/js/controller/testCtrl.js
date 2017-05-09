@@ -6,20 +6,18 @@ angular.module('dashboardInfra.controller')
   $scope.beerUser = [];
   $scope.beerValue = [];
 
-  this.data = ['aaa', 'bbb', 'ccc', 'acb', 'bca'];
 
-  getData = function(data){
-    var d = [];
+  this.slides = [
+    {value : 120, desc : 'value 0'},
+    {value : 20, desc : 'value 1'},
+    {value : 140, desc : 'value 2'},
+    {value : 150, desc : 'value 3'},
+    {value : 10, desc : 'une description super longue afin de tout casser et me faire plus galérer'},
+    {value : 12, desc : 'value 5'},
+  ];
+  this.interval = 5000;
+  this.nowrap = false;
 
-    data.forEach(function(el){
-      if (el.indexOf('a') != 0){
-        d.push(el);
-      }
-    });
-    return d;
-  }
-
-  this.filterData = getData(this.data);
 
   $scope.addBeer = function(data,id){
   data[id].beer++;

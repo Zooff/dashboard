@@ -1,33 +1,17 @@
 <h1> Accueil Dashboard Infra </h1>
 
 <p> Page de Test </p>
-<!--
-<div class="row">
-  <div class="col-md-8">
-    <p ng-repeat="b in beerU"> {{b.user}} {{b.beer}} <i class="fa fa-beer fa-lg" aria-hidden="true" ></i>
-      <i class="fa fa-plus-circle" aria-hidden="true" ng-click="addBeer(beerU, $index)"></i>
-      <i class="fa fa-minus-circle" aria-hidden="true" ng-click="removeBeer(beerU, $index)"></i>
-    </p>
-
-    <form role="form">
-      <div>
-        <label> Add a Drunk Guy </label>
+{{test.interval}}
+<div style="height : 350px">
+  <div uib-carousel active="active" interval ="test.interval" no-wrap="test.nowrap">
+    <div uib-slide ng-repeat="slide in test.slides track by $index" index="$index">
+      <div style="height : 305px">
+        <h1 style="font-size: 150px"> {{slide.value}} </h1>
+        <small style="font-size: 75px"> {{slide.desc}} </small>
       </div>
-
-      <div class="form-inline padding-bottom">
-        <input type="text" id="name" class="form-control" placeholder="Name" ng-model="user.name">
-        <button type="button" class="btn btn-primary" ng-click="addUser(user.name)">
-          <i class="fa fa-plus"></i> Add
-        </button>
-      </div>
-    </form>
-
+    </div>
   </div>
-  <div class="col-md-4">
-    <canvas id="beerDoughnut" class="chart chart-doughnut" chart-data="beerValue" chart-labels="beerUser"></canvas>
-  </div>
-</div> -->
-
+</div>
 <p> {{auth.user.displayName}} </p>
 
 <p access-Level="admin"> OK </p>
