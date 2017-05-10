@@ -157,6 +157,8 @@ function checkStandardController($uibModal, data){
         templateUrl : '{widgetsPath}/checkStandard/src/view/modal.html',
         controller : 'modalInstanceCtrl',
         controllerAs : 'cm',
+        size : 'lg',
+        windowClass: 'my-modal',
         resolve: {
           data: ['modalServiceCS', function(modalService){
             return modalService.createDataModel(cs.data.config, cs.data.data);
