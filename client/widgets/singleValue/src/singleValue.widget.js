@@ -6,8 +6,8 @@ angular.module('adf.widget.singleValue', ['adf.provider'])
 function TableWidget(dashboardProvider){
   dashboardProvider
     .widget('singleValue', {
-      title: 'singleValue',
-      description: 'Displays a table of data from a json url',
+      title: 'Affichage Simple',
+      description: 'Affiche une donnée',
       templateUrl: '{widgetsPath}/singleValue/src/view/view.html',
       controller: 'singleValueController',
       controllerAs: 'sv',

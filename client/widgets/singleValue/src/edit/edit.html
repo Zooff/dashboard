@@ -10,10 +10,11 @@
 
 <form role="form">
   <div class="form-group">
-    <label for="sample">URL</label>
-    <input type="text" class="form-control" ng-model="config.url" placeholder="Enter url" uib-typeahead="address as address.url for address in getAutocompletion($viewValue)" typeahead-template-url="autocomplete.html" typeahead-loading="load" typeahead-no-result="noResults">
+    <label for="sample">Datasource</label>
+    <input type="text" class="form-control" ng-model="config.url" placeholder="Enter url" uib-typeahead="address.url as address.url for address in getAutocompletion($viewValue)" typeahead-template-url="autocomplete.html" typeahead-loading="load" typeahead-no-result="noResults">
   </div>
 
+  <input type="checkbox" ng-model="config.listener"> <label> Slave </label>
 
   <div>
     <label> Principal Data </label>
@@ -26,30 +27,33 @@
     </div>
     <div class="form-group">
       <label class="sr-only" for="sample">Principal Data</label>
-      <input type="text" class="form-control" ng-model="config.root" placeholder="Enter name of principal data">
+      <select ng-model="config.root" class="form-control">
+        <option ng-repeat="el in config.list" value="{{el}}"> {{el}} </option>
+      </select>
     </div>
   </div>
 
-  <div>
-    <label>Additional Data</label>
-  </div>
+  <div ng-if=!config.listener>
+    <div>
+      <label>Additional Data</label>
+    </div>
 
-  <div class="form-inline padding-bottom" ng-repeat="col in sv.config.columns">
-    <div class="form-group">
-      <label class="sr-only" for="title-{{$index}}"> Title </label>
-      <input type="text" id="title-{{$index}}" class="form-control" placeholder="Title" ng-model="col.title" required="">
+    <div class="form-inline padding-bottom" ng-repeat="col in sv.config.columns">
+      <div class="form-group">
+        <label class="sr-only" for="title-{{$index}}"> Title </label>
+        <input type="text" id="title-{{$index}}" class="form-control" placeholder="Title" ng-model="col.title" required="">
+      </div>
+      <div class="form-group">
+        <label class="sr-only" for="path-{{$index}}">Path</label>
+        <input type="text" id="path-{{$index}}" class="form-control" placeholder="Path" ng-model="col.path" required="">
+      </div>
+      <button type="button" class="btn btn-warning" ng-click="sv.removeColumn($index)">
+        <i class="fa fa-minus"></i> Remove
+      </button>
     </div>
-    <div class="form-group">
-      <label class="sr-only" for="path-{{$index}}">Path</label>
-      <input type="text" id="path-{{$index}}" class="form-control" placeholder="Path" ng-model="col.path" required="">
-    </div>
-    <button type="button" class="btn btn-warning" ng-click="sv.removeColumn($index)">
-      <i class="fa fa-minus"></i> Remove
+
+    <button type="button" class="btn btn-primary" ng-click="sv.addColumn()">
+      <i class="fa fa-plus"></i> Add
     </button>
   </div>
-
-  <button type="button" class="btn btn-primary" ng-click="sv.addColumn()">
-    <i class="fa fa-plus"></i> Add
-  </button>
-
 </form>

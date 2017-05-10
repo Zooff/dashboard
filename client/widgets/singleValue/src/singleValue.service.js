@@ -22,10 +22,14 @@ function singleValueService($q, $http, $parse){
 
   function createDataModel(config, data){
     var model = {
+      config: config,
       principalData: {},
       additionalData: []
     };
-
+    config.list = [];
+    for (var key in data){
+      config.list.push(key);
+    }
     var root = data;
     if (config.root){
       var principalData = $parse(config.root)(data);
@@ -38,12 +42,12 @@ function singleValueService($q, $http, $parse){
       var value = col.path(data);
       model.additionalData.push({title: col.title, data: value});
     });
-
     return model;
   }
 
   function fetch(config){
-    return $http.get(config.url)
+    var url = config.url.replace(/:\w*/, config.urlReplace);
+    return $http.get(url)
       .then(function(response){
         return response.data;
       })
