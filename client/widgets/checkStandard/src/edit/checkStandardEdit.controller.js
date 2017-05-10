@@ -3,7 +3,7 @@
 angular.module('adf.widget.checkStandard')
   .controller('checkStandardEditController', checkStandardEditController);
 
-function checkStandardEditController($scope, $http, config, checkStandardService){
+function checkStandardEditController($rootScope, $http, config, checkStandardService){
   this.config = config;
 
   this.getAutocompletion = function(val){
@@ -35,6 +35,10 @@ function checkStandardEditController($scope, $http, config, checkStandardService
     }).then(function(data){
       config.colDatabase = data;
     });
+  }
+
+  this.broadcast = function(){
+    $rootScope.$broadcast('DatTest', 'OK')
   }
 
   // load the array of columns
