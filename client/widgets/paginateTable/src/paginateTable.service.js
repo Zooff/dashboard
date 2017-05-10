@@ -10,9 +10,10 @@ function paginateTableService($q, $http, $parse){
 
     angular.forEach(config.columns, function(col, i){
       if (col.title && col.path) {
-        model.headers[i] = col.title;
+        var title = col.title.replace(/_/, ' ');
+        model.headers[i] = title;
         columns.push({
-          title: col.title,
+          title: title,
           path: $parse(col.path)
         });
       }
