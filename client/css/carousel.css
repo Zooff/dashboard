@@ -11,3 +11,7 @@
 .carousel:hover .carousel-control:hover{
   visibility: visible;
 }
+
+.my-modal > .modal-lg {
+  width: 75%;
+}
