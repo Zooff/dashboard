@@ -1,4 +1,4 @@
-<html lang="fr"ng-app="dashboardInfra">
+<html lang="fr"ng-app="dashboardInfra" ng-controller="mainCtrl as main">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,8 +11,8 @@
     <!-- build:css css/sample.min.css -->
     <!-- Bootstrap core CSS -->
     <link href="components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- <link href="css/app.css" rel="stylesheet"> -->
-      <link href="css/carousel.css" rel="stylesheet">
+    <link ng-if="main.black" href="css/app.css" rel="stylesheet">
+    <link href="css/carousel.css" rel="stylesheet">
     <!-- dashboard style -->
     <link href="/components/angular-dashboard-framework/dist/angular-dashboard-framework.css" rel="stylesheet">
     <link href="/components/adf-widget-clock/dist/adf-widget-clock.min.css" rel="stylesheet">
@@ -53,7 +53,7 @@
       <ng-view />
 
     </div>
-    <p class="text-center"> Version Beta 0.1.2 </p>
+    <p class="text-center"> Version Beta 0.1.5 </p>
 
     <!-- components -->
     <script type="text/javascript" src="/components/Sortable/Sortable.min.js"></script>
@@ -72,6 +72,7 @@
 
 
     <script type="text/javascript" src="js/controller/controller.js"></script>
+    <script type="text/javascript" src="js/controller/main.controller.js"></script>
     <script type="text/javascript" src="js/controller/authentication.controller.js"></script>
     <script type="text/javascript" src="js/controller/testCtrl.js"></script>
     <script type="text/javascript" src="js/controller/navigationCtrl.js"></script>
@@ -86,7 +87,7 @@
     <script type="text/javascript" src="js/interceptor/authInterceptor.js"></script>
 
     <script type="text/javascript" src="js/directive/accessLevel.js"></script>
-
+    <script type="text/javascript" src="js/directive/querybuilder.js"></script>
 
 
 
