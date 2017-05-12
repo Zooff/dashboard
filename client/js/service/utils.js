@@ -11,7 +11,7 @@ angular.module('dashboardInfra.service')
         return "unix";
       if (id.indexOf('_dba') > -1)
         return "dba";
-      return "";
+      return "perso";
     }
   }
 })
