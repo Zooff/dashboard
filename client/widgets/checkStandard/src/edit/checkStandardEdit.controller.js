@@ -3,11 +3,14 @@
 angular.module('adf.widget.checkStandard')
   .controller('checkStandardEditController', checkStandardEditController);
 
-function checkStandardEditController($rootScope, $http, config, checkStandardService){
+function checkStandardEditController($rootScope, $scope,$http, config, checkStandardService){
+  var cs = this;
   this.config = config;
+  if (!config.condition)
+    config.condition = {'group' : {'operator' : 'AND', 'rules' : []}};
 
   this.getAutocompletion = function(val){
-    return $http.get('/api/autocomplete', {
+    return $http.get('/autocomplete', {
       params: {
         val : val
       }
@@ -18,14 +21,14 @@ function checkStandardEditController($rootScope, $http, config, checkStandardSer
   }
 
   this.getDatabase = function(){
-    return $http.get('/api/standard')
+    return $http.get('/standard')
       .then(function(response){
         return response.data;
       });
   }
 
   this.getColumns = function(val){
-    return $http.get('/api/standard/columns', {
+    return $http.get('/standard/columns', {
       params: {
         val : val
       }

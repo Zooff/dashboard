@@ -23,12 +23,10 @@ function  modalService($q, $http, $parse){
   }
 
   function createDataModel(config, data){
-    console.log('MODAL')
     var model = {
       headers: [],
       rows: [],
     };
-    console.log(data)
     if (!config.columns){
         config.columns = [];
         for (var key in data[0]){

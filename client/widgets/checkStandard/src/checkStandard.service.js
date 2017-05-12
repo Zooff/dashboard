@@ -5,7 +5,7 @@ angular.module('adf.widget.checkStandard')
 
 function checkStandardService($q, $http, $parse){
 
-  var apiEndPoint ='/api/standard';
+  var apiEndPoint ='/standard';
 
   function createData(jsonData, config){
     return {config: config, data : jsonData};
@@ -14,7 +14,7 @@ function checkStandardService($q, $http, $parse){
   function fetch(config){
     var data = {
       database : config.database,
-      test : config.test
+      test : config.condition
     };
     return $http.post(apiEndPoint, data)
       .then(function(response){

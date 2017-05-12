@@ -18,8 +18,10 @@ function checkStandardController($uibModal, data){
     this.open = function(){
       var modalInstance = $uibModal.open({
         templateUrl : '{widgetsPath}/checkStandard/src/view/modal.html',
-        controller : 'modalInstanceCtrl',
+        controller : 'modalInstanceCtrlCS',
         controllerAs : 'cm',
+        size : 'lg',
+        windowClass: 'my-modal',
         resolve: {
           data: ['modalServiceCS', function(modalService){
             return modalService.createDataModel(cs.data.config, cs.data.data);

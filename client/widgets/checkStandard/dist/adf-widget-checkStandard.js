@@ -27,9 +27,8 @@ function checkStandardWidget(dashboardProvider){
 }
 checkStandardWidget.$inject = ["dashboardProvider"];
 
-angular.module("adf.widget.checkStandard").run(["$templateCache", function($templateCache) {$templateCache.put("{widgetsPath}/checkStandard/src/edit/edit.html","<script type=text/ng-template id=autocomplete.html><a> <span ng-bind-html=\"match.model.url | uibTypeaheadHighlight:query\"></span> | <small ng-bind-html=\"match.model.desc | uibTypeaheadHighlight:query\"></small> </a></script><div class=form-group><label for=tooltip>Description</label> <input id=tooltip type=text class=form-control ng-model=config.tooltip placeholder=Tooltips></div><form role=form><div class=form-group><label for=sample>Datasources</label> <input id=sample type=text class=form-control ng-model=config.database placeholder=\"Type du Check\" uib-typeahead=\"database for database in cs.getDatabase($viewValue)\" typeahead-min-length=0 ng-blur=cs.getColumns(config.database)></div><div class=form-group><label for=standardTest>Test</label></div><div class=\"form-inline padding-bottom\" ng-repeat=\"t in cs.config.test\"><div class=form-group><label class=sr-only for=column-{{$index}}>Column</label><select class=form-control ng-model=t.column id=column-{{$index}}><option ng-repeat=\"column in config.colDatabase\" value={{column.Field}}>{{column.Field}}</option></select></div><div class=form-group><label class=sr-only for=test-{{$index}}>Test</label><select ng-model=t.test class=form-control id=test-{{$index}}><option value=\"=\">Egal</option><option value=\"<>\">Different</option><option value=\">\">Superieur</option><option value=\"<\">Inferieur</option></select></div><div class=form-group><label class=sr-only for=value-{{$index}}>Value</label> <input type=text class=form-control id=value-{{$index}} placeholder=Value ng-model=t.value></div><button type=button class=\"btn btn-warning\" ng-click=\"cs.removeColumn(true, $index)\"><i class=\"fa fa-minus\"></i> Remove</button></div><button type=button class=\"btn btn-primary\" ng-click=cs.addColumn(true)><i class=\"fa fa-plus\"></i> Add</button> <input type=checkbox ng-model=config.positif> <label>Positif</label><div class=form-group><label ng-click=\"isCollapsed = !isCollapsed\">Paramètre Modal <span ng-hide=isCollapsed class=\"glyphicon glyphicon-triangle-bottom\" aria-hidden=true></span> <span ng-show=isCollapsed class=\"glyphicon glyphicon-triangle-top\" aria-hidden=true></span></label></div><div ng-show=isCollapsed><div><label>Column</label></div><div class=\"form-inline padding-bottom\" ng-repeat=\"col in cs.config.columns\"><div class=form-group><label class=sr-only for=title-{{$index}}>Title</label> <input type=text id=title-{{$index}} class=form-control placeholder=Title ng-model=col.title required></div><div class=form-group><label class=sr-only for=path-{{$index}}>Path</label> <input type=text id=path-{{$index}} class=form-control placeholder=Path ng-model=col.path required></div><button type=button class=\"btn btn-warning\" ng-click=\"cs.removeColumn(false, $index)\"><i class=\"fa fa-minus\"></i> Remove</button></div><button type=button class=\"btn btn-primary\" ng-click=cs.addColumn(false)><i class=\"fa fa-plus\"></i> Add</button></div><button type=button ng-click=cs.broadcast()>ROOOT</button><div><input type=checkbox ng-model=expert> Expert Mode</div><div ng-show=expert><div class=form-group><label class=sr-only for=database>Database</label> <input type=text id=database class=form-control placeholder=Database ng-model=config.database></div><div class=form-group><label class=sr-only for=query>Query</label> <textarea rows=3 id=query class=form-control placeholder=Query ng-model=config.expert></textarea></div></div></form>");
-$templateCache.put("{widgetsPath}/checkStandard/src/edit/standard.html","<div class=form-group><label for=sample>Liste des Datasources</label><div class=\"form-inline padding-bottom\" ng-repeat=\"url in cv.config.datasources\"><div class=form-group><label class=sr-only for=datasource-{{$index}}>Datasource</label> <input type=text id=datasource-{{$index}} class=form-control ng-model=url.name placeholder=Datasource uib-typeahead=\"address.url as address.url for address in getAutocompletion($viewValue)\" typeahead-template-url=autocomplete.html typeahead-loading=load typeahead-no-result=noResults></div><button type=button class=\"btn btn-warning\" ng-click=cv.removeColumn(true,$index)><i class=\"fa fa-minus\"></i> Remove</button></div></div><button type=button class=\"btn btn-primary\" ng-click=cv.addColumn(true)><i class=\"fa fa-plus\"></i> Add</button><div class=form-group><label for=standardTest>Test</label><select class=form-control><option></option></select></div>");
-$templateCache.put("{widgetsPath}/checkStandard/src/view/modal.html","<div class=modal-header><h3 class=modal-title id=modal-title>Title</h3></div><div class=modal-body id=modal-body><table class=table><tr><th ng-repeat=\"head in cm.data.headers\" ng-click=cm.sortIndex($index)>{{head}}</th></tr><tr ng-repeat=\"row in cm.data.rows| orderBy:cm.sorter:cm.reverseSort track by $index\"><td ng-repeat=\"col in row track by $index\">{{col}}</td></tr></table></div>");
+angular.module("adf.widget.checkStandard").run(["$templateCache", function($templateCache) {$templateCache.put("{widgetsPath}/checkStandard/src/edit/edit.html","<script type=text/ng-template id=autocomplete.html><a> <span ng-bind-html=\"match.model.url | uibTypeaheadHighlight:query\"></span> | <small ng-bind-html=\"match.model.desc | uibTypeaheadHighlight:query\"></small> </a></script><div class=form-group><label for=tooltip>Description</label> <input id=tooltip type=text class=form-control ng-model=config.tooltip placeholder=\"Entrer une description du check\"></div><form role=form><div class=form-group><label for=sample>Datasources</label> <input id=sample type=text class=form-control ng-model=config.database placeholder=\"Type du Check\" uib-typeahead=\"database for database in cs.getDatabase($viewValue)\" typeahead-min-length=0 ng-blur=cs.getColumns(config.database)></div><query-builder ng-if=config.colDatabase group=config.condition.group fields=config.colDatabase></query-builder><div class=form-group><label for=standardTest>Test</label></div><div class=\"form-inline padding-bottom\" ng-repeat=\"t in cs.config.test\"><div class=form-group><label class=sr-only for=column-{{$index}}>Column</label><select class=form-control ng-model=t.column id=column-{{$index}}><option ng-repeat=\"column in config.colDatabase\" value={{column.Field}}>{{column.Field}}</option></select></div><div class=form-group><label class=sr-only for=test-{{$index}}>Test</label><select ng-model=t.test class=form-control id=test-{{$index}}><option value=\"=\">Egal</option><option value=\"<>\">Different</option><option value=\">\">Superieur</option><option value=\"<\">Inferieur</option></select></div><div class=form-group><label class=sr-only for=value-{{$index}}>Value</label> <input type=text class=form-control id=value-{{$index}} placeholder=Value ng-model=t.value></div><button type=button class=\"btn btn-warning\" ng-click=\"cs.removeColumn(true, $index)\"><i class=\"fa fa-minus\"></i> Remove</button></div><button type=button class=\"btn btn-primary\" ng-click=cs.addColumn(true)><i class=\"fa fa-plus\"></i> Add</button> <input type=checkbox ng-model=config.positif> <label>Positif</label><div class=form-group><label ng-click=\"isCollapsed = !isCollapsed\">Paramètre Tableau <span ng-hide=isCollapsed class=\"glyphicon glyphicon-triangle-bottom\" aria-hidden=true></span> <span ng-show=isCollapsed class=\"glyphicon glyphicon-triangle-top\" aria-hidden=true></span></label></div><div ng-show=isCollapsed><p>Ce tableau s\'affiche lorsque vous cliquer sur le widget, la première configuration est automatique</p><div><label>Column</label></div><div class=\"form-inline padding-bottom\" ng-repeat=\"col in cs.config.columns\"><div class=form-group><label class=sr-only for=title-{{$index}}>Title</label> <input type=text id=title-{{$index}} class=form-control placeholder=Title ng-model=col.title required></div><div class=form-group><label class=sr-only for=path-{{$index}}>Path</label> <input type=text id=path-{{$index}} class=form-control placeholder=Path ng-model=col.path required></div><button type=button class=\"btn btn-warning\" ng-click=\"cs.removeColumn(false, $index)\"><i class=\"fa fa-minus\"></i> Remove</button></div><button type=button class=\"btn btn-primary\" ng-click=cs.addColumn(false)><i class=\"fa fa-plus\"></i> Add</button></div><div><input type=checkbox ng-model=expert> Expert Mode</div><div ng-show=expert><div class=form-group><label class=sr-only for=database>Database</label> <input type=text id=database class=form-control placeholder=Database ng-model=config.database></div><div class=form-group><label class=sr-only for=query>Query</label> <textarea rows=3 id=query class=form-control placeholder=Query ng-model=config.expert></textarea></div></div></form>");
+$templateCache.put("{widgetsPath}/checkStandard/src/view/modal.html","<div class=modal-header><h3 class=modal-title id=modal-title>Title</h3><i ng-click=$dismiss() class=\"fa fa-times-circle\" aria-hidden=true><i></i></i></div><div class=modal-body id=modal-body><table class=table><tr><th ng-repeat=\"head in cm.data.headers\" ng-click=cm.sortIndex($index)>{{head}}</th></tr><tr ng-repeat=\"row in cm.data.rows| orderBy:cm.sorter:cm.reverseSort track by $index\"><td ng-repeat=\"col in row track by $index\">{{col}}</td></tr></table></div>");
 $templateCache.put("{widgetsPath}/checkStandard/src/view/view.html","<div><div ng-hide=cs.data class=\"alert alert-info\" role=alert>Please configure the widget</div><div class=text-center ng-show=cs.data ng-click=cs.open()><i ng-show=cs.data.config.positif class=\"fa fa-check fa-4x text-success\" aria-hidden=true>{{cs.data.data.length}}</i> <i ng-hide=cs.data.config.positif class=\"fa fa-times fa-4x text-danger\" aria-hidden=true>{{cs.data.data.length}}</i><p uib-tooltip={{cs.data.config.tooltip}} tooltip-placement=bottom>{{cs.small}}</p></div></div>");}]);
 
 
@@ -56,12 +55,10 @@ function  modalService($q, $http, $parse){
   }
 
   function createDataModel(config, data){
-    console.log('MODAL')
     var model = {
       headers: [],
       rows: [],
     };
-    console.log(data)
     if (!config.columns){
         config.columns = [];
         for (var key in data[0]){
@@ -115,7 +112,7 @@ function  modalService($q, $http, $parse){
 modalService.$inject = ["$q", "$http", "$parse"];
 
 angular.module('adf.widget.checkStandard')
-  .controller('modalInstanceCtrl', modalInstanceCtrl);
+  .controller('modalInstanceCtrlCS', modalInstanceCtrl);
 
 
   function modalInstanceCtrl(data){
@@ -131,7 +128,6 @@ angular.module('adf.widget.checkStandard')
     this.sorter = function(item){
       return item[cm.orderField];
     }
-
   }
   modalInstanceCtrl.$inject = ["data"];
 
@@ -155,7 +151,7 @@ function checkStandardController($uibModal, data){
     this.open = function(){
       var modalInstance = $uibModal.open({
         templateUrl : '{widgetsPath}/checkStandard/src/view/modal.html',
-        controller : 'modalInstanceCtrl',
+        controller : 'modalInstanceCtrlCS',
         controllerAs : 'cm',
         size : 'lg',
         windowClass: 'my-modal',
@@ -176,11 +172,14 @@ checkStandardController.$inject = ["$uibModal", "data"];
 angular.module('adf.widget.checkStandard')
   .controller('checkStandardEditController', checkStandardEditController);
 
-function checkStandardEditController($rootScope, $http, config, checkStandardService){
+function checkStandardEditController($rootScope, $scope,$http, config, checkStandardService){
+  var cs = this;
   this.config = config;
+  if (!config.condition)
+    config.condition = {'group' : {'operator' : 'AND', 'rules' : []}};
 
   this.getAutocompletion = function(val){
-    return $http.get('/api/autocomplete', {
+    return $http.get('/autocomplete', {
       params: {
         val : val
       }
@@ -191,14 +190,14 @@ function checkStandardEditController($rootScope, $http, config, checkStandardSer
   }
 
   this.getDatabase = function(){
-    return $http.get('/api/standard')
+    return $http.get('/standard')
       .then(function(response){
         return response.data;
       });
   }
 
   this.getColumns = function(val){
-    return $http.get('/api/standard/columns', {
+    return $http.get('/standard/columns', {
       params: {
         val : val
       }
@@ -233,7 +232,7 @@ function checkStandardEditController($rootScope, $http, config, checkStandardSer
     getColumns(standard).splice(index, 1);
   };
 }
-checkStandardEditController.$inject = ["$rootScope", "$http", "config", "checkStandardService"];
+checkStandardEditController.$inject = ["$rootScope", "$scope", "$http", "config", "checkStandardService"];
 
 
 
@@ -242,7 +241,7 @@ angular.module('adf.widget.checkStandard')
 
 function checkStandardService($q, $http, $parse){
 
-  var apiEndPoint ='/api/standard';
+  var apiEndPoint ='/standard';
 
   function createData(jsonData, config){
     return {config: config, data : jsonData};
@@ -251,7 +250,7 @@ function checkStandardService($q, $http, $parse){
   function fetch(config){
     var data = {
       database : config.database,
-      test : config.test
+      test : config.condition
     };
     return $http.post(apiEndPoint, data)
       .then(function(response){

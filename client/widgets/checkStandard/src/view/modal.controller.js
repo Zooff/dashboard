@@ -1,5 +1,5 @@
 angular.module('adf.widget.checkStandard')
-  .controller('modalInstanceCtrl', modalInstanceCtrl);
+  .controller('modalInstanceCtrlCS', modalInstanceCtrl);
 
 
   function modalInstanceCtrl(data){
@@ -15,5 +15,4 @@ angular.module('adf.widget.checkStandard')
     this.sorter = function(item){
       return item[cm.orderField];
     }
-
   }
