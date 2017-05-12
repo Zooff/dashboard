@@ -56,9 +56,20 @@ angular.module('dashboardInfra', ['adf', 'ngRoute', 'chart.js', 'adf.structures.
   ]);
 })
 
+// Disable IE ajax request caching
+.config(['$httpProvider', function($httpProvider){
+  // Initialize get if not there
+  if (!$httpProvider.defaults.headers.get){
+    $httpProvider.defaults.headers.get = {};
+  }
+
+  $httpProvider.defaults.headers.get['Cache-Control'] = 'no-cache';
+  $httpProvider.defaults.headers.get['Pragma'] = 'no-cache';
+}])
+
+// Force authent
 .run(function($rootScope, $location, Auth){
   $rootScope.$on("$routeChangeStart", function(event, next, current){
-    console.log(Auth.isAuthenticated())
     if(next.login && !Auth.isAuthenticated()){
       $location.path('/accueil');
     }
