@@ -4,7 +4,7 @@ angular.module('dashboardInfra.service', [])
   return {
     getAll: function(){
       var deferred = $q.defer();
-      $http.get('/api/dashboard')
+      $http.get('/dashboard')
         .success(function(data){
           deferred.resolve(data.dashboards);
         })
@@ -15,7 +15,7 @@ angular.module('dashboardInfra.service', [])
     },
     get: function(id){
       var deferred = $q.defer();
-      $http.get('/api/dashboard/' + id)
+      $http.get('/dashboard/' + id)
         .success(function(data){
           deferred.resolve(data);
         })
@@ -26,7 +26,7 @@ angular.module('dashboardInfra.service', [])
     },
     set: function(id, data){
       var deferred = $q.defer();
-      $http.post('/api/dashboard/' + id, data)
+      $http.post('/dashboard/' + id, data)
         .success(function(data){
           deferred.resolve();
         })
@@ -37,7 +37,7 @@ angular.module('dashboardInfra.service', [])
     },
     delete: function(id){
       var deferred = $q.defer();
-      $http.delete('/api/dashboard/' + id)
+      $http.delete('/dashboard/' + id)
         .success(function(data){
           deferred.resolve(data);
         })

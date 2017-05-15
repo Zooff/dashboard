@@ -3,7 +3,7 @@ angular.module('dashboardInfra.service')
 .factory('Auth', ['$http', '$rootScope', '$window', 'Session', 'AUTH_EVENTS', function($http, $rootScope, $window, Session, AUTH_EVENTS){
 
   var authService = {};
-  var apiEndPoint = "/api/authentication";
+  var apiEndPoint = "/authentication";
 
   authService.login = function(success, error){
     $http.get(apiEndPoint)
