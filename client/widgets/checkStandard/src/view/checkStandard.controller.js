@@ -14,6 +14,18 @@ function checkStandardController($uibModal, data){
         this.small += '...';
     }
     this.data = data;
+
+    if (this.data.config.seuil){
+      if (data.config.seuil.op === '>'){
+        this.data.positif = (this.data.data.length > this.data.config.seuil.value);
+        console.log(this.data.positif)
+      }
+
+      if (data.config.seuil.op === '<'){
+        this.data.positif = (this.data.data.length < this.data.config.seuil.value);
+      }
+    }
+
     // Open the modal which list the Array
     this.open = function(){
       var modalInstance = $uibModal.open({
