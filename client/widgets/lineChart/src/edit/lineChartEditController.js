@@ -7,7 +7,7 @@ function lineChartEditController($scope, $http, config, lineChartService){
   this.config = config;
 
   $scope.getAutocompletion = function(val){
-    return $http.get('/api/autocomplete', {
+    return $http.get('/autocomplete', {
       params: {
         val : val
       }

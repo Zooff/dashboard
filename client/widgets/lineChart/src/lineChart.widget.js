@@ -6,8 +6,8 @@ angular.module('adf.widget.lineChart', ['adf.provider'])
 function lineChartWidget(dashboardProvider){
   dashboardProvider
     .widget('lineChart', {
-      title: 'lineChart',
-      description: 'Graphs with an expert mode to personalize the query',
+      title: 'Graphique',
+      description: 'Widget permettant l\'affichage d\'histogramme et de courbe',
       templateUrl: '{widgetsPath}/lineChart/src/view/view.html',
       controller: 'lineChartController',
       controllerAs: 'graph',

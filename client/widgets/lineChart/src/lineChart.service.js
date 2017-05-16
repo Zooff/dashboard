@@ -5,7 +5,7 @@ angular.module('adf.widget.lineChart')
 
 function lineChartService($q, $http, $parse){
   // EndPoint Url for the expert mode
-  var expertUrl = '/api/expert/query';
+  var expertUrl = '/expert/query';
   var label = [];
   var value = [];
 
@@ -21,11 +21,12 @@ function lineChartService($q, $http, $parse){
     var val2 = jsonData.map(function(u){return getValue2(u)});
     value.push(val);
     value.push(val2);
-    return {label: label, value: value, type: config.type, desc : config.desc, series: [config.value, config.value2]};
+    return {config: config, label: label, value: value, type: config.type, desc : config.desc, series: [config.value, config.value2]};
   }
 
   function fetch(config){
-    return $http.get(config.url)
+    var url = config.url.replace(/:\w*/, config.urlReplace);
+    return $http.get(url)
       .then(function(response){
         return response.data;
       })
