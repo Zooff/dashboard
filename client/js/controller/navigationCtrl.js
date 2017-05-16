@@ -21,10 +21,11 @@ angular.module('dashboardInfra.controller')
   };
 
   this.create = function(str){
-    var id = '_'+ str + ':' + new Date().getTime();
+    var id = '_'+ str + '_' + new Date().getTime();
     var q = storeService.set(id, {
       "title": "New Sample",
       "titleTemplateUrl" : "templates/custom-dashboard-title.html",
+      "addTemplateUrl" : "templates/custom-add-widget.html",
       "structure": "4-8",
       "rows": [{
         "columns": [{
