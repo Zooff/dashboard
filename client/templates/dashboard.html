@@ -2,7 +2,10 @@
   <adf-dashboard name="{{dashboard.name}}" structure="4-8" adf-model="dashboard.model" />
 </div>
 <div class="footer" ng-hide="dashboard.name == '_commun'">
-  <button access-level="admin" class="btn btn-warning" ng-click="dashboard.delete(dashboard.name)">
+  <button ng-hide="dashboard.model.env == 'perso'" access-level="admin" class="btn btn-warning" ng-click="dashboard.delete(dashboard.name)">
+    <span class="glyphicon glyphicon-remove"></span> Delete
+  </button>
+  <button ng-show="dashboard.model.env == 'perso'" class="btn btn-warning" ng-click="dashboard.delete(dashboard.name)">
     <span class="glyphicon glyphicon-remove"></span> Delete
   </button>
 </div>
