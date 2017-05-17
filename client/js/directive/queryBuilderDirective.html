@@ -1,9 +1,9 @@
 <div class="alert alert-warning alert-group">
     <div class="form-inline">
         <select ng-options="o.name as o.name for o in operators" ng-model="group.operator" class="form-control input-sm"></select>
-        <button style="margin-left: 5px" type="button" ng-click="addCondition()" class="btn btn-sm btn-success"><span class="glyphicon glyphicon-plus-sign"></span>Ajouter une Condition</button>
-        <button style="margin-left: 5px" type="button" ng-click="addGroup()" class="btn btn-sm btn-success"><span class="glyphicon glyphicon-plus-sign"></span>Ajouter un Groupe</button>
-        <button style="margin-left: 5px" type="button" ng-click="removeGroup()" class="btn btn-sm btn-danger"><span class="glyphicon glyphicon-minus-sign"></span>Retirer un Groupe</button>
+        <button style="margin-left: 5px" type="button" ng-click="addCondition()" class="btn btn-sm btn-success"><span class="glyphicon glyphicon-plus-sign"></span> Ajouter une Condition</button>
+        <button style="margin-left: 5px" type="button" ng-click="addGroup()" class="btn btn-sm btn-success"><span class="glyphicon glyphicon-plus-sign"></span> Ajouter un Groupe</button>
+        <button style="margin-left: 5px" type="button" ng-click="removeGroup()" class="btn btn-sm btn-danger"><span class="glyphicon glyphicon-minus-sign"></span> Retirer le Groupe</button>
     </div>
     <div class="group-conditions">
         <div ng-repeat="rule in group.rules | orderBy:'index'" class="condition">
