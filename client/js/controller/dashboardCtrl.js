@@ -11,6 +11,10 @@ angular.module('dashboardInfra.controller')
     $rootScope.$broadcast('navChanged');
   };
 
+  $scope.widgetFilter = function(widget, title){
+    return !(title === 'checkValue') && !(title === 'beerCounter');
+  }
+
   $scope.$on('adfDashboardChanged', function(event, name, model) {
     storeService.set(name, model);
   });

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('dashboardInfra', ['adf', 'ngRoute', 'chart.js', 'adf.structures.base', 'dashboardInfra.controller', 'adf.widget.clock',
+angular.module('dashboardInfra', ['adf', 'ngRoute', 'chart.js', 'adf.structures.base', 'dashboardInfra.controller', 'adf.widget.clock', 'adf.widget.beerCounter',
 , 'adf.widget.wysiwyg','adf.widget.markdown', 'adf.widget.singleValue','adf.widget.pieChart', 'adf.widget.lineChart','adf.widget.checkValue', 'adf.widget.checkStandard', 'adf.widget.paginateTable'])
 
 .constant('AUTH_EVENTS', {
