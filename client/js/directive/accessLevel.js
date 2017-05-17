@@ -25,7 +25,7 @@ angular.module('dashboardInfra')
 
       function updateCSS(){
         if (userRole && accessLevel){
-          if(!Auth.isAuthorized(accessLevel)){
+          if(accessLevel != "perso" && !Auth.isAuthorized(accessLevel)){
             element.css('display', 'none');
           }
           else{

@@ -43,6 +43,19 @@
           </ul>
         </li>
         <li uib-dropdown on-toggle="toggled(open)">
+          <a href id="tranverse" uib-dropdown-toggle>
+            Transverse <i class="fa  fa-lg" aria-hidden="true"></i>
+          </a>
+          <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="transverse">
+            <li ng-class="nav.navClass('boards/' + item.id)" ng-repeat="item in nav.items | orderBy: title" ng-if="item.id.indexOf('_tsv') == 0">
+              <a ng-href="#/boards/{{item.id}}">{{item.title}}</a>
+            </li>
+            <li ng-if="auth.user" access-level="tsv">
+              <a style="cursor: pointer;" ng-click="nav.create('tsv')">Create</a>
+            </li>
+          </ul>
+        </li>
+        <li uib-dropdown on-toggle="toggled(open)">
           <a href id="perso" ng-click="nav.load()" uib-dropdown-toggle>
             Perso <i class="fa fa-user fa-lg" aria-hidden="true"></i>
           </a>
