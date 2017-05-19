@@ -1,0 +1,79 @@
+.ui-select-choices-row > span{
+  background: #fff;
+  color: #0099ff;
+}
+
+.ui-select-bootstrap .ui-select-choices-row:hover > span{
+  background: #007acc !important;
+  color: #fff;
+}
+
+.ui-select-choices-row-inner{
+  padding: 0 !important;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+
+.ui-select-choices-row-inner div {
+  padding: 2px 12px;
+  position: relative;
+}
+
+.ui-select-bootstrap .ui-select-choices-row.active > span{
+  background-color: #fff;
+  color: #000;
+}
+
+.nextAddress  {
+  color: #000;
+  position: absolute;
+  right: 0;
+  top: 2px;
+  height: 100%;
+  line-height: 1;
+  padding: 8px;
+  border: none;
+  background: none;
+  margin: 0;
+}
+
+.nextAddress:hover{
+  background: rgba(0,0,0,0.1);
+  color: #fff;
+}
+
+
+.ui-select-breadcrumbs {
+  padding: 6px 12px;
+  margin: 0;
+  background: rgba(0,0,0,0.8);
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.ui-select-breadcrumb {
+  color: white;
+  cursor: pointer;
+  font-size: 12px;
+
+}
+
+.ui-select-breadcrumb:hover {
+  color: #ff9000;
+}
+
+.ui-select-breadcrumb::after{
+  content: '>';
+}
+
+.ui-select-breadcrumb:last-child{
+  color: white;
+  cursor: default;
+}
+
+.ui-select-breadcrumb:last-child:after{
+  content: '';
+}
+
+.ui-select-breadcrumb:first{
+  content : 'All';
+}

@@ -1,0 +1,18 @@
+<ui-select ng-model="model.selected" ui-select-focuser theme="bootstrap">
+  <ui-select-match placeholder="Selectionner la DataSource">
+    {{$select.selected.url}}
+  </ui-select-match>
+  <ui-select-choices repeat="address in addresses | filter: $select.search">
+    <div class="thefuck">
+      <div>
+        <span ng-bind-html="address.url.substr(address.url.lastIndexOf('/') + 1) | highlight:$select.search"></span>
+      </div>
+      <div>
+        <small ng-bind-html="address.desc"></small>
+      </div>
+      <a href="" ng-show="address.parent" class="nextAddress" ng-click="loadNextAddress(address, $select)">
+        <i class="fa fa-angle-right"></i>
+      </a>
+    </div>
+  </ui-select-choices>
+</ui-select>
