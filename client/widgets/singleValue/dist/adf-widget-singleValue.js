@@ -27,7 +27,7 @@ function TableWidget(dashboardProvider){
 }
 TableWidget.$inject = ["dashboardProvider"];
 
-angular.module("adf.widget.singleValue").run(["$templateCache", function($templateCache) {$templateCache.put("{widgetsPath}/singleValue/src/edit/edit.html","<script type=text/ng-template id=autocomplete.html><a> <span ng-bind-html=\"match.model.url | uibTypeaheadHighlight:query\"></span> | <small ng-bind-html=\"match.model.desc | uibTypeaheadHighlight:query\"></small> </a></script><form role=form><div class=form-group><label for=sample>Datasource</label> <input type=text class=form-control ng-model=config.url placeholder=\"Enter url\" uib-typeahead=\"address.url as address.url for address in getAutocompletion($viewValue)\" typeahead-template-url=autocomplete.html typeahead-loading=load typeahead-no-result=noResults></div><input type=checkbox ng-model=config.listener> <label>Slave</label><div><label>Principal Data</label></div><div class=\"form-inline padding-bottom\"><div class=form-group><label class=sr-only for=desc>Description</label> <input type=text id=desc class=form-control ng-model=config.desc placeholder=\"Enter Description of the data\"></div><div class=form-group><label class=sr-only for=sample>Principal Data</label><select ng-model=config.root class=form-control><option ng-repeat=\"el in config.list\" value={{el}}>{{el}}</option></select></div></div><div ng-if=!config.listener><div><label>Additional Data</label></div><div class=\"form-inline padding-bottom\" ng-repeat=\"col in sv.config.columns\"><div class=form-group><label class=sr-only for=title-{{$index}}>Title</label> <input type=text id=title-{{$index}} class=form-control placeholder=Title ng-model=col.title required></div><div class=form-group><label class=sr-only for=path-{{$index}}>Path</label> <input type=text id=path-{{$index}} class=form-control placeholder=Path ng-model=col.path required></div><button type=button class=\"btn btn-warning\" ng-click=sv.removeColumn($index)><i class=\"fa fa-minus\"></i> Remove</button></div><button type=button class=\"btn btn-primary\" ng-click=sv.addColumn()><i class=\"fa fa-plus\"></i> Add</button></div></form>");
+angular.module("adf.widget.singleValue").run(["$templateCache", function($templateCache) {$templateCache.put("{widgetsPath}/singleValue/src/edit/edit.html","<script type=text/ng-template id=autocomplete.html><a> <span ng-bind-html=\"match.model.url | uibTypeaheadHighlight:query\"></span> | <small ng-bind-html=\"match.model.desc | uibTypeaheadHighlight:query\"></small> </a></script><form role=form><div class=form-group><label for=sample>Datasource</label><div ng-show=config.url class=\"alert alert-info text-center\">{{config.url}}</div><selecttree model=config.datasource></selecttree></div><input type=checkbox ng-model=config.listener> <label>Slave</label><div><label>Principal Data</label></div><div class=\"form-inline padding-bottom\"><div class=form-group><label class=sr-only for=desc>Description</label> <input type=text id=desc class=form-control ng-model=config.desc placeholder=\"Entrer la description de la donnée\"></div><div class=form-group><label class=sr-only for=sample>Principal Data</label><select ng-model=config.root class=form-control><option ng-repeat=\"el in config.list\" value={{el}}>{{el}}</option></select></div></div><div ng-if=!config.listener><div><label>Additional Data</label></div><div class=\"form-inline padding-bottom\" ng-repeat=\"col in sv.config.columns\"><div class=form-group><label class=sr-only for=title-{{$index}}>Title</label> <input type=text id=title-{{$index}} class=form-control placeholder=Title ng-model=col.title required></div><div class=form-group><label class=sr-only for=path-{{$index}}>Path</label> <input type=text id=path-{{$index}} class=form-control placeholder=Path ng-model=col.path required></div><button type=button class=\"btn btn-warning\" ng-click=sv.removeColumn($index)><i class=\"fa fa-minus\"></i> Remove</button></div><button type=button class=\"btn btn-primary\" ng-click=sv.addColumn()><i class=\"fa fa-plus\"></i> Add</button></div></form>");
 $templateCache.put("{widgetsPath}/singleValue/src/view/view.html","<div><div ng-hide=sv.data class=\"alert alert-info\" role=alert>Please insert a url to the widget configuration</div><div ng-show=!sv.data.load><div class=\"text-center col-md-12\"><p>{{sv.data.config.urlReplace}}</p><h1 style=\"word-wrap: break-word\">{{sv.data.principalData.data}}</h1><p class=\"text-center small\">{{sv.data.principalData.desc}}</p></div><ul class=\"list-inline text-center\"><li ng-repeat=\"addData in sv.data.additionalData\">{{addData.title}} : {{addData.data}}</li></ul></div><div ng-hide=!sv.data.load class=text-center><i class=\"fa fa-spinner fa-pulse fa-3x\" aria-hidden=true></i></div></div>");}]);
 
 
@@ -44,9 +44,10 @@ function singleValueController($rootScope, $scope, $timeout, data, singleValueSe
       $rootScope.$on('DatTest', function(events, args){
         sv.data.config.urlReplace = args;
         sv.data.load = true;
+        // Reload the widget
         singleValueService.get(sv.data.config).then(function(response){
           sv.data.load = false;
-          sv.data = response;
+          sv.data = response; // Bind the result in the model
         });
       });
     }
@@ -61,17 +62,7 @@ angular.module('adf.widget.singleValue')
 
 function singleValueEditController($scope, $http, config){
   this.config = config;
-
-  $scope.getAutocompletion = function(val){
-    return $http.get('/api/autocomplete', {
-      params: {
-        val : val
-      }
-    })
-    .then(function(response){
-      return response.data;
-    });
-  }
+  config.datasource = {};
 
   function getColumns(){
     if (!config.columns){
@@ -149,9 +140,10 @@ function singleValueService($q, $http, $parse){
   }
 
   function get(config){
-    console.log('GET');
     var result = null;
-    if (config.url){
+    if (config.datasource){
+      if(config.datasource.selected)
+        config.url = config.datasource.selected.url;
       result = fetch(config);
     }
     return result;

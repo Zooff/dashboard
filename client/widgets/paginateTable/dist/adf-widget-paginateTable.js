@@ -27,7 +27,7 @@ function TableWidget(dashboardProvider){
 }
 TableWidget.$inject = ["dashboardProvider"];
 
-angular.module("adf.widget.paginateTable").run(["$templateCache", function($templateCache) {$templateCache.put("{widgetsPath}/paginateTable/src/edit/edit.html","<script type=text/ng-template id=autocomplete.html><a> <span ng-bind-html=\"match.model.url | uibTypeaheadHighlight:query\"></span> | <small ng-bind-html=\"match.model.desc | uibTypeaheadHighlight:query\"></small> </a></script><input type=checkbox ng-model=config.master> <label>Master</label><form role=form><div class=form-group><label for=sample>Datasource</label> <input type=text class=form-control ng-model=config.url placeholder=\"Enter url\" uib-typeahead=\"address.url as address.url for address in getAutocompletion($viewValue)\" typeahead-min-length=0 typeahead-template-url=autocomplete.html typeahead-loading=load typeahead-no-result=noResults></div><div><label>Columns</label></div><div class=\"form-inline padding-bottom\" ng-repeat=\"col in pt.config.columns\"><div class=form-group><label class=sr-only for=title-{{$index}}>Title</label> <input type=text id=title-{{$index}} class=form-control placeholder=Title ng-model=col.title required></div><div class=form-group><label class=sr-only for=path-{{$index}}>Path</label> <input type=text id=path-{{$index}} class=form-control placeholder=Path ng-model=col.path required></div><button type=button class=\"btn btn-warning\" ng-click=\"pt.removeColumn(false, $index)\"><i class=\"fa fa-minus\"></i> Remove</button></div><button type=button class=\"btn btn-primary\" ng-click=pt.addColumn(false)><i class=\"fa fa-plus\"></i> Add</button><div><label>Pagination</label></div><div class=form-group><label class=sr-only for=maxSize>Nombre d\'Elément par Page</label> <input type=text id=maxSize class=form-control placeholder=\"Item Per Page\" ng-model=config.itemPerPage></div><div class=form-group><label ng-click=\"isCollapsed = !isCollapsed\">Paramètre Modal <span ng-hide=isCollapsed class=\"glyphicon glyphicon-triangle-bottom\" aria-hidden=true></span> <span ng-show=isCollapsed class=\"glyphicon glyphicon-triangle-top\" aria-hidden=true></span></label></div><div ng-show=isCollapsed><div><label for=sample>Modal URL</label> <input type=text class=form-control ng-model=config.modalUrl placeholder=\"Modal Url\" uib-typeahead=\"address.url as address.url for address in getAutocompletion($viewValue)\" typeahead-template-url=autocomplete.html typeahead-loading=load typeahead-no-result=noResults></div><div><label for=field>Column to populate</label><select id=field ng-options=\"pt.config.columns.indexOf(col) as col.title for col in pt.config.columns\" ng-model=pt.config.modalField></select></div><div><label>Column</label></div><div class=\"form-inline padding-bottom\" ng-repeat=\"modalCol in pt.config.modalColumns\"><div class=form-group><label class=sr-only for=modalTitle-{{$index}}>Title</label> <input type=text id=modalTitle-{{$index}} class=form-control placeholder=Title ng-model=modalCol.title required></div><div class=form-group><label class=sr-only for=modalPath-{{$index}}>Path</label> <input type=text id=modalPath-{{$index}} class=form-control placeholder=Path ng-model=modalCol.path required></div><button type=button class=\"btn btn-warning\" ng-click=\"pt.removeColumn(true, $index)\"><i class=\"fa fa-minus\"></i> Remove</button></div><button type=button class=\"btn btn-primary\" ng-click=pt.addColumn(true)><i class=\"fa fa-plus\"></i> Add</button></div><div><input type=checkbox ng-model=expert> Expert Mode</div><div ng-show=expert><div class=form-group><label class=sr-only for=database>Database</label> <input type=text id=database class=form-control placeholder=Database ng-model=config.database></div><div class=form-group><label class=sr-only for=query>Query</label> <textarea rows=3 id=query class=form-control placeholder=Query ng-model=config.expert></textarea></div></div></form>");
+angular.module("adf.widget.paginateTable").run(["$templateCache", function($templateCache) {$templateCache.put("{widgetsPath}/paginateTable/src/edit/edit.html","<script type=text/ng-template id=autocomplete.html><a> <span ng-bind-html=\"match.model.url | uibTypeaheadHighlight:query\"></span> | <small ng-bind-html=\"match.model.desc | uibTypeaheadHighlight:query\"></small> </a></script><input type=checkbox ng-model=config.master> <label>Master</label><form role=form><div><label for=sample>Datasource</label><div ng-show=config.url class=\"alert alert-info text-center\">{{pt.config.url}}</div><selecttree model=pt.config.datasource></selecttree></div><div><label>Columns</label></div><div class=\"form-inline padding-bottom\" ng-repeat=\"col in pt.config.columns\"><div class=form-group><label class=sr-only for=title-{{$index}}>Title</label> <input type=text id=title-{{$index}} class=form-control placeholder=Title ng-model=col.title required></div><div class=form-group><label class=sr-only for=path-{{$index}}>Path</label> <input type=text id=path-{{$index}} class=form-control placeholder=Path ng-model=col.path required></div><button type=button class=\"btn btn-warning\" ng-click=\"pt.removeColumn(false, $index)\"><i class=\"fa fa-minus\"></i> Remove</button></div><button type=button class=\"btn btn-primary\" ng-click=pt.addColumn(false)><i class=\"fa fa-plus\"></i> Add</button><div><label>Pagination</label></div><div class=form-group><label class=sr-only for=maxSize>Nombre d\'Elément par Page</label> <input type=text id=maxSize class=form-control placeholder=\"Item Per Page\" ng-model=config.itemPerPage></div><div class=form-group><label ng-click=\"isCollapsed = !isCollapsed\">Paramètre Modal <span ng-hide=isCollapsed class=\"glyphicon glyphicon-triangle-bottom\" aria-hidden=true></span> <span ng-show=isCollapsed class=\"glyphicon glyphicon-triangle-top\" aria-hidden=true></span></label></div><div ng-show=isCollapsed><div><label for=sample>Modal URL</label><div ng-show=config.modalUrl class=\"alert alert-info text-center\" ng-bind-html=config.modalUrl></div><selecttree model=config.modalDatasource></selecttree></div><div><label for=field>Column to populate</label><select id=field ng-options=\"pt.config.columns.indexOf(col) as col.title for col in pt.config.columns\" ng-model=pt.config.modalField></select></div><div><label>Column</label></div><div class=\"form-inline padding-bottom\" ng-repeat=\"modalCol in pt.config.modalColumns\"><div class=form-group><label class=sr-only for=modalTitle-{{$index}}>Title</label> <input type=text id=modalTitle-{{$index}} class=form-control placeholder=Title ng-model=modalCol.title required></div><div class=form-group><label class=sr-only for=modalPath-{{$index}}>Path</label> <input type=text id=modalPath-{{$index}} class=form-control placeholder=Path ng-model=modalCol.path required></div><button type=button class=\"btn btn-warning\" ng-click=\"pt.removeColumn(true, $index)\"><i class=\"fa fa-minus\"></i> Remove</button></div><button type=button class=\"btn btn-primary\" ng-click=pt.addColumn(true)><i class=\"fa fa-plus\"></i> Add</button></div><div><input type=checkbox ng-model=expert> Expert Mode</div><div ng-show=expert><div class=form-group><label class=sr-only for=database>Database</label> <input type=text id=database class=form-control placeholder=Database ng-model=config.database></div><div class=form-group><label class=sr-only for=query>Query</label> <textarea rows=3 id=query class=form-control placeholder=Query ng-model=config.expert></textarea></div></div></form>");
 $templateCache.put("{widgetsPath}/paginateTable/src/view/modal.html","<div class=modal-header><h3 class=modal-title id=modal-title>Title</h3><i ng-click=$dismiss() class=\"fa fa-times-circle\" aria-hidden=true><i></i></i></div><div class=modal-body id=modal-body>{{cm.un}}<table class=table><tr><th ng-repeat=\"head in cm.data.headers\" ng-click=cm.sortIndex($index)>{{head}}</th></tr><tr ng-repeat=\"row in cm.data.rows| orderBy:cm.sorter:cm.reverseSort track by $index\"><td ng-repeat=\"col in row track by $index\">{{col}}</td></tr></table></div>");
 $templateCache.put("{widgetsPath}/paginateTable/src/view/view.html","<div><div ng-hide=pt.data class=\"alert alert-info\" role=alert>Please insert a url to the widget configuration</div><div ng-show=pt.data><div class=text-center><input type=search ng-model=q placeholder=Filter class=form-control></div><table class=table><tr><th ng-repeat=\"head in pt.data.headers\" ng-click=pt.sortIndex($index)>{{head}}</th></tr><tr ng-repeat=\"row in filterData = (pt.data.rows | filter:q )| orderBy:pt.sorter:pt.reverseSort| startFrom: (pt.data.currentPage-1)*pt.data.itemPerPage | limitTo:pt.data.itemPerPage track by $index\" ng-click=pt.open(row)><td ng-repeat=\"col in row track by $index\">{{col}}</td></tr></table><div class=text-center><ul uib-pagination total-items=filterData.length ng-model=pt.data.currentPage max-size=pt.data.maxSize class=pagination-sm boundary-links=true items-per-page=pt.data.itemPerPage num-pages=numPages></ul></div></div></div>");}]);
 
@@ -153,7 +153,9 @@ function  modalService($q, $http, $parse){
 
   function get(config){
     var result = null;
-    if (config.modalUrl){
+    if (config.modalDatasource){
+      if (config.modalDatasource.selected)
+        config.modalUrl = config.modalDatasource.selected.url
       result = fetch(config);
     }
     return result
@@ -193,16 +195,20 @@ angular.module('adf.widget.paginateTable')
 function paginateTableEditController($scope, $http,config){
   this.config = config;
 
-  $scope.getAutocompletion = function(val){
-    return $http.get('/autocomplete', {
-      params: {
-        val : val
-      }
-    })
-    .then(function(response){
-      return response.data;
-    });
-  }
+  // Use by the directive selecttree, need to be initialize
+  config.datasource = {};
+  config.modalDatasource = {};
+
+  // $scope.getAutocompletion = function(val){
+  //   return $http.get('/autocomplete', {
+  //     params: {
+  //       val : val
+  //     }
+  //   })
+  //   .then(function(response){
+  //     return response.data;
+  //   });
+  // }
 
   function getColumns(modal){
     if (!modal && !config.columns){
@@ -302,7 +308,9 @@ function paginateTableService($q, $http, $parse){
     if (config.expert){
       result = post(config);
     }
-    else if (config.url){
+    else if (config.datasource){
+      if (config.datasource.selected)
+        config.url = config.datasource.selected.url
       result = fetch(config);
     }
     return result

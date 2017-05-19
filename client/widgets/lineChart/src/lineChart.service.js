@@ -13,9 +13,30 @@ function lineChartService($q, $http, $parse){
   function createData(jsonData, config){
     label = [];
     value = [];
-    var getLabel = $parse(config.label);
-    var getValue = $parse(config.value);
-    var getValue2 = $parse(config.value2);
+    config.key = [];
+    var getLabel, getValue, getValue2;
+
+    // Get all the key to give user a choice
+    for (var k in jsonData[0]){
+      config.key.push(k);
+    }
+
+    // Try to be smart... This cant be right because Json object are Hashmap...
+    if (!config.label)
+      config.label = config.key[0];
+
+    getLabel = $parse(config.label);
+
+    if (!config.value)
+      config.value = config.key[1];
+
+    getValue = $parse(config.key[1]);
+
+    if (!config.value2)
+      config.value2 = config.key[2];
+
+    getValue2 = $parse(config.value2);
+
     label = jsonData.map(function(u){return getLabel(u);});
     var val = jsonData.map(function(u){return getValue(u);});
     var val2 = jsonData.map(function(u){return getValue2(u)});
@@ -40,7 +61,9 @@ function lineChartService($q, $http, $parse){
     if (config.expert){
       result = post(config);
     }
-    else if (config.url){
+    else if (config.dataSource){
+      if(config.dataSource.selected)
+        config.url = config.dataSource.selected.url;
       result = fetch(config);
     }
     return result

@@ -5,6 +5,7 @@ angular.module('adf.widget.lineChart')
 
 function lineChartEditController($scope, $http, config, lineChartService){
   this.config = config;
+  config.dataSource = {};
 
   $scope.getAutocompletion = function(val){
     return $http.get('/autocomplete', {

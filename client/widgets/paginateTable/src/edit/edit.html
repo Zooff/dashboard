@@ -9,9 +9,10 @@
 <input type="checkbox" ng-model="config.master"> <label> Master </label>
 
 <form role="form">
-  <div class="form-group">
+  <div>
     <label for="sample">Datasource</label>
-    <input type="text" class="form-control" ng-model="config.url" placeholder="Enter url" uib-typeahead="address.url as address.url for address in getAutocompletion($viewValue)" typeahead-template-url="autocomplete.html" typeahead-loading="load" typeahead-no-result="noResults">
+    <div ng-show="config.url" class="alert alert-info text-center"> {{pt.config.url}} </div>
+    <selecttree model="pt.config.datasource"></selecttree>
   </div>
 
   <div>
@@ -58,7 +59,9 @@
 
       <div >
         <label for="sample">Modal URL</label>
-        <input type="text" class="form-control" ng-model="config.modalUrl" placeholder="Modal Url" uib-typeahead="address.url as address.url for address in getAutocompletion($viewValue) " typeahead-template-url="autocomplete.html" typeahead-loading="load" typeahead-no-result="noResults">
+        <div ng-show="config.modalUrl" class="alert alert-info text-center" ng-bind-html="config.modalUrl">
+        </div>
+        <selecttree model="config.modalDatasource"> </selecttree>
       </div>
 
       <div>

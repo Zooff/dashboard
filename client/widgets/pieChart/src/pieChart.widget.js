@@ -6,8 +6,8 @@ angular.module('adf.widget.pieChart', ['adf.provider'])
 function pieChartWidget(dashboardProvider){
   dashboardProvider
     .widget('pieChart', {
-      title: 'pieChart',
-      description: 'Graphs with an expert mode to personalize the query',
+      title: 'Camembert',
+      description: 'Widget permettant l\'affichage de Camembert',
       templateUrl: '{widgetsPath}/pieChart/src/view/view.html',
       controller: 'pieChartController',
       controllerAs: 'graph',

@@ -11,8 +11,9 @@ function pieChartController($scope, data, pieChartService){
     // Type of graph : Pie, bar, line
     this.type = data.type;
     this.desc = data.desc;
-  }
   // Option for the chart --> See the chart.js options
-  this.options = {elements: {arc: {borderWidth : 1, borderColor : '#222222'}},legend : {display : true, position :'left'}};
-
+  var cut;
+  (this.type == 'doughnut') ? cut = 75 : cut = 0;
+  this.options = {elements: {arc: {borderWidth : 1, borderColor : '#222222'}},legend : {display : true, position :'left'}, cutoutPercentage : cut};
+  }
 }

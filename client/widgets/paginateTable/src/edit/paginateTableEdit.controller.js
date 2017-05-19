@@ -6,16 +6,20 @@ angular.module('adf.widget.paginateTable')
 function paginateTableEditController($scope, $http,config){
   this.config = config;
 
-  $scope.getAutocompletion = function(val){
-    return $http.get('/api/autocomplete', {
-      params: {
-        val : val
-      }
-    })
-    .then(function(response){
-      return response.data;
-    });
-  }
+  // Use by the directive selecttree, need to be initialize
+  config.datasource = {};
+  config.modalDatasource = {};
+
+  // $scope.getAutocompletion = function(val){
+  //   return $http.get('/autocomplete', {
+  //     params: {
+  //       val : val
+  //     }
+  //   })
+  //   .then(function(response){
+  //     return response.data;
+  //   });
+  // }
 
   function getColumns(modal){
     if (!modal && !config.columns){

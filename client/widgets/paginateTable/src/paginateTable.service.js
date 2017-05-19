@@ -5,6 +5,8 @@ angular.module('adf.widget.paginateTable')
 
 function paginateTableService($q, $http, $parse){
 
+  var expertUrl = "/expert"
+
   function createColumns(config, model){
     var columns = [];
 
@@ -73,7 +75,9 @@ function paginateTableService($q, $http, $parse){
     if (config.expert){
       result = post(config);
     }
-    else if (config.url){
+    else if (config.datasource){
+      if (config.datasource.selected)
+        config.url = config.datasource.selected.url
       result = fetch(config);
     }
     return result

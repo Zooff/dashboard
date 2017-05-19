@@ -70,7 +70,9 @@ function  modalService($q, $http, $parse){
 
   function get(config){
     var result = null;
-    if (config.modalUrl){
+    if (config.modalDatasource){
+      if (config.modalDatasource.selected)
+        config.modalUrl = config.modalDatasource.selected.url
       result = fetch(config);
     }
     return result
