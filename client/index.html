@@ -15,9 +15,14 @@
     <link ng-if="main.black" href="css/black.css" rel="stylesheet">
     <link href="css/carousel.css" rel="stylesheet">
     <link href="css/query.css" rel="stylesheet">
+
     <!-- dashboard style -->
     <link href="/components/angular-dashboard-framework/dist/angular-dashboard-framework.css" rel="stylesheet">
     <link href="/components/adf-widget-clock/dist/adf-widget-clock.min.css" rel="stylesheet">
+
+    <!-- selectTree -->
+    <link href="components/angular-ui-select/dist/select.css" rel="stylesheet">
+    <link href="css/selectTree.css" rel="stylesheet">
 
     <!-- wysiwyg style -->
     <link href="components/font-awesome/css/font-awesome.min.css" rel="stylesheet">
@@ -49,23 +54,26 @@
   <body ng-controller="authenticationCtrl as auth">
 
     <div ng-include="'/templates/navigation.html'"></div>
+    <div ng-include="'/templates/cssMenu.html'"></div>
 
     <div class="container">
 
       <ng-view />
 
     </div>
-    <p class="text-center"> Version Beta 0.1.5 </p>
+    <p class="text-center"> Version Beta 0.2.0 </p>
 
     <!-- components -->
     <script type="text/javascript" src="/components/Sortable/Sortable.min.js"></script>
     <script type="text/javascript" src="/components/angular/angular.min.js"></script>
     <script type="text/javascript" src="/components/angular-route/angular-route.min.js"></script>
+    <script type="text/javascript" src="/components/angular-animate/angular-animate.min.js"></script>
     <script type="text/javascript" src="/components/angular-bootstrap/ui-bootstrap.min.js"></script>
     <script type="text/javascript" src="/components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
     <script type="text/javascript" src="/components/angular-dashboard-framework/dist/angular-dashboard-framework-tpls.min.js"></script>
     <script type="text/javascript" src="components/chart.js/dist/Chart.min.js"></script>
     <script type="text/javascript" src="components/angular-chart.js/dist/angular-chart.min.js"></script>
+    <script type="text/javascript" src="components/angular-ui-select/dist/select.js"></script>
 
     <!-- scripts -->
     <script type="text/javascript" src="js/app.js"></script>
@@ -90,6 +98,7 @@
 
     <script type="text/javascript" src="js/directive/accessLevel.js"></script>
     <script type="text/javascript" src="js/directive/querybuilder.js"></script>
+    <script type="text/javascript" src="js/directive/selectTree.js"></script>
 
 
 
@@ -117,7 +126,7 @@
     <script type="text/javascript" src="/widgets/checkStandard/dist/adf-widget-checkStandard.js"></script>
 
     <!-- paginateTable -->
-    <script type="text/javascript" src="/widgets/paginateTable/dist/adf-widget-paginateTable.min.js"></script>
+    <script type="text/javascript" src="/widgets/paginateTable/dist/adf-widget-paginateTable.js"></script>
 
 
     <!-- Markdown -->
