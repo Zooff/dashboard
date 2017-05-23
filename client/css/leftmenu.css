@@ -1,0 +1,50 @@
+.content {
+  padding: 10px 0 0 5px;
+}
+
+.header{
+  background: #f1f1f1;
+  height: 38px;
+  padding: 9px 15px;
+  position: relative;
+  border-radius: 0 10px 0 0;
+}
+
+.style-switcher{
+  position: fixed;
+  left: 0px;
+  right: 70px;
+}
+
+.style-switcher div h2 {
+  text-transform: none;
+  margin: 0;
+  font-size: 18px;
+  color: #a6a6a6;
+}
+
+.trigger {
+  height: 36px;
+  width: 36px;
+  border: 1px solid #999999;
+  border-radius: 0 5px 5px 0;
+  background: #dddddd;
+  display: block;
+  text-align: center;
+  line-height: 35px;
+  position: absolute;
+}
+
+.wrapper {
+  width: 150px;
+  background: #cccccc;
+  border-radius: 0 10px 10px 0;
+  border: 1px solid #999999;
+}
+
+.logo {
+  position: absolute;
+  top: 4px;
+  right: 5px;
+  color: #888888;
+}

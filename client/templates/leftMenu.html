@@ -1,0 +1,20 @@
+
+<div class="style-switcher" ng-hide="main.style">
+  <a class="trigger" href="" ng-click="main.changeStyle()">
+    <i class="fa fa-cog fa-2x logo" aria-hidden="true"></i>
+  </a>
+</div>
+
+<div class="style-switcher" ng-show="main.style">
+  <div class="wrapper">
+    <div class="header">
+      <h2> Style </h2>
+      <a href="" ng-click="main.changeStyle()">
+        <i class="fa fa-times fa-2x logo" aria-hidden="true"></i>
+      </a>
+    </div>
+    <div class="content">
+      <input type="checkbox" ng-model="main.black"> Black
+    </div>
+  </div>
+</div>
