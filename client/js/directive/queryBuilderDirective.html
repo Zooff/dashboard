@@ -13,9 +13,13 @@
                 </div>
                 <div ng-switch-default="ng-switch-default">
                     <div class="form-inline">
-                        <select ng-options="t.name as t.name for t in fields" ng-model="rule.field" class="form-control input-sm"></select>
+                        <select ng-options="t as t.name for t in fields" ng-model="rule.field" class="form-control input-sm"></select>
                         <select style="margin-left: 5px" ng-options="c.name as c.name for c in conditions" ng-model="rule.condition" class="form-control input-sm"></select>
-                        <input style="margin-left: 5px" type="text" ng-model="rule.data" class="form-control input-sm"/>
+                        <select ng-if="rule.field.type == 'bool'" style="margin-left: 5px" type="text" ng-model="rule.data" class="form-control input-sm"/>
+                          <option value ="1"> OK </option>
+                          <option value="0"> KO </option>
+                        </select>
+                        <input ng-if="!(rule.field.type == 'bool')" style="margin-left: 5px" type="text" ng-model="rule.data" class="form-control input-sm"/>
                         <input ng-if="rule.condition === 'entre'" style="margin-left: 5px" type="text" ng-model="rule.data2" class="form-control input-sm"/>
                         <button style="margin-left: 5px" ng-click="removeCondition($index)" class="btn btn-sm btn-danger"><span class="glyphicon glyphicon-minus-sign"></span></button>
                     </div>
