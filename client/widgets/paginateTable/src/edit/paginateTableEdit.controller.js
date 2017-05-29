@@ -21,6 +21,14 @@ function paginateTableEditController($scope, $http,config){
   //   });
   // }
 
+  // GET the Database available for the expert Mode
+  this.getDatabase = function(){
+    return $http.get('/expert')
+      .then(function(response){
+        return response.data;
+      });
+  }
+
   function getColumns(modal){
     if (!modal && !config.columns){
       config.columns = [];

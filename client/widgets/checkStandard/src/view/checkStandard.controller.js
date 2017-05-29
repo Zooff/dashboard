@@ -9,8 +9,8 @@ function checkStandardController($uibModal, data){
     var cs = this;
 
     if (data.config.tooltip){
-      this.small = data.config.tooltip.substr(0, 10);
-      if (data.config.tooltip.length > 10)
+      this.small = data.config.tooltip.substr(0, 15);
+      if (data.config.tooltip.length > 15)
         this.small += '...';
     }
     this.data = data;

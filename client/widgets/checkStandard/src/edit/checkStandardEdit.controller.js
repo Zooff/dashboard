@@ -6,15 +6,13 @@ angular.module('adf.widget.checkStandard')
 function checkStandardEditController($rootScope, $scope,$http, config, checkStandardService){
   var cs = this;
   this.config = config;
+  // Init selecttree object
   if (!config.condition)
     config.condition = {'group' : {'operator' : 'AND', 'rules' : []}};
 
-  this.getAutocompletion = function(val){
-    return $http.get('/autocomplete', {
-      params: {
-        val : val
-      }
-    })
+
+  this.getDatabaseExpert = function(){
+    return $http.get('/expert')
     .then(function(response){
       return response.data;
     });
@@ -38,10 +36,6 @@ function checkStandardEditController($rootScope, $scope,$http, config, checkStan
     }).then(function(data){
       config.colDatabase = data;
     });
-  }
-
-  this.broadcast = function(){
-    $rootScope.$broadcast('DatTest', 'OK')
   }
 
   // load the array of columns

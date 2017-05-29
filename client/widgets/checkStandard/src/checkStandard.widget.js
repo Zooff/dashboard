@@ -6,8 +6,8 @@ angular.module('adf.widget.checkStandard', ['adf.provider'])
 function checkStandardWidget(dashboardProvider){
   dashboardProvider
     .widget('checkStandard', {
-      title: 'checkStandard',
-      description: 'Widgets permettant la création de Check',
+      title: 'Check Perso',
+      description: 'Widget permettant la création de Check personalisé',
       templateUrl: '{widgetsPath}/checkStandard/src/view/view.html',
       controller: 'checkStandardController',
       controllerAs: 'cs',

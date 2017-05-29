@@ -26,11 +26,15 @@ function paginateTableController($rootScope, data, $uibModal){
 
 
     pt.open = function(row){
-      if (!pt.data.config.modalUrl && !pt.data.config.master)
-        return;
+      // if (!pt.data.config.modalUrl && !pt.data.config.master)
+      //   return;
+      // Master Widget : Broadcast the selected column value
       if(pt.data.config.master){
         $rootScope.$broadcast('DatTest', row[pt.data.config.modalField]);
       }
+      if(pt.data.config.modalDatasource)
+        pt.data.config.modalUrl = pt.data.config.modalDatasource.selected.url;
+
       if (pt.data.config.modalUrl){
         pt.data.config.urlReplace = row[pt.data.config.modalField];
         var modalInstance = $uibModal.open({

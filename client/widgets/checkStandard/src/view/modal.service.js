@@ -11,6 +11,7 @@ function  modalService($q, $http, $parse){
 
     angular.forEach(config.columns, function(col, i){
       if (col.title && col.path) {
+        var title = col.title.replace(/_/, ' ');
         model.headers[i] = col.title;
         columns.push({
           title: col.title,

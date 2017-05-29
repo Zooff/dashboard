@@ -13,6 +13,7 @@ function paginateTableService($q, $http, $parse){
     angular.forEach(config.columns, function(col, i){
       if (col.title && col.path) {
         var title = col.title.replace(/_/, ' ');
+        title = title.replace(/^bool/, '');
         model.headers[i] = title;
         columns.push({
           title: title,

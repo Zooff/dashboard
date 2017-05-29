@@ -18,4 +18,11 @@ function lineChartEditController($scope, $http, config, lineChartService){
     });
   }
 
+  this.getDatabase = function(){
+    return $http.get('/expert')
+      .then(function(response){
+        return response.data;
+      });
+  }
+
 }
