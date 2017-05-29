@@ -9,7 +9,7 @@ angular.module('dashboardInfra')
         model: '='
     },
     link : function(scope, el){
-      scope.breadcrumbs = [{url : ''}];
+      scope.breadcrumbs = [{url : 'All'}];
       autocomplete.autocomplete("")
         .then(function(data) { scope.addresses = data});
 
@@ -36,10 +36,30 @@ angular.module('dashboardInfra')
 
         var index = getIndex(scope.breadcrumbs, 'url' ,crumb.url);
         scope.breadcrumbs.splice(index +1, scope.breadcrumbs.length);
-        autocomplete.autocomplete(scope.breadcrumbs[scope.breadcrumbs.length -1].url)
-          .then(function(data) {scope.addresses = data});
+        if (scope.breadcrumbs.length > 1){
+          autocomplete.autocomplete(scope.breadcrumbs[scope.breadcrumbs.length -1].url)
+            .then(function(data) {scope.addresses = data});
+        }
+        else {
+          scope.breadcrumbs = [{url : 'All'}];
+          autocomplete.autocomplete("").then(function(data){scope.addresses = data;})
+        }
         $select.open =false;
         scope.$broadcast('uiSelectFocus');
+      }
+
+      scope.event = function(ev, $select){
+        var el = $select.items[$select.activeIndex];
+        if (ev.keyCode == 39 && el.parent){
+          scope.loadNextAddress(el, $select)
+        }
+        if (ev.keyCode == 37 && scope.breadcrumbs.length > 1 ){
+            scope.goBackTo(scope.breadcrumbs[scope.breadcrumbs.length - 2], $select)
+        }
+      }
+      // Force active class when hover
+      scope.changeFocus = function($select, $index){
+        $select.activeIndex = $index;
       }
     },
     templateUrl : '/js/directive/selectTree.html'
@@ -57,7 +77,6 @@ angular.module('dashboardInfra')
     }
   };
 })
-
 
 .service('autocomplete', function($http){
   return {
@@ -85,7 +104,7 @@ angular.module('dashboardInfra')
     ' <li class=\"ui-select-choices-group\" id=\"ui-select-choices-{{ $select.generatedId }}\">',
     '   <div class=\"divider\" ng-show=\"$select.isGrouped && $index > 0\"></div>',
     '   <div ng-show=\"$select.isGrouped\" class=\"ui-select-choices-group-label dropdown-header\" ng-bind=\"$group.name\"></div>',
-    '   <div ng-attr-id=\"ui-select-choices-row-{{ $select.generatedId }}-{{$index}}\" class=\"ui-select-choices-row\" ng-class=\"{active: null, disabled: $select.isDisabled(this)}\" role=\"option\">',
+    '   <div ng-attr-id=\"ui-select-choices-row-{{ $select.generatedId }}-{{$index}}\" class=\"ui-select-choices-row\" ng-class=\"{active: $select.isActive(this), disabled: $select.isDisabled(this)}\" role=\"option\">',
     '     <span class=\"ui-select-choices-row-inner\"></span>',
     '   </div>',
     ' </li>',

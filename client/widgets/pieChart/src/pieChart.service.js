@@ -22,7 +22,7 @@ function pieChartService($q, $http, $parse){
       config.label = config.key[0];
 
     if(!config.value)
-      config.label = config.key[1];
+      config.value = config.key[1];
 
     getLabel = $parse(config.label);
     getValue = $parse(config.value);

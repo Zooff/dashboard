@@ -3,10 +3,10 @@
   color: #0099ff;
 }
 
-.ui-select-bootstrap .ui-select-choices-row:hover > span{
+/*.ui-select-bootstrap .ui-select-choices-row:hover > span{
   background: #007acc !important;
   color: #fff;
-}
+}*/
 
 .ui-select-choices-row-inner{
   padding: 0 !important;
@@ -20,7 +20,7 @@
 }
 
 .ui-select-bootstrap .ui-select-choices-row.active > span{
-  background-color: #fff;
+  background-color: #007acc;
   color: #000;
 }
 
@@ -28,18 +28,33 @@
   color: #000;
   position: absolute;
   right: 0;
-  top: 2px;
+  top: 0;
   height: 100%;
+  width: 50px;
   line-height: 1;
   padding: 8px;
   border: none;
-  background: none;
+  background: #ff9000;
   margin: 0;
+  text-align: center;
+
+}
+
+span.info   {
+  padding: 2px;
+  border: none;
+  margin: 0;
+  text-align: center;
+
 }
 
 .nextAddress:hover{
   background: rgba(0,0,0,0.1);
   color: #fff;
+}
+
+.nextAddress i {
+  font-size: 25px;
 }
 
 

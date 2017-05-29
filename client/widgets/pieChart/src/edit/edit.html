@@ -30,7 +30,7 @@
 
   <div class="form-group">
     <label class="sr-only" for="label">Label</label>
-    <input type="text" id="label" class="form-control" ng-model="config.label" placeholder="Label">
+    <input type="text" id="label" class="form-control" ng-model="config.label" placeholder="Label" uib-typeahead="key for key in config.key" typeahead-min-length='0' autocomplete="off">
   </div>
 
   <div>
@@ -39,7 +39,7 @@
 
   <div class="form-group">
     <label class="sr-only" for="value">Value</label>
-    <input type="text" id="value" class="form-control" ng-model="config.value" placeholder="Données">
+    <input type="text" id="value" class="form-control" ng-model="config.value" placeholder="Données" uib-typeahead="key for key in config.key" typeahead-min-length='0' autocomplete="off">
   </div>
 
   <div>
@@ -75,7 +75,7 @@
   <div ng-show="expert">
     <div class="form-group">
       <label class="sr-only" for="database"> Database </label>
-      <input type="text" id="database" class="form-control" placeholder="Database" ng-model="config.database">
+      <input type="text" id="database" class="form-control" placeholder="Database" ng-model="config.database" uib-typeahead=" database for database in graph.getDatabase($viewValue)" typeahead-min-length='0'>
     </div>
     <div class="form-group">
       <label class="sr-only" for="query">Query</label>

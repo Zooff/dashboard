@@ -5,5 +5,12 @@ angular.module('adf.widget.pieChart')
 
 function pieChartEditController($scope, $http, config, pieChartService){
   this.config = config;
-  config.datasource = {}
+  config.datasource = {};
+
+  this.getDatabase = function(){
+    return $http.get('/expert')
+      .then(function(response){
+        return response.data;
+      });
+  }
 }
