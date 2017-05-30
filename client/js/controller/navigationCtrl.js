@@ -40,7 +40,10 @@ angular.module('dashboardInfra.controller')
 
     $q.all([q, storeService.getAll()]).then(function(values){
       nav.items = values[1];
+      $location.path('/boards/'+id);
     });
+
+
   };
 
   storeService.getAll().then(function(data){
