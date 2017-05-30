@@ -3,6 +3,7 @@
     Please insert a url to the widget configuration
   </div>
   <div ng-show="graph.label">
+    {{config.urlReplace}}
     <div>
       <canvas id="graph" class="chart-base" chart-type="graph.type" chart-data="graph.value" chart-labels="graph.label" chart-options="graph.options">
       </canvas>

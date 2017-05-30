@@ -28,11 +28,12 @@ function pieChartService($q, $http, $parse){
     getValue = $parse(config.value);
     label = jsonData.map(function(u){return getLabel(u);});
     value = jsonData.map(function(u){return getValue(u);});
-    return {label: label, value: value, type: config.type, desc : config.desc};
+    return {config : config, label: label, value: value, type: config.type, desc : config.desc};
   }
 
   function fetch(config){
-    return $http.get(config.url)
+    var url = config.url.replace(/:\w*/, config.urlReplace);
+    return $http.get(url)
       .then(function(response){
         return response.data;
       })
