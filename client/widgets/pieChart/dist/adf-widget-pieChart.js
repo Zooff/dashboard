@@ -27,7 +27,7 @@ function pieChartWidget(dashboardProvider){
 }
 pieChartWidget.$inject = ["dashboardProvider"];
 
-angular.module("adf.widget.pieChart").run(["$templateCache", function($templateCache) {$templateCache.put("{widgetsPath}/pieChart/src/edit/edit.html","<script type=text/ng-template id=autocomplete.html><a> <span ng-bind-html=\"match.model.url | uibTypeaheadHighlight:query\"></span> | <small ng-bind-html=\"match.model.desc | uibTypeaheadHighlight:query\"></small> </a></script><form role=form><div class=form-group><label for=sample>Datasource</label><div ng-show=config.url class=\"alert alert-info text-center\">{{config.url}}</div><selecttree model=config.datasource></selecttree></div><div><label>Graph</label></div><div class=form-group><label class=sr-only for=desc>Description</label> <input type=text id=desc class=form-control ng-model=config.desc placeholder=Description></div><input id=listener type=checkbox ng-model=config.listener> <label for=listener>Slave</label><div><label>Label</label></div><div class=form-group><label class=sr-only for=label>Label</label> <input type=text id=label class=form-control ng-model=config.label placeholder=Label uib-typeahead=\"key for key in config.key\" typeahead-min-length=0 autocomplete=off></div><div><label>Value</label></div><div class=form-group><label class=sr-only for=value>Value</label> <input type=text id=value class=form-control ng-model=config.value placeholder=Données uib-typeahead=\"key for key in config.key\" typeahead-min-length=0 autocomplete=off></div><div><label>Type de Graph</label></div><div class=form-group><label class=sr-only for=sample>Chart Type</label><select class=form-control ng-model=config.type><option value=pie>Pie</option><option value=polarArea>PolarArea</option><option value=doughnut>Doughnut</option></select></div><div><input id=cbe type=checkbox ng-model=expert> <label for=cbe>Expert Mode</label></div><div ng-show=expert><div class=form-group><label class=sr-only for=database>Database</label> <input type=text id=database class=form-control placeholder=Database ng-model=config.database uib-typeahead=\"database for database in graph.getDatabase($viewValue)\" typeahead-min-length=0></div><div class=form-group><label class=sr-only for=query>Query</label> <textarea rows=3 id=query class=form-control placeholder=Query ng-model=config.expert></textarea></div></div></form>");
+angular.module("adf.widget.pieChart").run(["$templateCache", function($templateCache) {$templateCache.put("{widgetsPath}/pieChart/src/edit/edit.html","<script type=text/ng-template id=autocomplete.html><a> <span ng-bind-html=\"match.model.url | uibTypeaheadHighlight:query\"></span> | <small ng-bind-html=\"match.model.desc | uibTypeaheadHighlight:query\"></small> </a></script><form role=form><div><label>Description</label></div><div class=form-group><label class=sr-only for=desc>Description</label> <input type=text id=desc class=form-control ng-model=config.desc placeholder=Description></div><hr><input type=radio ng-model=config.mode value=easy> <label>Mode Facile</label> <input type=radio ng-model=config.mode value=std> <label>Mode Standard</label> <input type=radio ng-model=config.mode value=exp> <label>Mode Expert</label><div class=form-group ng-if=\"config.mode == \'easy\'\"><label for=sample>Datasource</label><div ng-show=config.url class=\"alert alert-info text-center\">{{config.url}}</div><selecttree model=config.datasource></selecttree></div><div class=form-group ng-if=\"config.mode == \'std\'\"><div class=form-group><label for=sample>Datasources</label> <input id=sample type=text class=form-control ng-model=config.databaseStandard placeholder=\"Type du Check\" autocomplete=off uib-typeahead=\"database for database in graph.getDatabase($viewValue)\" typeahead-min-length=0 typeahead-on-select=graph.getColumns(config.databaseStandard)></div><div class=form-group><label for=sample>Colonne -> Label</label> <input id=sample type=text class=form-control ng-model=config.columnStandard autocomplete=off uib-typeahead=\"col as col.name for col in config.colDatabase\" typeahead-min-length=0></div><div class=form-group><label for=standardTest>Test</label></div><p ng-hide=config.colDatabase>Choissisez une datasource !</p><query-builder ng-if=config.colDatabase group=config.condition.group fields=config.colDatabase database=config.databaseStandard></query-builder></div><div ng-if=\"config.mode == \'exp\'\"><div class=form-group><label class=sr-only for=database>Database</label> <input type=text id=database class=form-control placeholder=Database ng-model=config.database uib-typeahead=\"database for database in graph.getDatabaseExpert($viewValue)\" typeahead-min-length=0></div><div class=form-group><label class=sr-only for=query>Query</label> <textarea rows=3 id=query class=form-control placeholder=Query ng-model=config.expert></textarea></div></div><hr><div><label>Configuration du Graph</label></div><input ng-if=\"config.mode == \'easy\'\" id=listener type=checkbox ng-model=config.listener> <label ng-if=\"config.mode == \'easy\'\" for=listener>Slave</label><div><label>Type de Graph</label></div><div class=form-group><label class=sr-only for=sample>Chart Type</label><select class=form-control ng-model=config.type><option value=pie>Camenbert</option><option value=polarArea>PolarArea</option><option value=doughnut>Doughnut</option></select></div><div><label>Label</label></div><div class=form-group><label class=sr-only for=label>Label</label> <input type=text id=label class=form-control ng-model=config.label placeholder=Label uib-typeahead=\"key for key in config.key\" typeahead-min-length=0 autocomplete=off></div><div><label>Value</label></div><div class=form-group><label class=sr-only for=value>Value</label> <input type=text id=value class=form-control ng-model=config.value placeholder=Données uib-typeahead=\"key for key in config.key\" typeahead-min-length=0 autocomplete=off></div></form>");
 $templateCache.put("{widgetsPath}/pieChart/src/view/view.html","<div><div ng-hide=graph.label class=\"alert alert-info\" role=alert>Please insert a url to the widget configuration</div><div ng-show=graph.label>{{config.urlReplace}}<div><canvas id=graph class=chart-base chart-type=graph.type chart-data=graph.value chart-labels=graph.label chart-options=graph.options></canvas></div><div><p class=text-center>{{graph.desc}}</p></div></div></div>");}]);
 
 
@@ -75,12 +75,35 @@ angular.module('adf.widget.pieChart')
 function pieChartEditController($scope, $http, config, pieChartService){
   this.config = config;
   config.datasource = {};
+  if (!config.condition)
+    config.condition = {'group' : {'operator' : 'AND', 'rules' : []}};
 
-  this.getDatabase = function(){
+
+  this.getDatabaseExpert = function(){
     return $http.get('/expert')
       .then(function(response){
         return response.data;
       });
+  }
+
+  this.getDatabase = function(){
+    return $http.get('/standard')
+      .then(function(response){
+        return response.data;
+      });
+  }
+
+  this.getColumns = function(val){
+    return $http.get('/standard/columns', {
+      params: {
+        val : val
+      }
+    })
+    .then(function(response){
+      return response.data;
+    }).then(function(data){
+      config.colDatabase = data;
+    });
   }
 }
 pieChartEditController.$inject = ["$scope", "$http", "config", "pieChartService"];
@@ -92,6 +115,7 @@ angular.module('adf.widget.pieChart')
 
 function pieChartService($q, $http, $parse){
   var expertUrl = "/expert/query";
+  var standardUrl = "/standard/graph";
   var label = [];
   var value = [];
 
@@ -131,10 +155,13 @@ function pieChartService($q, $http, $parse){
 
   function get(config){
     var result = null;
-    if (config.expert){
-      result = post(config);
+    if (config.mode == 'exp'){
+      result = post(config, expertUrl);
     }
-    else if (config.datasource){
+    else if (config.mode == 'std'){
+      result = post(config, standardUrl);
+    }
+    else if (config.mode == 'easy'){
       if (config.datasource.selected)
         config.url = config.datasource.selected.url;
       result = fetch(config);
@@ -142,8 +169,8 @@ function pieChartService($q, $http, $parse){
     return result
   }
 
-  function post(config){
-    return $http.post(expertUrl, config)
+  function post(config, url){
+    return $http.post(url, config)
       .then(function(response){
         return response.data
       })
