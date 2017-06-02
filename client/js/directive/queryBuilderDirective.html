@@ -9,17 +9,21 @@
         <div ng-repeat="rule in group.rules | orderBy:'index'" class="condition">
             <div ng-switch="rule.hasOwnProperty('group')">
                 <div ng-switch-when="true">
-                    <query-builder group="rule.group" fields="$parent.fields"></query-builder>
+                    <query-builder group="rule.group" fields="$parent.fields" database="$parent.database"></query-builder>
                 </div>
                 <div ng-switch-default="ng-switch-default">
                     <div class="form-inline">
+                        <input type="checkbox" ng-model="rule.not"> <label> Non </label>
                         <select ng-options="t as t.name for t in fields track by t.name" ng-model="rule.field" class="form-control input-sm"></select>
                         <select style="margin-left: 5px" ng-options="c.name as c.name for c in conditions" ng-model="rule.condition" class="form-control input-sm"></select>
-                        <select ng-if="rule.field.type == 'bool'" style="margin-left: 5px" type="text" ng-model="rule.data" class="form-control input-sm"/>
-                          <option value ="1"> OK </option>
-                          <option value="0"> KO </option>
-                        </select>
-                        <input ng-if="!(rule.field.type == 'bool')" style="margin-left: 5px" type="text" ng-model="rule.data" class="form-control input-sm"/>
+                        <span ng-switch="rule.field.type">
+                          <select ng-switch-when="bool" style="margin-left: 5px" type="text" ng-model="rule.data" class="form-control input-sm"/>
+                            <option value ="1"> OK </option>
+                            <option value="0"> KO </option>
+                          </select>
+                          <select ng-switch-when="autocomplete" autocomplete="off" uib-typeahead="val for val in getColValue(rule.field.Field)" ng-model="rule.data" class="form-control input-sm"/>
+                          <input ng-switch-default style="margin-left: 5px" type="text" ng-model="rule.data" class="form-control input-sm"/>
+                        </span>
                         <input ng-if="rule.condition === 'entre'" style="margin-left: 5px" type="text" ng-model="rule.data2" class="form-control input-sm"/>
                         <button style="margin-left: 5px" ng-click="removeCondition($index)" class="btn btn-sm btn-danger"><span class="glyphicon glyphicon-minus-sign"></span></button>
                     </div>

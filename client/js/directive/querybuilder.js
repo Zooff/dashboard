@@ -5,7 +5,8 @@ angular.module('dashboardInfra')
         restrict: 'E',
         scope: {
             group: '=',
-            fields: '='
+            fields: '=',
+            database: '='
         },
         templateUrl: '/js/directive/queryBuilderDirective.html',
         compile: function (element, attrs) {
@@ -52,6 +53,19 @@ angular.module('dashboardInfra')
                 scope.removeGroup = function () {
                     "group" in scope.$parent && scope.$parent.group.rules.splice(scope.$parent.$index, 1);
                 };
+
+                scope.getColValue = function(col){
+                  return $http.get('/standard/colvalue',{
+                    params : {
+                      database : database,
+                      column : col
+                    }
+                  })
+                  .then(function(response){
+                   return response.data;
+                  })
+
+                }
 
                 directive || (directive = $compile(content));
                 element.append(directive(scope, function ($compile) {
