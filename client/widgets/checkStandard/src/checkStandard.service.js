@@ -15,7 +15,8 @@ function checkStandardService($q, $http, $parse){
   function fetch(config){
     var data = {
       database : config.databaseStandard,
-      test : config.condition
+      test : config.condition,
+      test2 : config.condition2
     };
     return $http.post(apiEndPoint, data)
       .then(function(response){
@@ -31,7 +32,7 @@ function checkStandardService($q, $http, $parse){
     if (config.expert){
       result = post(config);
     }
-    else if (config.database){
+    else if (config.databaseStandard){
       result = fetch(config);
     }
     return result

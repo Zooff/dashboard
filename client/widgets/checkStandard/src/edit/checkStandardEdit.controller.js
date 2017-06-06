@@ -6,9 +6,16 @@ angular.module('adf.widget.checkStandard')
 function checkStandardEditController($rootScope, $scope,$http, config, checkStandardService){
   var cs = this;
   this.config = config;
+  if (!cs.config.principalCol)
+    cs.config.principalCol = [];
+  if(!cs.config.otherCol)
+    cs.config.otherCol = [];
   // Init selecttree object
   if (!config.condition)
     config.condition = {'group' : {'operator' : 'AND', 'rules' : []}};
+
+  if(!config.condition2)
+    config.condition2 = {'group' : {'operator' : 'AND', 'rules' : []}};
 
 
   this.getDatabaseExpert = function(){
@@ -25,6 +32,17 @@ function checkStandardEditController($rootScope, $scope,$http, config, checkStan
       });
   }
 
+  function getRefColumn(arrayCol){
+    arrayCol.forEach(function(el){
+      if(el.type == 'principal'){
+        cs.config.principalCol.push(el)
+      }
+      else {
+        cs.config.otherCol.push(el);
+      }
+    });
+  }
+
   this.getColumns = function(val){
     return $http.get('/standard/columns', {
       params: {
@@ -34,7 +52,8 @@ function checkStandardEditController($rootScope, $scope,$http, config, checkStan
     .then(function(response){
       return response.data;
     }).then(function(data){
-      config.colDatabase = data;
+      console.log(data);
+      getRefColumn(data);
     });
   }
 

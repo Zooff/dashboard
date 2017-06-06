@@ -9,14 +9,9 @@
 
 
 <form role="form">
-  <div class="form-group">
-    <label for="sample">Datasource</label>
-    <div ng-show="config.url" class="alert alert-info text-center"> {{config.url}} </div>
-    <selecttree model="config.datasource"></selecttree>
-  </div>
 
   <div>
-    <label> Graph </label>
+    <label> Description </label>
   </div>
 
   <div class="form-group">
@@ -24,7 +19,84 @@
     <input type="text" id="desc" class="form-control" ng-model="config.desc" placeholder="Description">
   </div>
 
-  <input id=listener type="checkbox" ng-model="config.listener"> <label for=listener> Slave </label>
+  <hr>
+
+  <input type="radio" ng-model="config.mode" value="easy" id=easy> <label for=easy> Mode Facile </label>
+  <input type="radio" ng-model="config.mode" value="std" id=std> <label for=std> Mode Standard </label>
+  <input type="radio" ng-model="config.mode" value="exp" id=exp> <label for=exp> Mode Expert </label>
+
+  <!-- Mode easy -->
+
+  <div class="form-group" ng-if="config.mode == 'easy'">
+    <label for="sample">Datasource</label>
+    <div ng-show="config.url" class="alert alert-info text-center"> {{config.url}} </div>
+    <selecttree model="config.datasource"></selecttree>
+  </div>
+
+
+  <!-- Mode Standard -->
+
+  <div class="form-group" ng-if="config.mode == 'std'">
+    <div class="form-group">
+      <label for="sample"> Datasources</label>
+      <input id="sample" type="text" class="form-control" ng-model="config.databaseStandard" placeholder="Type du Check" autocomplete="off" uib-typeahead="database for database in graph.getDatabase($viewValue)" typeahead-min-length='0' typeahead-on-select="graph.getColumns(config.databaseStandard)">
+    </div>
+
+    <div class="form-group">
+      <label for="sample"> Colonne -> Label</label>
+      <input id="sample" type="text" class="form-control" ng-model="config.columnStandard" placeholder="" autocomplete="off" uib-typeahead="col as col.name for col in graph.column" typeahead-min-length='0'>
+    </div>
+
+    <div class="form-group">
+      <label for="standardTest"> Test </label>
+    </div>
+
+    <p ng-hide="config.principalCol.length"> Choissisez une datasource ! </p>
+
+    <div ng-if="config.principalCol.length">
+      <label> <small> REF </small> </label>
+      <query-builder  group="config.condition.group" fields="config.principalCol" database="config.databaseStandard"></query-builder>
+    </div>
+    <div ng-if="config.condition.group.rules[0] && config.condition.group.rules[0].data">
+      <label> <small> SEC </small></label>
+      <query-builder  group="config.condition2.group" fields="config.otherCol" database="config.databaseStandard"></query-builder>
+    </div>
+
+  </div>
+
+  <!-- Mode Expert -->
+
+  <div ng-if="config.mode == 'exp'">
+    <div class="form-group">
+      <label class="sr-only" for="database"> Database </label>
+      <input type="text" id="database" class="form-control" placeholder="Database" ng-model="config.database" uib-typeahead=" database for database in graph.getDatabaseExpert($viewValue)" typeahead-min-length='0'>
+    </div>
+    <div class="form-group">
+      <label class="sr-only" for="query">Query</label>
+      <textarea rows="3" id="query" class="form-control" placeholder="Query" ng-model="config.expert"></textarea>
+    </div>
+  </div>
+
+  <hr>
+
+  <div>
+    <label> Configuration du Graph </label>
+  </div>
+
+  <input ng-if="config.mode == 'easy'" id=listener type="checkbox" ng-model="config.listener"> <label ng-if="config.mode == 'easy'" for=listener> Slave </label>
+
+  <div>
+    <label> Type de Graph </label>
+  </div>
+
+  <div class="form-group">
+    <label class="sr-only" for="sample">Chart Type</label>
+    <select class="form-control" ng-model="config.type">
+      <option value="pie"> Camenbert </option>
+      <option value="polarArea"> PolarArea </option>
+      <option value ="doughnut"> Doughnut </option>
+    </select>
+  </div>
 
   <div>
     <label> Label </label>
@@ -44,19 +116,6 @@
     <input type="text" id="value" class="form-control" ng-model="config.value" placeholder="Données" uib-typeahead="key for key in config.key" typeahead-min-length='0' autocomplete="off">
   </div>
 
-  <div>
-    <label> Type de Graph </label>
-  </div>
-
-  <div class="form-group">
-    <label class="sr-only" for="sample">Chart Type</label>
-    <select class="form-control" ng-model="config.type">
-      <option value="pie"> Pie </option>
-      <option value="polarArea"> PolarArea </option>
-      <option value ="doughnut"> Doughnut </option>
-    </select>
-  </div>
-
   <!-- <div>
     <label ng-click="isCollapsed = !isCollapsed"> Chart Option
       <span ng-hide="isCollapsed" class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
@@ -69,20 +128,5 @@
       <label> Ok </label>
     </div>
   </div> -->
-
-  <div>
-    <input id=cbe type="checkbox" ng-model="expert"> <label for=cbe>Expert Mode</label>
-  </div>
-
-  <div ng-show="expert">
-    <div class="form-group">
-      <label class="sr-only" for="database"> Database </label>
-      <input type="text" id="database" class="form-control" placeholder="Database" ng-model="config.database" uib-typeahead=" database for database in graph.getDatabase($viewValue)" typeahead-min-length='0'>
-    </div>
-    <div class="form-group">
-      <label class="sr-only" for="query">Query</label>
-      <textarea rows="3" id="query" class="form-control" placeholder="Query" ng-model="config.expert"></textarea>
-    </div>
-  </div>
 
 </form>

@@ -24,6 +24,10 @@ function checkStandardController($uibModal, data){
       if (data.config.seuil.op === '<'){
         this.data.positif = (this.data.data.length < this.data.config.seuil.value);
       }
+
+      if (data.config.seuil.op === '='){
+        this.data.positif = (this.data.data.length == this.data.config.seuil.value);
+      }
     }
 
     // Open the modal which list the Array

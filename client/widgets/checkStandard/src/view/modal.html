@@ -1,21 +1,8 @@
 
     <div class="modal-header">
+      <button type="button" class="close" ng-click="$dismiss()" aria-hidden="true">&times;</button>
       <h3 class="modal-title" id="modal-title"> Title </h3>
-      <i ng-click="$dismiss()" class="fa fa-times-circle" aria-hidden="true"><i>
     </div>
     <div class="modal-body" id="modal-body">
-      <div class="table-responsive">
-        <table  class="table">
-          <tr>
-            <th ng-repeat="head in cm.data.headers" ng-click="cm.sortIndex($index)">
-              {{head}}
-            </th>
-          </tr>
-          <tr ng-repeat="row in cm.data.rows| orderBy:cm.sorter:cm.reverseSort track by $index">
-            <td ng-repeat="col in row track by $index">
-              {{col}}
-            </td>
-          </tr>
-        </table>
-      </div>
+      <modal-table data=cm.data></modal-table>
     </div>
