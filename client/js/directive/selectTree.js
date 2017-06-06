@@ -62,7 +62,7 @@ angular.module('dashboardInfra')
         $select.activeIndex = $index;
       }
     },
-    templateUrl : '/js/directive/selectTree.html'
+    templateUrl : '/templates/directive/selectTree.html'
   }
 })
 

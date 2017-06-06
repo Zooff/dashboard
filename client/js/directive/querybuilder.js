@@ -1,6 +1,6 @@
 angular.module('dashboardInfra')
 
-.directive('queryBuilder', ['$compile', function ($compile) {
+.directive('queryBuilder', ['$compile', '$http', function ($compile, $http) {
     return {
         restrict: 'E',
         scope: {
@@ -8,7 +8,7 @@ angular.module('dashboardInfra')
             fields: '=',
             database: '='
         },
-        templateUrl: '/js/directive/queryBuilderDirective.html',
+        templateUrl: '/templates/directive/queryBuilderDirective.html',
         compile: function (element, attrs) {
             var content, directive;
             content = element.contents().remove();
@@ -33,7 +33,7 @@ angular.module('dashboardInfra')
                     scope.group.rules.push({
                         condition: '=',
                         field: '',
-                        data: ''
+                        data: null
                     });
                 };
 
@@ -44,7 +44,7 @@ angular.module('dashboardInfra')
                 scope.addGroup = function () {
                     scope.group.rules.push({
                         group: {
-                            operator: 'AND',
+                            operator: 'OR',
                             rules: []
                         }
                     });

@@ -21,6 +21,6 @@ angular.module('dashboardInfra')
         return item[scope.orderField];
       }
     },
-    templateUrl : '/js/directive/modalTable.html'
+    templateUrl : '/templates/directive/modalTable.html'
   }
 })

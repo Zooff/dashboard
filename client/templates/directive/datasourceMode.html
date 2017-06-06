@@ -1,0 +1,45 @@
+<hr>
+
+<input ng-if="easy" type="radio" ng-model="config.mode" value="easy" id=easy> <label for=easy ng-if="easy"> Mode Facile </label>
+<input ng-if="standard" type="radio" ng-model="config.mode" value="std" id=std> <label for=std ng-if="standard"> Mode Standard </label>
+<input type="radio" ng-model="config.mode" value="exp" id=exp> <label for="exp"> Mode Expert </label>
+
+<!-- Mode easy -->
+
+<div class="form-group" ng-if="config.mode == 'easy'">
+  <label for="sample">Datasource</label>
+  <div ng-show="config.url" class="alert alert-info text-center"> {{config.url}} </div>
+  <selecttree model="config.datasource"></selecttree>
+</div>
+
+
+<!-- Mode Standard -->
+
+<div class="form-group" ng-if="config.mode == 'std'">
+  <div class="form-group">
+    <label for="sample"> Datasources</label>
+    <input id="sample" type="text" class="form-control" ng-model="config.databaseStandard" placeholder="Type du Check" autocomplete="off" uib-typeahead="database for database in getDatabase($viewValue)" typeahead-min-length='0' typeahead-on-select="getColumns(config.databaseStandard)">
+  </div>
+
+  <div class="form-group">
+    <label for="standardTest"> Test </label>
+  </div>
+
+  <p ng-hide="config.colDatabase"> Choissisez une datasource ! </p>
+  <query-builder ng-if="config.colDatabase" group="config.condition.group" fields="config.colDatabase" database="config.databaseStandard"></query-builder>
+</div>
+
+<!-- Mode Expert -->
+
+<div ng-if="config.mode == 'exp'">
+  <div class="form-group">
+    <label class="sr-only" for="database"> Database </label>
+    <input type="text" id="database" class="form-control" placeholder="Database" ng-model="config.database" uib-typeahead=" database for database in getDatabaseExpert($viewValue)" typeahead-min-length='0'>
+  </div>
+  <div class="form-group">
+    <label class="sr-only" for="query">Query</label>
+    <textarea rows="3" id="query" class="form-control" placeholder="Query" ng-model="config.expert"></textarea>
+  </div>
+</div>
+
+<hr>
