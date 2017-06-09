@@ -1,0 +1,8 @@
+<div class="form-group">
+  <label class="sr-only" for="database"> Database </label>
+  <input type="text" id="database" class="form-control" placeholder="Database" ng-model="config.database" uib-typeahead=" database for database in getDatabaseExpert($viewValue)" typeahead-min-length='0'>
+</div>
+<div class="form-group">
+  <label class="sr-only" for="query">Query</label>
+  <textarea rows="3" id="query" class="form-control" placeholder="Query" ng-model="config.expert"></textarea>
+</div>
