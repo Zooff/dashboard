@@ -5,7 +5,7 @@
   <div ng-show="graph.label">
     {{config.urlReplace}}
     <div>
-      <canvas id="graph" class="chart-base" chart-type="graph.type" chart-data="graph.value" chart-labels="graph.label" chart-options="graph.options">
+      <canvas id="graph" class="chart-base" ng-class="{click : graph.config.mode == 'std'}" chart-type="graph.type" chart-data="graph.value" chart-labels="graph.label" chart-options="graph.options" chart-click="graph.open">
       </canvas>
     </div>
     <div>

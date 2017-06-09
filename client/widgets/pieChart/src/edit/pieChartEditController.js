@@ -17,21 +17,17 @@ function pieChartEditController($scope, $http, config, pieChartService){
   if(!config.condition2)
     config.condition2 = {'group' : {'operator' : 'AND', 'rules' : []}};
 
-  this.getDatabaseExpert = function(){
-    return $http.get('/expert')
-      .then(function(response){
-        return response.data;
-      });
-  }
-
   this.getDatabase = function(){
     return $http.get('/standard')
       .then(function(response){
+
         return response.data;
       });
   }
 
   function getRefColumn(arrayCol){
+    graph.config.principalCol = [];
+    graph.config.otherCol = [];
     arrayCol.forEach(function(el){
       if(el.type == 'principal'){
         graph.config.principalCol.push(el)

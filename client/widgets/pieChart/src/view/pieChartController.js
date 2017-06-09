@@ -4,7 +4,7 @@
 angular.module('adf.widget.pieChart')
   .controller('pieChartController', pieChartController);
 
-function pieChartController($scope, data, pieChartService, $rootScope){
+function pieChartController($scope, data, pieChartService, $rootScope, $uibModal){
   if (data){
     var graph = this;
     this.config = data.config;
@@ -16,7 +16,11 @@ function pieChartController($scope, data, pieChartService, $rootScope){
   // Option for the chart --> See the chart.js options
     var cut;
     (this.type == 'doughnut') ? cut = 75 : cut = 0;
-    this.options = {elements: {arc: {borderWidth : 1, borderColor : '#222222'}},legend : {display : true, position :'left'}, cutoutPercentage : cut};
+    this.options = {elements: {arc: {borderWidth : 1, borderColor : '#222222'}}, cutoutPercentage : cut};
+
+    if (this.config.legend){
+      this.options.legend = {display : true, position : this.config.legendPosition};
+    }
 
     if (data.config.listener){
       $rootScope.$on('DatTest', function(events, args){
@@ -30,7 +34,28 @@ function pieChartController($scope, data, pieChartService, $rootScope){
         });
       });
     }
+
+    this.open = function(points, evt){
+      if (graph.config.mode != 'std'){
+        return;
+      }
+      console.log(points[0]._model.label);
+      // Build the condition to obtain the data
+      // To do this, add a rule : column selected = label of the part who has been cliked
+      var condi =graph.config.condition;
+      condi.group.rules.push({condition: '=', field: graph.config.columnStandard ,data: points[0]._model.label})
+      var modalInstance = $uibModal.open({
+        templateUrl : '{widgetsPath}/pieChart/src/view/modal.html',
+        controller : 'modalInstanceCtrl',
+        controllerAs : 'cm',
+        size : 'lg',
+        windowClass: 'my-modal',
+        resolve: {
+          data: ['modalServicePC', function(modalService){
+            return modalService.fetch(graph.config, condi);
+          }]
+        }
+      });
+    }
   }
-
-
 }
