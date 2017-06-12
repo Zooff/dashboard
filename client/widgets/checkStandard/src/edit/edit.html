@@ -25,13 +25,13 @@
     </div>
 
     <div class="form-group">
-      <label for="standardTest"> Test </label>
+      <label for="standardTest"> Condition :  </label>
     </div>
 
     <p ng-hide="config.principalCol.length"> Choissisez une datasource ! </p>
 
     <div ng-if="config.principalCol.length">
-      <label> <small> REF </small> </label>
+      <label> <small> Choix de la Référence </small> </label>
       <query-builder  group="config.condition.group" fields="config.principalCol" database="config.databaseStandard"></query-builder>
     </div>
     <div ng-if="config.condition.group.rules[0] && config.condition.group.rules[0].data">
@@ -67,7 +67,7 @@
   </div>
 
   <div class="form-group">
-    <label ng-click="isCollapsed = !isCollapsed"> Paramètre Tableau
+    <label ng-click="isCollapsed = !isCollapsed"> Information Détaillé
       <span ng-hide="isCollapsed" class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
       <span ng-show="isCollapsed" class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span>
     </label>
@@ -78,12 +78,12 @@
     <p> Ce tableau s'affiche lorsque vous cliquer sur le widget, il contient des informations plus détaillé sur le résultat du check. La première configuration est automatique </p>
 
       <div>
-        <label>Column</label>
+        <label>Colonne</label>
       </div>
 
       <div class="form-inline padding-bottom" ng-repeat="col in cs.config.columns">
         <div class="form-group">
-          <label class="sr-only" for="title-{{$index}}">Title</label>
+          <label class="sr-only" for="title-{{$index}}">Title ()</label>
           <input type="text" id="title-{{$index}}" class="form-control" placeholder="Title" ng-model="col.title" required="">
         </div>
         <div class="form-group">

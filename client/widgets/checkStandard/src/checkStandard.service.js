@@ -12,13 +12,9 @@ function checkStandardService($q, $http, $parse){
     return {config: config, data : jsonData};
   }
 
+  // Standard Mode, post to /standard
   function fetch(config){
-    var data = {
-      database : config.databaseStandard,
-      test : config.condition,
-      test2 : config.condition2
-    };
-    return $http.post(apiEndPoint, data)
+    return $http.post(apiEndPoint, config)
       .then(function(response){
         return response.data;
       })
@@ -38,6 +34,8 @@ function checkStandardService($q, $http, $parse){
     return result
   }
 
+
+  // Expert Mode, post to /expert
   function post(config){
     return $http.post(expertUrl, config)
       .then(function(response){

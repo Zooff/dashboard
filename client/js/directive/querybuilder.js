@@ -57,7 +57,7 @@ angular.module('dashboardInfra')
                 scope.getColValue = function(col){
                   return $http.get('/standard/colvalue',{
                     params : {
-                      database : database,
+                      database : scope.database,
                       column : col
                     }
                   })

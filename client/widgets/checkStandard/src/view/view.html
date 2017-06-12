@@ -2,7 +2,7 @@
   <div ng-hide="cs.data" class="alert alert-info" role="alert">
     Please configure the widget
   </div>
-  <div class="text-center" ng-show="cs.data" ng-click="cs.open()">
+  <div class="text-center click" ng-show="cs.data" ng-click="cs.open()">
     <i ng-show="cs.data.positif" class="fa fa-check fa-4x text-success" aria-hidden="true">{{cs.data.data.length}}</i>
     <i ng-hide="cs.data.positif" class="fa fa-times fa-4x text-danger" aria-hidden="true">{{cs.data.data.length}}</i>
     <p uib-tooltip="{{cs.data.config.tooltip}}" tooltip-placement="bottom"> {{cs.small}} </p>

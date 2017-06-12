@@ -5,7 +5,8 @@ angular.module('adf.widget.paginateTable')
 
 function paginateTableService($q, $http, $parse){
 
-  var expertUrl = "/expert"
+  var expertUrl = "/expert";
+  var standardUrl = "/standard/";
 
   function createColumns(config, model){
     var columns = [];
@@ -71,28 +72,32 @@ function paginateTableService($q, $http, $parse){
       });
   }
 
+  function post(config, url){
+    return $http.post(url, config)
+      .then(function(response){
+        return response.data
+      })
+      .then(function(data){
+        return createDataModel(config, data);
+      });
+  }
+
   function get(config){
     var result = null;
-    if (config.expert){
-      result = post(config);
+    if (config.mode == 'exp'){
+      result = post(config, expertUrl);
     }
-    else if (config.datasource){
+    else if (config.mode == 'std'){
+      result = post(config, standardUrl);
+    }
+    else if (config.mode == 'easy'){
       if (config.datasource.selected)
-        config.url = config.datasource.selected.url
+        config.url = config.datasource.selected.url;
       result = fetch(config);
     }
     return result
   }
 
-  function post(config){
-    return $http.post(expertUrl, config)
-      .then(function(response){
-        return response.data
-      })
-      .then(function(data){
-        return createData(data, config);
-      });
-  }
 
   return {
     get: get

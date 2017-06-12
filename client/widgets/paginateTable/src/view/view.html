@@ -15,7 +15,9 @@
         </tr>
         <tr ng-repeat="row in filterData = (pt.data.rows | filter:q )| orderBy:pt.sorter:pt.reverseSort| startFrom: (pt.data.currentPage-1)*pt.data.itemPerPage | limitTo:pt.data.itemPerPage track by $index" ng-click="pt.open(row)">
           <td ng-repeat="col in row track by $index">
-            {{col}}
+            <span ng-if="(col != '0') && (col != '1')"> {{col}} </span>
+            <span ng-if="col == '0'"> <i class="fa fa-times text-danger"> </span>
+            <span ng-if="col == '1'"> <i class="fa fa-check text-success"> </span> 
           </td>
         </tr>
       </table>
