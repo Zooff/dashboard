@@ -12,6 +12,7 @@ function  modalService($q, $http, $parse){
     angular.forEach(config.columns, function(col, i){
       if (col.title && col.path) {
         var title = col.title.replace(/_/, ' ');
+        title = title.replace(/^bool/, '');
         model.headers[i] = col.title;
         columns.push({
           title: col.title,
@@ -53,17 +54,12 @@ function  modalService($q, $http, $parse){
     });
     model.totalItems = model.rows.length;
     model.columns = config.columns;
+    config.condition.group.rules.pop();
     return model;
   }
 
-  function fetch(config, condition){
-    console.log(condition)
-    var data = {
-      database : config.databaseStandard,
-      test : condition,
-      test2 : config.condition2
-    }
-    return $http.post('/standard', data)
+  function fetch(config){
+    return $http.post('/standard', config)
       .then(function(response){
         return response.data;
       })

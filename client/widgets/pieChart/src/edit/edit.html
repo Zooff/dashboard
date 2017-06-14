@@ -28,9 +28,7 @@
   <!-- Mode easy -->
 
   <div class="form-group" ng-if="config.mode == 'easy'">
-    <label for="sample">Datasource</label>
-    <div ng-show="config.url" class="alert alert-info text-center"> {{config.url}} </div>
-    <selecttree model="config.datasource"></selecttree>
+    <easy-mode config=config><easy-mode>
   </div>
 
 
@@ -131,6 +129,23 @@
       <option value="left"> Gauche </option>
       <option value="right"> Droite </option>
     </select>
+
+
+    <div>
+      <input type="checkbox" ng-model="config.pourcent" id="pouc"></input>
+      <label for="pouc"> Afficher les pourcentages sur le Graph </label>
+    </div>
+
+    <div>
+      <input type="checkbox" ng-model="config.pieValue" id="pieValue"></input>
+      <label for="pieValue"> Afficher la valeur sur le Graph </label>
+    </div>
+
+    <!-- <div>
+      <input type="checkbox" ng-model="config.v3d" id="v3d"></input>
+      <label for="v3d"> 3D </label>
+    </div> -->
+
 
   </div>
 

@@ -22,6 +22,49 @@ function pieChartController($scope, data, pieChartService, $rootScope, $uibModal
       this.options.legend = {display : true, position : this.config.legendPosition};
     }
 
+
+    if (this.config.pourcent || this.config.pieValue){
+      graph.options.animation = {};
+      graph.options.animation.onComplete = function(){
+
+        var ctx = this.chart.ctx;
+        ctx.font = Chart.helpers.fontString(20, 'normal',Chart.defaults.global.defaultFontFamily );
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'bottom';
+
+        this.data.datasets.forEach(function(dataset){
+          for (var i = 0; i < dataset.data.length; i++){
+            var model = dataset._meta[Object.keys(dataset._meta)[0]].data[i]._model,
+                total = dataset._meta[Object.keys(dataset._meta)[0]].total,
+                mid_radius = model.innerRadius + (model.outerRadius - model.innerRadius) / 2,
+                start_angle = model.startAngle,
+                end_angle = model.endAngle,
+                mid_angle = start_angle + (end_angle - start_angle) / 2;
+
+            var x = mid_radius * Math.cos(mid_angle);
+            var y = mid_radius * Math.sin(mid_angle);
+
+            ctx.fillStyle = '#fff';
+
+            var val = dataset.data[i];
+            var percent = String(Math.round(val/total*100) + "%");
+
+            if (model.circumference > 0 && val != 0){
+              if (graph.config.pieValue)
+               ctx.fillText(dataset.data[i], model.x + x , model.y + y - 5);
+              if (graph.config.pourcent)
+                ctx.fillText(percent, model.x + x, model.y + y + 15);
+            }
+          }
+        })
+      };
+    }
+
+    // if (this.config.v3d){
+    //   graph.options.elements.arc.borderWidth = 10;
+    //   graph.options.elements.arc.borderColor = '#fff';
+    // }
+
     if (data.config.listener){
       $rootScope.$on('DatTest', function(events, args){
         graph.config.urlReplace = args;
@@ -35,6 +78,17 @@ function pieChartController($scope, data, pieChartService, $rootScope, $uibModal
       });
     }
 
+    $scope.$on('chart-create', function(event, chart){
+      graph.chart = chart;
+    });
+
+    this.export = function($event){
+      var img = graph.chart.toBase64Image();
+      img = img.replace('image/png', 'image/octet-stream');
+      $event.currentTarget.href = img;
+      $event.currentTarget.download = 'test.png';
+    }
+
     this.open = function(points, evt){
       if (graph.config.mode != 'std'){
         return;
@@ -42,7 +96,7 @@ function pieChartController($scope, data, pieChartService, $rootScope, $uibModal
       console.log(points[0]._model.label);
       // Build the condition to obtain the data
       // To do this, add a rule : column selected = label of the part who has been cliked
-      var condi =graph.config.condition;
+      var condi =angular.copy(graph.config.condition);
       condi.group.rules.push({condition: '=', field: graph.config.columnStandard ,data: points[0]._model.label})
       var modalInstance = $uibModal.open({
         templateUrl : '{widgetsPath}/pieChart/src/view/modal.html',
@@ -52,7 +106,7 @@ function pieChartController($scope, data, pieChartService, $rootScope, $uibModal
         windowClass: 'my-modal',
         resolve: {
           data: ['modalServicePC', function(modalService){
-            return modalService.fetch(graph.config, condi);
+            return modalService.fetch(graph.config);
           }]
         }
       });
