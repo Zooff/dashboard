@@ -5,7 +5,7 @@ angular.module('adf.widget.paginateTable')
 
 function paginateTableService($q, $http, $parse){
 
-  var expertUrl = "/expert";
+  var expertUrl = "/expert/query";
   var standardUrl = "/standard/";
 
   function createColumns(config, model){
@@ -33,7 +33,7 @@ function paginateTableService($q, $http, $parse){
       itemPerPage : config.itemPerPage
     };
 
-    if (!config.columns){
+    if (!config.column || !config.columns.length){
         config.columns = [];
         for (var key in data[0]){
           config.columns.push({title : key, path : key});

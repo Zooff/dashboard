@@ -24,6 +24,14 @@ function paginateTableController($rootScope, data, $uibModal){
       return item[pt.orderField];
     }
 
+    pt.getData = function(){
+      return pt.data.rows;
+    }
+
+    pt.getHeader = function(){
+      return pt.data.headers;
+    }
+
 
     pt.open = function(row){
 
