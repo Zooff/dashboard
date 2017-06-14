@@ -20,6 +20,14 @@ angular.module('dashboardInfra')
       scope.sorter = function(item){
         return item[scope.orderField];
       }
+
+      scope.getData = function(){
+        return scope.data.rows;
+      }
+
+      scope.getHeader = function(){
+        return scope.data.headers;
+      }
     },
     templateUrl : '/templates/directive/modalTable.html'
   }

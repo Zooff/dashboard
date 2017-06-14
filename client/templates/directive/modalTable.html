@@ -1,22 +1,43 @@
-<div class="text-center">
-  <input type="search" ng-model="q" placeholder="Filter" class="form-control">
+<div class="modal-header">
+  <button  class="close" ng-click="$parent.$dismiss()"  aria-hidden="true">&times;</button>
+  <h3 class="modal-title" id="modal-title"> Title </h3>
 </div>
-<div class="table-responsive"> <!-- Add Horizontal Scroll Bad -->
-  <table  class="table">
-    <tr>
-      <th ng-repeat="head in data.headers" ng-click="sortIndex($index)">
-        {{head}}
-      </th>
-    </tr>
-    <tr ng-repeat="row in filterData = (data.rows | filter:q )| orderBy:sorter:reverseSort| startFrom: (currentPage-1)*itemPerPage | limitTo:itemPerPage track by $index">
-      <td ng-repeat="col in row track by $index" ng-switch="col">
-        <span ng-switch-when="0"> <i class="fa fa-times text-danger"></i> </span>
-        <span ng-switch-when="1"> <i class="fa fa-check text-success"></i></span>
-        <span ng-switch-default>{{col}}</span>
-      </td>
-    </tr>
-  </table>
-</div>
-<div class="text-center">
-  <ul uib-pagination total-items="filterData.length" ng-model="currentPage" max-size="5" class="pagination-sm" boundary-links="true"items-per-page="itemPerPage" num-pages="numPages"></ul>
+
+<div class="modal-body" id="modal-body">
+
+  <div class="col-md-3 text-center v-cent">
+    <p> Nombre d'élément : {{data.rows.length}} </p>
+  </div>
+
+  <div class="col-md-3 col-md-offset-6 text-center">
+    <button type="button" class="btn btn-success" ng-csv="getData()" csv-header="getHeader()" field-separator=";" filename=" 'test.csv'">
+      <i class="fa fa-file-excel-o" aria-hidden="true"></i> Export
+    </button>
+  </div>
+  <hr>
+
+  <div class="text-center">
+    <input type="search" ng-model="q" placeholder="Filter" class="form-control">
+  </div>
+
+  <div class="table-responsive"> <!-- Add Horizontal Scroll Bad -->
+    <table  class="table">
+      <tr>
+        <th ng-repeat="head in data.headers" ng-click="sortIndex($index)">
+          {{head}}
+        </th>
+      </tr>
+      <tr ng-repeat="row in filterData = (data.rows | filter:q )| orderBy:sorter:reverseSort| startFrom: (currentPage-1)*itemPerPage | limitTo:itemPerPage track by $index">
+        <td ng-repeat="col in row track by $index" ng-switch="col">
+          <span ng-switch-when="0"> <i class="fa fa-times text-danger"></i> </span>
+          <span ng-switch-when="1"> <i class="fa fa-check text-success"></i></span>
+          <span ng-switch-default>{{col}}</span>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <div class="text-center">
+    <ul uib-pagination total-items="filterData.length" ng-model="currentPage" max-size="5" class="pagination-sm" boundary-links="true"items-per-page="itemPerPage" num-pages="numPages"></ul>
+  </div>
+
 </div>
