@@ -1,0 +1,15 @@
+<div>
+  <div ng-hide="graph.data" class="alert alert-info" role="alert">
+    Please insert a url to the widget configuration
+  </div>
+  <div ng-show="graph.data">
+    {{config.urlReplace}}
+    <div class="text-center">
+      <ng-gauge type="{{graph.config.type}}" size="200" thick="5" value="graph.data.servers.length" cap="round" label="{{graph.config.label}}" append="{{graph.config.append}}" min="graph.config.min" max="graph.data.max"></ng-gauge>
+    </div>
+    <div class="text-center">
+      <p> {{graph.config.desc}} </p>
+    </div>
+    <!-- <a type=button ng-click="graph.export($event)"> <button type="button" class="btn btn-info" ><i class="fa fa-file-image-o" aria-hidden="true"></i> Export</button> </a> -->
+  </div>
+</div>
