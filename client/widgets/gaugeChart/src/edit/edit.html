@@ -1,0 +1,104 @@
+<!-- Custom Template for autocompletion -->
+<script type="text/ng-template" id="autocomplete.html">
+  <a>
+    <span ng-bind-html="match.model.url | uibTypeaheadHighlight:query"></span> |
+    <small ng-bind-html="match.model.desc | uibTypeaheadHighlight:query"></small>
+  </a>
+</script>
+
+
+
+<form role="form">
+
+  <div>
+    <label> Description </label>
+  </div>
+
+  <div class="form-group">
+    <label class="sr-only" for="desc">Description</label>
+    <input type="text" id="desc" class="form-control" ng-model="config.desc" placeholder="Description">
+  </div>
+
+  <hr>
+
+  <input type="radio" ng-model="config.mode" value="easy" id=easy> <label for=easy> Mode Facile </label>
+  <input type="radio" ng-model="config.mode" value="exp" id=exp> <label for=exp> Mode Expert </label>
+
+  <!-- Mode easy -->
+
+  <div class="form-group" ng-if="config.mode == 'easy'">
+    <easy-mode config=config><easy-mode>
+  </div>
+
+  <!-- Mode Expert -->
+
+  <div ng-if="config.mode == 'exp'">
+    <expert-mode config=config></expert-mode>
+  </div>
+
+  <hr>
+
+  <div>
+    <label> Configuration du Graph </label>
+  </div>
+
+  <input ng-if="config.mode == 'easy'" id=listener type="checkbox" ng-model="config.listener"> <label ng-if="config.mode == 'easy'" for=listener> Slave </label>
+
+  <div>
+    <label> Type de Graph </label>
+  </div>
+
+  <div class="form-group">
+    <label class="sr-only" for="sample">Chart Type</label>
+    <select class="form-control" ng-model="config.type">
+      <option value="arch"> Arch </option>
+      <option value="semi"> Semi </option>
+      <option value ="full"> Full </option>
+    </select>
+  </div>
+
+  <div>
+    <label> Label (Configuration Automatique) </label>
+  </div>
+
+  <div class="form-group">
+    <label class="sr-only" for="label">Label</label>
+    <input type="text" id="label" class="form-control" ng-model="config.label" placeholder="Label" uib-typeahead="key for key in config.key" typeahead-min-length='0' autocomplete="off">
+  </div>
+
+  <!-- <div>
+    <label> Value (Configuration Automatique)</label>
+  </div>
+
+  <div class="form-group">
+    <label class="sr-only" for="value">Value</label>
+    <input type="text" id="value" class="form-control" ng-model="config.value" placeholder="Données" uib-typeahead="key for key in config.key" typeahead-min-length='0' autocomplete="off">
+  </div> -->
+
+  <div>
+    <label ng-click="isCollapsed = !isCollapsed"> Chart Option
+      <span ng-hide="isCollapsed" class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
+      <span ng-show="isCollapsed" class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span>
+    </label>
+  </div>
+
+  <div ng-show="isCollapsed">
+    <label for="append">
+      Unité
+    </label>
+    <input type="text" class="form-control" id="append" ng-model="config.append" placeholder="GB, Mo, etc..."></input>
+
+    <label for="min">
+      Valeur Minimum
+    </label>
+    <input type="text" class="form-control" id="min" ng-model="config.min" placeholder="0"></input>
+
+    <label for="max">
+      Valeur Maximum
+    </label>
+    <input type="text" class="form-control" id="max" ng-model="config.max" placeholder="100"></input>
+
+
+  </div>
+
+</form>
