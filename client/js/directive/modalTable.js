@@ -1,6 +1,6 @@
 angular.module('dashboardInfra')
 
-.directive('modalTable', function(){
+.directive('modalTable', function($location){
   return {
     restrict: 'E',
     scope: {
@@ -27,6 +27,14 @@ angular.module('dashboardInfra')
 
       scope.getHeader = function(){
         return scope.data.headers;
+      }
+
+      scope.goToMasterPage = function(scope, $event){
+        // To close the modal, we need to go back to the parent who has the dismiss fct
+        this.$parent.$parent.$parent.$dismiss();
+        var id= $event.target.textContent;
+        $location.path('/boards/master/' + id);
+
       }
     },
     templateUrl : '/templates/directive/modalTable.html'
