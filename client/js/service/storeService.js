@@ -24,6 +24,28 @@ angular.module('dashboardInfra.service', [])
         });
       return deferred.promise;
     },
+    getMaster: function(id){
+      var deferred = $q.defer();
+      $http.get('/dashboard/master/' + id)
+        .success(function(data){
+          deferred.resolve(data);
+        })
+        .error(function(){
+          deferred.reject();
+        });
+      return deferred.promise;
+    },
+    setMaster : function(id, data){
+      var deferred = $q.defer();
+      $http.post('/dashboard/master/' + id, data)
+        .success(function(data){
+          deferred.resolve();
+        })
+        .error(function(){
+          deferred.reject();
+        });
+      return deferred.promise;
+    },
     set: function(id, data){
       var deferred = $q.defer();
       $http.post('/dashboard/' + id, data)

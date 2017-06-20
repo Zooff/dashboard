@@ -32,6 +32,43 @@ router.get('/', function(req, res, next){
   });
 });
 
+router.get('/master/:id', function(req, res, next){
+  fs.readFile(storeDir + '_master_' + req.params.id  + '.json', encoding, function(err, data){
+    if (err){
+      var master = {
+        "title" : "Master Page",
+        "titleTemplateUrl" : "templates/custom-dashboard-title.html",
+        "addTemplateUrl" : "templates/custom-add-widget.html",
+        "structure" : "4-8",
+        "rows" : [{
+          "columns" : [{
+            "styleClass" : "col-md-4",
+            "widgets" : []
+          },{
+            "styleClass" : "col-md-8",
+            "widgets" : []
+          }]
+        }]
+      }
+      return fs.writeFile(storeDir + '_master_' + req.params.id  + '.json', JSON.stringify(master, undefined, 2), function(err2){
+        if (err2){
+          return next(err2);
+        }
+        fs.readFile(storeDir + '_master_' + req.params.id  + '.json', encoding, function(err3, data2){
+          if(err3){
+            return next(err3);
+          }
+          res.writeHead(200, {'Content-Type' : 'routerlication/json'});
+          res.end(data2);
+        })
+      })
+    }
+
+    res.writeHead(200, {'Content-Type' : 'routerlication/json'});
+    res.end(data);
+  })
+})
+
 router.get('/:id', function(req, res, next){
   fs.readFile(storeDir + req.params.id + '.json', encoding, function(err, data){
     if (err) {
@@ -42,9 +79,23 @@ router.get('/:id', function(req, res, next){
   });
 });
 
+
 router.post('/:id', function(req, res, next){
   fs.writeFile(
     storeDir + req.params.id + '.json',
+    JSON.stringify(req.body, undefined, 2),
+    function(err){
+      if (err) {
+        return next(err);
+      }
+      res.status(204).end();
+    }
+  );
+});
+
+router.post('/master/:id', function(req, res, next){
+  fs.writeFile(
+    storeDir + '_master_' + req.params.id  + '.json',
     JSON.stringify(req.body, undefined, 2),
     function(err){
       if (err) {

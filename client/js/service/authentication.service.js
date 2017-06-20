@@ -9,7 +9,7 @@ angular.module('dashboardInfra.service')
     $http.get(apiEndPoint)
       .then(function(response){
         if(response.data.user){
-          $window.sessionStorage["userInfo"] = response.data.user;
+          $window.sessionStorage["userInfo"] = JSON.stringify(response.data.user, undefined, 2);
 
           Session.create(response.data.user);
 

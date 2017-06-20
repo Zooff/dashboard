@@ -1,6 +1,7 @@
 angular.module('dashboardInfra.controller')
 
-.controller('dashboardCtrl', function($location, $rootScope, $scope, $routeParams, storeService, data, env){
+.controller('dashboardCtrl', function($timeout, $location, $rootScope, $scope, $routeParams, storeService, data, env){
+  var dashboard = this;
   this.name = $routeParams.id;
   this.model = data;
   this.model.env = env;
@@ -10,7 +11,7 @@ angular.module('dashboardInfra.controller')
     $location.path('/');
     $rootScope.$broadcast('navChanged');
   };
-
+  
   $scope.widgetFilter = function(widget, title){
     return !(title === 'checkValue') && !(title === 'beerCounter');
   }
