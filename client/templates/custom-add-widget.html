@@ -5,23 +5,32 @@
   <h4 class="modal-title"> Ajouter un nouveau Widget</h4>
 </div>
 <div class="modal-body">
-  <div style="display: inline-block;">
-    <dl class="dl-horizontal">
-      <dt ng-repeat-start="widget in widgets | adfOrderByObjectKey: 'key'">
-        <a href="" ng-click="addWidget(widget.key)" ng-switch="widget.title">
-          <i ng-switch-when="Check Perso" class="fa fa-check-square" aria-hidden="true"></i>
-          <i ng-switch-when="Camembert" class="fa fa-pie-chart" aria-hidden="true"></i>
-          <i ng-switch-when="Graphique" class="fa fa-line-chart" aria-hidden="true"></i>
-          <i ng-switch-when="Tableau Paginé" class="fa fa-list-alt" aria-hidden="true"></i>
-          {{widget.title}}
-        </a>
-
-      </dt>
-      <dd ng-repeat-end ng-if="widget.description">
-        {{widget.description}}
-      </dd>
-    </dl>
-  </div>
+  <!-- <div style="display: inline-block;"> -->
+    <div class="row addwidget" ng-repeat="widget in widgets | adfOrderByObjectKey: 'key'">
+      <div class="col-md-3 text-center">
+        <span ng-click="addWidget(widget.key)" ng-switch="widget.title" class="text-info click">
+          <i ng-switch-when="Check Perso" class="fa fa-check-square fa-3x" aria-hidden="true"></i>
+          <i ng-switch-when="Camembert" class="fa fa-pie-chart fa-3x" aria-hidden="true"></i>
+          <i ng-switch-when="Graphique" class="fa fa-line-chart fa-3x" aria-hidden="true"></i>
+          <i ng-switch-when="Tableau Paginé" class="fa fa-list-alt fa-3x" aria-hidden="true"></i>
+          <i ng-switch-when="Compteur" class="fa fa-tachometer fa-3x" aria-hidden="true"></i>
+        </span>
+      </div>
+      <div class="col-md-9">
+        <div class="row">
+          <div>
+            <a href="" ng-click="addWidget(widget.key)">{{widget.title}}</a>
+          </div>
+          <div class="row">
+            <div>
+              <p ng-if="widget.description">{{widget.description}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr>
+    </div>
+  <!-- </div> -->
 </div>
 <div class="modal-footer">
   <button type="button" class="btn btn-primary" ng-click="closeDialog()" ng-bind="translate('ADF_COMMON_CLOSE')"> Fermer </button>
