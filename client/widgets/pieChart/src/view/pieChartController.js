@@ -23,7 +23,9 @@ function pieChartController($scope, data, pieChartService, $rootScope, $uibModal
     }
 
 
-    if (this.config.pourcent || this.config.pieValue){
+
+    // Add label and/or percent on the Pie Chart
+    if (this.config.type != 'polarArea' && (this.config.pourcent || this.config.pieValue)){
       graph.options.animation = {};
       graph.options.animation.onComplete = function(){
 
@@ -44,7 +46,7 @@ function pieChartController($scope, data, pieChartService, $rootScope, $uibModal
             var x = mid_radius * Math.cos(mid_angle);
             var y = mid_radius * Math.sin(mid_angle);
 
-            ctx.fillStyle = '#fff';
+            ctx.fillStyle = '#fff'; //Color of the text
 
             var val = dataset.data[i];
             var percent = String(Math.round(val/total*100) + "%");
@@ -83,21 +85,28 @@ function pieChartController($scope, data, pieChartService, $rootScope, $uibModal
     });
 
     this.export = function($event){
-      var img = graph.chart.toBase64Image();
-      img = img.replace('image/png', 'image/octet-stream');
-      $event.currentTarget.href = img;
-      $event.currentTarget.download = 'test.png';
+
+      if (graph.chart.chart.canvas.msToBlob){
+        var blob = graph.chart.chart.canvas.msToBlob();
+        window.navigator.msSaveBlob(blob, 'graph.png')
+      }
+      else {
+        var img = graph.chart.toBase64Image();
+        img = img.replace('image/png', 'image/octet-stream');
+        $event.currentTarget.href = img;
+        $event.currentTarget.download = 'graph.png';
+      }
     }
 
     this.open = function(points, evt){
       if (graph.config.mode != 'std'){
         return;
       }
-      console.log(points[0]._model.label);
+      // Get the label of the clicked segemnt -->  console.log(points[0]._model.label);
       // Build the condition to obtain the data
       // To do this, add a rule : column selected = label of the part who has been cliked
-      var condi =angular.copy(graph.config.condition);
-      condi.group.rules.push({condition: '=', field: graph.config.columnStandard ,data: points[0]._model.label})
+      var condi =angular.copy(graph.config); // Do a copy to not impact the widget configuration
+      condi.condition.group.rules.push({condition: '=', field: graph.config.columnStandard ,data: points[0]._model.label})
       var modalInstance = $uibModal.open({
         templateUrl : '{widgetsPath}/pieChart/src/view/modal.html',
         controller : 'modalInstanceCtrl',
@@ -106,7 +115,7 @@ function pieChartController($scope, data, pieChartService, $rootScope, $uibModal
         windowClass: 'my-modal',
         resolve: {
           data: ['modalServicePC', function(modalService){
-            return modalService.fetch(graph.config);
+            return modalService.fetch(condi);
           }]
         }
       });
