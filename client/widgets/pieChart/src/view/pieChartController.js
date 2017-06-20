@@ -84,8 +84,10 @@ function pieChartController($scope, data, pieChartService, $rootScope, $uibModal
       graph.chart = chart;
     });
 
+    // PNG export
     this.export = function($event){
 
+      // IE
       if (graph.chart.chart.canvas.msToBlob){
         var blob = graph.chart.chart.canvas.msToBlob();
         window.navigator.msSaveBlob(blob, 'graph.png')

@@ -6,6 +6,7 @@ angular.module('adf.widget.lineChart')
 function lineChartService($q, $http, $parse){
   // EndPoint Url for the expert mode
   var expertUrl = '/expert/query';
+  var standardUrl = '/standard/lineChart';
   var label = [];
   var value = [];
 
@@ -58,19 +59,23 @@ function lineChartService($q, $http, $parse){
 
   function get(config){
     var result = null;
-    if (config.expert){
-      result = post(config);
+    if (config.mode == 'exp'){
+      result = post(config, expertUrl);
     }
-    else if (config.dataSource){
-      if(config.dataSource.selected)
-        config.url = config.dataSource.selected.url;
+    else if (config.mode == 'std'){
+      result = post(config, standardUrl);
+    }
+    else if (config.mode == 'easy'){
+      if(config.datasource.selected){
+        config.url = config.datasource.selected.url;
+      }
       result = fetch(config);
     }
     return result
   }
 
-  function post(config){
-    return $http.post(expertUrl, config)
+  function post(config, url){
+    return $http.post(url, config)
       .then(function(response){
         return response.data
       })
