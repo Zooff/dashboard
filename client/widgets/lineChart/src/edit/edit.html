@@ -111,7 +111,28 @@
     </select>
   </div>
 
+
+
   <div>
-    <input type="checkbox" ng-model="expert"> Expert Mode
+    <label ng-click="isCollapsed = !isCollapsed"> Chart Option
+      <span ng-hide="isCollapsed" class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
+      <span ng-show="isCollapsed" class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span>
+    </label>
   </div>
+
+  <div ng-show="isCollapsed">
+
+    <input type=checkbox ng-model=config.noPoint ><label> No point </label>
+    <div>
+      <input type="color" ng-model="config.color" id="color"></input>
+      <label for="color"> Couleur Value 1 </label>
+    </div>
+
+    <div ng-if="config.value2">
+      <input type="color" ng-model="config.color2" id="color2"></input>
+      <label for="color2"> Couleur Value 2 </label>
+    </div>
+
+  </div>
+
 </form>
