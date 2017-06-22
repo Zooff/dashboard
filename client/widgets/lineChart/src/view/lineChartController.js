@@ -37,7 +37,7 @@ function lineChartController($rootScope, $scope, data, lineChartService){
   this.options = {legend : {display : true, position :'bottom'}};
 
   if (this.config.noPoint){
-    this.options.elements = {point : {hitRadius : 5, hoverRadius : 5, radius: 0}};
+    this.options.elements = {point : {hitRadius : 15, hoverRadius : 5, radius: 0}};
   }
 
   if (graph.config.color){
