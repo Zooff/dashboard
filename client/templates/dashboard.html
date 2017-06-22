@@ -1,3 +1,6 @@
+<div ng-if="dashboard.name == '_master'">
+  <input type=text ng-model=dashboard.broadcastValue> <button type="button" class="btn btn-info" ng-click="dashboard.broadcast(dashboard.broadcastValue)"> <i class="fa fa-bullhorn" aria-hidden="true"></i> Broadcast </button>
+</div>
 <div>
   <adf-dashboard name="{{dashboard.name}}" structure="4-8" adf-model="dashboard.model" adf-widget-filter="widgetFilter"/>
 </div>
