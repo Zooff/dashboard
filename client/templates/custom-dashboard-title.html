@@ -1,4 +1,6 @@
-<div ng-if="editMode" class="alert alert-info"> Mode Edition activé, Pensez à sauvegarder les changements une fois terminés. </div>
+<div ng-if="editMode" class="alert alert-info"> Mode Edition activé, Pensez à sauvegarder les changements une fois terminés.    
+  <button type=button class="btn btn-info" ng-click="toggleEditMode()"><i class="glyphicon glyphicon-save"></i> Sauvegarder </button>
+ </div>
 
 <h1>
   {{model.title}}
