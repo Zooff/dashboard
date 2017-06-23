@@ -62,19 +62,25 @@
   </div>
 
   <p> Première configuration automatique </p>
+  <div ng-repeat="col in pt.config.columns">
+    <div class="form-inline padding-bottom" >
+      <div class="form-group">
+        <label class="sr-only" for="title-{{$index}}">Title</label>
+        <input type="text" id="title-{{$index}}" class="form-control" placeholder="Title" ng-model="col.title" required="">
+      </div>
+      <div class="form-group">
+        <label class="sr-only" for="path-{{$index}}">Path</label>
+        <input type="text" id="path-{{$index}}" class="form-control" placeholder="Path" ng-model="col.path" required="">
+      </div>
 
-  <div class="form-inline padding-bottom" ng-repeat="col in pt.config.columns">
-    <div class="form-group">
-      <label class="sr-only" for="title-{{$index}}">Title</label>
-      <input type="text" id="title-{{$index}}" class="form-control" placeholder="Title" ng-model="col.title" required="">
+      <button type="button" class="btn btn-warning" ng-click="pt.removeColumn(false, $index)">
+        <i class="fa fa-minus"></i> Remove
+      </button>
     </div>
-    <div class="form-group">
-      <label class="sr-only" for="path-{{$index}}">Path</label>
-      <input type="text" id="path-{{$index}}" class="form-control" placeholder="Path" ng-model="col.path" required="">
+    <div class="form-inline padding-bottom">
+      <label for="opt-{{$index}}">Booléen</label>
+      <input type="checkbox" id="opt-{{$index}}" class="" ng-model="col.opt">
     </div>
-    <button type="button" class="btn btn-warning" ng-click="pt.removeColumn(false, $index)">
-      <i class="fa fa-minus"></i> Remove
-    </button>
   </div>
 
   <button type="button" class="btn btn-primary" ng-click="pt.addColumn(false)">
@@ -110,7 +116,7 @@
 
       <div>
         <label for="field"> Column to populate </label>
-        <select id="field" ng-options="pt.config.columns.indexOf(col) as col.title for col in pt.config.columns" ng-model="pt.config.modalField"></select>
+        <input type=text id="field" autocomplete="off" uib-typeahead="key for key in config.keys" typeahead-min-length='0' ng-model="pt.config.modalField"></select>
       </div>
 
       <div>
@@ -119,11 +125,11 @@
 
       <div class="form-inline padding-bottom" ng-repeat="modalCol in pt.config.modalColumns">
         <div class="form-group">
-          <label class="sr-only" for="modalTitle-{{$index}}">Title</label>
+          <label class="sr-only" for="modalTitle-{{$index}}" data-placeholder="Titre">Title</label>
           <input type="text" id="modalTitle-{{$index}}" class="form-control" placeholder="Title" ng-model="modalCol.title" required="">
         </div>
         <div class="form-group">
-          <label class="sr-only" for="modalPath-{{$index}}">Path</label>
+          <label class="sr-only" for="modalPath-{{$index}}" data-placeholder="Path">Path</label>
           <input type="text" id="modalPath-{{$index}}" class="form-control" placeholder="Path" ng-model="modalCol.path" required="">
         </div>
         <button type="button" class="btn btn-warning" ng-click="pt.removeColumn(true, $index)">

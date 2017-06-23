@@ -18,7 +18,8 @@ function paginateTableService($q, $http, $parse){
         model.headers[i] = title;
         columns.push({
           title: title,
-          path: $parse(col.path)
+          path: $parse(col.path),
+          opt : col.opt
         });
       }
     });
@@ -32,11 +33,19 @@ function paginateTableService($q, $http, $parse){
       rows: [],
       itemPerPage : config.itemPerPage
     };
+    config.keys = [];
 
-    if (!config.column || !config.columns.length){
+
+    // Master widget column broadcast
+    for (var k in data[0]){
+        config.keys.push(k);
+    }
+
+    // Conf auto
+    if (!config.columns || !config.columns.length){
         config.columns = [];
         for (var key in data[0]){
-          config.columns.push({title : key, path : key});
+          config.columns.push({title : key, path : key, col : null});
         }
     }
 
@@ -51,7 +60,7 @@ function paginateTableService($q, $http, $parse){
 
       angular.forEach(columns, function(col, i){
         var value = col.path(node);
-        row[i] = value;
+        row[i] = {value : value, opt : col.opt};
       });
 
       model.rows.push(row);

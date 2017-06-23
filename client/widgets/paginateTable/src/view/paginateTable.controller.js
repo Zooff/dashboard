@@ -3,7 +3,7 @@
 angular.module('adf.widget.paginateTable')
   .controller('paginateTableController', paginateTableController);
 
-function paginateTableController($rootScope, data, $uibModal){
+function paginateTableController($scope, $rootScope, data, $uibModal){
 
   var pt = this;
 
