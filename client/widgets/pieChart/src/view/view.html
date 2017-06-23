@@ -3,7 +3,7 @@
     Please insert a url to the widget configuration
   </div>
   <div ng-show="graph.label">
-    {{config.urlReplace}}
+    <span ng-if="graph.config.listener"> {{config.urlReplace}} </span>
     <div>
       <canvas id="graph" class="chart-base" ng-class="{click : graph.config.mode == 'std'}" chart-type="graph.type" chart-data="graph.value" chart-labels="graph.label" chart-options="graph.options" chart-click="graph.open">
       </canvas>

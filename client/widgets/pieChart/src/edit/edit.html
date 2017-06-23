@@ -74,7 +74,7 @@
     <label> Configuration du Graph </label>
   </div>
 
-  <input ng-if="config.mode == 'easy'" id=listener type="checkbox" ng-model="config.listener"> <label ng-if="config.mode == 'easy'" for=listener> Slave </label>
+  <input ng-if="config.mode == 'easy' || 'expert'" id=listener type="checkbox" ng-model="config.listener"> <label ng-if="config.mode == 'easy'" for=listener> Slave </label>
 
   <div>
     <label> Type de Graph </label>
