@@ -6,8 +6,10 @@
   </a>
 </script>
 
-<input type="checkbox" ng-model="config.master"> <label> Master </label>
-
+<div class="form-inline padding-bottom">
+  <input type="checkbox" ng-model="config.master"> <label> Master </label>
+  <input ng-if="config.mode == 'exp' || 'expert'" id=listener type="checkbox" ng-model="config.listener"> <label ng-if="config.mode == 'exp' || 'expert'" for="listener"> Slave </label>
+</div>
 <form role="form">
   <!-- <div>
     <label for="sample">Datasource</label>
@@ -79,7 +81,14 @@
     </div>
     <div class="form-inline padding-bottom">
       <label for="opt-{{$index}}">Booléen</label>
-      <input type="checkbox" id="opt-{{$index}}" class="" ng-model="col.opt">
+      <input type="radio" id="opt-{{$index}}" class="" ng-model="col.opt" value="bool">
+
+      <label for="opt2-{{$index}}">Seuil</label>
+      <input type="radio" id="opt2-{{$index}}" class="" ng-model="col.opt" value="seuil">
+    </div>
+
+    <div ng-if="col.opt2">
+      <p> En DEV </p>
     </div>
   </div>
 
@@ -87,19 +96,25 @@
     <i class="fa fa-plus"></i> Add
   </button>
 
+  <hr>
+
+  <div>
+    <input type="checkbox" id=header ng-model=config.head > <label for="header"> Cacher l'en-tête </label>
+  </div>
+
   <div>
     <label> Pagination </label>
   </div>
 
   <div class="form-group">
     <label class="sr-only" for="maxSize"> Nombre d'Elément par Page </label>
-    <input type="text" id="maxSize" class="form-control" placeholder="Item Per Page" ng-model="config.itemPerPage">
+    <input type="text" id="maxSize" class="form-control" placeholder="Nombre d'élément par pages" ng-model="config.itemPerPage">
   </div>
 
 <!-- MODAL -->
 
   <div class="form-group">
-    <label ng-click="isCollapsed = !isCollapsed"> Paramètre Modal
+    <label ng-click="isCollapsed = !isCollapsed"> Paramètre Optionnel
       <span ng-hide="isCollapsed" class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
       <span ng-show="isCollapsed" class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span>
     </label>
@@ -116,8 +131,10 @@
 
       <div>
         <label for="field"> Column to populate </label>
-        <input type=text id="field" autocomplete="off" uib-typeahead="key for key in config.keys" typeahead-min-length='0' ng-model="pt.config.modalField"></select>
+        <input type=text id="field" autocomplete="off" uib-typeahead="key for key in config.keys"  typeahead-min-length='0' ng-model="pt.config.modalField"></select>
       </div>
+      <!-- typeahead-input-formatter="pt.formatLabel($model)"" -->
+<!-- config.keys.indexOf(key) as -->
 
       <div>
         <label>Column</label>

@@ -10,7 +10,8 @@ function paginateTableEditController($scope, $http,config){
   // Use by the directive selecttree, need to be initialize
   config.datasource = {};
   config.modalDatasource = {};
-
+  config.urlReplace = '0'; // Init the slave Mode
+  
   // $scope.getAutocompletion = function(val){
   //   return $http.get('/autocomplete', {
   //     params: {
@@ -73,6 +74,11 @@ function paginateTableEditController($scope, $http,config){
     }
 
     return modal ? config.modalColumns : config.columns;
+  }
+
+  // Use by the typeahead directive to generate a User friendly Label
+  this.formatLabel = function(model){
+    return config.keys[model];
   }
 
   this.addColumn = function(modal){

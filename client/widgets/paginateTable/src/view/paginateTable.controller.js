@@ -7,6 +7,8 @@ function paginateTableController($scope, $rootScope, data, $uibModal){
 
   var pt = this;
 
+  pt.load = false;
+
   if (data) {
     this.data = data;
     this.data.currentPage = 1;
@@ -21,7 +23,7 @@ function paginateTableController($scope, $rootScope, data, $uibModal){
     }
 
     this.sorter = function(item){
-      return item[pt.orderField];
+      return item[pt.orderField].value;
     }
 
     pt.getData = function(){
@@ -32,12 +34,37 @@ function paginateTableController($scope, $rootScope, data, $uibModal){
       return pt.data.headers;
     }
 
+    if (pt.data.config.listener){
+      $scope.$on('DatTest', function(events, args){
+        pt.data.config.urlReplace = args;
+        pt.load = true;
+        paginateTableService.get(pt.data.config).then(function(response){
+          pt.load = false;
+          pt.data = response.data;
+        })
+      })
+    }
+
 
     pt.open = function(row){
 
       // Master Widget : Broadcast the selected column value
       if(pt.data.config.master){
-        $rootScope.$broadcast('DatTest', row[pt.data.config.modalField]);
+
+        // Get the key String value from header
+        var key = pt.data.headers[pt.orderField]
+        // Need the response data from the database, cause the data we show are not all the data
+        // Sort the data because we need to have them sort as the data view
+        pt.data.bigdata.sort(function(a, b){
+          if (!pt.reverseSort){
+            return (a[key] > b[key]);
+          }
+          else {
+              return (a[key] < b[key]);
+          }
+        });
+        $rootScope.$broadcast('DatTest',pt.data.bigdata[row][pt.data.config.modalField]);
+        return;
       }
 
       // Open the modal
