@@ -79,6 +79,22 @@ router.get('/:id', function(req, res, next){
   });
 });
 
+router.post('/copy/:id', function(req, res, next){
+  console.log(req.body)
+  var file = storeDir + req.params.id + '.json';
+  var newName = file.replace(/_\D*_/, '_'+req.body.category+ '_');
+  fs.writeFile(
+    newName,
+    JSON.stringify(req.body.model, undefined, 2),
+    function(err){
+      if (err){
+        return next(err);
+      }
+      res.status(204).end();
+    }
+  );
+})
+
 
 router.post('/:id', function(req, res, next){
   fs.writeFile(
