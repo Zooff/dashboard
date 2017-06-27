@@ -1,10 +1,13 @@
-<div ng-if="editMode" class="alert alert-info"> Mode Edition activé, Pensez à sauvegarder les changements une fois terminés.    
-  <button type=button class="btn btn-info" ng-click="toggleEditMode()"><i class="glyphicon glyphicon-save"></i> Sauvegarder </button>
+<div ng-if="editMode" class="alert alert-info"> Mode Edition activé, Pensez à sauvegarder les changements une fois terminés.
+  <button type=button class="btn btn-info pulse" ng-click="toggleEditMode()"><i class="glyphicon glyphicon-save"></i> Sauvegarder </button>
  </div>
 
 <h1>
   {{model.title}}
   <span style="font-size: 16px" class="pull-right">
+    <a href="" ng-if="editMode" title="Déplacer le Dash" ng-controller="copyCtrl as cp" ng-click="cp.copyDialog()">
+      <i class="glyphicon glyphicon-copy" aria-hidden=true></i>
+    </a>
     <a href="" ng-if="editMode" title="Ajouter un Widget" ng-click="addWidgetDialog()">
       <i class="glyphicon glyphicon-plus-sign"></i>
     </a>

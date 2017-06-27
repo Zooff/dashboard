@@ -11,7 +11,7 @@ angular.module('dashboardInfra.controller')
     $location.path('/');
     $rootScope.$broadcast('navChanged');
   };
-  
+
   $scope.widgetFilter = function(widget, title){
     return !(title === 'checkValue') && !(title === 'beerCounter');
   }
@@ -19,4 +19,11 @@ angular.module('dashboardInfra.controller')
   $scope.$on('adfDashboardChanged', function(event, name, model) {
     storeService.set(name, model);
   });
+
+  $scope.$on('copyDash', function(event, category){
+    storeService.copy(dashboard.name, category, dashboard.model)
+      .then(function(){
+        $rootScope.$broadcast('navChanged');
+      });
+  })
 });
