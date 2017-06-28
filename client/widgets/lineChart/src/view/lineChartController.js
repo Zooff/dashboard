@@ -40,6 +40,27 @@ function lineChartController($rootScope, $scope, data, lineChartService){
     this.options.elements = {point : {hitRadius : 15, hoverRadius : 5, radius: 0}};
   }
 
+  if (this.config.minValue || this.config.maxValue || this.config.step){
+    this.options.scales = {yAxes : [{
+      display:true,
+      type: 'linear',
+      ticks: {}
+    }]};
+    console.log(this.options);
+  }
+
+  if (this.config.minValue){
+    this.options.scales.yAxes[0].ticks.min = parseInt(graph.config.minValue, 10);
+  }
+
+  if (this.config.maxValue){
+    this.options.scales.yAxes[0].ticks.max = parseInt(graph.config.maxValue, 10);
+  }
+
+  if (this.config.step){
+      this.options.scales.yAxes[0].ticks.stepSize = parseInt(graph.config.step, 10);
+  }
+
   if (graph.config.color){
     graph.color = [];
     graph.color.push(graph.config.color);
@@ -47,6 +68,8 @@ function lineChartController($rootScope, $scope, data, lineChartService){
       graph.color.push(graph.config.color2)
     }
   }
+
+
 
 
 
