@@ -7,8 +7,8 @@
 </script>
 
 <div class="form-inline padding-bottom">
-  <input type="checkbox" ng-model="config.master"> <label> Master </label>
-  <input ng-if="config.mode == 'exp' || 'expert'" id=listener type="checkbox" ng-model="config.listener"> <label ng-if="config.mode == 'exp' || 'expert'" for="listener"> Slave </label>
+  <input type="checkbox" ng-model="config.master" id=master> <label for=master> Master </label>
+  <input ng-if="config.mode == 'easy' || 'expert'" id=listener type="checkbox" ng-model="config.listener"> <label ng-if="config.mode == 'easy' || 'expert'" for=listener> Slave </label>
 </div>
 <form role="form">
   <!-- <div>
@@ -87,7 +87,7 @@
       <input type="radio" id="opt2-{{$index}}" class="" ng-model="col.opt" value="seuil">
     </div>
 
-    <div ng-if="col.opt2">
+    <div ng-if="col.opt == 'seuil'">
       <p> En DEV </p>
     </div>
   </div>

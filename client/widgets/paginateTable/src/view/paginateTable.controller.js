@@ -3,7 +3,7 @@
 angular.module('adf.widget.paginateTable')
   .controller('paginateTableController', paginateTableController);
 
-function paginateTableController($scope, $rootScope, data, $uibModal){
+function paginateTableController($scope, $rootScope, data, $uibModal, paginateTableService){
 
   var pt = this;
 
@@ -48,22 +48,14 @@ function paginateTableController($scope, $rootScope, data, $uibModal){
 
     pt.open = function(row){
 
+      console.log(row);
+      var broadcastEl = row.find(function(el){
+        return el.title == pt.data.config.modalField;
+      }).value;
+
       // Master Widget : Broadcast the selected column value
       if(pt.data.config.master){
-
-        // Get the key String value from header
-        var key = pt.data.headers[pt.orderField]
-        // Need the response data from the database, cause the data we show are not all the data
-        // Sort the data because we need to have them sort as the data view
-        pt.data.bigdata.sort(function(a, b){
-          if (!pt.reverseSort){
-            return (a[key] > b[key]);
-          }
-          else {
-              return (a[key] < b[key]);
-          }
-        });
-        $rootScope.$broadcast('DatTest',pt.data.bigdata[row][pt.data.config.modalField]);
+        $rootScope.$broadcast('DatTest',broadcastEl);
         return;
       }
 
@@ -72,7 +64,7 @@ function paginateTableController($scope, $rootScope, data, $uibModal){
         pt.data.config.modalUrl = pt.data.config.modalDatasource.selected.url;
 
       if (pt.data.config.modalUrl){
-        pt.data.config.urlReplace = row[pt.data.config.modalField];
+        pt.data.config.urlReplace = broadcastEl;
         var modalInstance = $uibModal.open({
           templateUrl : '{widgetsPath}/paginateTable/src/view/modal.html',
           controller : 'modalInstanceCtrl',

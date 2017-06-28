@@ -16,18 +16,18 @@
       <br/>
     </div>
 
-    <div ng-show="!pt.load" class="text-center">
+    <div class="text-center">
       <input type="search" ng-model="q" placeholder="Filter" class="form-control">
     </div>
-    <div class="table-responsive"> <!-- Add Horizontal Scroll Bad -->
+    <div ng-show="!pt.load" class="table-responsive"> <!-- Add Horizontal Scroll Bad -->
       <table  class="table">
         <tr>
           <th ng-repeat="head in pt.data.headers" ng-click="pt.sortIndex($index)">
             {{head}}
           </th>
         </tr>
-        <tr ng-repeat="row in filterData = (pt.data.rows | filter:q | orderBy:pt.sorter:pt.reverseSort) | startFrom: (pt.data.currentPage-1)*pt.data.itemPerPage | limitTo:pt.data.itemPerPage track by $index" ng-click="pt.open($index, filterData)">
-          <td ng-repeat="col in row track by $index" ng-switch="col.opt">
+        <tr ng-repeat="row in filterData = (pt.data.rows | filter:q | orderBy:pt.sorter:pt.reverseSort) | startFrom: (pt.data.currentPage-1)*pt.data.itemPerPage | limitTo:pt.data.itemPerPage track by $index" ng-click="pt.open(row)">
+          <td ng-repeat="col in row track by $index" ng-switch="col.opt" ng-if="col.opt != 'hidden'">
             <span ng-switch-default> {{col.value}} </span>
 
             <!-- Booleen -->

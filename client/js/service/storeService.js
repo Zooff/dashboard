@@ -57,6 +57,17 @@ angular.module('dashboardInfra.service', [])
         });
       return deferred.promise;
     },
+    copy : function(id, category, data){
+      var deferred = $q.defer();
+      $http.post('/dashboard/copy/' + id, {category : category, model : data})
+        .success(function(data){
+          deferred.resolve();
+        })
+        .error(function(){
+          deferred.reject();
+        })
+      return deferred.promise;
+    },
     delete: function(id){
       var deferred = $q.defer();
       $http.delete('/dashboard/' + id)

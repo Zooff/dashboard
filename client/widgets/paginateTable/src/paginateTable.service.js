@@ -11,6 +11,7 @@ function paginateTableService($q, $http, $parse){
   function createColumns(config, model){
     var columns = [];
 
+    // Add the column want by the user
     angular.forEach(config.columns, function(col, i){
       if (col.title && col.path) {
         var title = col.title.replace(/_/, ' ');
@@ -22,6 +23,22 @@ function paginateTableService($q, $http, $parse){
           opt : col.opt
         });
       }
+    });
+
+    // Obtain the columns that the user dont want to see
+    var diff = config.keys.filter(function(x){
+      return !config.columns.find(function(el){
+        return el.title == x;
+      })
+    });
+
+    // Add them to be used by the master mode
+    angular.forEach(diff, function(col2, i2){
+      columns.push({
+        title: col2,
+        path: $parse(col2),
+        opt: 'hidden'
+      });
     });
 
     return columns;
@@ -60,7 +77,7 @@ function paginateTableService($q, $http, $parse){
 
       angular.forEach(columns, function(col, i){
         var value = col.path(node);
-        row[i] = {value : value, opt : col.opt};
+        row[i] = {value : value, opt : col.opt, title: col.title};
       });
 
       model.rows.push(row);
@@ -68,7 +85,6 @@ function paginateTableService($q, $http, $parse){
     model.totalItems = model.rows.length;
     model.columns = config.columns;
     model.config = config;
-    model.bigdata = data;
     return model;
   }
 
