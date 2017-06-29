@@ -27,7 +27,15 @@ function paginateTableController($scope, $rootScope, data, $uibModal, paginateTa
     }
 
     pt.getData = function(){
-      return pt.data.rows;
+      // We need to remove nested objects from data.rows to use ngCsv
+      var array = angular.copy(pt.data.rows)
+      for (var row = 0; row < array.length; row++){
+        for (var r = 0; r < array[row].length; r++){
+          array[row][r] = array[row][r].value
+        }
+      }
+
+      return array;
     }
 
     pt.getHeader = function(){
@@ -45,10 +53,23 @@ function paginateTableController($scope, $rootScope, data, $uibModal, paginateTa
       })
     }
 
+    pt.verifSeuil = function(val, seuilOp, seuilVal){
+      if (!isNaN(val)){
+        if (seuilOp == 'Sup'){
+          return val > seuilVal;
+        }
+        if (seuilOp == 'Inf'){
+          return val < seuilVal;
+        }
+      }
+    }
+
 
     pt.open = function(row){
 
-      console.log(row);
+      if(!pt.data.config.master && !pt.data.config.modalDatasource.selected && !pt.data.config.modalUrl )
+        return;
+
       var broadcastEl = row.find(function(el){
         return el.title == pt.data.config.modalField;
       }).value;
@@ -60,7 +81,7 @@ function paginateTableController($scope, $rootScope, data, $uibModal, paginateTa
       }
 
       // Open the modal
-      if(pt.data.config.modalDatasource)
+      if(pt.data.config.modalDatasource.selected)
         pt.data.config.modalUrl = pt.data.config.modalDatasource.selected.url;
 
       if (pt.data.config.modalUrl){

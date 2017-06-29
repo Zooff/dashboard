@@ -3,19 +3,19 @@
     Please insert a url to the widget configuration
   </div>
   <div ng-show="pt.data">
-
-    <div ng-if="!pt.data.config.head" class= "col-md-12">
-      <div class="col-md-3 text-center v-cent">
-        <p> Nombre d'éléments : {{pt.data.rows.length}} </p>
+    <div class=row>
+      <div ng-if="!pt.data.config.head" class= "col-md-12">
+        <div class="col-md-6 text-center v-cent">
+          <p> Nombre d'éléments : {{pt.data.rows.length}} </p>
+        </div>
+        <div class="col-md-6 text-center marg">
+          <button type="button" class="btn btn-success" ng-csv="pt.getData()" csv-header="pt.getHeader()" field-separator=";" filename="{{$parent.model.title + '.csv'}}">
+            <i class="fa fa-file-excel-o" aria-hidden="true"></i> Export
+          </button>
+        </div>
+        <br/>
       </div>
-      <div class="col-md-3 col-md-offset-6 text-center marg">
-        <button type="button" class="btn btn-success" ng-csv="pt.getData()" csv-header="pt.getHeader()" field-separator=";" filename="{{$parent.model.title + '.csv'}}">
-          <i class="fa fa-file-excel-o" aria-hidden="true"></i> Export
-        </button>
-      </div>
-      <br/>
     </div>
-
     <div class="text-center">
       <input type="search" ng-model="q" placeholder="Filter" class="form-control">
     </div>
@@ -27,7 +27,7 @@
           </th>
         </tr>
         <tr ng-repeat="row in filterData = (pt.data.rows | filter:q | orderBy:pt.sorter:pt.reverseSort) | startFrom: (pt.data.currentPage-1)*pt.data.itemPerPage | limitTo:pt.data.itemPerPage track by $index" ng-click="pt.open(row)">
-          <td ng-repeat="col in row track by $index" ng-switch="col.opt" ng-if="col.opt != 'hidden'">
+          <td ng-repeat="col in row track by $index" ng-switch="col.opt.type" ng-if="col.opt != 'hidden'">
             <span ng-switch-default> {{col.value}} </span>
 
             <!-- Booleen -->
@@ -36,7 +36,9 @@
             <span ng-switch-when="bool" ng-if="col.value == '1'"> <i class="fa fa-check text-success"> </span>
 
             <!-- Seuil -->
-            <span ng-switch-when="seuil"> {{col.value}}</span>
+            <span ng-switch-when=seuil ng-if="pt.verifSeuil(col.value, col.opt.seuilOp, col.opt.seuilVal)" class="text-success">  {{col.value}} </span>
+            <span ng-switch-when=seuil ng-if="!pt.verifSeuil(col.value, col.opt.seuilOp, col.opt.seuilVal)" class="text-danger">  {{col.value}} </span>
+
           </td>
         </tr>
       </table>

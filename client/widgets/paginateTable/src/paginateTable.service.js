@@ -14,11 +14,9 @@ function paginateTableService($q, $http, $parse){
     // Add the column want by the user
     angular.forEach(config.columns, function(col, i){
       if (col.title && col.path) {
-        var title = col.title.replace(/_/, ' ');
-        title = title.replace(/^bool/, '');
-        model.headers[i] = title;
+        model.headers[i] = col.title;
         columns.push({
-          title: title,
+          title: col.title,
           path: $parse(col.path),
           opt : col.opt
         });
@@ -62,7 +60,9 @@ function paginateTableService($q, $http, $parse){
     if (!config.columns || !config.columns.length){
         config.columns = [];
         for (var key in data[0]){
-          config.columns.push({title : key, path : key, col : null});
+          var t = key.replace(/_/, ' ');
+          t = t.replace(/^bool/, '');
+          config.columns.push({title : t, path : key, col : null});
         }
     }
 
