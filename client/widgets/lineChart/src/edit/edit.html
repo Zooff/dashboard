@@ -68,6 +68,13 @@
 
   <input type="checkbox" ng-model="config.listener"> <label> Slave </label>
 
+  <div ng-if="config.listener">
+    <div class=form-group>
+      <label> Master Column</label>
+      <input ng-model="config.slaveValue" type=text>
+    </div>
+  </div>
+
 
   <div>
     <label> Graph </label>

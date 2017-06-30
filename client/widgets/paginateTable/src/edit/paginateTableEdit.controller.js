@@ -11,7 +11,9 @@ function paginateTableEditController($scope, $http,config){
   config.datasource = {};
   config.modalDatasource = {};
   config.urlReplace = '0'; // Init the slave Mode
-  
+
+
+
   // $scope.getAutocompletion = function(val){
   //   return $http.get('/autocomplete', {
   //     params: {
@@ -76,10 +78,24 @@ function paginateTableEditController($scope, $http,config){
     return modal ? config.modalColumns : config.columns;
   }
 
+  function getColToPop(){
+    if (!config.colToPop)
+      config.colToPop = [];
+    return config.colToPop;
+  };
+
   // Use by the typeahead directive to generate a User friendly Label
   this.formatLabel = function(model){
     return config.keys[model];
-  }
+  };
+
+  this.addColToPop = function(){
+    getColToPop().push({});
+  };
+
+  this.removeColToPop = function(index){
+    getColToPop().splice(index, 1)
+  };
 
   this.addColumn = function(modal){
     getColumns(modal).push({});

@@ -133,12 +133,30 @@
         <selecttree model="config.modalDatasource"> </selecttree>
       </div>
 
+      <hr>
+
       <div>
         <label for="field"> Column to populate </label>
-        <input type=text id="field" autocomplete="off" uib-typeahead="key for key in config.keys"  typeahead-min-length='0' ng-model="pt.config.modalField"></select>
+
       </div>
+
+      <div class="form-inline padding-bottom" ng-repeat="c in pt.config.colToPop">
+        <div class="form-group">
+            <input type=text id="field" autocomplete="off" uib-typeahead="key for key in config.keys"  typeahead-min-length='0' ng-model="c.name"></select>
+        </div>
+        <button type="button" class="btn btn-warning" ng-click="pt.removeColToPop($index)">
+          <i class="fa fa-minus"></i> Remove 
+        </button>
+      </div>
+
+      <button type="button" class="btn btn-primary" ng-click="pt.addColToPop()">
+        <i class="fa fa-plus"></i> Add
+      </button>
       <!-- typeahead-input-formatter="pt.formatLabel($model)"" -->
 <!-- config.keys.indexOf(key) as -->
+
+
+      <hr>
 
       <div>
         <label>Column</label>

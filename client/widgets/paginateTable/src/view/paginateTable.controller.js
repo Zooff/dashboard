@@ -48,7 +48,7 @@ function paginateTableController($scope, $rootScope, data, $uibModal, paginateTa
         pt.load = true;
         paginateTableService.get(pt.data.config).then(function(response){
           pt.load = false;
-          pt.data = response.data;
+          pt.data = response;
         })
       })
     }
@@ -64,15 +64,21 @@ function paginateTableController($scope, $rootScope, data, $uibModal, paginateTa
       }
     }
 
-
+    // Click on the tab
     pt.open = function(row){
 
+      // If not master or not had a modal, do nothing
       if(!pt.data.config.master && !pt.data.config.modalDatasource.selected && !pt.data.config.modalUrl )
         return;
 
-      var broadcastEl = row.find(function(el){
-        return el.title == pt.data.config.modalField;
-      }).value;
+
+      var broadcastEl = {};
+      pt.data.config.colToPop.forEach(function(col){
+        broadcastEl[col.name] = row.find(function(el){
+          return el.title == col.name;
+        }).value;
+      })
+      console.log(broadcastEl);
 
       // Master Widget : Broadcast the selected column value
       if(pt.data.config.master){
