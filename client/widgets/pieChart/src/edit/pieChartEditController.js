@@ -8,6 +8,7 @@ function pieChartEditController($scope, $http, config, pieChartService){
   this.config = config;
   config.datasource = {};
 
+
   if (!graph.config.principalCol)
     graph.config.principalCol = [];
   if(!graph.config.otherCol)

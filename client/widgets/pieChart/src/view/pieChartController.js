@@ -9,10 +9,13 @@ function pieChartController($scope, data, pieChartService, $rootScope, $uibModal
     var graph = this;
     this.config = data.config;
     this.label = data.label;
+    this.config.colorLabel = this.label;
     this.value = data.value;
     // Type of graph : Pie, bar, line
     this.type = data.type;
     this.desc = data.desc;
+
+    this.config.color = this.config.color ? this.config.color : null;
   // Option for the chart --> See the chart.js options
     var cut;
     (this.type == 'doughnut') ? cut = 75 : cut = 0;
@@ -69,7 +72,7 @@ function pieChartController($scope, data, pieChartService, $rootScope, $uibModal
 
     if (data.config.listener){
       $rootScope.$on('DatTest', function(events, args){
-        graph.config.urlReplace = args;
+        graph.config.urlReplace = args[graph.config.slaveValue];
         graph.load = true;
         // Reload the widget
         pieChartService.get(graph.config).then(function(response){
