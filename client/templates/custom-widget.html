@@ -1,0 +1,30 @@
+<div adf-id="{{definition.wid}}" adf-widget-type="{{definition.type}}" ng-class="widgetClasses(widget, definition)" class="widget">
+
+<div class="panel-heading clearfix" ng-if="!widget.frameless || editMode">
+  <h3 class="panel-title" ng-controller="widgetTitleCtrl as title">
+    {{title.title}}
+      <span class="pull-right">
+      <a href="" title="{{translate('ADF_WIDGET_TOOLTIP_REFRESH')}}" ng-if="widget.reload" ng-click="reload()">
+        <i class="glyphicon glyphicon-refresh"></i>
+      </a>
+
+      <a href="" title="{{translate('ADF_WIDGET_TOOLTIP_MOVE')}}" class="adf-move" ng-if="editMode">
+        <i class="glyphicon glyphicon-move"></i>
+      </a>
+
+      <a href="" title="{{translate('ADF_WIDGET_TOOLTIP_EDIT')}}" ng-click="edit()" ng-if="editMode">
+        <i class="glyphicon glyphicon-cog"></i>
+      </a>
+
+      <a href="" title="{{translate('ADF_WIDGET_TOOLTIP_REMOVE')}}" ng-click="remove()" ng-if="editMode">
+        <i class="glyphicon glyphicon-remove"></i>
+      </a>
+    </span>
+  </h3>
+</div>
+
+
+  <div ng-class="{'panel-body': !widget.frameless || editMode}" uib-collapse="widgetState.isCollapsed">
+    <adf-widget-content adf-model="adfModel" model=definition content="widget" />
+  </div>
+</div>
