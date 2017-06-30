@@ -4,6 +4,7 @@ angular.module('adf.widget.singleValue')
   .service('singleValueService', singleValueService);
 
 function singleValueService($q, $http, $parse){
+  var expertUrl = "/expert/query";
 
   function createColumns(config){
     var columns = [];
@@ -52,16 +53,35 @@ function singleValueService($q, $http, $parse){
         return response.data;
       })
       .then(function(data){
-        return createDataModel(config, data);
+        return createDataModel(config, data[0]);
       });
   }
 
   function get(config){
     var result = null;
-    if (config.url){
+    if (config.expert){
+      result = post(config);
+    }
+    else if (config.datasource){
+      if(config.datasource.selected)
+        config.url = config.datasource.selected.url;
       result = fetch(config);
     }
     return result;
+  }
+
+  function post(config){
+    return $http.post(expertUrl, config)
+      .then(function(response){
+        return response.data
+      })
+      .then(function(data){
+        if (data.code){
+          var principalData = {data : data.code};
+          var model = {config : config, principalData : principalData1};
+        }
+        return createDataModel(config, data[0]);
+      });
   }
 
   return {

@@ -9,30 +9,83 @@
 
 
 <form role="form">
-  <div class="form-group">
+  <!-- <div class="form-group">
     <label for="sample">Datasource</label>
-    <input type="text" class="form-control" ng-model="config.url" placeholder="Enter url" uib-typeahead="address.url as address.url for address in getAutocompletion($viewValue)" typeahead-template-url="autocomplete.html" typeahead-loading="load" typeahead-no-result="noResults">
+    <div ng-show="config.url" class="alert alert-info text-center"> {{config.url}} </div>
+    <selecttree model="config.datasource"></selecttree>
+  </div> -->
+
+  <input type="radio" ng-model="config.mode" value="easy" id=easy> <label for=easy> Mode Facile </label>
+  <input type="radio" ng-model="config.mode" value="exp" id=exp> <label for=exp> Mode Expert </label>
+
+  <div class="form-group" ng-if="config.mode == 'easy'">
+    <easy-mode config=config><easy-mode>
   </div>
+
+  <div ng-if="config.mode == 'exp'">
+    <expert-mode config=config></expert-mode>
+  </div>
+
+  <hr>
 
   <input type="checkbox" ng-model="config.listener"> <label> Slave </label>
+  <div ng-if="config.listener">
+    <label> Master Column </label>
+    <input type="text" ng-model="config.slaveValue">
+    <hr>
+  </div>
 
   <div>
-    <label> Principal Data </label>
+    <label> Donnée </label>
   </div>
+
+
+  <div class="form-group">
+    <label class="sr-only" for="sample">Principal Data</label>
+    <select ng-model="config.root" class="form-control">
+      <option ng-repeat="el in config.list" value="{{el}}"> {{el}} </option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="desc">Label</label>
+    <input type="text" id="desc" class="form-control" ng-model="config.desc" placeholder="Entrer la description de la donnée">
+  </div>
+
+  <hr>
+
+  <label> Formatage </label>
+
+  <div>
+    <input id=percent type=radio ng-model="config.format" value="percent"> <label for=percent> Pourcentage </label>
+    <input id=custom type=radio ng-model="config.format" value=custom> <label for=custom> Custom </label>
+  </div>
+
+  <div ng-if="config.format == 'custom'">
+    <div class="row">
+      <div class="col-md-6">
+        <label> Prefix </label>
+        <input type="text" ng-model=config.custom.prepend>
+      </div>
+      <div class="col-md-6">
+        <label> Suffixe </label>
+        <input type="text" ng-model=config.custom.append>
+      </div>
+    </div>
+  </div>
+
+  <label> Seuil </label>
 
   <div class="form-inline padding-bottom">
-    <div class="form-group">
-      <label class="sr-only" for="desc">Description</label>
-      <input type="text" id="desc" class="form-control" ng-model="config.desc" placeholder="Enter Description of the data">
-    </div>
-    <div class="form-group">
-      <label class="sr-only" for="sample">Principal Data</label>
-      <select ng-model="config.root" class="form-control">
-        <option ng-repeat="el in config.list" value="{{el}}"> {{el}} </option>
-      </select>
-    </div>
+    <select ng-model="config.seuilOp">
+      <option value="Sup"> Sup </option>
+      <option value="Inf"> Inf </option>
+      <option value="Eg"> Eg </option>
+    </select>
+    <input type="text" ng-model="config.seuilVal">
   </div>
 
+<!--
   <div ng-if=!config.listener>
     <div>
       <label>Additional Data</label>
@@ -55,5 +108,6 @@
     <button type="button" class="btn btn-primary" ng-click="sv.addColumn()">
       <i class="fa fa-plus"></i> Add
     </button>
-  </div>
+  </div> -->
+
 </form>

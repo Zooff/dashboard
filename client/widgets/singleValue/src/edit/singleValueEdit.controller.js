@@ -5,16 +5,13 @@ angular.module('adf.widget.singleValue')
 
 function singleValueEditController($scope, $http, config){
   this.config = config;
+  config.datasource = {};
 
-  $scope.getAutocompletion = function(val){
-    return $http.get('/api/autocomplete', {
-      params: {
-        val : val
-      }
-    })
-    .then(function(response){
-      return response.data;
-    });
+  this.getDatabase = function(){
+    return $http.get('/expert')
+      .then(function(response){
+        return response.data;
+      });
   }
 
   function getColumns(){
