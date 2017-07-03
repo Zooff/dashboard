@@ -26,7 +26,8 @@ angular.module('dashboardInfra.controller')
   this.broadcast = function(id){
     if (id == null)
       return;
-    $rootScope.$broadcast('DatTest', id);
+    var jsonOb = {master : id}
+    $rootScope.$broadcast('DatTest', jsonOb);
   }
 
   $timeout(function(){
