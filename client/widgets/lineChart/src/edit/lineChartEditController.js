@@ -52,4 +52,15 @@ function lineChartEditController($scope, $http, config, lineChartService){
     });
   }
 
+
+  this.addLine = function(){
+    if (!config.lines){
+      config.lines = []
+    }
+    config.lines.push({});
+  }
+
+  this.removeLine = function(index){
+    config.lines.splice(index, 1);
+  }
 }

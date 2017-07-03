@@ -37,13 +37,19 @@ function lineChartService($q, $http, $parse){
     var val = jsonData.map(function(u){return getValue(u);});
 
     value.push(val);
-  
+
 
     if (config.value2){
       getValue2 = $parse(config.value2);
       var val2 = jsonData.map(function(u){return getValue2(u)});
       value.push(val2);
     }
+
+    var val3 = [2,3,5];
+    value.push(val3);
+
+    var val4 = [8,5,7];
+    value.push(val4);
 
 
     return {config: config, label: label, value: value, type: config.type, desc : config.desc, series: [config.value, config.value2]};

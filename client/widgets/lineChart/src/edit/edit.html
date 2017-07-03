@@ -103,6 +103,21 @@
     <input type="text" id="value2" class="form-control" ng-model="config.value2" placeholder="Seconde Donnée" uib-typeahead="key for key in config.key" typeahead-min-length='0'>
   </div>
 
+  <div ng-repeat="line in config.lines">
+    <div class="form-group form-inline padding-bottom">
+      <label class="sr-only" for="value2">Value {{$index + 2}}</label>
+      <input type="text" id="value2" class="form-control" ng-model="line.value" placeholder="Donnée {{$index + 3}}" uib-typeahead="key for key in config.key" typeahead-min-length='0'>
+      <button type="button" class="btn btn-warning" ng-click="graph.removeLine($index)">
+        <i class="fa fa-minus"></i> Remove
+      </button>
+    </div>
+
+  </div>
+
+  <button type="button" class="btn btn-primary" ng-click="graph.addLine()">
+    <i class="fa fa-plus"></i> Ajouter une ligne
+  </button>
+
 
   <div>
     <label> Type du graph </label>
@@ -133,13 +148,25 @@
 
     <div class="row">
       <div class="col-md-6">
-        <label for="color"> Couleur Value 1 : </label>
+        <label for="color"> Couleur Donnée 1 : </label>
         <input type="color" ng-model="config.color" id="color"></input>
       </div>
 
       <div ng-if="config.value2" class="col-md-6">
-        <label for="color2"> Couleur Value 2 : </label>
+        <label for="color2"> Couleur Donnée 2 : </label>
         <input type="color" ng-model="config.color2" id="color2"></input>
+      </div>
+    </div>
+
+    <div ng-repeat="line in config.lines" ng-if="$index % 2 == 0" class="row">
+      <div class="col-md-6">
+        <label for="color"> Couleur Donnée {{$index + 3}} : </label>
+        <input type="color" ng-model="config.color" id="color"></input>
+      </div>
+
+      <div class="col-md-6" ng-if="config.lines.length > $index +1" >
+        <label for="color"> Couleur Donnée {{$index + 4}} : </label>
+        <input type="color" ng-model="config.color" id="color"></input>
       </div>
     </div>
 
