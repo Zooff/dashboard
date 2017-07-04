@@ -146,7 +146,7 @@
 
     <input type=checkbox ng-model=config.noPoint ><label> No point </label>
 
-    <div class="row">
+    <!-- <div class="row">
       <div class="col-md-6">
         <label for="color"> Couleur Donnée 1 : </label>
         <input type="color" ng-model="config.color" id="color"></input>
@@ -156,17 +156,17 @@
         <label for="color2"> Couleur Donnée 2 : </label>
         <input type="color" ng-model="config.color2" id="color2"></input>
       </div>
-    </div>
+    </div> -->
 
-    <div ng-repeat="line in config.lines" ng-if="$index % 2 == 0" class="row">
+    <div ng-repeat="line in config.series" ng-if="$index % 2 == 0" class="row">
       <div class="col-md-6">
-        <label for="color"> Couleur Donnée {{$index + 3}} : </label>
-        <input type="color" ng-model="config.color" id="color"></input>
+        <label for="color"> {{line}} : </label>
+        <color-picker ng-model="config.color[$index]" options="{format : 'hexString'}"></color-picker>
       </div>
 
-      <div class="col-md-6" ng-if="config.lines.length > $index +1" >
-        <label for="color"> Couleur Donnée {{$index + 4}} : </label>
-        <input type="color" ng-model="config.color" id="color"></input>
+      <div class="col-md-6" ng-if="config.series.length > $index +1" >
+        <label for="color"> {{config.series[$index +1]}} : </label>
+        <color-picker ng-model="config.color[$index+1]" options="{format : 'hexString'}"></color-picker>
       </div>
     </div>
 

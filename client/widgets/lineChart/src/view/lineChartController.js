@@ -14,6 +14,7 @@ function lineChartController($rootScope, $scope, data, lineChartService){
     this.type = data.type;
     this.desc = data.desc;
     this.series = data.series;
+    this.config.series = this.series;
 
     $scope.$on('chart-create', function(event, chart){
       graph.chart = chart;
@@ -33,7 +34,6 @@ function lineChartController($rootScope, $scope, data, lineChartService){
         });
       });
     }
-  }
   // Option for the chart --> See the chart.js options
   this.options = {legend : {display : true, position :'bottom'}};
 
@@ -64,14 +64,14 @@ function lineChartController($rootScope, $scope, data, lineChartService){
 
   if (graph.config.color){
     graph.color = [];
-    graph.color.push(graph.config.color);
-    if (graph.config.color2){
-      graph.color.push(graph.config.color2)
+    for( var k in graph.config.color){
+      graph.color[k] = graph.config.color[k];
     }
   }
 
 
 
 
+}
 
 }

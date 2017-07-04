@@ -29,30 +29,36 @@ function lineChartService($q, $http, $parse){
     getLabel = $parse(config.label);
 
     if (!config.value)
-      config.value = config.value;
+      config.value = config.key[1];
 
-    getValue = $parse(config.key[1]);
+    getValue = $parse(config.value);
 
     label = jsonData.map(function(u){return getLabel(u);});
     var val = jsonData.map(function(u){return getValue(u);});
 
     value.push(val);
+    var series = [config.value];
 
 
     if (config.value2){
       getValue2 = $parse(config.value2);
       var val2 = jsonData.map(function(u){return getValue2(u)});
       value.push(val2);
+      series.push(config.value2)
     }
 
-    var val3 = [2,3,5];
-    value.push(val3);
 
-    var val4 = [8,5,7];
-    value.push(val4);
+    if(config.lines){
+      config.lines.forEach(function(el){
+        var getVal = $parse(el.value);
+        var v = jsonData.map(function(u){return getVal(u)});
+        value.push(v);
+        series.push(el.value);
+      })
+    }
 
 
-    return {config: config, label: label, value: value, type: config.type, desc : config.desc, series: [config.value, config.value2]};
+    return {config: config, label: label, value: value, type: config.type, desc : config.desc, series: series};
   }
 
   function fetch(config){
