@@ -149,7 +149,8 @@
 
     <div ng-if="config.colorLabel" ng-repeat="l in config.colorLabel">
       <label> {{l}} </label>
-      <input type="color" ng-model=config.color[$index]>
+      <color-picker ng-model="config.color[$index]" options="{format : 'hexString'}"></color-picker>
+
     </div>
 
     <!-- <div>
