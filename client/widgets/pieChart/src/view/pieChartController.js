@@ -15,7 +15,12 @@ function pieChartController($scope, data, pieChartService, $rootScope, $uibModal
     this.type = data.type;
     this.desc = data.desc;
 
-    this.config.color = this.config.color ? this.config.color : null;
+    if (graph.config.color){
+      graph.color = [];
+      for (var k in graph.config.color){
+        graph.color[k] = graph.config.color[k];
+      }
+    }
   // Option for the chart --> See the chart.js options
     var cut;
     (this.type == 'doughnut') ? cut = 75 : cut = 0;
