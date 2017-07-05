@@ -161,12 +161,12 @@
     <div ng-repeat="line in config.series" ng-if="$index % 2 == 0" class="row">
       <div class="col-md-6">
         <label for="color"> {{line}} : </label>
-        <color-picker ng-model="config.color[$index]" options="{format : 'hexString'}"></color-picker>
+        <color-picker ng-model="config.color[$index]" options="{required : false, format : 'hexString'}"></color-picker>
       </div>
 
       <div class="col-md-6" ng-if="config.series.length > $index +1" >
         <label for="color"> {{config.series[$index +1]}} : </label>
-        <color-picker ng-model="config.color[$index+1]" options="{format : 'hexString'}"></color-picker>
+        <color-picker ng-model="config.color[$index+1]" options="{required : false, format : 'hexString'}"></color-picker>
       </div>
     </div>
 
