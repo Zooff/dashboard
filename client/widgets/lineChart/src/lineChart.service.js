@@ -33,7 +33,7 @@ function lineChartService($q, $http, $parse){
 
     getValue = $parse(config.value);
 
-    label = jsonData.map(function(u){return getLabel(u);});
+    label = jsonData.map(function(u){return config.xAxeType ? moment(getLabel(u), config.xAxeFormat) : getLabel(u);});
     var val = jsonData.map(function(u){return getValue(u);});
 
     value.push(val);

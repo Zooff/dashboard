@@ -36,10 +36,22 @@ function lineChartController($rootScope, $scope, data, lineChartService){
       });
     }
     // Option for the chart --> See the chart.js options
-    this.options = {legend : {display : true, position :'bottom'}};
+    this.options = {legend : {display : true, position :'bottom'}, scales : {}};
 
     if (this.config.noPoint){
       this.options.elements = {point : {hitRadius : 15, hoverRadius : 5, radius: 0}};
+    }
+
+    if (this.config.xAxesType){
+      this.options.scales.xAxes = [{
+        type: "time",
+        time: {
+          displayFormat : {
+            'day' : 'DD-MM-YYYY',
+          }
+        },
+        ticks: {maxTicksLimit: 15}
+      }]
     }
 
     if (this.config.minValue || this.config.maxValue || this.config.step){
@@ -48,7 +60,6 @@ function lineChartController($rootScope, $scope, data, lineChartService){
         type: 'linear',
         ticks: {}
       }]};
-      console.log(this.options);
     }
 
     if (this.config.minValue){

@@ -146,6 +146,14 @@
 
     <input type=checkbox ng-model=config.noPoint ><label> No point </label>
 
+    <label> Axe X </label>
+
+    <input type="checkbox" ng-model="config.xAxeType"><label> Date </label>
+    <div ng-if=config.xAxeType>
+      <label> Format des Données </label>
+      <input type="text" ng-model="config.xAxeFormat">
+    </div>
+
     <!-- <div class="row">
       <div class="col-md-6">
         <label for="color"> Couleur Donnée 1 : </label>
