@@ -7,10 +7,14 @@ function checkValueService($q, $http, $parse){
 
   function createData(jsonData, config){
 
-
-    if (config.principalData){
-      var principalData = $parse(config.principalData)(jsonData);
+    config.keys = [];
+    for(var key in jsonData){
+      config.keys.push(key);
     }
+
+
+    if (!config.root)
+      config.root = config.keys[1];
 
     //
     var data = $parse(config.root)(jsonData);
@@ -33,7 +37,18 @@ function checkValueService($q, $http, $parse){
         ok = false;
     }
 
-    return {config: config, data: data, ok: ok, principalData : principalData};
+    if (!config.percentData){
+      config.percentData = config.keys[0];
+    }
+    var percentData = $parse(config.percentData)(jsonData);
+
+    if (!config.lastWeek){
+      config.lastWeek = config.keys[2];
+    }
+
+    var lastWeek = $parse(config.lastWeek)(jsonData);
+
+    return {config: config, data: data, ok: ok, percentData : percentData, lastWeek : lastWeek};
   }
 
   function fetch(config){

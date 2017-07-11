@@ -9,6 +9,14 @@ function checkValueController($scope, $uibModal, data, checkValueService){
     var cv = this;
     this.data = data;
 
+    console.log(data)
+
+    if (this.data.config.listener){
+      $scope.$on('DatTest', function(events, args){
+        cv.datTest = args;
+      });
+    }
+
     this.configModal = cv.data.config;
     this.data.positif = data.data > 0;
     if (this.data.config.pourcent && this.data.data == 0)
@@ -24,9 +32,9 @@ function checkValueController($scope, $uibModal, data, checkValueService){
         controller : 'modalInstanceCtrl',
         controllerAs : 'cm',
         resolve: {
-          data: function(modalService){
+          data: ['modalService', function(modalService){
             return modalService.get(cv.configModal);
-          }
+          }]
         }
       });
     }

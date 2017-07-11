@@ -6,31 +6,33 @@
     <div ng-if="!cv.data.config.pourcent">
       <div class="text-center">
         <div>
-          <h1>
-            <i ng-show="cv.data.ok" class="fa fa-check fa-lg text-success" aria-hidden="true"></i>
-            <i ng-hide="cv.data.ok" class="fa fa-times fa-lg text-danger" aria-hidden="true"></i>
-            {{cv.data.principalData}}
-          </h1>
+            <i ng-show="cv.data.ok" class="fa fa-check fa-4x text-success" aria-hidden="true">{{cv.data.data}}</i>
+            <i ng-hide="cv.data.ok" class="fa fa-times fa-4x text-danger" aria-hidden="true">{{cv.data.data}}</i>
         </div>
-        <p> {{cv.data.config.desc}} : {{cv.data.data}}</p>
+        <p uib-tooltip="{{cv.data.config.tooltip}}"tooltip-placement="bottom"> {{cv.data.config.desc}} : {{cv.data.data}}</p>
       </div>
     </div>
     <div ng-if="cv.data.config.pourcent">
-      <p class="small text-center" ng-if="cv.data.principalData">  {{cv.data.config.descPrincipalData}} :  {{cv.data.principalData}} </p>
-      <div class="text-center">
-        <div ng-if="!cv.data.zero" class="align-middle">
-          <i ng-if="cv.data.ok && cv.data.positif" class="fa fa-caret-up fa-5x text-success" aria-hidden="true"></i>
-          <i ng-if="!cv.data.ok && !cv.data.positif" class="fa fa-caret-down fa-5x text-danger" aria-hidden="true"></i>
-          <i ng-if="!cv.data.ok && cv.data.positif" class="fa fa-caret-up fa-5x text-danger" aria-hidden="true"></i>
-          <i ng-if="cv.data.ok && !cv.data.positif" class="fa fa-caret-down fa-5x text-success" aria-hidden="true"></i>
+      <div class="row">
+        <div class="text-center  bdr-right col-md-8">
+          <h1 class="no-margin">
+            {{cv.data.data}}
+          </h1>
+          <small> {{cv.data.config.desc}}  </small>
         </div>
-        <i ng-if="cv.data.zero" class="fa fa-caret-right fa-5x text-warning" aria-hidden="true">{{cv.data.principalData}}</i>
-        <p uib-tooltip="{{cv.data.config.tooltip}}"tooltip-placement="bottom"> {{cv.data.config.desc}} :
-          <span ng-show="!cv.data.zero && cv.data.ok" class="text-success">{{cv.data.data}} %</span>
-          <span ng-show="!cv.data.zero && !cv.data.ok" class="text-danger">{{cv.data.data}} %</span>
-          <span ng-show="cv.data.zero" class="text-warning">{{cv.data.data}} %</span>
-        </p>
+        <div class="col-md-4 align-middle text-center">
+          <div ng-if="!cv.data.zero" class="align-middle text-center" uib-tooltip ="{{sv.data.lastWeek}}">
+            <span ng-if="cv.data.ok && cv.data.positif" class="text-success"> <i class="fa fa-caret-up fa-2x text-success" aria-hidden="true"> {{cv.data.percentData}} </i> %</span>
+            <span ng-if="!cv.data.ok && !cv.data.positif" class="text-danger"> <i class="fa fa-caret-down fa-2x" aria-hidden="true"> {{cv.data.percentData}} </i> % </span>
+            <span ng-if="!cv.data.ok && cv.data.positif" class="text-danger"> <i class="fa fa-caret-up fa-2x" aria-hidden="true"> {{cv.data.percentData}} </i> % </span>
+            <span ng-if="cv.data.ok && !cv.data.positif" class="text-success"> <i class="fa fa-caret-down fa-2x" aria-hidden="true"> {{cv.data.percentData}} </i> % </span>
+          </div>
+          <span ng-if="cv.data.zero" class="text-warning text-center align-middle"> <i class="fa fa-caret-right fa-2x" aria-hidden="true">{{cv.data.percentData}} </i> <small>%</small> </span>
+          <p class="text-center" uib-tooltip="{{cv.data.config.tooltip}}"tooltip-placement="bottom"> {{cv.data.config.descPercent}}
+          </p>
+        </div>
       </div>
     </div>
+    <p ng-show="cv.datTest"> {{cv.datTest}} </p>
   </div>
 </div>

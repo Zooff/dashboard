@@ -17,20 +17,25 @@ function checkValueEditController($scope, $http, config, checkValueService){
     });
   }
 
-  function getColumns(){
-    if (!config.columns){
+  // load the array of columns
+  function getColumns(standard){
+    if (!standard && !config.columns){
       config.columns = [];
     }
-    return config.columns;
+    if (standard && !config.datasources){
+      config.datasources = [];
+    }
+    return standard ? config.datasources : config.columns;
   }
 
-  this.addColumn = function(){
-    getColumns().push({});
+  this.addColumn = function(standard){
+    getColumns(standard).push({});
   };
 
-  this.removeColumn = function(index){
-    getColumns().splice(index, 1);
+  this.removeColumn = function(standard, index){
+    getColumns(standard).splice(index, 1);
   };
+
   this.load = function(){
     checkValueService.get(config.url);
   }

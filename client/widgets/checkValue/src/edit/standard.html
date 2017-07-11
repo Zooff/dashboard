@@ -1,0 +1,23 @@
+<div class="form-group">
+  <label for="sample"> Liste des Datasources</label>
+  <div class="form-inline padding-bottom" ng-repeat="url in cv.config.datasources">
+    <div class="form-group">
+      <label class="sr-only" for="datasource-{{$index}}">Datasource</label>
+      <input type="text" id="datasource-{{$index}}" class="form-control" ng-model="url.name" placeholder="Datasource" uib-typeahead="address.url as address.url for address in getAutocompletion($viewValue) " typeahead-template-url="autocomplete.html" typeahead-loading="load" typeahead-no-result="noResults">
+    </div>
+    <button type="button" class="btn btn-warning" ng-click="cv.removeColumn(true,$index)">
+      <i class="fa fa-minus"></i> Remove
+    </button>
+  </div>
+</div>
+
+<button type="button" class="btn btn-primary" ng-click="cv.addColumn(true)">
+  <i class="fa fa-plus"></i> Add
+</button>
+
+<div class="form-group">
+  <label for="standardTest"> Test </label>
+  <select class="form-control">
+    <option> </option>
+  </select>
+</div>
