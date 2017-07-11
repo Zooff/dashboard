@@ -55,7 +55,7 @@ function singleValueController($rootScope, $scope, $timeout, data, singleValueSe
     //  When an event occur from the master widget
     if (sv.data.config.listener){
       $scope.$on('DatTest', function(events, args){
-        console.log(args);
+        sv.data.config.expertReplace = args;
         sv.data.config.urlReplace = args[sv.data.config.slaveValue];
         sv.data.load = true;
         // Reload the widget
