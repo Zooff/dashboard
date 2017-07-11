@@ -18,6 +18,11 @@ function gaugeChartService($q, $http, $parse){
       config.key.push(key);
     }
 
+    if(config.key.indexOf('max')){
+      console.log('key');
+      config.max = jsonData[0]['max'];
+    }
+
     if(!config.label)
       config.label = config.key[0];
 

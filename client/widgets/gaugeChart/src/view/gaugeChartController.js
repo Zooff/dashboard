@@ -14,7 +14,7 @@ function gaugeChartController($scope, data, gaugeChartService, $rootScope, $uibM
 
     if (data.config.listener){
       $rootScope.$on('DatTest', function(events, args){
-        graph.config.urlReplace = args;
+        graph.config.urlReplace = args[graph.config.slaveValue];
         graph.load = true;
         // Reload the widget
         gaugeChartService.get(graph.config).then(function(response){

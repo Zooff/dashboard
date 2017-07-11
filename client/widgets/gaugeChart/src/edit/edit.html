@@ -44,6 +44,11 @@
 
   <input ng-if="config.mode == 'easy'" id=listener type="checkbox" ng-model="config.listener"> <label ng-if="config.mode == 'easy'" for=listener> Slave </label>
 
+  <div ng-if="config.listener">
+    <label> Master Column </label>
+    <input type=text ng-model=config.slaveValue>
+  </div>
+
   <div>
     <label> Type de Graph </label>
   </div>
