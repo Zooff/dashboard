@@ -14,22 +14,20 @@
     </div>
     <div ng-if="cv.data.config.pourcent">
       <div class="row">
-        <div class="text-center  bdr-right col-md-8">
-          <h1 class="no-margin">
-            {{cv.data.data}}
-          </h1>
-          <small> {{cv.data.config.desc}}  </small>
-        </div>
-        <div class="col-md-4 align-middle text-center">
-          <div ng-if="!cv.data.zero" class="align-middle text-center" uib-tooltip ="{{sv.data.lastWeek}}">
-            <span ng-if="cv.data.ok && cv.data.positif" class="text-success"> <i class="fa fa-caret-up fa-2x text-success" aria-hidden="true"> {{cv.data.percentData}} </i> %</span>
-            <span ng-if="!cv.data.ok && !cv.data.positif" class="text-danger"> <i class="fa fa-caret-down fa-2x" aria-hidden="true"> {{cv.data.percentData}} </i> % </span>
-            <span ng-if="!cv.data.ok && cv.data.positif" class="text-danger"> <i class="fa fa-caret-up fa-2x" aria-hidden="true"> {{cv.data.percentData}} </i> % </span>
-            <span ng-if="cv.data.ok && !cv.data.positif" class="text-success"> <i class="fa fa-caret-down fa-2x" aria-hidden="true"> {{cv.data.percentData}} </i> % </span>
+        <div class="text-center">
+          <div class="inline">
+            <h1 class="no-margin inline">
+              {{cv.data.data}}
+            </h1>
+              <span ng-if="!cv.data.zero" class="align-middle text-center percentage" uib-tooltip ="{{sv.data.lastWeek}}">
+                <span ng-if="cv.data.ok && cv.data.positif" class="text-success">  <i class="fa fa-caret-up fa-2x text-success" aria-hidden="true"> {{cv.data.percentData}} % </i> </span>
+                <span ng-if="!cv.data.ok && !cv.data.positif" class="text-danger">  <i class="fa fa-caret-down fa-2x" aria-hidden="true"> {{cv.data.percentData}} %</i></span>
+                <span ng-if="!cv.data.ok && cv.data.positif" class="text-danger">  <i class="fa fa-caret-up fa-2x" aria-hidden="true">{{cv.data.percentData}} %</i></span>
+                <span ng-if="cv.data.ok && !cv.data.positif" class="text-success"> <i class="fa fa-caret-down fa-2x" aria-hidden="true">{{cv.data.percentData}} %</i></span>
+              </span>
+              <span ng-if="cv.data.zero" class="text-warning text-center align-middle percentage"> <i class="fa fa-caret-right fa-2x" aria-hidden="true">{{cv.data.percentData}} </i> <small>%</small> </span>
           </div>
-          <span ng-if="cv.data.zero" class="text-warning text-center align-middle"> <i class="fa fa-caret-right fa-2x" aria-hidden="true">{{cv.data.percentData}} </i> <small>%</small> </span>
-          <p class="text-center" uib-tooltip="{{cv.data.config.tooltip}}"tooltip-placement="bottom"> {{cv.data.config.descPercent}}
-          </p>
+          <small> {{cv.data.config.desc}}  </small>
         </div>
       </div>
     </div>
