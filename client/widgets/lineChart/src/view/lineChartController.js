@@ -42,25 +42,30 @@ function lineChartController($rootScope, $scope, data, lineChartService){
       this.options.elements = {point : {hitRadius : 15, hoverRadius : 5, radius: 0}};
     }
 
-    if (this.config.xAxesType){
+    if (this.config.xAxesType == true){
       this.options.scales.xAxes = [{
         type: "time",
         time: {
-          displayFormat : {
-            'day' : 'DD-MM-YYYY',
-          }
+          // displayFormat : {
+          //   'day' : 'DD-MM-YYYY',
+          // }
+          min : graph.label[0],
+          max : graph.label[graph.label.length - 1]
         },
         ticks: {maxTicksLimit: 15}
       }]
     }
 
-    if (this.config.minValue || this.config.maxValue || this.config.step){
-      this.options.scales = {yAxes : [{
-        display:true,
-        type: 'linear',
-        ticks: {}
-      }]};
-    }
+    this.options.scales.yAxes = [{
+      display:true,
+      type: 'linear',
+      ticks: {
+        callback: function(value, index, values){
+          return graph.config.axeYSuf ?  value + graph.config.axeYSuf :  value;
+        }
+      }
+    }];
+
 
     if (this.config.minValue){
       this.options.scales.yAxes[0].ticks.min = parseInt(graph.config.minValue, 10);

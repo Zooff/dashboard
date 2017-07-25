@@ -56,6 +56,8 @@
       <query-builder  group="config.condition2.group" fields="config.otherCol" database="config.databaseStandard"></query-builder>
     </div>
 
+    <showsql type="data" config=config></showsql>
+
   </div>
 
   <!-- Mode Expert -->
@@ -133,7 +135,7 @@
     </select>
   </div>
 
-
+  <hr>
 
   <div>
     <label ng-click="isCollapsed = !isCollapsed"> Chart Option
@@ -146,35 +148,28 @@
 
     <input type=checkbox ng-model=config.noPoint ><label> No point </label>
 
-    <label> Axe X </label>
-
+    <div>
+      <label> Axe X </label>
+    </div>
     <input type="checkbox" ng-model="config.xAxeType"><label> Date </label>
     <div ng-if=config.xAxeType>
       <label> Format des Données </label>
       <input type="text" ng-model="config.xAxeFormat">
     </div>
 
-    <!-- <div class="row">
+    <hr>
+
+    <div class=text-center>
+      <label> Axe Y </label>
+    </div>
+    <div class="row">
       <div class="col-md-6">
-        <label for="color"> Couleur Donnée 1 : </label>
-        <input type="color" ng-model="config.color" id="color"></input>
+        <label for=suf class=ctm-label> Suffixe </label>
+        <input id=suf type="text" ng-model="config.axeYSuf">
       </div>
-
-      <div ng-if="config.value2" class="col-md-6">
-        <label for="color2"> Couleur Donnée 2 : </label>
-        <input type="color" ng-model="config.color2" id="color2"></input>
-      </div>
-    </div> -->
-
-    <div ng-repeat="line in config.series" ng-if="$index % 2 == 0" class="row">
       <div class="col-md-6">
-        <label for="color"> {{line}} : </label>
-        <color-picker ng-model="config.color[$index]" options="{required : false, format : 'hexString'}"></color-picker>
-      </div>
-
-      <div class="col-md-6" ng-if="config.series.length > $index +1" >
-        <label for="color"> {{config.series[$index +1]}} : </label>
-        <color-picker ng-model="config.color[$index+1]" options="{required : false, format : 'hexString'}"></color-picker>
+        <label class=ctm-label for=step> Step </label>
+        <input type=text id=step ng-model=config.step>
       </div>
     </div>
 
@@ -189,12 +184,24 @@
       </div>
     </div>
 
-      <label for=step> Step </label>
-      <input type=text id=step ng-model=config.step>
 
+    <hr>
 
+    <div>
+      <label> Couleur </label>
+    </div>
 
+    <div ng-repeat="line in config.series" ng-if="$index % 2 == 0" class="row">
+      <div class="col-md-6">
+        <label for="color"> {{line}} : </label>
+        <color-picker ng-model="config.color[$index]" options="{required : false, format : 'hexString'}"></color-picker>
+      </div>
 
+      <div class="col-md-6" ng-if="config.series.length > $index +1" >
+        <label for="color"> {{config.series[$index +1]}} : </label>
+        <color-picker ng-model="config.color[$index+1]" options="{required : false, format : 'hexString'}"></color-picker>
+      </div>
+    </div>
   </div>
 
 </form>
