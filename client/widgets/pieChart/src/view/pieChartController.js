@@ -9,74 +9,104 @@ function pieChartController($scope, data, pieChartService, $rootScope, $uibModal
     var graph = this;
     this.config = data.config;
     this.label = data.label;
+    this.series = data.series;
     this.config.colorLabel = this.label;
     this.value = data.value;
     // Type of graph : Pie, bar, line
     this.type = data.type;
     this.desc = data.desc;
+    this.id = Math.random().toString(36).substr(2,10);
+    console.log(this.id);
+  // Option for the chart --> See the chart.js options
 
+    graph.options = {
+      chart: {
+        type: 'pie',
+        backgroundColor: 'transparent',
+        margin: 0,
+        height: '100%'
+      },
+      tooltip: {
+        pointFormat: '{point.name}: <b>{point.percentage:.1f}%</b>'
+      },
+      plotOptions: {
+        pie: {
+          size: '75%',
+          slicedOffset: 0,
+          borderWidth: 3,
+          allowPointSelect: true,
+          depth: 45,
+          dataLabels: {
+             enabled: false
+          }
+
+        },
+        series: {
+          borderColor: 'transparent',
+          borderWidth: 5,
+        }
+      },
+      series: [{
+        type: 'pie',
+        data: graph.series
+      }],
+      title: {
+        text: null
+      },
+      legend: {
+        itemMarginTop: 5
+      },
+      credits: {
+        enabled: false
+      }
+
+    }
+
+    if (this.type == 'doughnut') {
+      this.options.plotOptions.pie.innerSize = '75%';
+    }
+    if (this.config.legend){
+      this.options.plotOptions.pie.showInLegend = {
+        enabled: true
+      };
+    }
+    if (this.config.v3d){
+      graph.options.chart.options3d = {
+        enabled: true,
+        alpha: 45,
+        beta: 0
+      }
+    }
     if (graph.config.color){
       graph.color = [];
       for (var k in graph.config.color){
         graph.color[k] = graph.config.color[k];
       }
-    }
-  // Option for the chart --> See the chart.js options
-    var cut;
-    (this.type == 'doughnut') ? cut = 75 : cut = 0;
-    this.options = {elements: {arc: {borderWidth : 1, borderColor : '#222222'}}, cutoutPercentage : cut};
-
-    if (this.config.legend){
-      this.options.legend = {display : true, position : this.config.legendPosition};
+      graph.options.plotOptions.pie.colors = graph.color;
     }
 
-
-
-    // Add label and/or percent on the Pie Chart
-    if (this.config.type != 'polarArea' && (this.config.pourcent || this.config.pieValue)){
-      graph.options.animation = {};
-      graph.options.animation.onComplete = function(){
-
-        var ctx = this.chart.ctx;
-        ctx.font = Chart.helpers.fontString(20, 'normal',Chart.defaults.global.defaultFontFamily );
-        ctx.textAlign = 'center';
-        ctx.textBaseline = 'bottom';
-
-        this.data.datasets.forEach(function(dataset){
-          for (var i = 0; i < dataset.data.length; i++){
-            var model = dataset._meta[Object.keys(dataset._meta)[0]].data[i]._model,
-                total = dataset._meta[Object.keys(dataset._meta)[0]].total,
-                mid_radius = model.innerRadius + (model.outerRadius - model.innerRadius) / 2,
-                start_angle = model.startAngle,
-                end_angle = model.endAngle,
-                mid_angle = start_angle + (end_angle - start_angle) / 2;
-
-            var x = mid_radius * Math.cos(mid_angle);
-            var y = mid_radius * Math.sin(mid_angle);
-
-            ctx.fillStyle = '#fff'; //Color of the text
-
-            var val = dataset.data[i];
-            var percent = String(Math.round(val/total*100) + "%");
-
-            if (model.circumference > 0 && val != 0){
-              if (graph.config.pieValue)
-               ctx.fillText(dataset.data[i], model.x + x , model.y + y - 5);
-              if (graph.config.pourcent)
-                ctx.fillText(percent, model.x + x, model.y + y + 15);
-            }
+    if (graph.config.pourcent || graph.config.pieValue){
+      graph.options.plotOptions.pie.dataLabels = {
+        enabled: true,
+        distance: -20,
+        formatter: function(){
+          var str = ""
+          if (this.percentage != 0){
+            if (graph.config.pourcent)
+              str += this.percentage.toFixed(1) + '%';
+            if (graph.config.pieValue)
+              str += " "+ this.y
           }
-        })
-      };
+          return str;
+        }
+      }
     }
+    
 
-    // if (this.config.v3d){
-    //   graph.options.elements.arc.borderWidth = 10;
-    //   graph.options.elements.arc.borderColor = '#fff';
-    // }
 
     if (data.config.listener){
       $rootScope.$on('DatTest', function(events, args){
+        graph.config.expertReplace = args;
         graph.config.urlReplace = args[graph.config.slaveValue];
         graph.load = true;
         // Reload the widget
@@ -84,13 +114,10 @@ function pieChartController($scope, data, pieChartService, $rootScope, $uibModal
           graph.load = false;
           graph.label = response.label; // Bind the result in the model
           graph.value = response.value;
+          graph.chart.series[0].setData(response.series);
         });
       });
     }
-
-    $scope.$on('chart-create', function(event, chart){
-      graph.chart = chart;
-    });
 
     // PNG export
     this.export = function($event){
@@ -108,15 +135,12 @@ function pieChartController($scope, data, pieChartService, $rootScope, $uibModal
       }
     }
 
-    this.open = function(points, evt){
-      if (graph.config.mode != 'std'){
-        return;
-      }
+    this.open = function(name){
       // Get the label of the clicked segemnt -->  console.log(points[0]._model.label);
       // Build the condition to obtain the data
       // To do this, add a rule : column selected = label of the part who has been cliked
       var condi =angular.copy(graph.config); // Do a copy to not impact the widget configuration
-      condi.condition.group.rules.push({condition: '=', field: graph.config.columnStandard ,data: points[0]._model.label})
+      condi.condition.group.rules.push({condition: '=', field: graph.config.columnStandard ,data: name})
       var modalInstance = $uibModal.open({
         templateUrl : '{widgetsPath}/pieChart/src/view/modal.html',
         controller : 'modalInstanceCtrl',
@@ -130,5 +154,20 @@ function pieChartController($scope, data, pieChartService, $rootScope, $uibModal
         }
       });
     }
+
+    if (graph.config.mode == 'std'){
+      graph.options.plotOptions.series = {
+        cursor: 'pointer',
+        events: {
+          click: function(event){
+            graph.open(this.name);
+          }
+        }
+      }
+    }
+    angular.element(document).ready(function(){
+      graph.chart = Highcharts.chart(graph.id, graph.options);
+    })
   }
+  // Only build the graph when all option are config
 }

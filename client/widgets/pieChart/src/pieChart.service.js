@@ -8,7 +8,7 @@ function pieChartService($q, $http, $parse){
   var standardUrl = "/standard/graph";
   var label = [];
   var value = [];
-
+  var series = [];
 
   function createData(jsonData, config){
 
@@ -27,9 +27,14 @@ function pieChartService($q, $http, $parse){
 
     getLabel = $parse(config.label);
     getValue = $parse(config.value);
+
+    series = jsonData.map(function(el){
+      return {name : getLabel(el), y : getValue(el)}
+    });
+    console.log(series);
     label = jsonData.map(function(u){return getLabel(u);});
     value = jsonData.map(function(u){return getValue(u);});
-    return {config : config, label: label, value: value, type: config.type, desc : config.desc};
+    return {config : config, label: label, value: value, type: config.type, desc : config.desc, series : series};
   }
 
   function fetch(config){

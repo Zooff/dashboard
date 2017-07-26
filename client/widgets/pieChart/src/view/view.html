@@ -4,12 +4,15 @@
   </div>
   <div ng-show="graph.label">
     <div>
-      <canvas id="graph" class="chart-base" ng-class="{click : graph.config.mode == 'std'}" chart-type="graph.type" chart-data="graph.value" chart-labels="graph.label" chart-colors="graph.color" chart-options="graph.options" chart-click="graph.open">
-      </canvas>
+      <div id="{{graph.id}}" ng-class="{click : graph.config.mode == 'std'}" ng-init="graph.draw()">
+      </div>
     </div>
     <div>
       <p class="text-center"> {{graph.desc}} </p>
     </div>
     <my-export chart=graph.chart></my-export>
+    <button type="button" class="btn btn-success" ng-csv="graph.value" csv-header="graph.label" field-separator=";" filename="{{$parent.model.title + '.csv'}}">
+      <i class="fa fa-file-excel-o" aria-hidden="true"></i> Export
+    </button>
   </div>
 </div>
