@@ -24,15 +24,16 @@ function pieChartController($scope, data, pieChartService, $rootScope, $uibModal
         type: 'pie',
         backgroundColor: 'transparent',
         margin: 0,
+        marginBottom: 45,
         height: '100%'
       },
       tooltip: {
-        pointFormat: '{point.name}: <b>{point.percentage:.1f}%</b>'
+        pointFormat: '{point.name}: <i>{point.y}</i> - <b>{point.percentage:.1f}%</b>'
       },
       plotOptions: {
         pie: {
-          size: '75%',
-          slicedOffset: 0,
+          size: '100%',
+          slicedOffset: 5,
           borderWidth: 3,
           allowPointSelect: true,
           depth: 45,
@@ -44,6 +45,11 @@ function pieChartController($scope, data, pieChartService, $rootScope, $uibModal
         series: {
           borderColor: 'transparent',
           borderWidth: 5,
+          states: {
+            hover: {
+              halo: false
+            }
+          }
         }
       },
       series: [{
@@ -54,7 +60,12 @@ function pieChartController($scope, data, pieChartService, $rootScope, $uibModal
         text: null
       },
       legend: {
-        itemMarginTop: 5
+        floating: true,
+        verticalAlign: 'bottom',
+        align: 'center',
+        itemStyle: {
+          color: "#337AB7"
+        }
       },
       credits: {
         enabled: false
@@ -101,7 +112,7 @@ function pieChartController($scope, data, pieChartService, $rootScope, $uibModal
         }
       }
     }
-    
+
 
 
     if (data.config.listener){

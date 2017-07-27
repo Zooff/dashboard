@@ -4,7 +4,7 @@
   </div>
   <div ng-show="graph.label">
     <div>
-      <div id="{{graph.id}}" ng-class="{click : graph.config.mode == 'std'}" ng-init="graph.draw()">
+      <div id="{{graph.id}}" ng-class="{click : graph.config.mode == 'std'}">
       </div>
     </div>
     <div>
@@ -12,7 +12,7 @@
     </div>
     <my-export chart=graph.chart></my-export>
     <button type="button" class="btn btn-success" ng-csv="graph.value" csv-header="graph.label" field-separator=";" filename="{{$parent.model.title + '.csv'}}">
-      <i class="fa fa-file-excel-o" aria-hidden="true"></i> Export
+      <i class="fa fa-file-excel-o" aria-hidden="true"></i>
     </button>
   </div>
 </div>

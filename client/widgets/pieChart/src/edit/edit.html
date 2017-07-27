@@ -56,7 +56,7 @@
       <query-builder  group="config.condition.group" fields="config.principalCol" database="config.databaseStandard"></query-builder>
     </div>
     <div ng-if="config.condition.group.rules[0] && config.condition.group.rules[0].data">
-      <label> <small> SEC </small></label>
+      <label> <small> Choix des caractéristique secondaires </small></label>
       <query-builder  group="config.condition2.group" fields="config.otherCol" database="config.databaseStandard"></query-builder>
     </div>
 
@@ -146,6 +146,15 @@
       <label for="pieValue"> Afficher la valeur sur le Graph </label>
     </div>
 
+    <div>
+      <input type="checkbox" ng-model="config.sliced" id="sliced"></input>
+      <label for="sliced"> Sliced Graph </label>
+    </div>
+    <div>
+      <input type="checkbox" ng-model="config.v3d" id="v3d"></input>
+      <label for="v3d"> 3D </label>
+    </div>
+
     <label> Choix des Couleurs </label>
 
     <!-- <div ng-if="config.colorLabel" ng-repeat="l in config.colorLabel">
@@ -163,10 +172,6 @@
         <label for="color"> {{config.colorLabel[$index +1]}} : </label>
         <color-picker ng-model="config.color[$index+1]" options="{required : false, format : 'hexString'}"></color-picker>
       </div>
-    </div>
-    <div>
-      <input type="checkbox" ng-model="config.v3d" id="v3d"></input>
-      <label for="v3d"> 3D </label>
     </div>
   </div>
 

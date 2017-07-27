@@ -29,7 +29,7 @@ function pieChartService($q, $http, $parse){
     getValue = $parse(config.value);
 
     series = jsonData.map(function(el){
-      return {name : getLabel(el), y : getValue(el)}
+      return {name : getLabel(el), y : getValue(el), sliced : config.sliced}
     });
     console.log(series);
     label = jsonData.map(function(u){return getLabel(u);});
