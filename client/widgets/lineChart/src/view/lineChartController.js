@@ -15,6 +15,7 @@ function lineChartController($rootScope, $scope, data, lineChartService){
     this.desc = data.desc;
     this.series = data.series;
     this.config.series = this.series;
+    this.jdata = data.jsonData;
 
     $scope.$on('chart-create', function(event, chart){
       graph.chart = chart;
@@ -42,13 +43,18 @@ function lineChartController($rootScope, $scope, data, lineChartService){
       this.options.elements = {point : {hitRadius : 15, hoverRadius : 5, radius: 0}};
     }
 
-    if (this.config.xAxesType == true){
+    if (this.config.xAxeType){
       this.options.scales.xAxes = [{
         type: "time",
         time: {
-          // displayFormat : {
-          //   'day' : 'DD-MM-YYYY',
-          // }
+           displayFormats : {
+             'day' : 'DD-MM-YY',
+             'hour': 'DD-MM-YY',
+             'week': 'DD-MM-YY',
+             'month': 'DD-MM-YY',
+             'quarter': 'DD-MM-YY',
+             'year': 'DD-MM-YY'
+           },
           min : graph.label[0],
           max : graph.label[graph.label.length - 1]
         },
@@ -84,6 +90,29 @@ function lineChartController($rootScope, $scope, data, lineChartService){
       for( var k in graph.config.color){
         graph.color[k] = graph.config.color[k];
       }
+    }
+
+    // Events Management
+
+    this.options.onClick = function(event, point){
+      for (var scaleName in this.scales){
+        var scale = this.scales[scaleName];
+        if (scale.isHorizontal()){
+          var valueX = scale.getValueForPixel(event.offsetX);
+          console.log(valueX.format('DD-MM-YYYY'));
+          graph.options.scales.xAxes[0].time.min = valueX;
+        }
+      }
+    }
+
+    // Export CSV
+
+    this.getLabel = function(){
+      var array = graph.series.slice.unshift('Date');
+      return array;
+    }
+    this.getValue = function(){
+      return graph.jdata;
     }
   }
 

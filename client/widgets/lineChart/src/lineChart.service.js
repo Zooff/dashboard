@@ -47,7 +47,7 @@ function lineChartService($q, $http, $parse){
       series.push(config.value2)
     }
 
-
+    // If more than 2 data
     if(config.lines){
       config.lines.forEach(function(el){
         var getVal = $parse(el.value);
@@ -58,7 +58,7 @@ function lineChartService($q, $http, $parse){
     }
 
 
-    return {config: config, label: label, value: value, type: config.type, desc : config.desc, series: series};
+    return {config: config, label: label, value: value, type: config.type, desc : config.desc, series: series, jsonData: jsonData};
   }
 
   function fetch(config){
