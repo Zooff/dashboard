@@ -6,19 +6,16 @@ angular.module('dashboardInfra.controller')
   title.def = $scope.$parent.$parent.definition;
   title.config = $scope.$parent.$parent.config;
   if (title.config.titleReplace)
-    title.title = title.def.title.replace(/:\w*/, title.config.titleReplace);
+    title.title = title.def.title.replace(/:\w+/, title.config.titleReplace);
   else {
     title.title = title.def.title;
   }
-  console.log($scope.$parent.$parent.config)
-
   $scope.$on('DatTest', function(events, args){
+    title.title = title.def.title;
     for (key in args){
-      var x = title.def.title.match(/:\w*/)
-      if (x && key == x[0].substr(1)){
-        title.title = title.def.title.replace(/:\w*/, args[key]);
-        title.config.titleReplace = args[key];
-      }
+      var regex = new RegExp(':'+key+'\\b', 'gi');
+      if (title.title.match(regex))
+        title.title = title.title.replace(regex, title.config.expertReplace[key]);
     }
   });
 
