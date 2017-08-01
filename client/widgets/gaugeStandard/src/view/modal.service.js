@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('adf.widget.pieChart')
-  .service('modalServicePC', modalService);
+angular.module('adf.widget.gaugeStandard')
+  .service('modalServiceGC', modalService);
 
 function  modalService($q, $http, $parse){
 

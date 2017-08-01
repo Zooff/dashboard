@@ -6,10 +6,9 @@ angular.module('adf.widget.gaugeStandard')
 function gaugeStandardService($q, $http, $parse){
   var expertUrl = "/expert/query";
   var standardUrl = "/standard/gauge";
-  var label = [];
-  var value = null;
 
   function createData(jsonData, config){
+    console.log(jsonData);
     return {config : config, data: jsonData[0]};
   }
 

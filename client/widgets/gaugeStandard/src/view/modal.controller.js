@@ -1,4 +1,4 @@
-angular.module('adf.widget.pieChart')
+angular.module('adf.widget.gaugeStandard')
   .controller('modalInstanceCtrl', modalInstanceCtrl);
 
 

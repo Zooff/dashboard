@@ -21,7 +21,7 @@
 
   <hr>
 
-  <input type="radio" ng-model="config.mode" value="std" id=easy> <label for=easy> Mode Stadard </label>
+  <input type="radio" ng-model="config.mode" value="std" id=easy> <label for=easy> Mode Standard </label>
   <input type="radio" ng-model="config.mode" value="exp" id=exp> <label for=exp> Mode Expert </label>
 
 
@@ -44,9 +44,16 @@
         <query-builder  group="config.condition.group" fields="config.principalCol" database="config.databaseStandard"></query-builder>
       </div>
       <div ng-if="config.condition.group.rules[0] && config.condition.group.rules[0].data">
-        <label> <small> SEC </small></label>
+        <label> <small> Critère de Selection du Maximum </small></label>
         <query-builder  group="config.condition2.group" fields="config.otherCol" database="config.databaseStandard"></query-builder>
       </div>
+
+      <div ng-if="config.condition.group.rules[0] && config.condition.group.rules[0].data">
+        <label> <small> Critère de Selection  </small></label>
+        <query-builder  group="config.condition2.group" fields="config.otherCol" database="config.databaseStandard"></query-builder>
+      </div>
+
+
 
     </div>
 

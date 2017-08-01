@@ -4,16 +4,19 @@
 angular.module('adf.widget.gaugeStandard')
   .controller('gaugeStandardController', gaugeStandardController);
 
-function gaugeStandardController($scope, data, gaugeStandardService, $rootScope, $uibModal){
+function gaugeStandardController($scope, data, gaugeStandardService, $uibModal){
+  console.log(data)
   if (data){
     var graph = this;
     this.config = data.config;
-    this.data = data.data;
+    graph.data = data.data;
     this.label = data.label;
     this.desc = data.desc;
 
+    console.log(graph.data)
+
     if (data.config.listener){
-      $rootScope.$on('DatTest', function(events, args){
+      $scope.$on('DatTest', function(events, args){
         graph.config.urlReplace = args;
         graph.load = true;
         // Reload the widget

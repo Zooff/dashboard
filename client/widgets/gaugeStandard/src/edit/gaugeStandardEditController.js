@@ -20,6 +20,8 @@ function gaugeStandardEditController($scope, $http, config, gaugeStandardService
   if(!config.condition2)
     config.condition2 = {'group' : {'operator' : 'AND', 'rules' : []}};
 
+  if(!config.condition3)
+    config.condition3 = {'group' : {'operator' : 'AND', 'rules' : []}};
 
   this.getDatabaseExpert = function(){
     return $http.get('/expert')

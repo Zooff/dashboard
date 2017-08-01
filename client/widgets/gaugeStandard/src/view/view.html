@@ -1,11 +1,10 @@
 <div>
-  <div ng-hide="graph.data" class="alert alert-info" role="alert">
+  <div ng-hide="graph.data.servers" class="alert alert-info" role="alert">
     Please insert a url to the widget configuration
   </div>
-  <div ng-show="graph.data">
-    {{config.urlReplace}}
+  <div ng-show="graph.data.servers">
     <div class="text-center">
-      <ng-gauge type="{{graph.config.type}}" size="200" thick="5" value="graph.data.servers.length" cap="round" label="{{graph.config.label}}" append="{{graph.config.append}}" min="graph.config.min" max="graph.data.max"></ng-gauge>
+      <ng-gauge ng-if="graph.data.servers" type="{{graph.config.type}}" size="200" thick="5" value="graph.data.servers.length" cap="round" label="{{graph.config.label}}" append="{{graph.config.append}}" min="graph.config.min" max="graph.data.max"></ng-gauge>
     </div>
     <div class="text-center">
       <p> {{graph.config.desc}} </p>
