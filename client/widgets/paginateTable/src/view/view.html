@@ -16,18 +16,18 @@
         <br/>
       </div>
     </div>
-    <div class="text-center">
+    <div class="text-center" ng-if=!config.filter>
       <input type="search" ng-model="q" placeholder="Filter" class="form-control">
     </div>
     <div ng-show="!pt.load" class="table-responsive"> <!-- Add Horizontal Scroll Bad -->
       <table  class="table">
         <tr>
-          <th ng-repeat="head in pt.data.headers" ng-click="pt.sortIndex($index)">
+          <th class="text-center" ng-repeat="head in pt.data.headers" ng-click="pt.sortIndex($index)" >
             {{head}}
           </th>
         </tr>
         <tr ng-repeat="row in filterData = (pt.data.rows | filter:q | orderBy:pt.sorter:pt.reverseSort) | startFrom: (pt.data.currentPage-1)*pt.data.itemPerPage | limitTo:pt.data.itemPerPage track by $index" ng-click="pt.open(row)">
-          <td ng-repeat="col in row track by $index" ng-switch="col.opt.type" ng-if="col.opt != 'hidden'">
+          <td ng-repeat="col in row track by $index" ng-switch="col.opt.type" ng-if="col.opt != 'hidden'" ng-class="{click : pt.data.config.master || pt.data.config.modalUrl}">
             <span ng-switch-default> {{col.value}} </span>
 
             <!-- Booleen -->
@@ -39,6 +39,16 @@
             <span ng-switch-when=seuil ng-if="pt.verifSeuil(col.value, col.opt.seuilOp, col.opt.seuilVal)" class="text-success">  {{col.value}} </span>
             <span ng-switch-when=seuil ng-if="!pt.verifSeuil(col.value, col.opt.seuilOp, col.opt.seuilVal)" class="text-danger">  {{col.value}} </span>
 
+            <!-- Pourcent -->
+            <span ng-switch-when=pourcent ng-if="col.value < 0" class="fa fa-arrow-down" ng-class="{'text-success' : !col.opt.inversePourcent, 'text-danger': col.opt.inversePourcent}" uib-tooltip="{{col.value}}%"></span>
+            <span ng-switch-when=pourcent ng-if="col.value > 0" class="fa fa-arrow-up" ng-class="{'text-success' : col.opt.inversePourcent, 'text-danger': !col.opt.inversePourcent}" uib-tooltip="{{col.value}}%"></span>
+            <span ng-switch-when=pourcent ng-if="col.value == 0" class="fa fa-arrow-right text-warning" uib-tooltip="{{col.value}}%"></span>
+
+            <!-- Check -->
+            <span ng-switch-when="check" ng-if="col.value > 0"> <i class="fa fa-times text-danger" uib-tooltip="{{col.value}}"> </span>
+            <span ng-switch-when="check" ng-if="col.value == 0"> <i class="fa fa-check text-success"uib-tooltip="{{col.value}}"> </span>
+
+
           </td>
         </tr>
       </table>
@@ -49,7 +59,7 @@
     </div>
 
     <div class="text-center" ng-if="filterData.length > pt.data.itemPerPage">
-      <ul uib-pagination total-items="filterData.length" ng-model="pt.data.currentPage" max-size="pt.data.maxSize" class="pagination-sm" boundary-links="true"items-per-page="pt.data.itemPerPage" num-pages="numPages"></ul>
+      <ul uib-pagination total-items="filterData.length" ng-model="pt.data.currentPage" max-size="5" class="pagination-sm" boundary-links="true"items-per-page="pt.data.itemPerPage" num-pages="numPages"></ul>
     </div>
 
   </div>

@@ -15,14 +15,18 @@ function paginateTableController($scope, $rootScope, data, $uibModal, paginateTa
     this.data.maxSize = 5;
     this.orderField = 0;
     this.reverseSort = false;
+    this.first = true;
 
     // Change the orderBy header
     this.sortIndex = function(index){
+      pt.first = false;
       pt.reverseSort = !pt.reverseSort;
       return pt.orderField = index;
     }
 
     this.sorter = function(item){
+      if (pt.first)
+        return
       return item[pt.orderField].value;
     }
 
@@ -44,11 +48,14 @@ function paginateTableController($scope, $rootScope, data, $uibModal, paginateTa
 
     if (pt.data.config.listener){
       $scope.$on('DatTest', function(events, args){
-        pt.data.config.urlReplace = args;
+        pt.data.config.expertReplace = args;
+        pt.data.config.urlReplace = args[pt.data.config.slaveValue];
         pt.load = true;
         paginateTableService.get(pt.data.config).then(function(response){
           pt.load = false;
           pt.data = response;
+          pt.data.maxSize = 5;
+          pt.data.currentPage = 1;
         })
       })
     }
@@ -71,14 +78,19 @@ function paginateTableController($scope, $rootScope, data, $uibModal, paginateTa
       if(!pt.data.config.master && !pt.data.config.modalDatasource.selected && !pt.data.config.modalUrl )
         return;
 
-
-      var broadcastEl = {};
-      pt.data.config.colToPop.forEach(function(col){
-        broadcastEl[col.name] = row.find(function(el){
-          return el.title == col.name;
-        }).value;
-      })
-      console.log(broadcastEl);
+      if (pt.data.config.expertReplace){
+        var broadcastEl = pt.data.config.expertReplace;
+      }
+      else {
+        var broadcastEl = {};
+      }
+      if (pt.data.config.colToPop){
+        pt.data.config.colToPop.forEach(function(col){
+          broadcastEl[col.name] = row.find(function(el){
+            return el.title == col.name;
+          }).value;
+        })
+      }
 
       // Master Widget : Broadcast the selected column value
       if(pt.data.config.master){
@@ -91,7 +103,7 @@ function paginateTableController($scope, $rootScope, data, $uibModal, paginateTa
         pt.data.config.modalUrl = pt.data.config.modalDatasource.selected.url;
 
       if (pt.data.config.modalUrl){
-        pt.data.config.urlReplace = broadcastEl;
+        pt.data.config.urlReplace = broadcastEl[pt.data.config.colToPop[0].name];
         var modalInstance = $uibModal.open({
           templateUrl : '{widgetsPath}/paginateTable/src/view/modal.html',
           controller : 'modalInstanceCtrl',

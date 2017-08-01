@@ -9,6 +9,10 @@
 <div class="form-inline padding-bottom">
   <input type="checkbox" ng-model="config.master" id=master> <label for=master> Master </label>
   <input ng-if="config.mode == 'easy' || 'expert'" id=listener type="checkbox" ng-model="config.listener"> <label ng-if="config.mode == 'easy' || 'expert'" for=listener> Slave </label>
+  <div ng-if=config.listener>
+    <label> Master Column </label>
+    <input type="text" ng-model="config.slaveValue">
+  </div>
 </div>
 <form role="form">
   <!-- <div>
@@ -67,35 +71,50 @@
   <div ng-repeat="col in pt.config.columns">
     <div class="form-inline padding-bottom" >
       <div class="form-group">
-        <label class="sr-only" for="title-{{$index}}">Title</label>
+        <label class="ctm-label" for="title-{{$index}}"> Nom de la colonne : </label>
         <input type="text" id="title-{{$index}}" class="form-control" placeholder="Title" ng-model="col.title" required="">
       </div>
       <div class="form-group">
-        <label class="sr-only" for="path-{{$index}}">Path</label>
-        <input type="text" id="path-{{$index}}" class="form-control" placeholder="Path" ng-model="col.path" required="">
+        <label class="ctm-label" for="path-{{$index}}">Chemin d'accès : </label>
+        <input type="text" id="path-{{$index}}" class="form-control" placeholder="Path" ng-model="col.path" required=""  autocomplete="off" uib-typeahead="key for key in config.keys"  typeahead-min-length='0'>
       </div>
-
-      <button type="button" class="btn btn-warning" ng-click="pt.removeColumn(false, $index)">
-        <i class="fa fa-minus"></i> Remove
-      </button>
     </div>
     <div class="form-inline padding-bottom" ng-init="col.opt = {}">
       <label for="opt-{{$index}}">Booléen</label>
       <input type="radio" id="opt-{{$index}}" class="" ng-model="col.opt.type" value="bool">
 
+      <label for="opt4-{{$index}}">Check</label>
+      <input type="radio" id="opt4-{{$index}}" class="" ng-model="col.opt.type" value="check">
+
       <label for="opt2-{{$index}}">Seuil</label>
       <input type="radio" id="opt2-{{$index}}" class="" ng-model="col.opt.type" value="seuil">
+
+      <label for="opt3-{{$index}}">Pourcentage</label>
+      <input type="radio" id="opt3-{{$index}}" class="" ng-model="col.opt.type" value="pourcent">
+
+    </div>
+
+    <div class="form-inline padding-bottom" ng-if="col.opt.type =='pourcent'">
+      <label for="ip"> Inverser les couleurs </label>
+      <input id="ip" type=checkbox ng-model=col.opt.inversePourcent>
     </div>
 
     <div class="form-inline padding-bottom" ng-if="col.opt.type == 'seuil'">
       <select ng-model=col.opt.seuilOp>
         <option value="Sup"> Sup </option>
         <option value="Inf"> Inf </option>
+        <option value="Eg"> Egal </option>
       </select>
       <input type=text ng-model=col.opt.seuilVal>
     </div>
-  </div>
 
+
+    <button type="button" class="btn btn-warning" ng-click="pt.removeColumn(false, $index)">
+      <i class="fa fa-minus"></i> Remove
+    </button>
+    <hr>
+  </div>
+  <br>
   <button type="button" class="btn btn-primary" ng-click="pt.addColumn(false)">
     <i class="fa fa-plus"></i> Add
   </button>
@@ -105,6 +124,9 @@
   <div>
     <input type="checkbox" id=header ng-model=config.head > <label for="header"> Cacher l'en-tête </label>
   </div>
+
+  <div>
+    <input type="checkbox" id=filter ng-model=config.filter> <label for=filter> Cacher le Filtre </label>
 
   <div>
     <label> Pagination </label>
@@ -145,15 +167,13 @@
             <input type=text id="field" autocomplete="off" uib-typeahead="key for key in config.keys"  typeahead-min-length='0' ng-model="c.name"></select>
         </div>
         <button type="button" class="btn btn-warning" ng-click="pt.removeColToPop($index)">
-          <i class="fa fa-minus"></i> Remove 
+          <i class="fa fa-minus"></i> Remove
         </button>
       </div>
 
       <button type="button" class="btn btn-primary" ng-click="pt.addColToPop()">
         <i class="fa fa-plus"></i> Add
       </button>
-      <!-- typeahead-input-formatter="pt.formatLabel($model)"" -->
-<!-- config.keys.indexOf(key) as -->
 
 
       <hr>
@@ -164,13 +184,14 @@
 
       <div class="form-inline padding-bottom" ng-repeat="modalCol in pt.config.modalColumns">
         <div class="form-group">
-          <label class="sr-only" for="modalTitle-{{$index}}" data-placeholder="Titre">Title</label>
+          <label class="ctm-label" for="modalTitle-{{$index}}" data-placeholder="Titre">Nom de la Colonne : </label>
           <input type="text" id="modalTitle-{{$index}}" class="form-control" placeholder="Title" ng-model="modalCol.title" required="">
         </div>
         <div class="form-group">
-          <label class="sr-only" for="modalPath-{{$index}}" data-placeholder="Path">Path</label>
+          <label class="ctm-label" for="modalPath-{{$index}}" data-placeholder="Path">Chemin d'accès</label>
           <input type="text" id="modalPath-{{$index}}" class="form-control" placeholder="Path" ng-model="modalCol.path" required="">
         </div>
+        <br>
         <button type="button" class="btn btn-warning" ng-click="pt.removeColumn(true, $index)">
           <i class="fa fa-minus"></i> Remove
         </button>
