@@ -6,8 +6,6 @@ angular.module('adf.widget.pieChart')
 function pieChartService($q, $http, $parse){
   var expertUrl = "/expert/query";
   var standardUrl = "/standard/graph";
-  var label = [];
-  var value = [];
   var series = [];
 
   function createData(jsonData, config){
@@ -31,10 +29,7 @@ function pieChartService($q, $http, $parse){
     series = jsonData.map(function(el){
       return {name : getLabel(el), y : getValue(el), sliced : config.sliced}
     });
-    console.log(series);
-    label = jsonData.map(function(u){return getLabel(u);});
-    value = jsonData.map(function(u){return getValue(u);});
-    return {config : config, label: label, value: value, type: config.type, desc : config.desc, series : series};
+    return {config : config, type: config.type, desc : config.desc, series : series};
   }
 
   function fetch(config){

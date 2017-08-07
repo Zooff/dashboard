@@ -29,20 +29,20 @@ pieChartWidget.$inject = ["dashboardProvider"];
 
 angular.module("adf.widget.pieChart").run(["$templateCache", function($templateCache) {$templateCache.put("{widgetsPath}/pieChart/src/edit/edit.html","<script type=text/ng-template id=autocomplete.html><a> <span ng-bind-html=\"match.model.url | uibTypeaheadHighlight:query\"></span> | <small ng-bind-html=\"match.model.desc | uibTypeaheadHighlight:query\"></small> </a></script><form role=form><div><label>Description</label></div><div class=form-group><label class=sr-only for=desc>Description</label> <input type=text id=desc class=form-control ng-model=config.desc placeholder=Description></div><hr><input type=radio ng-model=config.mode value=easy id=easy> <label for=easy>Mode Facile</label> <input type=radio ng-model=config.mode value=std id=std> <label for=std>Mode Standard</label> <input type=radio ng-model=config.mode value=exp id=exp> <label for=exp>Mode Expert</label><div class=form-group ng-if=\"config.mode == \'easy\'\"><easy-mode config=config><easy-mode></easy-mode></easy-mode></div><div class=form-group ng-if=\"config.mode == \'std\'\"><div class=form-group><label for=sample>Datasources</label> <input id=sample type=text class=form-control ng-model=config.databaseStandard placeholder=\"Type du Check\" autocomplete=off uib-typeahead=\"database for database in graph.getDatabase($viewValue)\" typeahead-min-length=0 typeahead-on-select=graph.getColumns(config.databaseStandard)></div><div class=form-group><label for=sample>Label</label> <input id=sample type=text class=form-control ng-model=config.columnStandard autocomplete=off uib-typeahead=\"col as col.name for col in graph.column\" typeahead-min-length=0></div><div class=form-group><label for=standardTest>Condition :</label></div><p ng-hide=config.principalCol.length>Choissisez une datasource !</p><div ng-if=config.principalCol.length><label><small>Choix de la Référence</small></label><query-builder group=config.condition.group fields=config.principalCol database=config.databaseStandard></query-builder></div><div ng-if=\"config.condition.group.rules[0] && config.condition.group.rules[0].data\"><label><small>Choix des caractéristique secondaires</small></label><query-builder group=config.condition2.group fields=config.otherCol database=config.databaseStandard></query-builder></div><showsql type=pie config=config></showsql></div><div ng-if=\"config.mode == \'exp\'\"><expert-mode config=config></expert-mode></div><hr><div><label>Configuration du Graph</label></div><input ng-if=\"config.mode == \'easy\' || \'expert\'\" id=listener type=checkbox ng-model=config.listener> <label ng-if=\"config.mode == \'easy\' || \'expert\'\" for=listener>Slave</label><div ng-if=config.listener><label>Master Column</label> <input type=text ng-model=config.slaveValue></div><div><label>Type de Graph</label></div><div class=form-group><label class=sr-only for=sample>Chart Type</label><select class=form-control ng-model=config.type><option value=pie>Camenbert</option><option value=polarArea>PolarArea</option><option value=doughnut>Doughnut</option></select></div><div><label>Label (Configuration Automatique)</label></div><div class=form-group><label class=sr-only for=label>Label</label> <input type=text id=label class=form-control ng-model=config.label placeholder=Label uib-typeahead=\"key for key in config.key\" typeahead-min-length=0 autocomplete=off></div><div><label>Value (Configuration Automatique)</label></div><div class=form-group><label class=sr-only for=value>Value</label> <input type=text id=value class=form-control ng-model=config.value placeholder=Données uib-typeahead=\"key for key in config.key\" typeahead-min-length=0 autocomplete=off></div><div><label ng-click=\"isCollapsed = !isCollapsed\">Chart Option <span ng-hide=isCollapsed class=\"glyphicon glyphicon-triangle-bottom\" aria-hidden=true></span> <span ng-show=isCollapsed class=\"glyphicon glyphicon-triangle-top\" aria-hidden=true></span></label></div><div ng-show=isCollapsed><div><input type=checkbox ng-model=config.legend id=legend> <label for=legend>Legende</label></div><div><input type=checkbox ng-model=config.pourcent id=pouc> <label for=pouc>Afficher les pourcentages sur le Graph</label></div><div><input type=checkbox ng-model=config.pieValue id=pieValue> <label for=pieValue>Afficher la valeur sur le Graph</label></div><div><input type=checkbox ng-model=config.sliced id=sliced> <label for=sliced>Sliced Graph</label></div><div><input type=checkbox ng-model=config.v3d id=v3d> <label for=v3d>3D</label></div><label>Choix des Couleurs</label><div ng-repeat=\"l in config.colorLabel\" ng-if=\"config.colorLabel && $index % 2 == 0\" class=row><div class=col-md-6><label for=color>{{l}} :</label><color-picker ng-model=config.color[$index] options=\"{required : false, format : \'hexString\'}\"></color-picker></div><div class=col-md-6 ng-if=\"config.colorLabel.length > $index +1\"><label for=color>{{config.colorLabel[$index +1]}} :</label><color-picker ng-model=config.color[$index+1] options=\"{required : false, format : \'hexString\'}\"></color-picker></div></div></div></form>");
 $templateCache.put("{widgetsPath}/pieChart/src/view/modal.html","<modal-table data=cm.data></modal-table>");
-$templateCache.put("{widgetsPath}/pieChart/src/view/view.html","<div><div ng-hide=graph.label class=\"alert alert-info\" role=alert>Please insert a url to the widget configuration</div><div ng-show=graph.label><div><div id={{graph.id}} ng-class=\"{click : graph.config.mode == \'std\'}\"></div></div><div><p class=text-center>{{graph.desc}}</p></div><my-export chart=graph.chart></my-export><button type=button class=\"btn btn-success\" ng-csv=graph.value csv-header=graph.label field-separator=; filename=\"{{$parent.model.title + \'.csv\'}}\"><i class=\"fa fa-file-excel-o\" aria-hidden=true></i></button></div></div>");}]);
+$templateCache.put("{widgetsPath}/pieChart/src/view/view.html","<div><div ng-hide=graph.series class=\"alert alert-info\" role=alert>Please insert a url to the widget configuration</div><div ng-show=graph.series><div><div id={{graph.id}} ng-class=\"{click : graph.config.mode == \'std\'}\"></div></div><div><p class=text-center>{{graph.desc}}</p></div><a ng-click=graph.export($event)><button type=button class=\"btn btn-info\"><i class=\"fa fa-file-excel-o\" aria-hidden=true></i></button></a> <button type=button class=\"btn btn-success\" ng-csv=graph.series field-separator=; filename=\"{{$parent.model.title + \'.csv\'}}\"><i class=\"fa fa-file-excel-o\" aria-hidden=true></i></button></div></div>");}]);
 
 
 
 angular.module('adf.widget.pieChart')
   .controller('pieChartController', pieChartController);
 
-function pieChartController($scope, data, pieChartService, $rootScope, $uibModal){
+function pieChartController($scope, data, pieChartService, $rootScope, $uibModal, $timeout){
   if (data){
     var graph = this;
     this.config = data.config;
     this.label = data.label;
     this.series = data.series;
-    this.config.colorLabel = this.label;
+    this.config.colorLabel = [];
     this.value = data.value;
     // Type of graph : Pie, bar, line
     this.type = data.type;
@@ -51,12 +51,14 @@ function pieChartController($scope, data, pieChartService, $rootScope, $uibModal
     console.log(this.id);
   // Option for the chart --> See the chart.js options
 
+    this.series.forEach(function(el){
+      graph.config.colorLabel.push(el.name);
+    })
+
     graph.options = {
       chart: {
         type: 'pie',
         backgroundColor: 'transparent',
-        margin: 0,
-        marginBottom: 45,
         height: '100%'
       },
       tooltip: {
@@ -92,7 +94,7 @@ function pieChartController($scope, data, pieChartService, $rootScope, $uibModal
         text: null
       },
       legend: {
-        floating: true,
+        floating: false,
         verticalAlign: 'bottom',
         align: 'center',
         itemStyle: {
@@ -163,16 +165,37 @@ function pieChartController($scope, data, pieChartService, $rootScope, $uibModal
     }
 
     // PNG export
-    this.export = function($event){
-
+    graph.export = function($event){
+      console.log('ok')
+      var svg = graph.chart.getSVG({
+        exporting: {
+          sourceWidth: graph.chart.chartWidth,
+          sourceHeight: graph.chart.chartHeight
+        }
+      });
+      var canvas = document.createElement('canvas');
+      canvas.height = 1000 * graph.chart.chartHeight / graph.chart.chartWidth;
+      canvas.width = 1000;
+      document.body.appendChild(canvas);
+      var img = new Image;
+      img.onload = function(){
+        canvas.getContext('2d').drawImage(this, 0,0, 1000, 1000 * graph.chart.chartHeight / graph.chart.chartWidth)
+      }
+      img.src = 'data:image/svg+xml;base64,' + window.btoa(svg);
+      var ev = $event.currentTarget
+      // canvg(canvas, svg, {
+      //   scaleWidth : 500,
+      //   scaleHeight : 500,
+      //   ignoreDimensions : true
+      // });
       // IE
-      if (graph.chart.chart.canvas.msToBlob){
-        var blob = graph.chart.chart.canvas.msToBlob();
+      if (canvas.msToBlob){
+        var blob = canvas.msToBlob();
         window.navigator.msSaveBlob(blob, 'graph.png')
       }
       else {
-        var img = graph.chart.toBase64Image();
-        img = img.replace('image/png', 'image/octet-stream');
+         var img = canvas.toDataURL("image/png");
+        // img = img.replace('image/png', 'image/octet-stream');
         $event.currentTarget.href = img;
         $event.currentTarget.download = 'graph.png';
       }
@@ -199,7 +222,7 @@ function pieChartController($scope, data, pieChartService, $rootScope, $uibModal
     }
 
     if (graph.config.mode == 'std'){
-      graph.options.plotOptions.series = {
+      graph.options.plotOptions.pie.point = {
         cursor: 'pointer',
         events: {
           click: function(event){
@@ -214,7 +237,7 @@ function pieChartController($scope, data, pieChartService, $rootScope, $uibModal
   }
   // Only build the graph when all option are config
 }
-pieChartController.$inject = ["$scope", "data", "pieChartService", "$rootScope", "$uibModal"];
+pieChartController.$inject = ["$scope", "data", "pieChartService", "$rootScope", "$uibModal", "$timeout"];
 
 
 
@@ -385,8 +408,6 @@ angular.module('adf.widget.pieChart')
 function pieChartService($q, $http, $parse){
   var expertUrl = "/expert/query";
   var standardUrl = "/standard/graph";
-  var label = [];
-  var value = [];
   var series = [];
 
   function createData(jsonData, config){
@@ -410,10 +431,7 @@ function pieChartService($q, $http, $parse){
     series = jsonData.map(function(el){
       return {name : getLabel(el), y : getValue(el), sliced : config.sliced}
     });
-    console.log(series);
-    label = jsonData.map(function(u){return getLabel(u);});
-    value = jsonData.map(function(u){return getValue(u);});
-    return {config : config, label: label, value: value, type: config.type, desc : config.desc, series : series};
+    return {config : config, type: config.type, desc : config.desc, series : series};
   }
 
   function fetch(config){

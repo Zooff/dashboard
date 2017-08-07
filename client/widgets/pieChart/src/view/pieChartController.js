@@ -4,13 +4,13 @@
 angular.module('adf.widget.pieChart')
   .controller('pieChartController', pieChartController);
 
-function pieChartController($scope, data, pieChartService, $rootScope, $uibModal){
+function pieChartController($scope, data, pieChartService, $rootScope, $uibModal, $timeout){
   if (data){
     var graph = this;
     this.config = data.config;
     this.label = data.label;
     this.series = data.series;
-    this.config.colorLabel = this.label;
+    this.config.colorLabel = [];
     this.value = data.value;
     // Type of graph : Pie, bar, line
     this.type = data.type;
@@ -19,12 +19,14 @@ function pieChartController($scope, data, pieChartService, $rootScope, $uibModal
     console.log(this.id);
   // Option for the chart --> See the chart.js options
 
+    this.series.forEach(function(el){
+      graph.config.colorLabel.push(el.name);
+    })
+
     graph.options = {
       chart: {
         type: 'pie',
         backgroundColor: 'transparent',
-        margin: 0,
-        marginBottom: 45,
         height: '100%'
       },
       tooltip: {
@@ -60,7 +62,7 @@ function pieChartController($scope, data, pieChartService, $rootScope, $uibModal
         text: null
       },
       legend: {
-        floating: true,
+        floating: false,
         verticalAlign: 'bottom',
         align: 'center',
         itemStyle: {
@@ -131,16 +133,37 @@ function pieChartController($scope, data, pieChartService, $rootScope, $uibModal
     }
 
     // PNG export
-    this.export = function($event){
-
+    graph.export = function($event){
+      console.log('ok')
+      var svg = graph.chart.getSVG({
+        exporting: {
+          sourceWidth: graph.chart.chartWidth,
+          sourceHeight: graph.chart.chartHeight
+        }
+      });
+      var canvas = document.createElement('canvas');
+      canvas.height = 1000 * graph.chart.chartHeight / graph.chart.chartWidth;
+      canvas.width = 1000;
+      document.body.appendChild(canvas);
+      var img = new Image;
+      img.onload = function(){
+        canvas.getContext('2d').drawImage(this, 0,0, 1000, 1000 * graph.chart.chartHeight / graph.chart.chartWidth)
+      }
+      img.src = 'data:image/svg+xml;base64,' + window.btoa(svg);
+      var ev = $event.currentTarget
+      // canvg(canvas, svg, {
+      //   scaleWidth : 500,
+      //   scaleHeight : 500,
+      //   ignoreDimensions : true
+      // });
       // IE
-      if (graph.chart.chart.canvas.msToBlob){
-        var blob = graph.chart.chart.canvas.msToBlob();
+      if (canvas.msToBlob){
+        var blob = canvas.msToBlob();
         window.navigator.msSaveBlob(blob, 'graph.png')
       }
       else {
-        var img = graph.chart.toBase64Image();
-        img = img.replace('image/png', 'image/octet-stream');
+         var img = canvas.toDataURL("image/png");
+        // img = img.replace('image/png', 'image/octet-stream');
         $event.currentTarget.href = img;
         $event.currentTarget.download = 'graph.png';
       }
@@ -167,7 +190,7 @@ function pieChartController($scope, data, pieChartService, $rootScope, $uibModal
     }
 
     if (graph.config.mode == 'std'){
-      graph.options.plotOptions.series = {
+      graph.options.plotOptions.pie.point = {
         cursor: 'pointer',
         events: {
           click: function(event){
