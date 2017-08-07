@@ -27,9 +27,9 @@ function gaugeChartWidget(dashboardProvider){
 }
 gaugeChartWidget.$inject = ["dashboardProvider"];
 
-angular.module("adf.widget.gaugeChart").run(["$templateCache", function($templateCache) {$templateCache.put("{widgetsPath}/gaugeChart/src/edit/edit.html","<script type=text/ng-template id=autocomplete.html><a> <span ng-bind-html=\"match.model.url | uibTypeaheadHighlight:query\"></span> | <small ng-bind-html=\"match.model.desc | uibTypeaheadHighlight:query\"></small> </a></script><form role=form><div><label>Description</label></div><div class=form-group><label class=sr-only for=desc>Description</label> <input type=text id=desc class=form-control ng-model=config.desc placeholder=Description></div><hr><input type=radio ng-model=config.mode value=easy id=easy> <label for=easy>Mode Facile</label> <input type=radio ng-model=config.mode value=exp id=exp> <label for=exp>Mode Expert</label><div class=form-group ng-if=\"config.mode == \'easy\'\"><easy-mode config=config><easy-mode></easy-mode></easy-mode></div><div ng-if=\"config.mode == \'exp\'\"><expert-mode config=config></expert-mode></div><hr><div><label>Configuration du Graph</label></div><input ng-if=\"config.mode == \'easy\'\" id=listener type=checkbox ng-model=config.listener> <label ng-if=\"config.mode == \'easy\'\" for=listener>Slave</label><div ng-if=config.listener><label>Master Column</label> <input type=text ng-model=config.slaveValue></div><div><label>Type de Graph</label></div><div class=form-group><label class=sr-only for=sample>Chart Type</label><select class=form-control ng-model=config.type><option value=arch>Arch</option><option value=semi>Semi</option><option value=full>Full</option></select></div><div><label>Label (Configuration Automatique)</label></div><div class=form-group><label class=sr-only for=label>Label</label> <input type=text id=label class=form-control ng-model=config.label placeholder=Label uib-typeahead=\"key for key in config.key\" typeahead-min-length=0 autocomplete=off></div><div><label ng-click=\"isCollapsed = !isCollapsed\">Chart Option <span ng-hide=isCollapsed class=\"glyphicon glyphicon-triangle-bottom\" aria-hidden=true></span> <span ng-show=isCollapsed class=\"glyphicon glyphicon-triangle-top\" aria-hidden=true></span></label></div><div ng-show=isCollapsed><label for=append>Unité</label> <input type=text class=form-control id=append ng-model=config.append placeholder=\"GB, Mo, etc...\"> <label for=min>Valeur Minimum</label> <input type=text class=form-control id=min ng-model=config.min placeholder=0> <label for=max>Valeur Maximum</label> <input type=text class=form-control id=max ng-model=config.max placeholder=100></div></form>");
+angular.module("adf.widget.gaugeChart").run(["$templateCache", function($templateCache) {$templateCache.put("{widgetsPath}/gaugeChart/src/edit/edit.html","<script type=text/ng-template id=autocomplete.html><a> <span ng-bind-html=\"match.model.url | uibTypeaheadHighlight:query\"></span> | <small ng-bind-html=\"match.model.desc | uibTypeaheadHighlight:query\"></small> </a></script><form role=form><div><label>Description</label></div><div class=form-group><label class=sr-only for=desc>Description</label> <input type=text id=desc class=form-control ng-model=config.desc placeholder=Description></div><hr><input type=radio ng-model=config.mode value=easy id=easy> <label for=easy>Mode Facile</label> <input type=radio ng-model=config.mode value=exp id=exp> <label for=exp>Mode Expert</label><div class=form-group ng-if=\"config.mode == \'easy\'\"><easy-mode config=config><easy-mode></easy-mode></easy-mode></div><div ng-if=\"config.mode == \'exp\'\"><expert-mode config=config></expert-mode></div><hr><div><label>Configuration du Graph</label></div><input ng-if=\"config.mode == \'easy\'\" id=listener type=checkbox ng-model=config.listener> <label ng-if=\"config.mode == \'easy\'\" for=listener>Slave</label><div ng-if=config.listener><label>Master Column</label> <input type=text ng-model=config.slaveValue></div><div><label>Type de Graph</label></div><div class=form-group><label class=sr-only for=sample>Chart Type</label><select class=form-control ng-model=config.type><option value=arch>Arch</option><option value=semi>Semi</option><option value=full>Full</option></select></div><div><label>Label (Configuration Automatique)</label></div><div class=form-group><label class=sr-only for=label>Label</label> <input type=text id=label class=form-control ng-model=config.label placeholder=Label uib-typeahead=\"key for key in config.key\" typeahead-min-length=0 autocomplete=off></div><div><label ng-click=\"isCollapsed = !isCollapsed\">Chart Option <span ng-hide=isCollapsed class=\"glyphicon glyphicon-triangle-bottom\" aria-hidden=true></span> <span ng-show=isCollapsed class=\"glyphicon glyphicon-triangle-top\" aria-hidden=true></span></label></div><div ng-show=isCollapsed><label for=append>Unité</label> <input type=text class=form-control id=append ng-model=config.append placeholder=\"GB, Mo, etc...\"> <label for=min>Valeur Minimum</label> <input type=text class=form-control id=min ng-model=config.min placeholder=0> <label for=max>Valeur Maximum</label> <input type=text class=form-control id=max ng-model=config.max placeholder=100> <label for=detail>Afficher les valeurs</label> <input type=checkbox ng-model=detail id=detail><div class=row ng-if=detail><div class=col-md-6><label class=ctm-label for=val>Valeur Actuelle</label> <input type=text id=val class=form-control ng-model=config.valDetail placeholder=Label uib-typeahead=\"key for key in config.key\" typeahead-min-length=0 autocomplete=off></div><div class=col-md-6><label class=ctm-label for=max>Valeur Maximum</label> <input type=text id=max class=form-control ng-model=config.maxDetail placeholder=Label uib-typeahead=\"key for key in config.key\" typeahead-min-length=0 autocomplete=off></div></div><div><label>Couleur</label></div><div class=row><div class=col-md-6><label class=ctm-label for=cfg>Remplissage</label><color-picker id=cfg ng-model=config.colorFg options=\"{required : false, format : \'rgb\'}\"></color-picker></div><div class=col-md-6><label class=ctm-label for=cbg>Background</label><color-picker id=cbg ng-model=config.colorBg options=\"{required : false, format : \'rgb\'}\"></color-picker></div></div><div><label ng-click=\"isCollapsed2 = !isCollapsed2\">Seuil <span ng-hide=isCollapsed2 class=\"glyphicon glyphicon-triangle-bottom\" aria-hidden=true></span> <span ng-show=isCollapsed2 class=\"glyphicon glyphicon-triangle-top\" aria-hidden=true></span></label></div><div ng-show=isCollapsed2><div class=row ng-repeat=\"val in graph.config.seuil\"><div class=col-md-6><label class=ctm-label>Valeur Minimal</label> <input type=text ng-model=val.val></div><div class=col-md-6><label class=ctm-label>Couleur</label><color-picker ng-model=val.color options=\"{required : false, format : \'rgb\'}\"></color-picker></div><div><button type=button class=\"btn btn-warning\" ng-click=graph.removeSeuil($index)><i class=\"fa fa-minus\"></i> Remove</button></div><hr></div><button type=button class=\"btn btn-primary\" ng-click=graph.addSeuil()><i class=\"fa fa-plus\"></i> Add</button></div></div></form>");
 $templateCache.put("{widgetsPath}/gaugeChart/src/view/modal.html","<modal-table data=cm.data></modal-table>");
-$templateCache.put("{widgetsPath}/gaugeChart/src/view/view.html","<div><div ng-hide=graph.value class=\"alert alert-info\" role=alert>Please insert a url to the widget configuration</div><div ng-show=graph.value>{{config.urlReplace}}<div class=text-center><ng-gauge type={{graph.config.type}} size=200 thick=5 value=graph.value cap=round label={{graph.config.label}} append={{graph.config.append}} min=graph.config.min max=graph.config.max></ng-gauge></div><div class=text-center><p>{{graph.config.desc}}</p></div></div></div>");}]);
+$templateCache.put("{widgetsPath}/gaugeChart/src/view/view.html","<div><div ng-hide=graph.value class=\"alert alert-info\" role=alert>Please insert a url to the widget configuration</div><div ng-show=graph.value><div class=text-center><ng-gauge type={{graph.config.type}} thick=5 value=graph.value cap=round label={{graph.config.label}} append={{graph.config.append}} min=graph.config.min max=graph.config.max foreground-color={{graph.config.colorFg}} background-color={{graph.config.colorBg}} thresholds=graph.seuil></ng-gauge></div><div class=text-center><span ng-if=graph.valDetail>{{graph.valDetail}} / {{graph.maxDetail}}</span><p>{{graph.config.desc}}</p></div></div></div>");}]);
 
 
 angular.module('adf.widget.pieChart')
@@ -91,7 +91,11 @@ function  modalService($q, $http, $parse){
   }
 
   function fetch(config){
-    return $http.post('/standard', config)
+    var url = ""
+    if (config.modalMode == "exp"){
+      url = "/expert/query"
+    }
+    return $http.post(url, config)
       .then(function(response){
         return response.data;
       })
@@ -146,7 +150,25 @@ function gaugeChartController($scope, data, gaugeChartService, $rootScope, $uibM
     this.config = data.config;
     this.label = data.label;
     this.value = data.value;
+    this.valDetail = data.valDetail;
+    this.maxDetail = data.maxDetail;
     this.desc = data.desc;
+
+    if(!graph.config.colorFg){
+      graph.config.colorFg = "#009688"
+    }
+
+    if(!graph.config.colorBg){
+      graph.config.colorBg = "rgba(0,0,0,0.1)";
+    }
+
+
+    if (graph.config.seuil){
+      graph.seuil = {};
+      graph.config.seuil.forEach(function(el){
+        graph.seuil[el.val] = {color : el.color};
+      })
+    }
 
     if (data.config.listener){
       $rootScope.$on('DatTest', function(events, args){
@@ -175,7 +197,18 @@ function gaugeChartEditController($scope, $http, config, gaugeChartService){
   this.config = config;
   config.datasource = {};
 
-  
+  this.addSeuil = function(){
+    if (!graph.config.seuil){
+      graph.config.seuil = [];
+    }
+    graph.config.seuil.push({});
+  }
+
+  this.removeSeuil = function($index){
+    graph.config.seuil.splice($index, 1);
+  }
+
+
 }
 gaugeChartEditController.$inject = ["$scope", "$http", "config", "gaugeChartService"];
 
@@ -189,6 +222,8 @@ function gaugeChartService($q, $http, $parse){
   var standardUrl = "/standard/graph";
   var label = [];
   var value = null;
+  var valDetail = null;
+  var maxDetail = null;
 
   function createData(jsonData, config){
 
@@ -204,13 +239,21 @@ function gaugeChartService($q, $http, $parse){
       config.max = jsonData[0]['max'];
     }
 
+    if(config.valDetail){
+      valDetail = jsonData[0][config.valDetail];
+    }
+
+    if (config.maxDetail){
+      maxDetail = jsonData[0][config.maxDetail];
+    }
+
     if(!config.label)
       config.label = config.key[0];
 
     getLabel = $parse(config.label);
     // label = jsonData.map(function(u){return getLabel(u);});
     value = jsonData[0][config.label];
-    return {config : config, value: value};
+    return {config : config, value: value, valDetail : valDetail, maxDetail : maxDetail};
   }
 
   function fetch(config){

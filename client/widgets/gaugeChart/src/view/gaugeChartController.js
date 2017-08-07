@@ -10,7 +10,25 @@ function gaugeChartController($scope, data, gaugeChartService, $rootScope, $uibM
     this.config = data.config;
     this.label = data.label;
     this.value = data.value;
+    this.valDetail = data.valDetail;
+    this.maxDetail = data.maxDetail;
     this.desc = data.desc;
+
+    if(!graph.config.colorFg){
+      graph.config.colorFg = "#009688"
+    }
+
+    if(!graph.config.colorBg){
+      graph.config.colorBg = "rgba(0,0,0,0.1)";
+    }
+
+
+    if (graph.config.seuil){
+      graph.seuil = {};
+      graph.config.seuil.forEach(function(el){
+        graph.seuil[el.val] = {color : el.color};
+      })
+    }
 
     if (data.config.listener){
       $rootScope.$on('DatTest', function(events, args){

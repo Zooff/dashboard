@@ -8,6 +8,8 @@ function gaugeChartService($q, $http, $parse){
   var standardUrl = "/standard/graph";
   var label = [];
   var value = null;
+  var valDetail = null;
+  var maxDetail = null;
 
   function createData(jsonData, config){
 
@@ -23,13 +25,21 @@ function gaugeChartService($q, $http, $parse){
       config.max = jsonData[0]['max'];
     }
 
+    if(config.valDetail){
+      valDetail = jsonData[0][config.valDetail];
+    }
+
+    if (config.maxDetail){
+      maxDetail = jsonData[0][config.maxDetail];
+    }
+
     if(!config.label)
       config.label = config.key[0];
 
     getLabel = $parse(config.label);
     // label = jsonData.map(function(u){return getLabel(u);});
     value = jsonData[0][config.label];
-    return {config : config, value: value};
+    return {config : config, value: value, valDetail : valDetail, maxDetail : maxDetail};
   }
 
   function fetch(config){

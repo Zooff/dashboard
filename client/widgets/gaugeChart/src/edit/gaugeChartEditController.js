@@ -8,5 +8,16 @@ function gaugeChartEditController($scope, $http, config, gaugeChartService){
   this.config = config;
   config.datasource = {};
 
-  
+  this.addSeuil = function(){
+    if (!graph.config.seuil){
+      graph.config.seuil = [];
+    }
+    graph.config.seuil.push({});
+  }
+
+  this.removeSeuil = function($index){
+    graph.config.seuil.splice($index, 1);
+  }
+
+
 }

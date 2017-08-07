@@ -3,11 +3,12 @@
     Please insert a url to the widget configuration
   </div>
   <div ng-show="graph.value">
-    {{config.urlReplace}}
     <div class="text-center">
-      <ng-gauge type="{{graph.config.type}}" size="200" thick="5" value="graph.value" cap="round" label="{{graph.config.label}}" append="{{graph.config.append}}" min="graph.config.min" max="graph.config.max"></ng-gauge>
+      <ng-gauge type="{{graph.config.type}}" thick="5" value="graph.value" cap="round" label="{{graph.config.label}}" append="{{graph.config.append}}" min="graph.config.min" max="graph.config.max"
+      foreground-color="{{graph.config.colorFg}}" background-color="{{graph.config.colorBg}}" thresholds="graph.seuil"></ng-gauge>
     </div>
     <div class="text-center">
+      <span ng-if="graph.valDetail"> {{graph.valDetail}} / {{graph.maxDetail}} </span>
       <p> {{graph.config.desc}} </p>
     </div>
     <!-- <a type=button ng-click="graph.export($event)"> <button type="button" class="btn btn-info" ><i class="fa fa-file-image-o" aria-hidden="true"></i> Export</button> </a> -->

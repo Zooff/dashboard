@@ -103,6 +103,63 @@
     </label>
     <input type="text" class="form-control" id="max" ng-model="config.max" placeholder="100"></input>
 
+    <label for="detail"> Afficher les valeurs </label>
+    <input type="checkbox" ng-model=detail id=detail>
+
+    <div class=row ng-if=detail>
+      <div class=" col-md-6">
+        <label class="ctm-label" for="val">Valeur Actuelle</label>
+        <input type="text" id="val" class="form-control" ng-model="config.valDetail" placeholder="Label" uib-typeahead="key for key in config.key" typeahead-min-length='0' autocomplete="off">
+      </div>
+      <div class=" col-md-6">
+        <label class="ctm-label" for="max">Valeur Maximum</label>
+        <input type="text" id="max" class="form-control" ng-model="config.maxDetail" placeholder="Label" uib-typeahead="key for key in config.key" typeahead-min-length='0' autocomplete="off">
+      </div>
+    </div>
+    <div>
+      <label> Couleur </label>
+    </div>
+    <div class=row>
+      <div class="col-md-6">
+        <label class="ctm-label" for="cfg"> Remplissage </label>
+        <color-picker id=cfg ng-model="config.colorFg" options="{required : false, format : 'rgb'}"></color-picker>
+      </div>
+      <div class=col-md-6>
+        <label class="ctm-label" for="cbg"> Background </label>
+        <color-picker id=cbg ng-model="config.colorBg" options="{required : false, format : 'rgb'}"></color-picker>
+      </div>
+    </div>
+
+    <div>
+      <label ng-click="isCollapsed2 = !isCollapsed2"> Seuil
+        <span ng-hide="isCollapsed2" class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
+        <span ng-show="isCollapsed2" class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span>
+      </label>
+    </div>
+
+    <div ng-show="isCollapsed2">
+      <div  class="row" ng-repeat="val in graph.config.seuil">
+        <div class="col-md-6">
+          <label class="ctm-label"> Valeur Minimal </label>
+          <input type="text" ng-model="val.val">
+        </div>
+        <div class="col-md-6">
+          <label class="ctm-label"> Couleur </label>
+          <color-picker ng-model="val.color" options="{required : false, format : 'rgb'}"></color-picker>
+        </div>
+
+        <div>
+          <button type="button" class="btn btn-warning" ng-click="graph.removeSeuil($index)">
+            <i class="fa fa-minus"></i> Remove
+          </button>
+        </div>
+        <hr>
+      </div>
+
+      <button type="button" class="btn btn-primary" ng-click="graph.addSeuil()">
+        <i class="fa fa-plus"></i> Add
+      </button>
+    </div>
 
   </div>
 

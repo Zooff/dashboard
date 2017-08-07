@@ -59,7 +59,11 @@ function  modalService($q, $http, $parse){
   }
 
   function fetch(config){
-    return $http.post('/standard', config)
+    var url = ""
+    if (config.modalMode == "exp"){
+      url = "/expert/query"
+    }
+    return $http.post(url, config)
       .then(function(response){
         return response.data;
       })
