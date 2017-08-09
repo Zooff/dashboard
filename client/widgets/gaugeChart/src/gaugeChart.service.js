@@ -39,7 +39,7 @@ function gaugeChartService($q, $http, $parse){
     getLabel = $parse(config.label);
     // label = jsonData.map(function(u){return getLabel(u);});
     value = jsonData[0][config.label];
-    return {config : config, value: value, valDetail : valDetail, maxDetail : maxDetail};
+    return {config : config, value: value, valDetail : valDetail, maxDetail : maxDetail, jsonData : jsonData};
   }
 
   function fetch(config){

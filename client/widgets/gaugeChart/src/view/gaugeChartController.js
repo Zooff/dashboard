@@ -8,7 +8,7 @@ function gaugeChartController($scope, data, gaugeChartService, $rootScope, $uibM
   if (data){
     var graph = this;
     this.config = data.config;
-    this.label = data.label;
+    this.label = data.config.label;
     this.value = data.value;
     this.valDetail = data.valDetail;
     this.maxDetail = data.maxDetail;
@@ -30,8 +30,15 @@ function gaugeChartController($scope, data, gaugeChartService, $rootScope, $uibM
       })
     }
 
+    if (graph.valDetail && graph.maxDetail){
+      console.log("here")
+      graph.label = graph.valDetail + " / " + graph.maxDetail;
+    }
+    console.log(graph.label)
+
     if (data.config.listener){
-      $rootScope.$on('DatTest', function(events, args){
+      $scope.$on('DatTest', function(events, args){
+        graph.config.expertReplace = args;
         graph.config.urlReplace = args[graph.config.slaveValue];
         graph.load = true;
         // Reload the widget
@@ -39,8 +46,31 @@ function gaugeChartController($scope, data, gaugeChartService, $rootScope, $uibM
           graph.load = false;
           graph.label = response.label; // Bind the result in the model
           graph.value = response.value;
+          graph.valDetail = data.valDetail;
+          graph.maxDetail = data.maxDetail;
         });
       });
+    }
+
+    graph.open = function(){
+      if (!graph.config.master)
+        return;
+
+        if (graph.config.expertReplace){
+          var broadcastEl = graph.config.expertReplace;
+        }
+        else {
+          var broadcastEl = {};
+        }
+
+        if (graph.config.colToPop){
+          graph.config.colToPop.forEach(function(el){
+            broadcastEl[el.name] = data.jsonData[el.name];
+          })
+        }
+
+        $rootScope.$broadcast('DatTest', broadcastEl);
+        return;
     }
 
   }

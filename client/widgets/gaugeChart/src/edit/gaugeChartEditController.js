@@ -19,5 +19,20 @@ function gaugeChartEditController($scope, $http, config, gaugeChartService){
     graph.config.seuil.splice($index, 1);
   }
 
+  function getColToPop(){
+    if (!config.colToPop)
+      config.colToPop = [];
+    return config.colToPop;
+  };
+
+
+  this.addColToPop = function(){
+    getColToPop().push({});
+  };
+
+  this.removeColToPop = function(index){
+    getColToPop().splice(index, 1)
+  };
+
 
 }

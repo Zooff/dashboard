@@ -4,8 +4,8 @@
   </div>
   <div ng-show="graph.value">
     <div class="text-center">
-      <ng-gauge type="{{graph.config.type}}" thick="5" value="graph.value" cap="round" label="{{graph.config.label}}" append="{{graph.config.append}}" min="graph.config.min" max="graph.config.max"
-      foreground-color="{{graph.config.colorFg}}" background-color="{{graph.config.colorBg}}" thresholds="graph.seuil"></ng-gauge>
+      <ng-gauge type="{{graph.config.type}}" thick="5" value="graph.value" cap="round" label="{{graph.label}}" append="{{graph.config.append}}" min="graph.config.min" max="graph.config.max"
+      foreground-color="{{graph.config.colorFg}}" background-color="{{graph.config.colorBg}}" thresholds="graph.seuil" ng-click="graph.open()" ng-class="{click : graph.config.master}"></ng-gauge>
     </div>
     <div class="text-center">
       <span ng-if="graph.valDetail"> {{graph.valDetail}} / {{graph.maxDetail}} </span>
