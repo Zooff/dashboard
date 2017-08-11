@@ -1,0 +1,19 @@
+<div>
+  <div ng-hide="graph.url" class="alert alert-info" role="alert">
+    Please configure the widget
+  </div>
+  <div ng-show="graph.url">
+    <div>
+      <select ng-options="time in graph.listTime" ng-model=graph.timeUnit> </select>
+    </div>
+    <div>
+      <img ng-src="{{graph.url}}"></img>
+    </div>
+    <div>
+      <p class="text-center"> {{graph.desc}} </p>
+    </div>
+  </div>
+  <!-- <div ng-show="graph.load">
+    <div ng-include="'/templates/directive/loader.html'">
+  </div> -->
+</div>
