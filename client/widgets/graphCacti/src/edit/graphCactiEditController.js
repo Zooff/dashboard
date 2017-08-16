@@ -8,7 +8,7 @@ function cactiChartEditController($scope, $http, config, cactiChartService){
   this.config = config;
   this.graphs = [];
 
-  this.getGraph = function(hostId){
+  this.getGraphs = function(hostId){
     return $http.get('/standard/cactiGraphId/' + hostId)
       .then(function(response){
         graph.graphs = response.data;
