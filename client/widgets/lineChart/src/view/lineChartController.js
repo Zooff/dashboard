@@ -47,14 +47,14 @@ function lineChartController($rootScope, $scope, data, lineChartService){
       this.options.scales.xAxes = [{
         type: "time",
         time: {
-           displayFormats : {
-             'day' : 'DD-MM-YY',
-             'hour': 'DD-MM-YY',
-             'week': 'DD-MM-YY',
-             'month': 'DD-MM-YY',
-             'quarter': 'DD-MM-YY',
-             'year': 'DD-MM-YY'
-           },
+          //  displayFormats : {
+          //    'day' : 'DD-MM-YY',
+          //    'hour': 'DD-MM-YY',
+          //    'week': 'DD-MM-YY',
+          //    'month': 'DD-MM-YY',
+          //    'quarter': 'DD-MM-YY',
+          //    'year': 'DD-MM-YY'
+          //  },
           min : graph.label[0],
           max : graph.label[graph.label.length - 1]
         },
@@ -97,9 +97,11 @@ function lineChartController($rootScope, $scope, data, lineChartService){
     this.options.onClick = function(event, point){
       for (var scaleName in this.scales){
         var scale = this.scales[scaleName];
+        console.log(scale, scale.isHorizontal())
         if (scale.isHorizontal()){
           var valueX = scale.getValueForPixel(event.offsetX);
-          console.log(valueX.format('DD-MM-YYYY'));
+          console.log(valueX)
+          console.log(point)
           graph.options.scales.xAxes[0].time.min = valueX;
         }
       }
