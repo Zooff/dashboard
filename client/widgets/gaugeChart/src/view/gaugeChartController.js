@@ -53,8 +53,10 @@ function gaugeChartController($scope, data, gaugeChartService, $rootScope, $uibM
     }
 
     graph.open = function(){
-      if (!graph.config.master)
+      if (!graph.config.master && !graph.config.modal){
+        console.error(graph.config)
         return;
+      }
 
         if (graph.config.expertReplace){
           var broadcastEl = graph.config.expertReplace;
@@ -68,9 +70,23 @@ function gaugeChartController($scope, data, gaugeChartService, $rootScope, $uibM
             broadcastEl[el.name] = data.jsonData[el.name];
           })
         }
+        if (graph.config.master){
+          $rootScope.$broadcast('DatTest', broadcastEl);
+          return;
+        }
 
-        $rootScope.$broadcast('DatTest', broadcastEl);
-        return;
+        if (graph.config.modal){
+          var modalInstance = $uibModal.open({
+            templateUrl : '{widgetsPath}/gaugeChart/src/view/modal.html',
+            controller : 'modalInstanceCtrl',
+            controllerAs : 'cm',
+            resolve: {
+              data: ['modalServicePC',function(modalServicePC){
+                return modalServicePC.get(graph.config);
+              }],
+            }
+          });
+        }
     }
 
   }

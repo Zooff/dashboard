@@ -1,0 +1,41 @@
+<div>
+  <input type="radio" ng-model="config.modalMode" value="easy" id="easy2"> <label for="easy2"> Mode Facile </label>
+  <input type="radio" ng-model="config.modalMode" value="exp" id="exp2"> <label for="exp2"> Mode Expert </label>
+
+  <div class="form-group" ng-if="config.modalMode == 'easy'">
+    <easy-mode config=config><easy-mode>
+  </div>
+
+  <div ng-if="config.modalMode == 'exp'">
+    <expert-mode config=config></expert-mode>
+
+  </div>
+
+
+  <hr>
+
+  <div>
+    <label>Column</label>
+  </div>
+
+  <div class="form-inline padding-bottom" ng-repeat="modalCol in config.columns">
+    <div class="form-group">
+      <label class="ctm-label" for="modalTitle-{{$index}}" data-placeholder="Titre">Nom de la Colonne : </label>
+      <input type="text" id="modalTitle-{{$index}}" class="form-control" placeholder="Title" ng-model="modalCol.title" required="">
+    </div>
+    <div class="form-group">
+      <label class="ctm-label" for="modalPath-{{$index}}" data-placeholder="Path">Chemin d'accès</label>
+      <input type="text" id="modalPath-{{$index}}" class="form-control" placeholder="Path" ng-model="modalCol.path" required="">
+    </div>
+    <br>
+    <button type="button" class="btn btn-warning" ng-click="removeColumn($index)">
+      <i class="fa fa-minus"></i> Remove
+    </button>
+  </div>
+
+  <button type="button" class="btn btn-primary" ng-click="addColumn()">
+    <i class="fa fa-plus"></i> Add
+  </button>
+
+
+</div>

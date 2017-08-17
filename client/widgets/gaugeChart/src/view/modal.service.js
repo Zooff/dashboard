@@ -54,33 +54,46 @@ function  modalService($q, $http, $parse){
     });
     model.totalItems = model.rows.length;
     model.columns = config.columns;
-    config.condition.group.rules.pop();
     return model;
   }
 
   function fetch(config){
-    var url = ""
-    if (config.modalMode == "exp"){
-      url = "/expert/query"
-    }
-    return $http.post(url, config)
+    console.log(config)
+    var url = config.modal.url.replace(/:\w+/, config.urlReplace);
+    return $http.get(url)
       .then(function(response){
+        return response.data
+      })
+      .then(function(data){
+        return createDataModel(config.modal, data)
+      })
+  }
+  function post(config){
+    var url = "/expert/query"
+    config.modal.expertReplace = config.expertReplace;
+    return $http.post(url, config.modal)
+      .then(function(response){
+        console.error(response)
         return response.data;
       })
       .then(function(data){
-        return createDataModel(config, data);
+        return createDataModel(config.modal, data);
       });
   }
   //
-  // function get(config){
-  //   console.log(config)
-  //   var result = null;
-  //   if (config){
-  //     result = createDataModel(config.config, config.data);
-  //   }
-  //   return result;
-  // }
+  function get(config){
+    var result = null;
+    if (config.modal.modalMode == "exp"){
+      result = post(config);
+    }
+    else if (config.modal.modalMode = "easy"){
+      if (config.modal.datasource.selected)
+        config.modal.url = config.modal.datasource.selected.url;
+      result = fetch(config);
+    }
+    return result;
+  }
 
-  return {fetch : fetch};
+  return {get : get};
 
 }
