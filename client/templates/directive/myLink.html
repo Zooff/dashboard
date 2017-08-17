@@ -1,0 +1,12 @@
+<div>
+  <label> Lien </label>
+</div>
+
+<div>
+  <input type="radio" ng-model="config.link" value="in" id="in"> <label for="in"> Lien Interne </label>
+  <input type="radio" ng-model="config.link" value="ex" id="ex"> <label for="ex"> Lien Externe </label>
+
+  <input ng-if="config.link =='in'" type="text" ng-model="config.redirect" uib-typeahead="add as add.title for add in getDash()" autocomplete="off" typeahead-min-length=0>
+  <input ng-if="config.link == 'ex'" type=text ng-model=config.redirect>
+
+</div>
