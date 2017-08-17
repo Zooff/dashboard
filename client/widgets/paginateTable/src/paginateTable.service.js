@@ -56,11 +56,15 @@ function paginateTableService($q, $http, $parse){
         config.keys.push(k);
     }
 
+    if (config.clear){
+      config.columns = [];
+    }
+
     // Conf auto
     if (!config.columns || !config.columns.length){
         config.columns = [];
         for (var key in data[0]){
-          var t = key.replace(/_/, ' ');
+          var t = key.replace(/_/g, ' ');
           t = t.replace(/^bool/, '');
           config.columns.push({title : t, path : key, col : null});
         }
@@ -89,7 +93,8 @@ function paginateTableService($q, $http, $parse){
   }
 
   function fetch(config){
-    return $http.get(config.url)
+    var url = config.url.replace(/:\w+/, config.urlReplace)
+    return $http.get(url)
       .then(function(response){
         return response.data;
       })

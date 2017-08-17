@@ -127,7 +127,7 @@
 
   <div>
     <input type="checkbox" id=filter ng-model=config.filter> <label for=filter> Cacher le Filtre </label>
-
+  </div>
   <div>
     <label> Pagination </label>
   </div>
@@ -147,6 +147,11 @@
   </div>
 
   <div ng-show="isCollapsed">
+
+    <div>
+      <label for="clear"> Effacer les colonnes à chaque chargement </label>
+      <input type="checkbox" ng-model=config.clear id=clear>
+    </div>
 
       <div >
         <label for="sample">Modal URL</label>

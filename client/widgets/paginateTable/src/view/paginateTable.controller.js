@@ -86,6 +86,7 @@ function paginateTableController($scope, $rootScope, data, $uibModal, paginateTa
       }
       if (pt.data.config.colToPop){
         pt.data.config.colToPop.forEach(function(col){
+          // broadcastEl[col.name] = lodash.find(row,function(el){
           broadcastEl[col.name] = row.find(function(el){
             return el.title == col.name;
           }).value;

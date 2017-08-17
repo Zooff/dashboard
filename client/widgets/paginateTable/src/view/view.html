@@ -16,7 +16,7 @@
         <br/>
       </div>
     </div>
-    <div class="text-center" ng-if=!config.filter>
+    <div class="text-center" ng-show=!config.filter>
       <input type="search" ng-model="q" placeholder="Filter" class="form-control">
     </div>
     <div ng-show="!pt.load" class="table-responsive"> <!-- Add Horizontal Scroll Bad -->
@@ -48,10 +48,13 @@
             <span ng-switch-when="check" ng-if="col.value > 0"> <i class="fa fa-times text-danger" uib-tooltip="{{col.value}}"> </span>
             <span ng-switch-when="check" ng-if="col.value == 0"> <i class="fa fa-check text-success"uib-tooltip="{{col.value}}"> </span>
 
-
           </td>
         </tr>
       </table>
+    </div>
+
+    <div ng-if="pt.data.rows.length == 0" class="text-center">
+      <span><i class="fa fa-flag"></i> No Result Found </span>
     </div>
 
     <div ng-hide="!pt.load" class="text-center ">
