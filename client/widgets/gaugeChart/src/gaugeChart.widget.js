@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('adf.widget.gaugeChart', ['adf.provider'])
+angular.module('adf.widget.gaugeChart', ['adf.provider', 'dashboardInfra.service'])
   .config(gaugeChartWidget);
 
 function gaugeChartWidget(dashboardProvider){

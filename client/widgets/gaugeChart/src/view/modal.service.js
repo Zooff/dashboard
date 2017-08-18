@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('adf.widget.pieChart')
-  .service('modalServicePC', modalService);
+angular.module('adf.widget.gaugeChart')
+  .service('modalServiceGC', modalService);
 
 function  modalService($q, $http, $parse){
 
@@ -29,7 +29,7 @@ function  modalService($q, $http, $parse){
       headers: [],
       rows: [],
     };
-    if (!config.columns){
+    if (!config.columns || !config.columns.length){
         config.columns = [];
         for (var key in data[0]){
           config.columns.push({title : key, path : key});

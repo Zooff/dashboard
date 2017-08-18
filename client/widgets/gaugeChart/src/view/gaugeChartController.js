@@ -4,7 +4,7 @@
 angular.module('adf.widget.gaugeChart')
   .controller('gaugeChartController', gaugeChartController);
 
-function gaugeChartController($scope, data, gaugeChartService, $rootScope, $uibModal){
+function gaugeChartController($scope, data, gaugeChartService, $rootScope, $uibModal, link){
   if (data){
     var graph = this;
     this.config = data.config;
@@ -31,7 +31,6 @@ function gaugeChartController($scope, data, gaugeChartService, $rootScope, $uibM
     }
 
     if (graph.valDetail && graph.maxDetail){
-      console.log("here")
       graph.label = graph.valDetail + " / " + graph.maxDetail;
     }
     console.log(graph.label)
@@ -53,8 +52,7 @@ function gaugeChartController($scope, data, gaugeChartService, $rootScope, $uibM
     }
 
     graph.open = function(){
-      if (!graph.config.master && !graph.config.modal){
-        console.error(graph.config)
+      if (!graph.config.master && !graph.config.modal && !graph.config.link){
         return;
       }
 
@@ -67,11 +65,16 @@ function gaugeChartController($scope, data, gaugeChartService, $rootScope, $uibM
 
         if (graph.config.colToPop){
           graph.config.colToPop.forEach(function(el){
-            broadcastEl[el.name] = data.jsonData[el.name];
+            broadcastEl[el.name] = data.jsonData[0][el.name];
           })
         }
         if (graph.config.master){
           $rootScope.$broadcast('DatTest', broadcastEl);
+          return;
+        }
+
+        if (graph.config.link){
+          link.redirect(graph.config, broadcastEl);
           return;
         }
 
@@ -81,8 +84,8 @@ function gaugeChartController($scope, data, gaugeChartService, $rootScope, $uibM
             controller : 'modalInstanceCtrl',
             controllerAs : 'cm',
             resolve: {
-              data: ['modalServicePC',function(modalServicePC){
-                return modalServicePC.get(graph.config);
+              data: ['modalServiceGC',function(modalServiceGC){
+                return modalServiceGC.get(graph.config);
               }],
             }
           });
