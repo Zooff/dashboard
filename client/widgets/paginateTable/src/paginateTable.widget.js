@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('adf.widget.paginateTable', ['adf.provider'])
+angular.module('adf.widget.paginateTable', ['adf.provider', 'dashboardInfra.service'])
   .config(TableWidget);
 
 function TableWidget(dashboardProvider){

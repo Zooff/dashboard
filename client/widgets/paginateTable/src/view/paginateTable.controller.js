@@ -3,7 +3,7 @@
 angular.module('adf.widget.paginateTable')
   .controller('paginateTableController', paginateTableController);
 
-function paginateTableController($scope, $rootScope, data, $uibModal, paginateTableService){
+function paginateTableController($scope, $rootScope, data, $uibModal, paginateTableService, link){
 
   var pt = this;
 
@@ -71,6 +71,12 @@ function paginateTableController($scope, $rootScope, data, $uibModal, paginateTa
       }
     }
 
+    pt.formatDate = function(value,format){
+      if (!pt.data.config.dateFormat)
+        pt.data.config.dateFormat = "YYYY-MM-DDTHH:mm:ssZ"
+      return moment(value, pt.data.config.dateFormat).format(format);
+    }
+
     // Click on the tab
     pt.open = function(row){
 
@@ -96,6 +102,11 @@ function paginateTableController($scope, $rootScope, data, $uibModal, paginateTa
       // Master Widget : Broadcast the selected column value
       if(pt.data.config.master){
         $rootScope.$broadcast('DatTest',broadcastEl);
+        return;
+      }
+
+      if(pt.data.config.link){
+        link.redirect(pt.data.config, broadcastEl);
         return;
       }
 
