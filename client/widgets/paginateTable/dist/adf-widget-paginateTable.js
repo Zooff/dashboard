@@ -534,6 +534,17 @@ angular.module('adf.widget.paginateTable')
     }
     var match = search.match(/\w+:\w+/gi);
 
+    if (!match){
+      return items.filter(function(elem, index, array){
+        return elem.some(function(el){
+          var text = el.value
+          if (typeof(text) == "number"){
+            text += "";
+          }
+          return text.indexOf(search) > -1;
+        })
+      })
+    }
     if (match.length ==1){
       var idx = head.indexOf(search.match(/\w+/)[0])
       var test = search.match(/:\w+/)[0].substr(1)
@@ -555,17 +566,6 @@ angular.module('adf.widget.paginateTable')
             text += "";
           }
           return text.indexOf(test) > -1;
-        })
-      })
-    }
-    else {
-      return items.filter(function(elem, index, array){
-        return elem.some(function(el){
-          var text = el.value
-          if (typeof(text) == "number"){
-            text += "";
-          }
-          return text.indexOf(search) > -1;
         })
       })
     }
