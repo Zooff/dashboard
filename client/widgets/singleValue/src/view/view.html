@@ -3,7 +3,7 @@
     Please insert a url to the widget configuration
   </div>
   <div ng-show="!sv.data.load">
-    <div class="text-center col-md-12">
+    <div class="text-center col-md-12" ng-click="sv.open()" ng-class="{click : sv.config.link || sv.config.modal}">
       <h3  style="word-wrap: break-word" ng-class="sv.getSeuilColor()">
         <span ng-if="sv.data.config.format == 'custom'"> {{sv.data.config.custom.prepend}} </span>
         {{sv.data.principalData.data}}

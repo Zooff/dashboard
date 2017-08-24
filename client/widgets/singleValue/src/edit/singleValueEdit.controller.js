@@ -28,4 +28,20 @@ function singleValueEditController($scope, $http, config){
   this.removeColumn = function(index){
     getColumns().splice(index, 1);
   };
+
+  function getColToPop(){
+    if (!config.colToPop)
+      config.colToPop = [];
+    return config.colToPop;
+  };
+
+
+  this.addColToPop = function(){
+    getColToPop().push({});
+  };
+
+  this.removeColToPop = function(index){
+    getColToPop().splice(index, 1)
+  };
+
 }

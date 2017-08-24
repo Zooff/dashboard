@@ -85,29 +85,40 @@
     <input type="text" ng-model="config.seuilVal">
   </div>
 
-<!--
-  <div ng-if=!config.listener>
+  <div>
+    <label ng-click="isCollapsed3 = !isCollapsed3"> Paramètre Optionnel
+      <span ng-hide="isCollapsed3" class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
+      <span ng-show="isCollapsed3" class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span>
+    </label>
+  </div>
+
+  <div ng-show="isCollapsed3">
+
     <div>
-      <label>Additional Data</label>
+      <label for="field"> Column to populate </label>
     </div>
 
-    <div class="form-inline padding-bottom" ng-repeat="col in sv.config.columns">
+    <div class="form-inline padding-bottom" ng-repeat="c in sv.config.colToPop">
       <div class="form-group">
-        <label class="sr-only" for="title-{{$index}}"> Title </label>
-        <input type="text" id="title-{{$index}}" class="form-control" placeholder="Title" ng-model="col.title" required="">
+          <input type=text id="field" autocomplete="off" uib-typeahead="key for key in config.list"  typeahead-min-length='0' ng-model="c.name"></select>
       </div>
-      <div class="form-group">
-        <label class="sr-only" for="path-{{$index}}">Path</label>
-        <input type="text" id="path-{{$index}}" class="form-control" placeholder="Path" ng-model="col.path" required="">
-      </div>
-      <button type="button" class="btn btn-warning" ng-click="sv.removeColumn($index)">
+      <button type="button" class="btn btn-warning" ng-click="sv.removeColToPop($index)">
         <i class="fa fa-minus"></i> Remove
       </button>
     </div>
 
-    <button type="button" class="btn btn-primary" ng-click="sv.addColumn()">
+    <button type="button" class="btn btn-primary" ng-click="sv.addColToPop()">
       <i class="fa fa-plus"></i> Add
     </button>
-  </div> -->
 
+    <hr>
+
+    <my-link config="config"></my-link>
+
+    <hr>
+
+    <div> <label> Modal Configuration </label> </div>
+
+    <modal-config config=config.modal></modal-config>
+  </div>
 </form>

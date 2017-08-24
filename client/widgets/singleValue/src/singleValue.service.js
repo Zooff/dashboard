@@ -25,7 +25,8 @@ function singleValueService($q, $http, $parse){
     var model = {
       config: config,
       principalData: {},
-      additionalData: []
+      additionalData: [],
+      jsondata : data
     };
     config.list = [];
     for (var key in data){
